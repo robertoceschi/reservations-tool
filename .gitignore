@@ -8,5 +8,5 @@
 .DS_Store
 .idea/
 .ion_auth.sql
-
+.htaccess
 
