@@ -24,12 +24,12 @@
          */
 
 
-        public function __renderAll ($template, $data) {
+        public function __renderAll ($main_content, $data) {
             $this->load->view('template/header');
             $this->load->view('template/heading');
             $this->load->view('template/nav');
             $this->load->view('template/sidebar');
-            $this->load->view($template .  '_view', $data);
+            $this->load->view($main_content .  '_view', $data);
             $this->load->view('template/footer');
         }
 

@@ -55,8 +55,8 @@
 
 
         public function create_user () {
-
-            $view_name = 'create_user';
+            //Name der view für den main_content wird an my_controller übergeben
+            $main_content = 'create_user';
             $this->data['title'] = "Create User";
 
             if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin()) {
@@ -163,13 +163,13 @@
                 //$this->load->view('create_user_view', $this->data);
                 //$this->load->view('auth/create_user', $this->data);
 
-                parent::__renderAll($view_name, $this->data);
+                parent::__renderAll($main_content, $this->data);
             }
         }
 
         //edit a user
         function edit_user ($id) {
-            $view_name = 'edit_user';
+            $main_content = 'edit_user';
             $this->data['title'] = "Edit User";
 
             if(!$this->ion_auth->logged_in()||(!$this->ion_auth->is_admin()&&!($this->ion_auth->user()->row()->id == $id))) {
@@ -287,7 +287,7 @@
             );
 
 
-            parent::__renderAll($view_name, $this->data);
+            parent::__renderAll($main_content, $this->data);
             //$this->load->view('edit_user_view', $this->data);
 
         }
@@ -316,7 +316,7 @@
 
         //deactivate the user
         function deactivate ($id = NULL) {
-            $view_name =  'deactivate_user';
+            $main_content =  'deactivate_user';
             $id = $this->config->item('use_mongodb', 'ion_auth') ? (string)$id : (int)$id;
 
             $this->load->library('form_validation');
@@ -328,7 +328,7 @@
                 //$this->data['csrf'] = $this->_get_csrf_nonce();
                 $this->data['user'] = $this->ion_auth->user($id)->row();
 
-                parent::__renderAll($view_name, $this->data);
+                parent::__renderAll($main_content, $this->data);
 
             } else {
                 // do we really want to deactivate?
