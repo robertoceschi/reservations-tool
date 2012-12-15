@@ -1,8 +1,3 @@
-<?php
-    $this->load->view('template/general_content');
-?>
-
-
 <h1>Deactivate User</h1>
 <p>Are you sure you want to deactivate the user '<?php echo $user->username; ?>'</p>
 

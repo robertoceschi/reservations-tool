@@ -1,3 +1,4 @@
+<div id="sidebar">
 <a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
 <ul>
     <?php if ($this->uri->segment(1) === 'home'): ?><li class="active"><?php  else : ?>
@@ -31,3 +32,4 @@
         <a href="widgets.html"><i class="icon icon-inbox"></i> <span>Widgets</span></a>
     </li>
 </ul>
+</div>

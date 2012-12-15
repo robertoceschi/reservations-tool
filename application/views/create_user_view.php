@@ -1,6 +1,4 @@
-<?php
-    $this->load->view('template/general_content');
-?>
+
     <div class="container-fluid">
         <div class="row-fluid">
             <?php if ($this->ion_auth->is_admin()) {

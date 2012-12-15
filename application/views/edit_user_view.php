@@ -1,10 +1,4 @@
-<?php
-    $this->load->view('template/general_content');
-?>
-
-
-
-    <div class="container-fluid">
+   <div class="container-fluid">
         <div class="row-fluid">
             <h1>Edit User</h1>
 
