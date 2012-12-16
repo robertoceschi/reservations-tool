@@ -57,6 +57,7 @@
 
                     //redirect('home_view, admin or member');
                     if ($this->ion_auth->is_admin()) {
+                        $this->data['title'] = "Home";
                         redirect('home/admin');
                     } else {
                         redirect('home/member');

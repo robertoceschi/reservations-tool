@@ -17,6 +17,6 @@
         </div>
     </div>
     <div id="breadcrumb">
-        <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a>
-        <a href="#" class="tip-bottom">Settings</a>
+        <a href="index.html" title="Go to Dashboard" class="tip-bottom"><i class="icon-home"></i>Home</a>
+        <a href="#" class="tip-bottom"><?php if($this->uri->segment(1) != 'home' ) {  echo  $title;} ?></a>
     </div>
