@@ -41,12 +41,12 @@
         </p>
 
         <?php echo '<div>' . PHP_EOL;
-        $is_admin = $this->ion_auth->user()->row()->group;
-        if ($is_admin == 'admin') {
+        $group = $this->ion_auth->user()->row()->group;
+        if ($group == 'admin') {
             echo form_label('Gruppe:', 'group') . PHP_EOL;
             $options = array('admin' => 'Administrator', 'members' => 'Mitglied');
-            $group   = $user->group;
-            echo form_dropdown('group', $options, $group) . PHP_EOL;
+            $group_set   = $user->group;
+            echo form_dropdown('group', $options, $group_set) . PHP_EOL;
             echo '</div>' . PHP_EOL;
         }
         ?>

@@ -17,11 +17,11 @@
 
         //redirect if needed, otherwise display the user list
         function index () {
-            $is_admin = $this->ion_auth->user()->row()->group;
+            $group = $this->ion_auth->user()->row()->group;
             if (!$this->ion_auth->logged_in()) {
                 //redirect them to the login page
                 redirect('auth/login', 'refresh');
-            } elseif (!$this->$is_admin) {
+            } elseif (!$this->$group) {
 
                 //redirect them to the home page because they must be an administrator to view this
                 redirect('home/member', 'refresh');
@@ -65,8 +65,8 @@
                     //$this->ion_auth->user()->row()->id == $id
                     //$group = $user['group'];
                     //holt die user Infos von der DB => schaut ob der eingeloggte User ein Admin ist
-                    $is_admin = $this->ion_auth->user()->row()->group;
-                    if ($is_admin == 'admin') {
+                    $group = $this->ion_auth->user()->row()->group;
+                    if ($group == 'admin') {
 
 
                         //if ($this->ion_auth->is_admin()) {
@@ -290,11 +290,11 @@
 
         //activate the user
         function activate ($id, $code = false) {
-            $is_admin = $this->ion_auth->user()->row()->group;
+            $group = $this->ion_auth->user()->row()->group;
             if ($code !== false) {
                 $activation = $this->ion_auth->activate($id, $code);
                 //} else if ($this->ion_auth->is_admin()) {
-            } else if ($is_admin) {
+            } else if ($group == 'admin') {
                 $activation = $this->ion_auth->activate($id);
             }
 
@@ -344,10 +344,10 @@
 
         //create a new user
         function create_user () {
-            $is_admin            = $this->ion_auth->user()->row()->group;
+            $group            = $this->ion_auth->user()->row()->group;
             $this->data['title'] = "Create User";
 
-            if (!$this->ion_auth->logged_in() || !$is_admin) {
+            if (!$this->ion_auth->logged_in() || !$group == 'admin') {
                 redirect('auth/login', 'refresh');
             }
 
@@ -448,10 +448,10 @@
 
         //edit a user
         function edit_user ($id) {
-            $is_admin            = $this->ion_auth->user()->row()->group;
+            $group            = $this->ion_auth->user()->row()->group;
             $this->data['title'] = "Edit User";
 
-            if (!$this->ion_auth->logged_in() || !$is_admin) {
+            if (!$this->ion_auth->logged_in() || !$group == 'admin') {
                 redirect('auth', 'refresh');
             }
 
@@ -562,10 +562,10 @@
 
         // create a new group
         function create_group () {
-            $is_admin            = $this->ion_auth->user()->row()->group;
+            $group            = $this->ion_auth->user()->row()->group;
             $this->data['title'] = "Create Group";
 
-            if (!$this->ion_auth->logged_in() || !$is_admin) {
+            if (!$this->ion_auth->logged_in() || !$group == 'admin') {
                 redirect('auth', 'refresh');
             }
 
@@ -605,7 +605,7 @@
 
         //edit a group
         function edit_group ($id) {
-            $is_admin = $this->ion_auth->user()->row()->group;
+            $group = $this->ion_auth->user()->row()->group;
             // bail if no group id given
             if (!$id || empty($id)) {
                 redirect('auth', 'refresh');
@@ -613,7 +613,7 @@
 
             $this->data['title'] = "Edit Group";
 
-            if (!$this->ion_auth->logged_in() || !$is_admin) {
+            if (!$this->ion_auth->logged_in() || !$group == 'admin') {
                 redirect('auth', 'refresh');
             }
 

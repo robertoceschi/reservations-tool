@@ -1,6 +1,8 @@
 <div class="container-fluid">
     <div class="row-fluid">
-        <?php if ($this->ion_auth->is_admin()) {
+        <?php
+        $group     = $this->ion_auth->user()->row()->group;
+        if ($group == 'admin') {
         echo '<h2>Create User</h2>';
         echo '<h5>Please enter the users information below.</h5>';?>
 

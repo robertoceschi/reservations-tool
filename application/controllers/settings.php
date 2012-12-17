@@ -29,13 +29,13 @@
          * @date        20120710
          */
         public function index () {
-            $is_admin            = $this->ion_auth->user()->row()->group;
+            $group            = $this->ion_auth->user()->row()->group;
             $this->data['title'] = "Settings";
             //set the flash data error message if there is one
             //$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
             $user = $this->ion_auth->user()->row();
             //print_r($user) ;
-            if ($this->ion_auth->logged_in() and $is_admin) {
+            if ($this->ion_auth->logged_in() and $group == 'admin') {
                 $this->data['users'] = $this->ion_auth->users()->result();
                 foreach ($this->data['users'] as $k => $user) {
                     $this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
@@ -56,12 +56,12 @@
 
 
         public function create_user () {
-            $is_admin = $this->ion_auth->user()->row()->group;
+            $group = $this->ion_auth->user()->row()->group;
             //Name der view für den main_content wird an my_controller übergeben
             $main_content        = 'create_user';
             $this->data['title'] = "Create User";
 
-            if (!$this->ion_auth->logged_in() || !$is_admin) {
+            if (!$this->ion_auth->logged_in() || !$group == 'admin') {
                 redirect('auth/login', 'refresh');
 
             }
@@ -172,11 +172,11 @@
 
         //edit a user
         function edit_user ($id) {
-            $is_admin            = $this->ion_auth->user()->row()->group;
+            $group            = $this->ion_auth->user()->row()->group;
             $main_content        = 'edit_user';
             $this->data['title'] = "Edit User";
 
-            if (!$this->ion_auth->logged_in() || (!$is_admin && !($this->ion_auth->user()->row()->id == $id))) {
+            if (!$this->ion_auth->logged_in() || (!$group == 'admin' && !($this->ion_auth->user()->row()->id == $id))) {
                 redirect('auth/login', 'refresh');
             }
 
@@ -298,10 +298,10 @@
 
         //activate the user
         function activate ($id, $code = false) {
-            $is_admin = $this->ion_auth->user()->row()->group;
+            $group = $this->ion_auth->user()->row()->group;
             if ($code !== false) {
                 $activation = $this->ion_auth->activate($id, $code);
-            } else if ($is_admin) {
+            } else if ($group == 'admin' ) {
                 $activation = $this->ion_auth->activate($id);
             }
 
@@ -319,7 +319,7 @@
 
         //deactivate the user
         function deactivate ($id = NULL) {
-            $is_admin     = $this->ion_auth->user()->row()->group;
+            $group     = $this->ion_auth->user()->row()->group;
             $main_content = 'deactivate_user';
             $id           = $this->config->item('use_mongodb', 'ion_auth') ? (string)$id : (int)$id;
 
@@ -343,7 +343,7 @@
                     // }
 
                     // do we have the right userlevel?
-                    if ($this->ion_auth->logged_in() && $is_admin) {
+                    if ($this->ion_auth->logged_in() && $group == 'admin') {
                         $this->ion_auth->deactivate($id);
                     }
                 }
