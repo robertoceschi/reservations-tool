@@ -1,7 +1,9 @@
 
     <div class="container-fluid">
         <div class="row-fluid">
-            <?php if ($this->ion_auth->is_admin()) {
+            <?php
+            $group = '' ;
+            if ($this->ion_auth->is_admin()) {
             echo '<h2>Overview Users</h2>';
             echo '<h5>below a list with all users</h5>';
 
@@ -21,6 +23,8 @@
                     <td>'?><?php echo $user->first_name;?></td>
                 <td><?php echo $user->last_name;?></td>
                 <td><?php echo $user->email;?></td>
+                <td><?php echo $user->group;?></td>
+
                 <td>
                     <?php foreach ($user->groups as $group): ?>
                     <?php echo anchor("auth/edit_group/" . $group->id, $group->name); ?><br/>
@@ -43,8 +47,10 @@
             echo $user->first_name . '<br />';
             echo $user->last_name . '<br />';
             echo $user->email . '<br />';
+            echo $user->group . '<br />';
             echo $user->phone . '<br />';
             echo $user->password . '<br />';
+            echo '<tr><td>Gruppe:</td><td>' . $group . '</td></tr>' . PHP_EOL;
             echo anchor("settings/edit_user/" . $user->id, 'Edit');
         };?>
         </div>

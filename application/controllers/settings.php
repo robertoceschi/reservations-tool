@@ -87,6 +87,7 @@
                     'last_name'  => $this->input->post('last_name'),
                     'company'    => $this->input->post('company'),
                     'phone'      => $this->input->post('phone1') . '-' . $this->input->post('phone2') . '-' . $this->input->post('phone3'),
+                    'group'      => $this->input->post('group'),
                 );
             }
             if ($this->form_validation->run() == true && $this->ion_auth->register($username, $password, $email, $additional_data)) {
@@ -205,6 +206,7 @@
                     'last_name'  => $this->input->post('last_name'),
                     'company'    => $this->input->post('company'),
                     'phone'      => $this->input->post('phone1') . '-' . $this->input->post('phone2') . '-' . $this->input->post('phone3'),
+                    'group'      => $this->input->post('group'),
                 );
 
                 //update the password if it was posted

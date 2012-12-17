@@ -8,7 +8,9 @@
 
             <div id="infoMessage"><?php echo $message;?></div>
 
-            <?php echo form_open("settings/create_user"); ?>
+            <?php echo form_open("settings/create_user");
+            $group = '' ;
+            ?>
 
             <p>
                 First Name: <br/>
@@ -48,9 +50,10 @@
             <?php
             echo form_fieldset() . PHP_EOL;
             echo '<div>'. PHP_EOL;
-                echo form_label('Status:', 'status') . PHP_EOL;
+            $group = '' ;
+            echo form_label('Gruppe:', 'group') . PHP_EOL;
                 $options= array('admin' => 'Administrator', 'members' => 'Mitglied');
-                echo form_dropdown('status',$options) . PHP_EOL;
+                echo form_dropdown('group',$options) . PHP_EOL;
                 echo '</div>'. PHP_EOL;
 
                ?>

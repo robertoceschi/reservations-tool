@@ -40,6 +40,16 @@
                 <?php echo form_input($password_confirm);?>
             </p>
 
+            <?php echo '<div>'. PHP_EOL;
+
+            if($user->group == 'admin'){
+            echo form_label('Gruppe:', 'group') . PHP_EOL;
+            $options= array('admin' => 'Administrator', 'members' => 'Mitglied');
+            echo form_dropdown('group',$options) . PHP_EOL;
+            echo '</div>'. PHP_EOL;   }
+
+            ?>
+
 
             <?php echo form_hidden('id', $user->id);?>
             <?php /* echo form_hidden($csrf);*/ //nochmals anschauen!!!! Müsste eigentlich angezeigt werden ?>
