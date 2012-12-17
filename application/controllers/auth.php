@@ -10,16 +10,19 @@
             $this->load->helper('url');
             $this->load->database();
 
+
             $this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
+
         }
 
         //redirect if needed, otherwise display the user list
         function index () {
-
+            $is_admin = $this->ion_auth->user()->row()->group;
             if (!$this->ion_auth->logged_in()) {
                 //redirect them to the login page
                 redirect('auth/login', 'refresh');
-            } elseif (!$this->ion_auth->is_admin()) {
+            } elseif (!$this->$is_admin) {
+
                 //redirect them to the home page because they must be an administrator to view this
                 redirect('home/member', 'refresh');
             } else {
@@ -29,7 +32,7 @@
                 //list the users
                 //$this->data['users'] = $this->ion_auth->users()->result();
                 //foreach ($this->data['users'] as $k => $user) {
-                 //   $this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
+                //   $this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
                 //}
 
 
@@ -40,6 +43,7 @@
         //log the user in
         function login () {
             $this->data['title'] = "Login";
+
 
             //validate form input
             $this->form_validation->set_rules('identity', 'Identity', 'required');
@@ -56,10 +60,19 @@
                     $this->session->set_flashdata('message', $this->ion_auth->messages());
 
                     //redirect('home_view, admin or member');
-                    if ($this->ion_auth->is_admin()) {
+                    //$user = $this->ion_auth->user()->row();
 
-                        $this->data['title'] = "Home";
+                    //$this->ion_auth->user()->row()->id == $id
+                    //$group = $user['group'];
+                    //holt die user Infos von der DB => schaut ob der eingeloggte User ein Admin ist
+                    $is_admin = $this->ion_auth->user()->row()->group;
+                    if ($is_admin == 'admin') {
+
+
+                        //if ($this->ion_auth->is_admin()) {
+                        // $this->data['title'] = "Home";
                         redirect('home/admin');
+
                     } else {
                         redirect('home/member');
                     }
@@ -277,9 +290,11 @@
 
         //activate the user
         function activate ($id, $code = false) {
+            $is_admin = $this->ion_auth->user()->row()->group;
             if ($code !== false) {
                 $activation = $this->ion_auth->activate($id, $code);
-            } else if ($this->ion_auth->is_admin()) {
+                //} else if ($this->ion_auth->is_admin()) {
+            } else if ($is_admin) {
                 $activation = $this->ion_auth->activate($id);
             }
 
@@ -329,9 +344,10 @@
 
         //create a new user
         function create_user () {
+            $is_admin            = $this->ion_auth->user()->row()->group;
             $this->data['title'] = "Create User";
 
-            if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin()) {
+            if (!$this->ion_auth->logged_in() || !$is_admin) {
                 redirect('auth/login', 'refresh');
             }
 
@@ -432,9 +448,10 @@
 
         //edit a user
         function edit_user ($id) {
+            $is_admin            = $this->ion_auth->user()->row()->group;
             $this->data['title'] = "Edit User";
 
-            if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin()) {
+            if (!$this->ion_auth->logged_in() || !$is_admin) {
                 redirect('auth', 'refresh');
             }
 
@@ -545,9 +562,10 @@
 
         // create a new group
         function create_group () {
+            $is_admin            = $this->ion_auth->user()->row()->group;
             $this->data['title'] = "Create Group";
 
-            if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin()) {
+            if (!$this->ion_auth->logged_in() || !$is_admin) {
                 redirect('auth', 'refresh');
             }
 
@@ -587,6 +605,7 @@
 
         //edit a group
         function edit_group ($id) {
+            $is_admin = $this->ion_auth->user()->row()->group;
             // bail if no group id given
             if (!$id || empty($id)) {
                 redirect('auth', 'refresh');
@@ -594,7 +613,7 @@
 
             $this->data['title'] = "Edit Group";
 
-            if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin()) {
+            if (!$this->ion_auth->logged_in() || !$is_admin) {
                 redirect('auth', 'refresh');
             }
 

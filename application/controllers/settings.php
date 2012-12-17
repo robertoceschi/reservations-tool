@@ -16,7 +16,6 @@
             $this->load->library('session');
 
 
-
         }
 
 
@@ -30,12 +29,13 @@
          * @date        20120710
          */
         public function index () {
+            $is_admin            = $this->ion_auth->user()->row()->group;
             $this->data['title'] = "Settings";
             //set the flash data error message if there is one
             //$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
             $user = $this->ion_auth->user()->row();
             //print_r($user) ;
-            if ($this->ion_auth->logged_in() and $this->ion_auth->is_admin()) {
+            if ($this->ion_auth->logged_in() and $is_admin) {
                 $this->data['users'] = $this->ion_auth->users()->result();
                 foreach ($this->data['users'] as $k => $user) {
                     $this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
@@ -56,11 +56,12 @@
 
 
         public function create_user () {
+            $is_admin = $this->ion_auth->user()->row()->group;
             //Name der view für den main_content wird an my_controller übergeben
-            $main_content = 'create_user';
+            $main_content        = 'create_user';
             $this->data['title'] = "Create User";
 
-            if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin()) {
+            if (!$this->ion_auth->logged_in() || !$is_admin) {
                 redirect('auth/login', 'refresh');
 
             }
@@ -171,15 +172,15 @@
 
         //edit a user
         function edit_user ($id) {
-            $main_content = 'edit_user';
+            $is_admin            = $this->ion_auth->user()->row()->group;
+            $main_content        = 'edit_user';
             $this->data['title'] = "Edit User";
 
-            if(!$this->ion_auth->logged_in()||(!$this->ion_auth->is_admin()&&!($this->ion_auth->user()->row()->id == $id))) {
+            if (!$this->ion_auth->logged_in() || (!$is_admin && !($this->ion_auth->user()->row()->id == $id))) {
                 redirect('auth/login', 'refresh');
             }
 
             $user = $this->ion_auth->user($id)->row();
-
 
 
             //process the phone number
@@ -190,7 +191,7 @@
             //validate form input
             $this->form_validation->set_rules('first_name', 'First Name', 'required|xss_clean');
             $this->form_validation->set_rules('last_name', 'Last Name', 'required|xss_clean');
-           // $this->form_validation->set_rules('phone1', 'First Part of Phone', 'required|xss_clean|min_length[3]|max_length[3]');
+            // $this->form_validation->set_rules('phone1', 'First Part of Phone', 'required|xss_clean|min_length[3]|max_length[3]');
             //$this->form_validation->set_rules('phone2', 'Second Part of Phone', 'required|xss_clean|min_length[3]|max_length[3]');
             //$this->form_validation->set_rules('phone3', 'Third Part of Phone', 'required|xss_clean|min_length[4]|max_length[4]');
             $this->form_validation->set_rules('company', 'Company Name', 'required|xss_clean');
@@ -226,7 +227,7 @@
 
                     //redirect("settings/edit_user", 'refresh');
                     //$this->load->view('view_answer');
-                    redirect(base_url() . 'settings/edit_user' . '/' . $user->id );
+                    redirect(base_url() . 'settings/edit_user' . '/' . $user->id);
 
 
                 }
@@ -297,9 +298,10 @@
 
         //activate the user
         function activate ($id, $code = false) {
+            $is_admin = $this->ion_auth->user()->row()->group;
             if ($code !== false) {
                 $activation = $this->ion_auth->activate($id, $code);
-            } else if ($this->ion_auth->is_admin()) {
+            } else if ($is_admin) {
                 $activation = $this->ion_auth->activate($id);
             }
 
@@ -315,12 +317,11 @@
         }
 
 
-
-
         //deactivate the user
         function deactivate ($id = NULL) {
-            $main_content =  'deactivate_user';
-            $id = $this->config->item('use_mongodb', 'ion_auth') ? (string)$id : (int)$id;
+            $is_admin     = $this->ion_auth->user()->row()->group;
+            $main_content = 'deactivate_user';
+            $id           = $this->config->item('use_mongodb', 'ion_auth') ? (string)$id : (int)$id;
 
             $this->load->library('form_validation');
             $this->form_validation->set_rules('confirm', 'confirmation', 'required');
@@ -338,11 +339,11 @@
                 if ($this->input->post('confirm') == 'yes') {
                     // do we have a valid request?
                     //if ($this->_valid_csrf_nonce() === FALSE || $id != $this->input->post('id')) {
-                      //  show_error('This form post did not pass our security checks.');
-                   // }
+                    //  show_error('This form post did not pass our security checks.');
+                    // }
 
                     // do we have the right userlevel?
-                    if ($this->ion_auth->logged_in() && $this->ion_auth->is_admin()) {
+                    if ($this->ion_auth->logged_in() && $is_admin) {
                         $this->ion_auth->deactivate($id);
                     }
                 }
@@ -351,7 +352,6 @@
                 redirect('settings', 'refresh');
             }
         }
-
 
 
     }
