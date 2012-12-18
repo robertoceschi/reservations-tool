@@ -23,13 +23,13 @@
                 <td><?php echo $user->last_name;?></td>
                 <td><?php echo $user->email;?></td>
                 <td><?php echo $user->group;?></td>
-                <td><?php echo ($user->active) ? anchor("settings/deactivate/" . $user->id, 'Active') : anchor("settings/activate/" . $user->id, 'Inactive');?></td>
-                <td><?php echo anchor("settings/edit_user/" . $user->id, 'Edit');?></td>
+                <td><?php echo ($user->active) ? anchor("mitglieder/deactivate/" . $user->id, 'Active') : anchor("mitglieder/activate/" . $user->id, 'Inactive');?></td>
+                <td><?php echo anchor("mitglieder/edit_user/" . $user->id, 'Edit');?></td>
                 </tr>
                 <?php endforeach; ?>
             </table>
 
-            <p><a href="<?php echo site_url('settings/create_user');?>">Create a new user</a>
+            <p><a href="<?php echo site_url('mitglieder/create_user');?>">Create a new user</a>
             <?php
         } ?>
     </div>

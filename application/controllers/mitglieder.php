@@ -15,7 +15,6 @@
             $this->load->library('ion_auth');
             $this->load->library('session');
 
-
         }
 
 
@@ -29,7 +28,11 @@
          * @date        20120710
          */
         public function index () {
+
             $group            = $this->ion_auth->user()->row()->group;
+
+
+
             $this->data['title'] = "Mitglieder";
             //set the flash data error message if there is one
             //$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
