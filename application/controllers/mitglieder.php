@@ -1,6 +1,6 @@
 <?php
 
-    class Settings extends MY_Controller {
+    class Mitglieder extends MY_Controller {
 
         protected $sControllerName = '';
 
@@ -30,7 +30,7 @@
          */
         public function index () {
             $group            = $this->ion_auth->user()->row()->group;
-            $this->data['title'] = "Settings";
+            $this->data['title'] = "Mitglieder";
             //set the flash data error message if there is one
             //$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
             $user = $this->ion_auth->user()->row();
@@ -98,7 +98,7 @@
 
                 $this->session->set_flashdata('message', $this->ion_auth->messages());
 
-                redirect("settings/create_user", 'refresh');
+                redirect("mitglieder/create_user", 'refresh');
                 //echo 'sali';
             } else {
                 //display the create user form
@@ -191,10 +191,12 @@
             //validate form input
             $this->form_validation->set_rules('first_name', 'First Name', 'required|xss_clean');
             $this->form_validation->set_rules('last_name', 'Last Name', 'required|xss_clean');
+
             // $this->form_validation->set_rules('phone1', 'First Part of Phone', 'required|xss_clean|min_length[3]|max_length[3]');
             //$this->form_validation->set_rules('phone2', 'Second Part of Phone', 'required|xss_clean|min_length[3]|max_length[3]');
             //$this->form_validation->set_rules('phone3', 'Third Part of Phone', 'required|xss_clean|min_length[4]|max_length[4]');
             $this->form_validation->set_rules('company', 'Company Name', 'required|xss_clean');
+
 
             if (isset($_POST) && !empty($_POST)) {
                 // do we have a valid request?
@@ -205,6 +207,7 @@
                 $data = array(
                     'first_name' => $this->input->post('first_name'),
                     'last_name'  => $this->input->post('last_name'),
+
                     'company'    => $this->input->post('company'),
                     'phone'      => $this->input->post('phone1') . '-' . $this->input->post('phone2') . '-' . $this->input->post('phone3'),
                     'group'      => $this->input->post('group'),
@@ -221,13 +224,14 @@
                 if ($this->form_validation->run() === TRUE) {
                     $this->ion_auth->update($user->id, $data);
 
+
                     //check to see if we are creating the user
                     //redirect them back to the admin page
                     $this->session->set_flashdata('message', "User Saved");
 
                     //redirect("settings/edit_user", 'refresh');
                     //$this->load->view('view_answer');
-                    redirect(base_url() . 'settings/edit_user' . '/' . $user->id);
+                    redirect(base_url() . 'mitglieder/edit_user' . '/' . $user->id);
 
 
                 }
@@ -255,12 +259,14 @@
                 'type'  => 'text',
                 'value' => $this->form_validation->set_value('last_name', $user->last_name),
             );
+
             $this->data['company']          = array(
                 'name'  => 'company',
                 'id'    => 'company',
                 'type'  => 'text',
                 'value' => $this->form_validation->set_value('company', $user->company),
             );
+
             $this->data['phone1']           = array(
                 'name'  => 'phone1',
                 'id'    => 'phone1',
@@ -308,7 +314,7 @@
             if ($activation) {
                 //redirect them to the auth page
                 $this->session->set_flashdata('message', $this->ion_auth->messages());
-                redirect("settings", 'refresh');
+                redirect("mitglieder", 'refresh');
             } else {
                 //redirect them to the forgot password page
                 $this->session->set_flashdata('message', $this->ion_auth->errors());
@@ -349,7 +355,7 @@
                 }
 
                 //redirect them back to the auth page
-                redirect('settings', 'refresh');
+                redirect('mitglieder', 'refresh');
             }
         }
 

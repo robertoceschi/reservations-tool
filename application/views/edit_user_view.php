@@ -9,7 +9,6 @@
         <?php
 
         echo form_open(current_url());?>
-
         <p>
             First Name: <br/>
             <?php echo form_input($first_name);?>

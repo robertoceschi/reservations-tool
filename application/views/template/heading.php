@@ -19,7 +19,7 @@
         <li class="btn btn-inverse"><?php
             $first_name = $this->ion_auth->user()->row()->first_name;
             $last_name  = $this->ion_auth->user()->row()->last_name;
-            echo anchor('settings', '<i class="icon icon-user"></i> <span
+            echo anchor('user_profil', '<i class="icon icon-user"></i> <span
                 class="text">' . $first_name . ' ' . $last_name);
         ?></span></a></li>
         <!--<li class="btn btn-inverse"><?php echo anchor('settings', '<i class="icon icon-cog"></i> <span
