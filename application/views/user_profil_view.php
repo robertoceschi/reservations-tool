@@ -12,7 +12,7 @@
         echo $user->group . '<br />';
         echo $user->phone . '<br />';
         echo $user->password . '<br />';
-        echo anchor("settings/edit_user/" . $user->id, 'Edit');
+        echo anchor("mitglieder/edit_user/" . $user->id, 'Edit');
     ?>
     </div>
     <div class="row-fluid">
