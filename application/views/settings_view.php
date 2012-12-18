@@ -31,7 +31,7 @@
 
             <p><a href="<?php echo site_url('settings/create_user');?>">Create a new user</a>
             <?php
-        } if ($group != 'admin') {
+        } if ($group != 'admin' ) {
         echo '<h2>User Profil</h2>';
         echo '<h5>This is your personal Profil</h5>';
         $user = $this->ion_auth->user()->row();

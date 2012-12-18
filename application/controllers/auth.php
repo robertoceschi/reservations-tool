@@ -17,11 +17,11 @@
 
         //redirect if needed, otherwise display the user list
         function index () {
-            $group = $this->ion_auth->user()->row()->group;
+
             if (!$this->ion_auth->logged_in()) {
                 //redirect them to the login page
                 redirect('auth/login', 'refresh');
-            } elseif (!$this->$group) {
+            } elseif  ( $this->ion_auth->user()->row()->group != 'admin') {
 
                 //redirect them to the home page because they must be an administrator to view this
                 redirect('home/member', 'refresh');
