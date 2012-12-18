@@ -36,16 +36,16 @@
         }
 
         public function admin () {
-            $data                  = '';
+            $this->data['title'] = "Home";
             $this->sControllerName = 'home_admin';
-            parent::__renderAll($this->sControllerName, $data);
+            parent::__renderAll($this->sControllerName, $this->data);
 
         }
 
         public function member () {
-            $data                  = '';
+            $this->data['title'] = "Home";
             $this->sControllerName = 'home_member';
-            parent::__renderAll($this->sControllerName, $data);
+            parent::__renderAll($this->sControllerName, $this->data);
 
         }
     }

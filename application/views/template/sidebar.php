@@ -18,10 +18,12 @@
     </div>
     <div id="breadcrumb">
         <a href="index.html" title="Go to Dashboard" class="tip-bottom"><i class="icon-home"></i>Home</a>
-        <a href="#" class="tip-bottom"><?php if($this->uri->segment(1) != 'home' ) {echo  $title;}
-
-            if ($this->uri->segment(1) == 'user_profil' ) { echo  $title;}
-            if ($this->uri->segment(1) == 'mitglieder' ) { echo  $title;} ?></a>
+        <a href="#" class="tip-bottom">
+            <?php
+                if ($title == 'Home') {
+                    echo '';
+                } else  {
+            echo $title;}?></a>
     </div>
 
 
