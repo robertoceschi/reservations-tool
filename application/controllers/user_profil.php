@@ -16,13 +16,12 @@
         public function index () {
 
 
-            $data                  = '';
+            $this->data['title'] = "User Profil";
             $this->sControllerName = 'user_profil';
-            parent::__renderAll($this->sControllerName, $data);
+            parent::__renderAll($this->sControllerName, $this->data);
 
 
         }
 
 
     }
-

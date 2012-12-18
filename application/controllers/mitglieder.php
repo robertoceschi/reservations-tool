@@ -28,11 +28,7 @@
          * @date        20120710
          */
         public function index () {
-
             $group            = $this->ion_auth->user()->row()->group;
-
-
-
             $this->data['title'] = "Mitglieder";
             //set the flash data error message if there is one
             //$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
@@ -361,6 +357,13 @@
                 redirect('mitglieder', 'refresh');
             }
         }
+
+
+        /*function user_profil() {
+            $this->data['title'] = "User Profil";
+            $this->sControllerName = 'user_profil';
+            parent::__renderAll($this->sControllerName, $this->data);
+        }  */
 
 
     }
