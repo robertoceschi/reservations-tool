@@ -1,3 +1,13 @@
+<script type="text/javascript">
+    function modalfunktion( $user_id, $status ) {
+
+        alert( $user_id, $status) ;
+
+    }
+
+</script>
+
+
 <div class="container-fluid">
     <div class="row-fluid">
         <?php
@@ -25,9 +35,12 @@
                 <td><?php echo $user->group;?></td>
                 <td><?php
 
-                if($user->active) { echo '<a href="#modal" ' . $user->id  . 'data-toggle="modal">Aktiv</a>';}else { ?>
-                <a href="#modal" data-toggle="modal" >Inaktiv</a> <?php
-            }?></td>
+
+
+
+                if($user->active) { echo '<a href="#" onclick="modalfunktion( ' . $user->id  .')">Aktiv</a>
+';}else { echo '<a href="#" onclick="modalfunktion( ' . $user->id  .')">Inaktiv</a>
+';}  '</td> '. PHP_EOL;?>
 
 
 
