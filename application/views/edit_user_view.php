@@ -50,6 +50,19 @@
         }
         ?>
 
+        <?php echo '<div>' . PHP_EOL;
+        $group = $this->ion_auth->user()->row()->group;
+        if ($group == 'admin') {
+            echo form_label('Status:', 'active') . PHP_EOL;
+            $options = array(0 => 'Inaktiv', 1 => 'Aktiv');
+            $active_set   = $user->active;
+            print_r($active_set);
+            echo form_dropdown('active', $options, $active_set) . PHP_EOL;
+            echo '</div>' . PHP_EOL;
+
+        }
+        ?>
+
 
         <?php echo form_hidden('id', $user->id);?>
         <?php /* echo form_hidden($csrf);*/ //nochmals anschauen!!!! Müsste eigentlich angezeigt werden ?>
