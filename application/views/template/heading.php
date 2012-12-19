@@ -15,12 +15,14 @@
 
 
     ?>
+
     <ul class="nav btn-group">
+
         <li class="btn btn-inverse"><?php
             $first_name = $this->ion_auth->user()->row()->first_name;
             $last_name  = $this->ion_auth->user()->row()->last_name;
-            echo anchor('user_profil', '<i class="icon icon-user"></i> <span
-                class="text">' . $first_name . ' ' . $last_name);
+            echo anchor('user_profil', '<i class="icon icon-user "></i> <span
+                class="text">' . ucfirst($first_name) . ' ' . ucfirst($last_name));
         ?></span></a></li>
         <!--<li class="btn btn-inverse"><?php echo anchor('settings', '<i class="icon icon-cog"></i> <span
                 class="text">Settings</span>');?></a></li> -->

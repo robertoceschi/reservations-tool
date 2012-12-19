@@ -2,8 +2,8 @@
     <div class="row-fluid">
         <?php
 
-        echo '<h2>User Profil</h2>';
-        echo '<h5>This is your personal Profil</h5>';
+        //echo '<h2>User Profil</h2>';
+        //echo '<h5>This is your personal Profil</h5>';
         $user = $this->ion_auth->user()->row();
         echo $user->username . '<br />';
         echo $user->first_name . '<br />';

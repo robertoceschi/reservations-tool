@@ -8,7 +8,7 @@
 
 <div id="content">
     <div id="content-header">
-        <h1>Settings</h1>
+        <h1><?php echo $title;?></h1>
         <!--<div class="btn-group">
             <a class="btn btn-large tip-bottom" title="Manage Files"><i class="icon-file"></i></a>
             <a class="btn btn-large tip-bottom" title="Manage Users"><i class="icon-user"></i></a>
@@ -18,7 +18,7 @@
     </div>
     <div id="breadcrumb">
         <a href="index.html" title="Go to Dashboard" class="tip-bottom"><i class="icon-home"></i>Home</a>
-        <a href="#" class="tip-bottom">
+        <a href="#" class="tip-bottom current"">
             <?php
                 if ($title == 'Home') {
                     echo '';

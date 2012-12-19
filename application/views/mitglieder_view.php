@@ -3,8 +3,8 @@
         <?php
         $group = $this->ion_auth->user()->row()->group;
         if ($group == 'admin') {
-            echo '<h2>Overview Users</h2>';
-            echo '<h5>below a list with all users</h5>';
+            //echo '<h2>Overview Users</h2>';
+            //echo '<h5>below a list with all users</h5>';
 
             //echo '<div id="infoMessage">'. $message . ' </div>'. PHP_EOL;
 
