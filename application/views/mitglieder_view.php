@@ -1,13 +1,56 @@
 <script type="text/javascript">
-    function modalfunktion( $user_id, $status ) {
 
-        alert( $user_id, $status) ;
+    //user ist aktiv und soll inaktiv geschalten werden
+    function modalfunktion_deact($user_id) {
+        //var x;
+        var r = confirm('Sie wollen den User ' + $user_id + ' deaktivieren?');
+        if (r == true) {
 
+            $.ajax({
+                url:WEBROOT + "ajax/deactivate/" + $user_id,
+                type:"post",
+                data:'id=' + $user_id,
+                dataType:'json',
+                success:function (json) {
+                    if (json.status == "success") {
+                        //alert('der User ist jetzt inaktiv');
+
+                    }
+                    else {
+                        showMessage(json.message, 'error');
+                    }
+                }
+            });
+        }
+    }
+
+    //user ist deaktiv
+    function modalfunktion_act($user_id) {
+        //var x;
+        var r = confirm('Sie wollen den User ' + $user_id + ' aktivieren?');
+        if (r == true) {
+
+            $.ajax({
+                url:WEBROOT + "ajax/activate/" + $user_id,
+                type:"post",
+                data:'id=' + $user_id,
+                dataType:'json',
+                success:function (json) {
+                    if (json.status == "success") {
+                        //alert('der User ist jetzt inaktiv');
+
+                    }
+                    else {
+                        showMessage(json.message, 'error');
+                    }
+                }
+            });
+        }
     }
 
 </script>
 
-
+     <div id="demo"></div>
 <div class="container-fluid">
     <div class="row-fluid">
         <?php
@@ -35,11 +78,12 @@
                 <td><?php echo $user->group;?></td>
                 <td><?php
 
+                    print_r($user->active);
 
 
 
-                if($user->active) { echo '<a href="#" onclick="modalfunktion( ' . $user->id  .')">Aktiv</a>
-';}else { echo '<a href="#" onclick="modalfunktion( ' . $user->id  .')">Inaktiv</a>
+                    if($user->active) { echo  '<a href="#" onclick="modalfunktion_deact( ' . $user->id   .')">Aktiv</a>
+';}if(!$user->active) { echo '<a href="#" onclick="modalfunktion_act( ' . $user->id   .')">Inaktiv</a>
 ';}  '</td> '. PHP_EOL;?>
 
 
@@ -52,7 +96,7 @@
 
 
 
-             <!--Modal Box-->
+            <!--Modal Box-->
             <div id="modal" class="modal hide fade in" style="display: none; ">
                 <div class="modal-header">
                     <a class="close" data-dismiss="modal">×</a>
@@ -67,15 +111,15 @@
 
                     if ($user->active) {
                         echo 'user aktiv' ;
-                    //echo   '<a href=" ' . base_url() . '/mitglieder/deactivate/' . $user->id . '"' . 'class="btn btn-success">deaktivieren</a>';
-                }else{
-                    echo 'inaktiv';
-                    //echo   '<a href=" ' . base_url() . '/mitglieder/activate/' . $user->id . '"' . 'class="btn btn-success">aktivieren</a>'
+                        //echo   '<a href=" ' . base_url() . '/mitglieder/deactivate/' . $user->id . '"' . 'class="btn btn-success">deaktivieren</a>';
+                    }else{
+                        echo 'inaktiv';
+                        //echo   '<a href=" ' . base_url() . '/mitglieder/activate/' . $user->id . '"' . 'class="btn btn-success">aktivieren</a>'
 
 
 
 
-                    ;}?>
+                        ;}?>
 
 
 
