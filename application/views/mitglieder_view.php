@@ -1,5 +1,4 @@
 <script type="text/javascript">
-
     //user ist aktiv und soll inaktiv geschalten werden
     function modalfunktion_deact($user_id) {
         //var x;
@@ -11,9 +10,10 @@
                 type:"post",
                 data:'id=' + $user_id,
                 dataType:'json',
-                success:function (json) {
-                    if (json.status == "success") {
-                        //alert('der User ist jetzt inaktiv');
+                success:function (data,status) {
+                    if (data.status == "success") {
+                        alert(data.msg);
+                        $(this).css('background-color', 'red');
 
                     }
                     else {
@@ -35,10 +35,9 @@
                 type:"post",
                 data:'id=' + $user_id,
                 dataType:'json',
-                success:function (json) {
-                    if (json.status == "success") {
-                        //alert('der User ist jetzt inaktiv');
-
+                success:function (data,status) {
+                    if (data.status == "success") {
+                        alert(data.msg);
                     }
                     else {
                         showMessage(json.message, 'error');
@@ -56,39 +55,30 @@
         <?php
         $group = $this->ion_auth->user()->row()->group;
         if ($group == 'admin') {
-            //echo '<h2>Overview Users</h2>';
-            //echo '<h5>below a list with all users</h5>';
-
-            //echo '<div id="infoMessage">'. $message . ' </div>'. PHP_EOL;
-
             echo '<table cellpadding=0 cellspacing=10>' . PHP_EOL;
             echo    '<tr>' . PHP_EOL;
-            echo      '<th>First Name</th>' . PHP_EOL;
-            echo     '<th>Last Name</th> ' . PHP_EOL;
-            echo    '<th>Email</th>' . PHP_EOL;
-            echo    '<th>Groups</th>' . PHP_EOL;
-            /*echo    '<th>Status</th>' . PHP_EOL;*/
-            echo   '<th>Action</th>' . PHP_EOL;
-            echo '</tr>' . PHP_EOL;?>
+            echo     '<th>Vorname</th>' . PHP_EOL;
+            echo     '<th>Nachname</th> ' . PHP_EOL;
+            echo     '<th>Emailadresse</th>' . PHP_EOL;
+            echo     '<th>Gruppe</th>' . PHP_EOL;
+            echo     '<th>Status</th>' . PHP_EOL;
+            echo     '</tr>' . PHP_EOL;?>
             <?php  foreach ($users as $user):
-                echo '<tr>
+            echo '<tr>
                     <td>'?><?php echo $user->first_name;?></td>
                 <td><?php echo $user->last_name;?></td>
                 <td><?php echo $user->email;?></td>
                 <td><?php echo $user->group;?></td>
                 <td><?php
-
-                    print_r($user->active);
-
+                    if ($user->active) {
 
 
-                    if($user->active) { echo  '<a href="#" onclick="modalfunktion_deact( ' . $user->id   .')">Aktiv</a>
-';}if(!$user->active) { echo '<a href="#" onclick="modalfunktion_act( ' . $user->id   .')">Inaktiv</a>
-';}  '</td> '. PHP_EOL;?>
-
-
-
-
+                        echo  '<a href="#" onclick="modalfunktion_deact( ' . $user->id . ')">Aktiv</a>
+';
+                    }if (!$user->active) {
+                        echo '<a href="#" onclick="modalfunktion_act( ' . $user->id . ')">Inaktiv</a>
+';
+                    }  '</td> ' . PHP_EOL;?>
                 <td><?php echo anchor("mitglieder/edit_user/" . $user->id, 'Edit');?></td>
                 </tr>
                 <?php endforeach; ?>
