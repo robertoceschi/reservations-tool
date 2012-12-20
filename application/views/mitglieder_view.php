@@ -1,7 +1,8 @@
+
 <script type="text/javascript">
     //user ist aktiv und soll inaktiv geschalten werden
     function modalfunktion_deact($user_id) {
-        //var x;
+
         var r = confirm('Sie wollen den User ' + $user_id + ' deaktivieren?');
         if (r == true) {
 
@@ -13,7 +14,12 @@
                 success:function (data,status) {
                     if (data.status == "success") {
                         alert(data.msg);
-                        $(this).val('background-color', 'red');
+                        //$('td:nth-child(5)').html('<a href="#">Inaktiv</a>');
+
+
+
+
+                        //$(this).val('background-color', 'red');
                     }
                     else {
                         showMessage(json.message, 'error');
@@ -21,6 +27,7 @@
                 }
             });
         }
+
     }
 
     //user ist deaktiv
@@ -122,6 +129,9 @@
             <?php
         } ?>
     </div>
+
+
+
     <div class="row-fluid">
 
     </div>

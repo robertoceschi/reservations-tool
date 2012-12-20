@@ -9,6 +9,10 @@
             if ($deactivate) {
                 $status = "success";
                 $msg    = "User ist jetzt deaktiviert";
+
+            //$group_ajax = 0;
+            //$this->load->view('mitglieder_view', $id, $group_ajax);
+
             } else {
                 $status = "error";
                 $msg    = "Fehler";
@@ -22,9 +26,13 @@
 
             $activation = $this->ion_auth->activate($id);
 
+
             if ($activation) {
                 $status = "success";
                 $msg    = "User wurde aktiviert";
+
+
+
             } else {
                 $status = "error";
                 $msg    = "Fehler";
