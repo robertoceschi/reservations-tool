@@ -13,8 +13,7 @@
                 success:function (data,status) {
                     if (data.status == "success") {
                         alert(data.msg);
-                        $(this).css('background-color', 'red');
-
+                        $(this).val('background-color', 'red');
                     }
                     else {
                         showMessage(json.message, 'error');
