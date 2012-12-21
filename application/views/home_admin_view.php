@@ -92,7 +92,7 @@
                             <span class="user-info"> By: neytiri on 2 Aug 2012, 09:27 AM, IP: 186.56.45.7 </span>
 
                             <p>
-                                <a href="#">Vivamus sed auctor nibh congue, ligula vitae tempus pharetra...</a>
+                                <a class="click" href="#">Vivamus sed auctor nibh congue, ligula vitae tempus pharetra...</a>
                             </p>
                             <a href="#" class="btn btn-primary btn-mini">Edit</a> <a href="#"
                                                                                      class="btn btn-success btn-mini">Publish</a>

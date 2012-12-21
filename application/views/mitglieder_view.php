@@ -1,63 +1,25 @@
-
 <script type="text/javascript">
-    //user ist aktiv und soll inaktiv geschalten werden
-    function modalfunktion_deact($user_id) {
 
-        var r = confirm('Sie wollen den User ' + $user_id + ' deaktivieren?');
-        if (r == true) {
+    $(document).ready(function() {
+        $('.click').click(function(){
+           //alert ('sali');
+            pos = this.id;
+            alert(pos)
 
-            $.ajax({
-                url:WEBROOT + "ajax/deactivate/" + $user_id,
-                type:"post",
-                data:'id=' + $user_id,
-                dataType:'json',
-                success:function (data,status) {
-                    if (data.status == "success") {
-                        alert(data.msg);
-                        //$('td:nth-child(5)').html('<a href="#">Inaktiv</a>');
+        });
+    });
 
-
-
-
-                        //$(this).val('background-color', 'red');
-                    }
-                    else {
-                        showMessage(json.message, 'error');
-                    }
-                }
-            });
-        }
-
-    }
-
-    //user ist deaktiv
-    function modalfunktion_act($user_id) {
-        //var x;
-        var r = confirm('Sie wollen den User ' + $user_id + ' aktivieren?');
-        if (r == true) {
-
-            $.ajax({
-                url:WEBROOT + "ajax/activate/" + $user_id,
-                type:"post",
-                data:'id=' + $user_id,
-                dataType:'json',
-                success:function (data,status) {
-                    if (data.status == "success") {
-                        alert(data.msg);
-                    }
-                    else {
-                        showMessage(json.message, 'error');
-                    }
-                }
-            });
-        }
-    }
 
 </script>
+
+
 
      <div id="demo"></div>
 <div class="container-fluid">
     <div class="row-fluid">
+
+
+
         <?php
         $group = $this->ion_auth->user()->row()->group;
         if ($group == 'admin') {
@@ -78,9 +40,9 @@
                 <td><?php
                     if ($user->active) {
 
-
-                        echo  '<a href="#" onclick="modalfunktion_deact( ' . $user->id . ')">Aktiv</a>
-';
+                        echo  '<a class="click" id= "' . $user->id . ' ">Aktiv</a> ';
+                        //echo  '<a href="#" onclick="modalfunktion_deact( ' . $user->id . ')">Aktiv</a>
+//';
                     }if (!$user->active) {
                         echo '<a href="#" onclick="modalfunktion_act( ' . $user->id . ')">Inaktiv</a>
 ';
@@ -135,3 +97,5 @@
     <div class="row-fluid">
 
     </div>
+
+
