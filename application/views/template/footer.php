@@ -6,7 +6,7 @@
 </div>
 </div>
 
-
+<script src="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css"></script>
 <script src="<?php echo base_url() . 'lib/js/excanvas.min.js"></script>' ; ?>
 <script src="<?php echo base_url() . 'lib/js/jquery.min.js"></script>'; ?>
 <script src="<?php echo base_url() . 'lib/js/jquery.ui.custom.js"></script>'; ?>
