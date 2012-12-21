@@ -5,7 +5,26 @@
         $('.click').click(function(){
             user_id = $(this).attr('id');
             //$(this).css('color', 'red');
-            alert(user_id)
+            //alert(user_id)
+            $.ajax({
+                url:WEBROOT + "ajax/deactivate/" + user_id,
+                type:"post",
+                data:'id=' + user_id,
+                dataType:'json',
+                success:function (data,status) {
+                    if (data.status == "success") {
+                        //showMessage(json.message, 'success');
+                        //$('td:nth-child(5)').html('<a href="#">Inaktiv</a>');
+                        alert(data.msg);
+
+
+                        //$(this).val('background-color', 'red');
+                    }
+                    else {
+                        //showMessage(json.message, 'error');
+                    }
+                }
+            });
 
 
         });
