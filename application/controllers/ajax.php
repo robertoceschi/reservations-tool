@@ -10,6 +10,8 @@
                 $status = "success";
                 $msg    = "User ist jetzt deaktiviert";
 
+
+
             //$group_ajax = 0;
             //$this->load->view('mitglieder_view', $id, $group_ajax);
 

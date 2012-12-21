@@ -7,9 +7,10 @@
              //alert (element);
 
             var I = element.attr("id");
-            //alert (I);
+            alert (I);
             var info = 'id=' + I;
              //alert (info);
+
             $.ajax({
                 url:WEBROOT + "ajax/deactivate/" + I,
                 type:"post",
@@ -20,7 +21,8 @@
                         //showMessage(json.message, 'success');
                         //$('td:nth-child(5)').html('<a href="#">Inaktiv</a>');
                         //alert(data.msg);
-                        $('#inaktiv'+ I).css('color', 'red');
+
+                        $('#inaktiv'+ I).css("background-color","red");
 
                         //$(this).val('background-color', 'red');
                     }
@@ -109,6 +111,8 @@
                 <td><?php echo $user->email;?></td>
                 <td><?php echo $user->group;?></td>
                 <td><?php
+
+
                     if ($user->active) {
 
                         echo  '<div id="inaktiv' . $user->id . ' "><a class="inaktiv" id= "' . $user->id . ' ">Aktiv</a></div> ';
