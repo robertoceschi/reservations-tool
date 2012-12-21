@@ -4,7 +4,7 @@
 
         $('.click').click(function(){
             user_id = $(this).attr('id');
-            $(this).css('color', 'red');
+            //$(this).css('color', 'red');
             alert(user_id)
 
 
