@@ -2,21 +2,55 @@
 
     $(document).ready(function() {
 
-        $('.click').click(function(){
-            user_id = $(this).attr('id');
-            //$(this).css('color', 'red');
-            //alert(user_id)
+        $('.inaktiv').click(function(){
+            var element = $(this);
+             //alert (element);
+
+            var I = element.attr("id");
+            //alert (I);
+            var info = 'id=' + I;
+             //alert (info);
             $.ajax({
-                url:WEBROOT + "ajax/deactivate/" + user_id,
+                url:WEBROOT + "ajax/deactivate/" + I,
                 type:"post",
-                data:'id=' + user_id,
+                data:'id=' + I,
                 dataType:'json',
                 success:function (data,status) {
                     if (data.status == "success") {
                         //showMessage(json.message, 'success');
                         //$('td:nth-child(5)').html('<a href="#">Inaktiv</a>');
-                        alert(data.msg);
+                        //alert(data.msg);
+                        $('#inaktiv'+ I).css('color', 'red');
 
+                        //$(this).val('background-color', 'red');
+                    }
+                    else {
+                        //showMessage(json.message, 'error');
+                    }
+                }
+            });
+
+
+        });
+        $('.aktiv').click(function(){
+            var element = $(this);
+            //alert (element);
+
+            var I = element.attr("id");
+            //alert (I);
+            var info = 'id=' + I;
+            //alert (info);
+            $.ajax({
+                url:WEBROOT + "ajax/activate/" + I,
+                type:"post",
+                data:'id=' + I,
+                dataType:'json',
+                success:function (data,status) {
+                    if (data.status == "success") {
+                        //showMessage(json.message, 'success');
+                        //$('td:nth-child(5)').html('<a href="#">Inaktiv</a>');
+                        //alert(data.msg);
+                        $('#aktiv'+ I).css('color', 'yellow');
 
                         //$(this).val('background-color', 'red');
                     }
@@ -77,11 +111,11 @@
                 <td><?php
                     if ($user->active) {
 
-                        echo  '<a class="click" id= "' . $user->id . ' ">Aktiv</a> ';
+                        echo  '<div id="inaktiv' . $user->id . ' "><a class="inaktiv" id= "' . $user->id . ' ">Aktiv</a></div> ';
                         //echo  '<a href="#" onclick="modalfunktion_deact( ' . $user->id . ')">Aktiv</a>
 //';
                     }if (!$user->active) {
-                        echo '<a href="#" onclick="modalfunktion_act( ' . $user->id . ')">Inaktiv</a>
+                        echo '<div id="aktiv' . $user->id . ' "><a class="aktiv" id="' . $user->id . '">Inaktiv</a></div>
 ';
                     }  '</td> ' . PHP_EOL;?>
                 <td><?php echo anchor("mitglieder/edit_user/" . $user->id, 'Edit');?></td>
