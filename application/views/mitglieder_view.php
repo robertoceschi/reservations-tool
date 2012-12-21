@@ -7,7 +7,7 @@
              //alert (element);
 
             var I = element.attr("id");
-            alert (I);
+            //alert (I);
             var info = 'id=' + I;
              //alert (info);
 
@@ -20,7 +20,7 @@
                     if (data.status == "success") {
                         //showMessage(json.message, 'success');
                         //$('td:nth-child(5)').html('<a href="#">Inaktiv</a>');
-                        //alert(data.msg);
+                        alert(data.msg);
 
                         $('#inaktiv'+ I).css("background-color","red");
 
@@ -51,7 +51,7 @@
                     if (data.status == "success") {
                         //showMessage(json.message, 'success');
                         //$('td:nth-child(5)').html('<a href="#">Inaktiv</a>');
-                        //alert(data.msg);
+                        alert(data.msg);
                         $('#aktiv'+ I).css('color', 'yellow');
 
                         //$(this).val('background-color', 'red');
