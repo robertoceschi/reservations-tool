@@ -1,10 +1,12 @@
 <script type="text/javascript">
 
     $(document).ready(function() {
+
         $('.click').click(function(){
-           //alert ('sali');
-            pos = this.id;
-            alert(pos)
+            user_id = $(this).attr('id');
+            $(this).css('color', 'red');
+            alert(user_id)
+
 
         });
     });
