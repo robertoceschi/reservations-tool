@@ -8,45 +8,45 @@
             if (r == true) {
 
 
-            var element = $(this);
-            //alert (element);
+                var element = $(this);
+                //alert (element);
 
-            var I = element.attr("id");
-            //alert (I);
-            var info = 'id=' + I;
-            //alert (info);
-            var actualGroup = $(this).text();
-            //alert (actualGroup);
+                var I = element.attr("id");
+                //alert (I);
+                var info = 'id=' + I;
+                //alert (info);
+                var actualGroup = $(this).text();
+                //alert (actualGroup);
 
-            $.ajax({
-                url:WEBROOT + "ajax/deactivate/" + I,
-                type:"post",
-                data:'id=' + I,
-                dataType:'json',
+                $.ajax({
+                    url:WEBROOT + "ajax/deactivate/" + I,
+                    type:"post",
+                    data:'id=' + I,
+                    dataType:'json',
 
-                success:function (data, status) {
-                    if (data.status == "success") {
+                    success:function (data, status) {
+                        if (data.status == "success") {
 
-                        //showMessage(json.message, 'success');
-                        //$('td:nth-child(5)').html('<a href="#">Inaktiv</a>');
-                        alert(data.msg);
-                        //var element =  '"p.inaktiv" id= " ' + I + ' ">';
-                        //alert (I);
-                        //var DivId = $(this).find('div.add');
-                        $('span.inaktiv').empty().append('Inaktiv');
-                        //$('span.inaktiv').empty().append('Inaktiv');
-                        //$('p.inaktiv#'+I).empty().append('Inaktiv');
-                        //alert('p.inaktiv#'+I);
+                            //showMessage(json.message, 'success');
+                            //$('td:nth-child(5)').html('<a href="#">Inaktiv</a>');
+                            alert(data.msg);
+                            //var element =  '"p.inaktiv" id= " ' + I + ' ">';
+                            //alert (I);
+                            //var DivId = $(this).find('div.add');
+                            $('span.inaktiv').empty().append('Inaktiv');
+                            //$('span.inaktiv').empty().append('Inaktiv');
+                            //$('p.inaktiv#'+I).empty().append('Inaktiv');
+                            //alert('p.inaktiv#'+I);
 
-                        //$('#inaktiv'+ I).css("background-color","red");
+                            //$('#inaktiv'+ I).css("background-color","red");
 
-                        //$(this).val('background-color', 'red');
+                            //$(this).val('background-color', 'red');
+                        }
+                        else {
+                            //showMessage(json.message, 'error');
+                        }
                     }
-                    else {
-                        //showMessage(json.message, 'error');
-                    }
-                }
-            });
+                });
 
             }
         });
@@ -56,32 +56,32 @@
             if (r == true) {
 
 
-            var element = $(this);
-            //alert (element);
-            //alert ('klasse jetzt aktiv') ;
-            var I = element.attr("id");
-            //alert (I);
-            var info = 'id=' + I;
-            //alert (info);
-            $.ajax({
-                url:WEBROOT + "ajax/activate/" + I,
-                type:"post",
-                data:'id=' + I,
-                dataType:'json',
-                success:function (data, status) {
-                    if (data.status == "success") {
-                        //showMessage(json.message, 'success');
-                        //$('td:nth-child(5)').html('<a href="#">Inaktiv</a>');
-                        alert(data.msg);
-                        $('span.aktiv').empty().append('Aktiv');
+                var element = $(this);
+                //alert (element);
+                //alert ('klasse jetzt aktiv') ;
+                var I = element.attr("id");
+                //alert (I);
+                var info = 'id=' + I;
+                //alert (info);
+                $.ajax({
+                    url:WEBROOT + "ajax/activate/" + I,
+                    type:"post",
+                    data:'id=' + I,
+                    dataType:'json',
+                    success:function (data, status) {
+                        if (data.status == "success") {
+                            //showMessage(json.message, 'success');
+                            //$('td:nth-child(5)').html('<a href="#">Inaktiv</a>');
+                            alert(data.msg);
+                            $('span.aktiv').empty().append('Aktiv');
 
-                        //$(this).val('background-color', 'red');
+                            //$(this).val('background-color', 'red');
+                        }
+                        else {
+                            //showMessage(json.message, 'error');
+                        }
                     }
-                    else {
-                        //showMessage(json.message, 'error');
-                    }
-                }
-            });
+                });
 
             }
         });
