@@ -1,16 +1,18 @@
 <script type="text/javascript">
 
-    $(document).ready(function() {
+    $(document).ready(function () {
 
-        $('.inaktiv').click(function(){
+        $('.inaktiv').click(function () {
+
+
             var element = $(this);
-             //alert (element);
+            //alert (element);
 
             var I = element.attr("id");
             //alert (I);
             var info = 'id=' + I;
-             //alert (info);
-            var actualGroup  =  $(this).text();
+            //alert (info);
+            var actualGroup = $(this).text();
             //alert (actualGroup);
 
             $.ajax({
@@ -18,13 +20,20 @@
                 type:"post",
                 data:'id=' + I,
                 dataType:'json',
-                success:function (data,status) {
+
+                success:function (data, status) {
                     if (data.status == "success") {
+
                         //showMessage(json.message, 'success');
                         //$('td:nth-child(5)').html('<a href="#">Inaktiv</a>');
                         //alert(data.msg);
+                        //var element =  '"p.inaktiv" id= " ' + I + ' ">';
+                        //alert (I);
+                        //var DivId = $(this).find('div.add');
+                        $('span.inaktiv').empty().append('Inaktiv').removeClass('inaktiv').addClass('aktiv');
+                        //$('p.inaktiv#'+I).empty().append('Inaktiv');
+                        //alert('p.inaktiv#'+I);
 
-                        $('p.inaktiv').empty().append('Inaktiv');
                         //$('#inaktiv'+ I).css("background-color","red");
 
                         //$(this).val('background-color', 'red');
@@ -37,10 +46,10 @@
 
 
         });
-        $('.aktiv').click(function(){
+        $('.aktiv').click(function () {
             var element = $(this);
             //alert (element);
-
+            //alert ('klasse jetzt aktiv') ;
             var I = element.attr("id");
             //alert (I);
             var info = 'id=' + I;
@@ -50,12 +59,12 @@
                 type:"post",
                 data:'id=' + I,
                 dataType:'json',
-                success:function (data,status) {
+                success:function (data, status) {
                     if (data.status == "success") {
                         //showMessage(json.message, 'success');
                         //$('td:nth-child(5)').html('<a href="#">Inaktiv</a>');
                         alert(data.msg);
-                        $('#aktiv'+ I).css('color', 'yellow');
+                        $('#aktiv' + I).css('color', 'yellow');
 
                         //$(this).val('background-color', 'red');
                     }
@@ -75,10 +84,12 @@
 <div id="example" class="modal hide fade in" style="display: none; ">
     <div class="modal-header">
         <a class="close" data-dismiss="modal">×</a>
+
         <h3>This is a Modal Heading</h3>
     </div>
     <div class="modal-body">
         <h4>Text in a modal</h4>
+
         <p>You can add some text here.</p>
     </div>
     <div class="modal-footer">
@@ -93,7 +104,6 @@
 <div id="demo"></div>
 <div class="container-fluid">
     <div class="row-fluid">
-
 
 
         <?php
@@ -118,11 +128,11 @@
 
                     if ($user->active) {
 
-                        echo  '<p class="inaktiv" id= "' . $user->id . ' ">Aktiv</p> ';
+                        echo  '<span class="inaktiv" id= "' . $user->id . ' ">Aktiv</span> ';
                         //echo  '<a href="#" onclick="modalfunktion_deact( ' . $user->id . ')">Aktiv</a>
 //';
                     }if (!$user->active) {
-                        echo '<p class="aktiv" id="' . $user->id . '">Inaktiv</p>
+                        echo '<span class="aktiv" id="' . $user->id . '">Inaktiv</span>
 ';
                     }  '</td> ' . PHP_EOL;?>
                 <td><?php echo anchor("mitglieder/edit_user/" . $user->id, 'Edit');?></td>
@@ -136,26 +146,27 @@
             <div id="modal" class="modal hide fade in" style="display: none; ">
                 <div class="modal-header">
                     <a class="close" data-dismiss="modal">×</a>
+
                     <h3>This is a Modal Heading</h3>
                 </div>
                 <div class="modal-body">
                     <h4>Text in a modal</h4>
+
                     <p>You can add some text here.</p>
                 </div>
                 <div class="modal-footer">
                     <?php
 
                     if ($user->active) {
-                        echo 'user aktiv' ;
+                        echo 'user aktiv';
                         //echo   '<a href=" ' . base_url() . '/mitglieder/deactivate/' . $user->id . '"' . 'class="btn btn-success">deaktivieren</a>';
-                    }else{
+                    } else {
                         echo 'inaktiv';
                         //echo   '<a href=" ' . base_url() . '/mitglieder/activate/' . $user->id . '"' . 'class="btn btn-success">aktivieren</a>'
 
 
-
-
-                        ;}?>
+                        ;
+                    }?>
 
 
 
@@ -169,7 +180,6 @@
             <?php
         } ?>
     </div>
-
 
 
     <div class="row-fluid">
