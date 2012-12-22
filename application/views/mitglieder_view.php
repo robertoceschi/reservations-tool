@@ -29,11 +29,12 @@
 
                         //showMessage(json.message, 'success');
                         //$('td:nth-child(5)').html('<a href="#">Inaktiv</a>');
-                        //alert(data.msg);
+                        alert(data.msg);
                         //var element =  '"p.inaktiv" id= " ' + I + ' ">';
                         //alert (I);
                         //var DivId = $(this).find('div.add');
                         $('span.inaktiv').empty().append('Inaktiv');
+                        //$('span.inaktiv').empty().append('Inaktiv');
                         //$('p.inaktiv#'+I).empty().append('Inaktiv');
                         //alert('p.inaktiv#'+I);
 
@@ -71,7 +72,7 @@
                     if (data.status == "success") {
                         //showMessage(json.message, 'success');
                         //$('td:nth-child(5)').html('<a href="#">Inaktiv</a>');
-                        //alert(data.msg);
+                        alert(data.msg);
                         $('span.aktiv').empty().append('Aktiv');
 
                         //$(this).val('background-color', 'red');
