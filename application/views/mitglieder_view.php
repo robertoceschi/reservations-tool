@@ -10,6 +10,8 @@
             //alert (I);
             var info = 'id=' + I;
              //alert (info);
+            var actualGroup  =  $(this).text();
+            //alert (actualGroup);
 
             $.ajax({
                 url:WEBROOT + "ajax/deactivate/" + I,
@@ -20,9 +22,10 @@
                     if (data.status == "success") {
                         //showMessage(json.message, 'success');
                         //$('td:nth-child(5)').html('<a href="#">Inaktiv</a>');
-                        alert(data.msg);
+                        //alert(data.msg);
 
-                        $('#inaktiv'+ I).css("background-color","red");
+                        $('p.inaktiv').empty().append('Inaktiv');
+                        //$('#inaktiv'+ I).css("background-color","red");
 
                         //$(this).val('background-color', 'red');
                     }
@@ -115,11 +118,11 @@
 
                     if ($user->active) {
 
-                        echo  '<div id="inaktiv' . $user->id . ' "><a class="inaktiv" id= "' . $user->id . ' ">Aktiv</a></div> ';
+                        echo  '<p class="inaktiv" id= "' . $user->id . ' ">Aktiv</p> ';
                         //echo  '<a href="#" onclick="modalfunktion_deact( ' . $user->id . ')">Aktiv</a>
 //';
                     }if (!$user->active) {
-                        echo '<div id="aktiv' . $user->id . ' "><a class="aktiv" id="' . $user->id . '">Inaktiv</a></div>
+                        echo '<p class="aktiv" id="' . $user->id . '">Inaktiv</p>
 ';
                     }  '</td> ' . PHP_EOL;?>
                 <td><?php echo anchor("mitglieder/edit_user/" . $user->id, 'Edit');?></td>
