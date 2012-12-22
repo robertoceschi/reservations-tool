@@ -2,7 +2,10 @@
 
     $(document).ready(function () {
 
-        $('.inaktiv').click(function () {
+        $('.inaktiv').click(function (user_id) {
+            var user_id = element.attr("id");
+            var r = confirm('Sie wollen den User ' + I + ' deaktivieren?');
+            if (r == true) {
 
 
             var element = $(this);
@@ -44,7 +47,7 @@
                 }
             });
 
-
+            }
         });
         $('.aktiv').click(function () {
             var element = $(this);
