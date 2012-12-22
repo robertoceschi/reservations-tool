@@ -2,9 +2,9 @@
 
     $(document).ready(function () {
 
-        $('.inaktiv').click(function (user_id) {
-            var user_id = element.attr("id");
-            var r = confirm('Sie wollen den User ' + I + ' deaktivieren?');
+        $('.inaktiv').click(function () {
+            var user_id = $(this).attr('id');
+            var r = confirm('Sie wollen den User ' + user_id + ' deaktivieren?');
             if (r == true) {
 
 
@@ -33,7 +33,7 @@
                         //var element =  '"p.inaktiv" id= " ' + I + ' ">';
                         //alert (I);
                         //var DivId = $(this).find('div.add');
-                        $('span.inaktiv').empty().append('Inaktiv').removeClass('inaktiv').addClass('aktiv');
+                        $('span.inaktiv').empty().append('Inaktiv');
                         //$('p.inaktiv#'+I).empty().append('Inaktiv');
                         //alert('p.inaktiv#'+I);
 
@@ -50,6 +50,11 @@
             }
         });
         $('.aktiv').click(function () {
+            var user_id = $(this).attr('id');
+            var r = confirm('Sie wollen den User ' + user_id + ' aktivieren?');
+            if (r == true) {
+
+
             var element = $(this);
             //alert (element);
             //alert ('klasse jetzt aktiv') ;
@@ -66,8 +71,8 @@
                     if (data.status == "success") {
                         //showMessage(json.message, 'success');
                         //$('td:nth-child(5)').html('<a href="#">Inaktiv</a>');
-                        alert(data.msg);
-                        $('#aktiv' + I).css('color', 'yellow');
+                        //alert(data.msg);
+                        $('span.aktiv').empty().append('Aktiv');
 
                         //$(this).val('background-color', 'red');
                     }
@@ -77,8 +82,9 @@
                 }
             });
 
-
+            }
         });
+
     });
 
 
