@@ -1,71 +1,66 @@
 <script type="text/javascript">
     $(document).ready(function () {
+        $('.toggleStatus').click(function () {
+            if ($(this).hasClass('inaktiv')) {
+                reference = $(this);
+                var user_id = $(this).attr('id');
+                var r = confirm('Sie wollen den User ' + user_id + ' deaktivieren?');
+                if (r == true) {
+                    var element = $(this);
+                    var I = element.attr("id");
+                    var info = 'id=' + I;
+                    var actualGroup = $(this).text();
+                    $.ajax({
+                        url:WEBROOT + "ajax/deactivate/" + I,
+                        type:"post",
+                        data:'id=' + I,
+                        dataType:'json',
+                        success:function (data, status) {
+                            if (data.status == "success") {
 
+                                reference.toggleClass('inaktiv', 'aktiv');
+                                //$(reference).addClass('aktiv');
+                                //$(reference).empty();
+                                //window.location.reload(true);
+                                //alert(data.msg);
+                            }
+                            else {
+                                //showMessage(json.message, 'error');
+                            }
+                        }
+                    });
+                }
 
-
-        $('a.inaktiv').click(function () {
-            //var reference = this;
-            reference = $(this);
-            var user_id = $(this).attr('id');
-            var r = confirm('Sie wollen den User ' + user_id + ' deaktivieren?');
-            if (r == true) {
-                var element = $(this);
-                var I = element.attr("id");
-                var info = 'id=' + I;
-                var actualGroup = $(this).text();
-                $.ajax({
-                    url:WEBROOT + "ajax/deactivate/" + I,
-                    type:"post",
-                    data:'id=' + I,
-                    dataType:'json',
-                    success:function (data, status) {
-                        if (data.status == "success") {
-
-                            reference.toggleClass('inaktiv', 'aktiv');
-                            //$(reference).addClass('aktiv');
-                            //$(reference).empty();
-                            window.location.reload(true);
-                            //alert(data.msg);
+            }else {
+                reference = $(this);
+                var user_id = $(this).attr('id');
+                var r = confirm('Sie wollen den User ' + user_id + ' aktivieren?');
+                if (r == true) {
+                    var element = $(this);
+                    var I = element.attr("id");
+                    var info = 'id=' + I;
+                    $.ajax({
+                        url:WEBROOT + "ajax/activate/" + I,
+                        type:"post",
+                        data:'id=' + I,
+                        dataType:'json',
+                        success:function (data, status) {
+                            if (data.status == "success") {
+                                reference.toggleClass('aktiv', 'inaktiv');
+                                //$(reference).removeClass('aktiv');
+                                //$(reference).addClass('inaktiv');
+                                // $(reference).empty();
+                                //window.location.reload(true);
+                            }
+                            else {
+                                //showMessage(json.message, 'error');
+                            }
                         }
-                        else {
-                            //showMessage(json.message, 'error');
-                        }
-                    }
-                });
-            }
-        });
-        $('a.aktiv').click(function () {
-            //var reference = this;
-            reference = $(this);
-            var user_id = $(this).attr('id');
-            var r = confirm('Sie wollen den User ' + user_id + ' aktivieren?');
-            if (r == true) {
-                var element = $(this);
-                var I = element.attr("id");
-                var info = 'id=' + I;
-                $.ajax({
-                    url:WEBROOT + "ajax/activate/" + I,
-                    type:"post",
-                    data:'id=' + I,
-                    dataType:'json',
-                    success:function (data, status) {
-                        if (data.status == "success") {
-                            reference.toggleClass('aktiv', 'inaktiv');
-                            //$(reference).removeClass('aktiv');
-                            //$(reference).addClass('inaktiv');
-                            // $(reference).empty();
-                            window.location.reload(true);
-                        }
-                        else {
-                            //showMessage(json.message, 'error');
-                        }
-                    }
-                });
+                    });
+                }
             }
         });
     });
-
-
 </script>
 
 <div id="example" class="modal hide fade in" style="display: none; ">
@@ -115,9 +110,9 @@
 
                     if ($user->active) {
                         //echo  '<a title="User deaktivieren?" class="tip-bottom" class="inaktiv" id= "' . $user->id . ' ">Aktiv</a></span> ';
-                        echo  '<a class="inaktiv" id= "' . $user->id . ' ">Aktiv</a></span> ';
+                        echo  '<a class="toggleStatus inaktiv" id= "' . $user->id . ' ">Aktiv</a></span> ';
                     }if (!$user->active) {
-                        echo '<a class="aktiv" id="' . $user->id . '">Inaktiv</a></span>
+                        echo '<a class="toggleStatus aktiv" id="' . $user->id . '">Inaktiv</a></span>
 ';
                     }  '</td> ' . PHP_EOL;?>
                 <td><?php echo anchor("mitglieder/edit_user/" . $user->id, 'Edit');?></td>
