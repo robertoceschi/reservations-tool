@@ -17,12 +17,11 @@
                         dataType:'json',
                         success:function (data, status) {
                             if (data.status == "success") {
-
+                                //reference.removeClass('inaktiv');
+                                //reference.addClass('aktiv');
                                 reference.toggleClass('inaktiv', 'aktiv');
-                                //$(reference).addClass('aktiv');
-                                //$(reference).empty();
-                                //window.location.reload(true);
-                                //alert(data.msg);
+                                reference.empty();
+                                reference.append('Inaktiv');
                             }
                             else {
                                 //showMessage(json.message, 'error');
@@ -31,7 +30,7 @@
                     });
                 }
 
-            }else {
+            } else {
                 reference = $(this);
                 var user_id = $(this).attr('id');
                 var r = confirm('Sie wollen den User ' + user_id + ' aktivieren?');
@@ -46,11 +45,11 @@
                         dataType:'json',
                         success:function (data, status) {
                             if (data.status == "success") {
-                                reference.toggleClass('aktiv', 'inaktiv');
-                                //$(reference).removeClass('aktiv');
-                                //$(reference).addClass('inaktiv');
-                                // $(reference).empty();
-                                //window.location.reload(true);
+                                //reference.removeClass('aktiv');
+                                //reference.addClass('inaktiv');
+                                reference.toggleClass('inaktiv', 'aktiv');
+                                reference.empty();
+                                reference.append('Aktiv');
                             }
                             else {
                                 //showMessage(json.message, 'error');
