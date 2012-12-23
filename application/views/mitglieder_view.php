@@ -1,60 +1,33 @@
 <script type="text/javascript">
-
     $(document).ready(function () {
         $('span.inaktiv').click(function () {
             var reference = this;
             var user_id = $(this).attr('id');
             var r = confirm('Sie wollen den User ' + user_id + ' deaktivieren?');
             if (r == true) {
-
-
                 var element = $(this);
-                //alert (element);
-
                 var I = element.attr("id");
-                //alert (I);
                 var info = 'id=' + I;
-                //alert (info);
                 var actualGroup = $(this).text();
-                //alert (actualGroup);
-
                 $.ajax({
                     url:WEBROOT + "ajax/deactivate/" + I,
                     type:"post",
                     data:'id=' + I,
                     dataType:'json',
-
                     success:function (data, status) {
                         if (data.status == "success") {
 
-                            //showMessage(json.message, 'success');
-                            //$('td:nth-child(5)').html('<a href="#">Inaktiv</a>');
-
-                            //var element =  '"p.inaktiv" id= " ' + I + ' ">';
-                            //alert (I);
-                            //var DivId = $(this).find('div.add');
-
-                            $(reference).removeClass('inaktiv');
-                            $(reference).addClass('aktiv');
-                            $(reference).empty()//.append('Inaktiv');
+                            $(reference).toggleClass('inaktiv', 'aktiv');
+                            //$(reference).addClass('aktiv');
+                            //$(reference).empty();
                             window.location.reload(true);
                             //alert(data.msg);
-
-                            //$('span.inaktiv').empty().append('Inaktiv');
-                            //$('span.inaktiv').empty().append('Inaktiv');
-                            //$('p.inaktiv#'+I).empty().append('Inaktiv');
-                            //alert('p.inaktiv#'+I);
-
-                            //$('#inaktiv'+ I).css("background-color","red");
-
-                            //$(this).val('background-color', 'red');
                         }
                         else {
                             //showMessage(json.message, 'error');
                         }
                     }
                 });
-
             }
         });
         $('span.aktiv').click(function () {
@@ -62,14 +35,9 @@
             var user_id = $(this).attr('id');
             var r = confirm('Sie wollen den User ' + user_id + ' aktivieren?');
             if (r == true) {
-
-
                 var element = $(this);
-
                 var I = element.attr("id");
-                //alert (I);
                 var info = 'id=' + I;
-                //alert (info);
                 $.ajax({
                     url:WEBROOT + "ajax/activate/" + I,
                     type:"post",
@@ -77,24 +45,19 @@
                     dataType:'json',
                     success:function (data, status) {
                         if (data.status == "success") {
-                            //showMessage(json.message, 'success');
-                            //$('td:nth-child(5)').html('<a href="#">Inaktiv</a>');
-
-                            $(reference).removeClass('aktiv');
-                            $(reference).addClass('inaktiv');
-                            $(reference).empty().append('Aktiv');
+                            $(reference).toggleClass('aktiv', 'inaktiv');
+                            //$(reference).removeClass('aktiv');
+                            //$(reference).addClass('inaktiv');
+                           // $(reference).empty();
                             window.location.reload(true);
-                            //$(this).val('background-color', 'red');
                         }
                         else {
                             //showMessage(json.message, 'error');
                         }
                     }
                 });
-
             }
         });
-
     });
 
 
@@ -146,10 +109,7 @@
 
 
                     if ($user->active) {
-
                         echo  '<span class="inaktiv" id= "' . $user->id . ' ">Aktiv</span> ';
-                        //echo  '<a href="#" onclick="modalfunktion_deact( ' . $user->id . ')">Aktiv</a>
-//';
                     }if (!$user->active) {
                         echo '<span class="aktiv" id="' . $user->id . '">Inaktiv</span>
 ';
