@@ -4,7 +4,8 @@
 
 
         $('a.inaktiv').click(function () {
-            var reference = this;
+            //var reference = this;
+            reference = $(this);
             var user_id = $(this).attr('id');
             var r = confirm('Sie wollen den User ' + user_id + ' deaktivieren?');
             if (r == true) {
@@ -20,7 +21,7 @@
                     success:function (data, status) {
                         if (data.status == "success") {
 
-                            $(reference).toggleClass('inaktiv', 'aktiv');
+                            reference.toggleClass('inaktiv', 'aktiv');
                             //$(reference).addClass('aktiv');
                             //$(reference).empty();
                             window.location.reload(true);
@@ -34,7 +35,8 @@
             }
         });
         $('a.aktiv').click(function () {
-            var reference = this;
+            //var reference = this;
+            reference = $(this);
             var user_id = $(this).attr('id');
             var r = confirm('Sie wollen den User ' + user_id + ' aktivieren?');
             if (r == true) {
@@ -48,10 +50,10 @@
                     dataType:'json',
                     success:function (data, status) {
                         if (data.status == "success") {
-                            $(reference).toggleClass('aktiv', 'inaktiv');
+                            reference.toggleClass('aktiv', 'inaktiv');
                             //$(reference).removeClass('aktiv');
                             //$(reference).addClass('inaktiv');
-                           // $(reference).empty();
+                            // $(reference).empty();
                             window.location.reload(true);
                         }
                         else {
