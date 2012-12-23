@@ -1,6 +1,9 @@
 <script type="text/javascript">
     $(document).ready(function () {
-        $('span.inaktiv').click(function () {
+
+
+
+        $('a.inaktiv').click(function () {
             var reference = this;
             var user_id = $(this).attr('id');
             var r = confirm('Sie wollen den User ' + user_id + ' deaktivieren?');
@@ -30,7 +33,7 @@
                 });
             }
         });
-        $('span.aktiv').click(function () {
+        $('a.aktiv').click(function () {
             var reference = this;
             var user_id = $(this).attr('id');
             var r = confirm('Sie wollen den User ' + user_id + ' aktivieren?');
@@ -109,9 +112,10 @@
 
 
                     if ($user->active) {
-                        echo  '<span class="inaktiv" id= "' . $user->id . ' ">Aktiv</span> ';
+                        //echo  '<a title="User deaktivieren?" class="tip-bottom" class="inaktiv" id= "' . $user->id . ' ">Aktiv</a></span> ';
+                        echo  '<a class="inaktiv" id= "' . $user->id . ' ">Aktiv</a></span> ';
                     }if (!$user->active) {
-                        echo '<span class="aktiv" id="' . $user->id . '">Inaktiv</span>
+                        echo '<a class="aktiv" id="' . $user->id . '">Inaktiv</a></span>
 ';
                     }  '</td> ' . PHP_EOL;?>
                 <td><?php echo anchor("mitglieder/edit_user/" . $user->id, 'Edit');?></td>
