@@ -1,8 +1,8 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-
-        $('span.inaktiv').on('click',function () {
+        $('span.inaktiv').click(function () {
+            var reference = this;
             var user_id = $(this).attr('id');
             var r = confirm('Sie wollen den User ' + user_id + ' deaktivieren?');
             if (r == true) {
@@ -33,10 +33,12 @@
                             //var element =  '"p.inaktiv" id= " ' + I + ' ">';
                             //alert (I);
                             //var DivId = $(this).find('div.add');
-                            $('span').removeClass('inaktiv');
-                            $('span').addClass('aktiv');
-                            $('span').empty().append('Inaktiv');
-                            alert(data.msg);
+
+                            $(reference).removeClass('inaktiv');
+                            $(reference).addClass('aktiv');
+                            $(reference).empty()//.append('Inaktiv');
+                            window.location.reload(true);
+                            //alert(data.msg);
 
                             //$('span.inaktiv').empty().append('Inaktiv');
                             //$('span.inaktiv').empty().append('Inaktiv');
@@ -56,14 +58,14 @@
             }
         });
         $('span.aktiv').click(function () {
+            var reference = this;
             var user_id = $(this).attr('id');
             var r = confirm('Sie wollen den User ' + user_id + ' aktivieren?');
             if (r == true) {
 
 
                 var element = $(this);
-                //alert (element);
-                //alert ('klasse jetzt aktiv') ;
+
                 var I = element.attr("id");
                 //alert (I);
                 var info = 'id=' + I;
@@ -78,11 +80,10 @@
                             //showMessage(json.message, 'success');
                             //$('td:nth-child(5)').html('<a href="#">Inaktiv</a>');
 
-                            $('span').removeClass('aktiv');
-                            $('span').addClass('inaktiv');
-                            $('span').empty().append('Aktiv');
-                            alert(data.msg);
-
+                            $(reference).removeClass('aktiv');
+                            $(reference).addClass('inaktiv');
+                            $(reference).empty().append('Aktiv');
+                            window.location.reload(true);
                             //$(this).val('background-color', 'red');
                         }
                         else {
