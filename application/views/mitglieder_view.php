@@ -2,7 +2,7 @@
 
     $(document).ready(function () {
 
-        $('.inaktiv').click(function () {
+        $('span.inaktiv').on('click',function () {
             var user_id = $(this).attr('id');
             var r = confirm('Sie wollen den User ' + user_id + ' deaktivieren?');
             if (r == true) {
@@ -29,11 +29,16 @@
 
                             //showMessage(json.message, 'success');
                             //$('td:nth-child(5)').html('<a href="#">Inaktiv</a>');
-                            alert(data.msg);
+
                             //var element =  '"p.inaktiv" id= " ' + I + ' ">';
                             //alert (I);
                             //var DivId = $(this).find('div.add');
-                            $('span.inaktiv').empty().append('Inaktiv');
+                            $('span').removeClass('inaktiv');
+                            $('span').addClass('aktiv');
+                            $('span').empty().append('Inaktiv');
+                            alert(data.msg);
+
+                            //$('span.inaktiv').empty().append('Inaktiv');
                             //$('span.inaktiv').empty().append('Inaktiv');
                             //$('p.inaktiv#'+I).empty().append('Inaktiv');
                             //alert('p.inaktiv#'+I);
@@ -50,7 +55,7 @@
 
             }
         });
-        $('.aktiv').click(function () {
+        $('span.aktiv').click(function () {
             var user_id = $(this).attr('id');
             var r = confirm('Sie wollen den User ' + user_id + ' aktivieren?');
             if (r == true) {
@@ -72,8 +77,11 @@
                         if (data.status == "success") {
                             //showMessage(json.message, 'success');
                             //$('td:nth-child(5)').html('<a href="#">Inaktiv</a>');
+
+                            $('span').removeClass('aktiv');
+                            $('span').addClass('inaktiv');
+                            $('span').empty().append('Aktiv');
                             alert(data.msg);
-                            $('span.aktiv').empty().append('Aktiv');
 
                             //$(this).val('background-color', 'red');
                         }
