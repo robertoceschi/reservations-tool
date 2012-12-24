@@ -3,13 +3,12 @@
         $('.toggleStatus').click(function () {
             if ($(this).hasClass('inaktiv')) {
                 reference = $(this);
-                var user_id = $(this).attr('id');
-                var r = confirm('Sie wollen den User ' + user_id + ' deaktivieren?');
+                //var user_id = $(this).attr('id');
+                var user_name = $(this).attr('title');
+                var r = confirm('Sie wollen' + user_name + 'deaktivieren?');
                 if (r == true) {
                     var element = $(this);
                     var I = element.attr("id");
-                    var info = 'id=' + I;
-                    var actualGroup = $(this).text();
                     $.ajax({
                         url:WEBROOT + "ajax/deactivate/" + I,
                         type:"post",
@@ -29,15 +28,14 @@
                         }
                     });
                 }
-
             } else {
                 reference = $(this);
                 var user_id = $(this).attr('id');
-                var r = confirm('Sie wollen den User ' + user_id + ' aktivieren?');
+                var user_name = $(this).attr('title');
+                var r = confirm('Sie wollen' + user_name + 'aktivieren?');
                 if (r == true) {
                     var element = $(this);
                     var I = element.attr("id");
-                    var info = 'id=' + I;
                     $.ajax({
                         url:WEBROOT + "ajax/activate/" + I,
                         type:"post",
@@ -108,10 +106,9 @@
 
 
                     if ($user->active) {
-                        //echo  '<a title="User deaktivieren?" class="tip-bottom" class="inaktiv" id= "' . $user->id . ' ">Aktiv</a></span> ';
-                        echo  '<a class="toggleStatus inaktiv" id= "' . $user->id . ' ">Aktiv</a></span> ';
+                        echo  '<a class="toggleStatus inaktiv" id= "' . $user->id . ' " title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' ">Aktiv</a></span> ';
                     }if (!$user->active) {
-                        echo '<a class="toggleStatus aktiv" id="' . $user->id . '">Inaktiv</a></span>
+                        echo '<a class="toggleStatus aktiv" id="' . $user->id . '" title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' ">Inaktiv</a></span>
 ';
                     }  '</td> ' . PHP_EOL;?>
                 <td><?php echo anchor("mitglieder/edit_user/" . $user->id, 'Edit');?></td>
