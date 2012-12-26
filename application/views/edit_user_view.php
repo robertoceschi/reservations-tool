@@ -1,8 +1,8 @@
 <div class="container-fluid">
     <div class="row-fluid">
-        <h1>Edit User</h1>
 
-        <p>Please enter the users information below.</p>
+
+        <div class="span12">
 
         <div id="infoMessage"><?php echo $message;?></div>
 
@@ -70,3 +70,4 @@
         <p><?php echo form_submit('submit', 'Save User');?></p>
 
 <?php echo form_close();?>
+            </div>
