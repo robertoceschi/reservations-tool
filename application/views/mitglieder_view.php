@@ -23,7 +23,7 @@
                                 reference.append('Inaktiv');
                             }
                             else {
-                                //showMessage(json.message, 'error');
+                                alert(user_name + ' konnte nicht deaktiviert werden');
                             }
                         }
                     });
@@ -50,7 +50,7 @@
                                 reference.append('Aktiv');
                             }
                             else {
-                                //showMessage(json.message, 'error');
+                                alert(user_name + ' konnte nicht aktiviert werden');
                             }
                         }
                     });
@@ -59,32 +59,9 @@
         });
     });
 </script>
-
-<div id="example" class="modal hide fade in" style="display: none; ">
-    <div class="modal-header">
-        <a class="close" data-dismiss="modal">×</a>
-
-        <h3>This is a Modal Heading</h3>
-    </div>
-    <div class="modal-body">
-        <h4>Text in a modal</h4>
-
-        <p>You can add some text here.</p>
-    </div>
-    <div class="modal-footer">
-        <a href="#" class="btn btn-success">Call to action</a>
-        <a href="#" class="btn" data-dismiss="modal">Close</a>
-    </div>
-</div>
-<p><a data-toggle="modal" href="#example" class="btn btn-primary btn-large">Launch demo modal</a></p>
-
-
-
 <div id="demo"></div>
 <div class="container-fluid">
     <div class="row-fluid">
-
-
         <?php
         $group = $this->ion_auth->user()->row()->group;
         if ($group == 'admin') {
@@ -115,51 +92,11 @@
                 </tr>
                 <?php endforeach; ?>
             </table>
-
-
-
-            <!--Modal Box-->
-            <div id="modal" class="modal hide fade in" style="display: none; ">
-                <div class="modal-header">
-                    <a class="close" data-dismiss="modal">×</a>
-
-                    <h3>This is a Modal Heading</h3>
-                </div>
-                <div class="modal-body">
-                    <h4>Text in a modal</h4>
-
-                    <p>You can add some text here.</p>
-                </div>
-                <div class="modal-footer">
-                    <?php
-
-                    if ($user->active) {
-                        echo 'user aktiv';
-                        //echo   '<a href=" ' . base_url() . '/mitglieder/deactivate/' . $user->id . '"' . 'class="btn btn-success">deaktivieren</a>';
-                    } else {
-                        echo 'inaktiv';
-                        //echo   '<a href=" ' . base_url() . '/mitglieder/activate/' . $user->id . '"' . 'class="btn btn-success">aktivieren</a>'
-
-
-                        ;
-                    }?>
-
-
-
-
-                    <a href="#" class="btn" data-dismiss="modal">Close</a>
-                </div>
-            </div>
-
-
             <p><a href="<?php echo site_url('mitglieder/create_user');?>">Create a new user</a>
             <?php
         } ?>
     </div>
-
-
     <div class="row-fluid">
-
     </div>
 
 
