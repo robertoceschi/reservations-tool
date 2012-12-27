@@ -1,9 +1,9 @@
 <div class="container-fluid">
     <div class="row-fluid">
+        <div class="span12">
         <?php
 
-        //echo '<h2>User Profil</h2>';
-        //echo '<h5>This is your personal Profil</h5>';
+
         $user = $this->ion_auth->user()->row();
         echo $user->username . '<br />';
         echo $user->first_name . '<br />';
@@ -15,6 +15,6 @@
         echo anchor("mitglieder/edit_user/" . $user->id, 'Edit');
     ?>
     </div>
-    <div class="row-fluid">
+    </div>
 
     </div>
