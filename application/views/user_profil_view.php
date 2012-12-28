@@ -1,8 +1,18 @@
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
-        <?php
-
+            <div class="widget-box">
+                <div class="widget-title">
+								<span class="icon">
+									<i class="icon-user "></i>
+								</span>
+                    <h5>Ihr User Profil</h5>
+                </div>
+                <div class="widget-content nopadding">
+                    </div>
+                <?php
+                $attributes = array('class' => 'form-horizontal');
+                echo form_open(current_url(),$attributes);
 
         $user = $this->ion_auth->user()->row();
         echo $user->username . '<br />';
@@ -16,5 +26,5 @@
     ?>
     </div>
     </div>
-
+    </div>
     </div>

@@ -4,9 +4,9 @@
             <div class="widget-box">
                 <div class="widget-title">
 								<span class="icon">
-									<i class="icon-align-justify"></i>
+									<i class="icon-user "></i>
 								</span>
-                    <h5>Bitte geben Sie ihre Daten ein</h5>
+                    <h5>Ihre persönliches Profil</h5>
                 </div>
                 <div class="widget-content nopadding">
                     <div id="infoMessage"><?php echo $message;?></div>
@@ -151,7 +151,7 @@
                     //form_submit('submit', 'Eintrag speichern');?>
                     <div class="form-actions">
                     <button type="submit" class="btn btn-primary" data-loading-text="Sending...">
-                        <i class="icon-refresh icon-white"></i> Eintrag speichern</button>
+                        <!--<i class="icon-refresh icon-white"></i>--> Eintrag speichern</button>
                      </div>
                     <?php echo form_close();?>
 

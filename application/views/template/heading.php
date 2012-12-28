@@ -19,9 +19,10 @@
     <ul class="nav btn-group">
 
         <li class="btn btn-inverse"><?php
+            $id = $this->ion_auth->user()->row()->id;
             $first_name = $this->ion_auth->user()->row()->first_name;
             $last_name  = $this->ion_auth->user()->row()->last_name;
-            echo anchor('user_profil', '<i class="icon icon-user "></i> <span
+            echo anchor('mitglieder/edit_user/'. $id, '<i class="icon icon-user "></i> <span
                 class="text">' . ucfirst($first_name) . ' ' . ucfirst($last_name));
         ?></span></a></li>
         <!--<li class="btn btn-inverse"><?php echo anchor('settings', '<i class="icon icon-cog"></i> <span
