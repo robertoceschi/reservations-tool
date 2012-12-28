@@ -1,3 +1,9 @@
+<?php
+    $group = $this->ion_auth->user()->row()->group;
+    echo $group;
+
+?>
+
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
@@ -13,7 +19,7 @@
 
                     <?php
                     $attributes = array('class' => 'form-horizontal');
-                    echo form_open(current_url(),$attributes);?>
+                    echo form_open(current_url(), $attributes);?>
                     <div class="control-group">
                         <?php
                         $attributes = array(
@@ -70,14 +76,16 @@
                     </div>
                     <div class="control-group">
                         <?php
+
+
                         $attributes = array(
                             'label class' => 'control-label'
-                            );
+                        );
                         echo form_label('Passwort', 'password', $attributes); ?>
                         <div class="controls">
                             <?php
-                            $attributes = array('name' => 'password',
-                                                'id'   => 'password',
+                            $attributes = array('name'        => 'password',
+                                                'id'          => 'password',
                                                 'placeholder' => 'neues Passwort (falls gewünscht)');
                             echo form_input($attributes) . PHP_EOL;
                             /*echo '<pre>';
@@ -88,6 +96,7 @@
                     </div>
 
                     <div class="control-group">
+
                         <?php
                         $attributes = array(
                             'label class' => 'control-label',
@@ -95,8 +104,8 @@
                         echo form_label('Passwort wiederholen', 'password_confirm', $attributes); ?>
                         <div class="controls">
                             <?php
-                            $attributes = array('name' => 'password_confirm',
-                                                'id'   => 'password_confirm',
+                            $attributes = array('name'        => 'password_confirm',
+                                                'id'          => 'password_confirm',
                                                 'placeholder' => 'falls Passwort geändert wurde');
                             echo form_input($attributes) . PHP_EOL;
                             /*echo '<pre>';
@@ -105,15 +114,14 @@
                             ?>
                         </div>
                     </div>
-
-
-
-
-
-                    <div class="control-group">
-                    <?php echo '<div>' . PHP_EOL;
+                    <?php
                     $group = $this->ion_auth->user()->row()->group;
                     if ($group == 'admin') {
+                        echo '<div class="control-group">';
+                        echo '<div>' . PHP_EOL;
+                        //$group = $this->ion_auth->user()->row()->group;
+                        //  print_r($group);
+
                         $attributes = array(
                             'label class' => 'control-label');
                         echo form_label('Gruppe', 'group', $attributes) . PHP_EOL;
@@ -121,23 +129,25 @@
                         $group_set = $user->group;
                         echo form_dropdown('group', $options, $group_set) . PHP_EOL;
                         echo '</div>' . PHP_EOL;
-                    }
-                    ?>
-                    </div>
-                    <div class="control-group">
-                    <?php echo '<div>' . PHP_EOL;
-                    $group = $this->ion_auth->user()->row()->group;
-                    if ($group == 'admin') {
-                        $attributes = array(
-                            'label class' => 'control-label');
-                        echo form_label('Status', 'active', $attributes) . PHP_EOL;
-                        $options    = array(0 => 'Inaktiv', 1 => 'Aktiv');
-                        $active_set = $user->active;
-                        echo form_dropdown('active', $options, $active_set) . PHP_EOL;
-                        echo '</div>' . PHP_EOL;
 
+                        echo '</div>';
                     }
                     ?>
+
+                    <div class="control-group">
+
+                        <?php echo '<div>' . PHP_EOL;
+                        $group = $this->ion_auth->user()->row()->group;
+                        if ($group == 'admin') {
+                            $attributes = array(
+                                'label class' => 'control-label');
+                            echo form_label('Status', 'active', $attributes) . PHP_EOL;
+                            $options    = array(0 => 'Inaktiv', 1 => 'Aktiv');
+                            $active_set = $user->active;
+                            echo form_dropdown('active', $options, $active_set) . PHP_EOL;
+                            echo '</div>' . PHP_EOL;
+                        }
+                        ?>
                     </div>
 
 
@@ -150,11 +160,11 @@
 
                     //form_submit('submit', 'Eintrag speichern');?>
                     <div class="form-actions">
-                    <button type="submit" class="btn btn-primary" data-loading-text="Sending...">
-                        <!--<i class="icon-refresh icon-white"></i>--> Eintrag speichern</button>
-                     </div>
+                        <button type="submit" class="btn btn-primary" data-loading-text="Sending...">
+                            <!--<i class="icon-refresh icon-white"></i>--> Eintrag speichern
+                        </button>
+                    </div>
                     <?php echo form_close();?>
-
 
 
                 </div>
