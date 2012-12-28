@@ -20,73 +20,136 @@
 
                     <?php echo
                     $attributes = array('class' => 'form-horizontal');
-                    form_open("mitglieder/create_user",$attributes);
-                    $group = '';
-                    ?>
+                    echo form_open("mitglieder/create_user",$attributes);?>
+
+
 
                     <div class="control-group">
-                        First Name: <br/>
-                        <?php echo form_input($first_name);?>
+                        <?php
+                        $attributes = array(
+                            'label class' => 'control-label',);
+                        echo form_label('Vorname', 'first_name', $attributes); ?>
+                        <div class="controls">
+                            <?php
+                            $attributes = array('name' => 'first_name',
+                                                'id'   => 'first_name');
+                            echo form_input($attributes, set_value('first_name', $first_name['value'])) . PHP_EOL;
+                            ?>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <?php
+                        $attributes = array(
+                            'label class' => 'control-label',);
+                        echo form_label('Nachname', 'last_name', $attributes); ?>
+                        <div class="controls">
+                            <?php
+                            $attributes = array('name' => 'last_name',
+                                                'id'   => 'last_name');
+                            echo form_input($attributes, set_value('last_name', $last_name['value'])) . PHP_EOL;
+                            ?>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <?php
+                        $attributes = array(
+                            'label class' => 'control-label',);
+                        echo form_label('Firma', 'company', $attributes); ?>
+                        <div class="controls">
+                            <?php
+                            $attributes = array('name' => 'company',
+                                                'id'   => 'company');
+                            echo form_input($attributes, set_value('company', $company['value'])) . PHP_EOL;
+                            ?>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <?php
+                        $attributes = array(
+                            'label class' => 'control-label',);
+                        echo form_label('Email', 'email', $attributes); ?>
+                        <div class="controls">
+                            <?php
+                            $attributes = array('name' => 'email',
+                                                'id'   => 'email');
+                            echo form_input($attributes, set_value('email', $email['value'])) . PHP_EOL;
+                            ?>
+                        </div>
+                    </div>
 
-                    </p>
+                    <div class="control-group">
+                        <?php
+                        $attributes = array(
+                            'label class' => 'control-label',);
+                        echo form_label('Telefon', 'phone', $attributes); ?>
+                        <div class="controls">
+                            <?php
+                            $attributes = array('name' => 'phone',
+                                                'id'   => 'phone');
+                            echo form_input($attributes, set_value('phone1', $phone1['value'])) . PHP_EOL;
+                            /*echo form_input($attributes, set_value('phone2', $phone2['value'])) . PHP_EOL;*/
+                            /*echo form_input($attributes, set_value('phone3', $phone3['value'])) . PHP_EOL;*/
+                            ?>
+                        </div>
+                    </div>
 
-                    <p>
-                        Last Name: <br/>
-                        <?php echo form_input($last_name);?>
-                    </p>
+                    <div class="control-group">
+                        <?php
+                        $attributes = array(
+                            'label class' => 'control-label'
+                        );
+                        echo form_label('Passwort', 'password', $attributes); ?>
+                        <div class="controls">
+                            <?php
+                            $attributes = array('name' => 'password',
+                                                'id'   => 'password',
+                                                'placeholder' => 'mindestens 4-stellig');
+                            echo form_input($attributes) . PHP_EOL;
+                            /*echo '<pre>';
+                            print_r($password);
+                            echo '</pre>'; */
+                            ?>
+                        </div>
+                    </div>
 
-                    <p>
-                        Company Name: <br/>
-                        <?php echo form_input($company);?>
-                    </p>
+                    <div class="control-group">
+                        <?php
+                        $attributes = array(
+                            'label class' => 'control-label',
+                            'placeholder' => '');
+                        echo form_label('Passwort wiederholen', 'password_confirm', $attributes); ?>
+                        <div class="controls">
+                            <?php
+                            $attributes = array('name' => 'password_confirm',
+                                                'id'   => 'password_confirm',
+                                                'placeholder' => '');
+                            echo form_input($attributes) . PHP_EOL;
 
-                    <p>
-                        Email: <br/>
-                        <?php echo form_input($email);?>
-                    </p>
+                            ?>
+                        </div>
+                    </div>
 
-                    <p>
-                        Phone: <br/>
-                        <?php echo form_input($phone1);?>-<?php echo form_input($phone2);?>
-                        -<?php echo form_input($phone3);?>
-                    </p>
-
-                    <p>
-                        Password: <br/>
-                        <?php echo form_input($password);?>
-                    </p>
-
-                    <p>
-                        Confirm Password: <br/>
-                        <?php echo form_input($password_confirm);?>
-                    </p>
                     <?php
-                    echo form_fieldset() . PHP_EOL;
+                   // echo form_fieldset() . PHP_EOL;
+                    echo '<div class="control-group">' . PHP_EOL;
                     echo '<div>' . PHP_EOL;
                     $group = '';
-                    echo form_label('Gruppe:', 'group') . PHP_EOL;
+                    $attributes = array(
+                        'label class' => 'control-label');
+                    echo form_label('Gruppe', 'group', $attributes) . PHP_EOL;
                     $options = array('admin' => 'Administrator', 'members' => 'Mitglied');
                     echo form_dropdown('group', $options) . PHP_EOL;
-                    echo '</div>' . PHP_EOL;
+                    echo '</div></div>' . PHP_EOL;
 
-                    /*echo '<div>' . PHP_EOL;
-                    $group = $this->ion_auth->user()->row()->group;
-                    if ($group == 'admin') {
-                        echo form_label('Status:', 'active') . PHP_EOL;
-                        $options    = array(0 => 'Inaktiv', 1 => 'Aktiv');
-                        $active_set = $this->ion_auth->user()->row()->active;
-                        print_r($active_set);
-                        echo form_dropdown('active', $options, $active_set) . PHP_EOL;
-                        echo '</div>' . PHP_EOL;
 
-                    }
-                   */
                     ?>
 
 
 
-
-                    <p><?php echo form_submit('submit', 'Create User');?></p>
+                     <div class="form-actions">
+                         <button type="submit" class="btn btn-primary" data-loading-text="Sending...">
+                             <!--<i class="icon-refresh icon-white"></i>--> Profil speichern</button>
+                     </div>
 
                     <?php echo form_close(); ?>
 
