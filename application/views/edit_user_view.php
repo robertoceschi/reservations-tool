@@ -71,12 +71,14 @@
                     <div class="control-group">
                         <?php
                         $attributes = array(
-                            'label class' => 'control-label',);
+                            'label class' => 'control-label'
+                            );
                         echo form_label('Passwort', 'password', $attributes); ?>
                         <div class="controls">
                             <?php
                             $attributes = array('name' => 'password',
-                                                'id'   => 'password');
+                                                'id'   => 'password',
+                                                'placeholder' => 'neues Passwort (falls gewünscht)');
                             echo form_input($attributes) . PHP_EOL;
                             /*echo '<pre>';
                             print_r($password);
@@ -88,12 +90,14 @@
                     <div class="control-group">
                         <?php
                         $attributes = array(
-                            'label class' => 'control-label');
+                            'label class' => 'control-label',
+                            'placeholder' => 'neues Passwort (falls gewünscht)');
                         echo form_label('Passwort wiederholen', 'password_confirm', $attributes); ?>
                         <div class="controls">
                             <?php
                             $attributes = array('name' => 'password_confirm',
-                                                'id'   => 'password_confirm');
+                                                'id'   => 'password_confirm',
+                                                'placeholder' => 'falls Passwort geändert wurde');
                             echo form_input($attributes) . PHP_EOL;
                             /*echo '<pre>';
                             print_r($password);
@@ -112,7 +116,7 @@
                     if ($group == 'admin') {
                         $attributes = array(
                             'label class' => 'control-label');
-                        echo form_label('Gruppe:', 'group', $attributes) . PHP_EOL;
+                        echo form_label('Gruppe', 'group', $attributes) . PHP_EOL;
                         $options   = array('admin' => 'Administrator', 'members' => 'Mitglied');
                         $group_set = $user->group;
                         echo form_dropdown('group', $options, $group_set) . PHP_EOL;
@@ -126,7 +130,7 @@
                     if ($group == 'admin') {
                         $attributes = array(
                             'label class' => 'control-label');
-                        echo form_label('Status:', 'active', $attributes) . PHP_EOL;
+                        echo form_label('Status', 'active', $attributes) . PHP_EOL;
                         $options    = array(0 => 'Inaktiv', 1 => 'Aktiv');
                         $active_set = $user->active;
                         echo form_dropdown('active', $options, $active_set) . PHP_EOL;

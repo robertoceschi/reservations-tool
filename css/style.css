@@ -28,5 +28,26 @@
     color: #ffffff;
     text-align: center;
 }
+select[name=group] {
+    margin-left: 20px;
+    margin-top: 9px;
 
+}
+select[name=active] {
+    margin-left: 20px;
+    margin-top: 9px;
 
+}
+label[for=group]
+{
+ margin-bottom: 13px;
+}
+label[for=active]
+{
+    margin-bottom: 13px;
+}
+
+#new_user {
+    margin-bottom: 1.5em;
+
+}
