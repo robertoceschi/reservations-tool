@@ -64,8 +64,9 @@
     <div class="row-fluid">
         <div class="span12">
             <div id=new_user>
-                <button class="btn btn-large"><a href="<?php echo site_url('mitglieder/create_user');?>">Neues Mitglied eintragen</a></button>
+                <button class="btn btn-large btn-primary"><a href="<?php echo site_url('mitglieder/create_user');?>"> <i class=" icon-plus icon-white"></i> Neues Mitglied eintragen</a></button>
             </div>
+
             <table class="table table-bordered">
                 <thead>
                 <tr>

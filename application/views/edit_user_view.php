@@ -145,17 +145,22 @@
                     <?php /* echo form_hidden($csrf);*/ //nochmals anschauen!!!! Müsste eigentlich angezeigt werden ?>
 
 
-                    <?php echo
+                    <?php //echo
 
 
-                    form_submit('submit', 'Eintrag speichern');?>
-
+                    //form_submit('submit', 'Eintrag speichern');?>
+                    <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" data-loading-text="Sending...">
+                        <i class="icon-refresh icon-white"></i> Eintrag speichern</button>
+                     </div>
                     <?php echo form_close();?>
 
 
 
                 </div>
+
             </div>
+
         </div>
     </div>
 </div>
