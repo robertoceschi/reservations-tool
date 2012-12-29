@@ -1,9 +1,3 @@
-<?php
-    $group = $this->ion_auth->user()->row()->group;
-    print_r($this->ion_auth->user()->row()->group) ;
-
-?>
-
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
@@ -132,29 +126,14 @@
                         echo '</div>' . PHP_EOL;
 
                         echo '</div>';
-                  }/*else {
+                    }
+
+
+                        if ($group == 'admin') {
                         echo '<div class="control-group">';
                         echo '<div>' . PHP_EOL;
                         $group = $this->ion_auth->user()->row()->group;
-                        //  print_r($group);
 
-                        $attributes = array(
-                            'label class' => 'control-label');
-                        echo form_label('Gruppe', 'group', $attributes) . PHP_EOL;
-                        $options   = array( 'members' => 'Mitglied');
-                        $group_set = $user->group;
-                        echo form_dropdown('group', $options, $group_set) . PHP_EOL;
-                        echo '</div>' . PHP_EOL;
-
-                        echo '</div>';//*/
-
-                // }
-                    ?>
-
-                    <div class="control-group">
-                        <?php echo '<div>' . PHP_EOL;
-                        $group = $this->ion_auth->user()->row()->group;
-                        if ($group == 'admin') {
                             $attributes = array(
                                 'label class' => 'control-label');
                             echo form_label('Status', 'active', $attributes) . PHP_EOL;
@@ -162,31 +141,13 @@
                             $active_set = $user->active;
                             echo form_dropdown('active', $options, $active_set) . PHP_EOL;
                             echo '</div>' . PHP_EOL;
-                      } /*else {
-                            echo form_label('Status', 'active', $attributes) . PHP_EOL;
-                            $options    = array(1 => 'Aktiv');
-                            $active_set = $user->active;
-                            echo form_dropdown('active', $options, $active_set) . PHP_EOL;
-                            echo '</div>' . PHP_EOL;//$this->ion_auth->user()->row()->active = 1;
-                       // }*/
-                        ?>
-                    </div>
+
+
+                    echo '</div>'; } ?>
 
 
 
-                    <?php
-                    /*if (!$group == 'admin') {
-                        echo form_hidden('active', $user->active = 1);
 
-                    }
-                    if (!$group == 'admin') {
-
-                        echo form_hidden('group',$user->group ='members');
-                    } */
-
-
-                    print_r($this->ion_auth->user()->row()->group);
-                    print_r($user->active);echo form_hidden('id', $user->id);?>
                     <?php /* echo form_hidden($csrf);*/ //nochmals anschauen!!!! Müsste eigentlich angezeigt werden ?>
 
 
@@ -203,9 +164,7 @@
 
 
                 </div>
-
             </div>
-
         </div>
     </div>
 </div>
