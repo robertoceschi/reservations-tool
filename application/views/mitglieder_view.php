@@ -1,5 +1,6 @@
 <script type="text/javascript">
     $(document).ready(function () {
+        //status ändern inaktiv->aktiv->inaktiv
         $('.toggleStatus').click(function () {
             if ($(this).hasClass('inaktiv')) {
                 reference = $(this);
@@ -57,6 +58,13 @@
                 }
             }
         });
+
+        //delete User
+        $('#delete_user').click(function () {
+                      alert('user soll gelöscht werden?') ;
+        });
+
+
     });
 </script>
 
@@ -92,7 +100,8 @@
                         echo '<a class="toggleStatus aktiv" id="' . $user->id . '" title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' ">Inaktiv</a></span>
 ';
                     }  '</td> ' . PHP_EOL;?>
-                <td><?php echo anchor("mitglieder/edit_user/" . $user->id, 'Edit');?> | <?php echo anchor("" . $user->id, 'Delete');?></td>
+                <td><?php echo anchor("mitglieder/edit_user/" . $user->id, 'Edit');?> | <?php   $attributes = array('id'=>'delete_user');
+                echo anchor("mitglieder/delete_user/" . $user->id, 'Delete', $attributes);?></td>
 
                 </tr>
                 <?php endforeach; ?>
