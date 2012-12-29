@@ -1309,11 +1309,11 @@
             //check if the user change data for his own profile!!!! Roberto 29.12.2012
             $group            = $this->ion_auth->user()->row()->group;
             if ($group != 'admin') {
-                if (array($data['group'] == '')){
-                $data['group'] = 'members';
+                if (array($data['group'] == '')) {
+                    $data['group'] = 'members';
                 }
-                if (array($data['active'] == 0))  {
-                $data['active'] = 1;
+                if (array($data['active'] == 0)) {
+                    $data['active'] = 1;
                 }
             }
              //end check von  Roberto
