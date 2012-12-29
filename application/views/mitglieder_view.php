@@ -92,7 +92,8 @@
                         echo '<a class="toggleStatus aktiv" id="' . $user->id . '" title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' ">Inaktiv</a></span>
 ';
                     }  '</td> ' . PHP_EOL;?>
-                <td><?php echo anchor("mitglieder/edit_user/" . $user->id, 'Edit');?></td>
+                <td><?php echo anchor("mitglieder/edit_user/" . $user->id, 'Edit');?> | <?php echo anchor("" . $user->id, 'Delete');?></td>
+
                 </tr>
                 <?php endforeach; ?>
                 </tbody>
