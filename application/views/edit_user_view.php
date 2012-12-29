@@ -54,6 +54,20 @@
                             ?>
                         </div>
                     </div>
+
+                    <div class="control-group">
+                        <?php
+                        $attributes = array(
+                            'label class' => 'control-label',);
+                        echo form_label('Email', 'email', $attributes); ?>
+                        <div class="controls">
+                            <?php
+                            $attributes = array('name' => 'email',
+                                                'id'   => 'email');
+                            echo form_input($attributes, set_value('email', $email['value'])) . PHP_EOL;
+                            ?>
+                        </div>
+                    </div>
                     <div class="control-group">
                         <?php
                         $attributes = array(

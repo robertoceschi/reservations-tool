@@ -192,6 +192,7 @@
             //validate form input
             $this->form_validation->set_rules('first_name', 'First Name', 'required|xss_clean');
             $this->form_validation->set_rules('last_name', 'Last Name', 'required|xss_clean');
+            $this->form_validation->set_rules('email', 'Email Address', 'required|valid_email');
 
             // $this->form_validation->set_rules('phone1', 'First Part of Phone', 'required|xss_clean|min_length[3]|max_length[3]');
             //$this->form_validation->set_rules('phone2', 'Second Part of Phone', 'required|xss_clean|min_length[3]|max_length[3]');
@@ -211,6 +212,7 @@
                     'last_name'  => $this->input->post('last_name'),
 
                     'company'    => $this->input->post('company'),
+                    'email'    => $this->input->post('email'),
                     'phone'      => $this->input->post('phone1') . '-' . $this->input->post('phone2') . '-' . $this->input->post('phone3'),
                     'group'      => $this->input->post('group'),
                     'active'      => $this->input->post('active'),
@@ -263,12 +265,17 @@
                 'type'  => 'text',
                 'value' => $this->form_validation->set_value('last_name', $user->last_name),
             );
-
             $this->data['company']          = array(
                 'name'  => 'company',
                 'id'    => 'company',
                 'type'  => 'text',
                 'value' => $this->form_validation->set_value('company', $user->company),
+            );
+            $this->data['email']            = array(
+                'name'  => 'email',
+                'id'    => 'email',
+                'type'  => 'text',
+                'value' => $this->form_validation->set_value('email',  $user->email),
             );
 
             $this->data['phone1']           = array(
