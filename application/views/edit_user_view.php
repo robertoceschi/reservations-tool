@@ -1,6 +1,6 @@
 <?php
     $group = $this->ion_auth->user()->row()->group;
-    echo $group;
+    print_r($this->ion_auth->user()->row()->group) ;
 
 ?>
 
@@ -18,6 +18,7 @@
                     <div id="infoMessage"><?php echo $message;?></div>
 
                     <?php
+
                     $attributes = array('class' => 'form-horizontal');
                     echo form_open(current_url(), $attributes);?>
                     <div class="control-group">
@@ -119,7 +120,7 @@
                     if ($group == 'admin') {
                         echo '<div class="control-group">';
                         echo '<div>' . PHP_EOL;
-                        //$group = $this->ion_auth->user()->row()->group;
+                        $group = $this->ion_auth->user()->row()->group;
                         //  print_r($group);
 
                         $attributes = array(
@@ -131,11 +132,15 @@
                         echo '</div>' . PHP_EOL;
 
                         echo '</div>';
-                    }
+                   }else {
+                        //echo $this->ion_auth->user()->row()->group;
+                         //$this->ion_auth->user()->row()->group = 'members';
+                        //form_dropdown('group', $user->group = 'members') . PHP_EOL;
+
+                 }
                     ?>
 
                     <div class="control-group">
-
                         <?php echo '<div>' . PHP_EOL;
                         $group = $this->ion_auth->user()->row()->group;
                         if ($group == 'admin') {
@@ -146,12 +151,27 @@
                             $active_set = $user->active;
                             echo form_dropdown('active', $options, $active_set) . PHP_EOL;
                             echo '</div>' . PHP_EOL;
+                       } else {
+                            echo form_hidden('active', $user->active = 1);
                         }
                         ?>
                     </div>
 
 
-                    <?php echo form_hidden('id', $user->id);?>
+
+                    <?php
+                    /*if (!$group == 'admin') {
+                        echo form_hidden('active', $user->active = 1);
+
+                    }
+                    if (!$group == 'admin') {
+
+                        echo form_hidden('group',$user->group ='members');
+                    } */
+
+
+                    print_r($this->ion_auth->user()->row()->group);
+                    print_r($user->active);echo form_hidden('id', $user->id);?>
                     <?php /* echo form_hidden($csrf);*/ //nochmals anschauen!!!! Müsste eigentlich angezeigt werden ?>
 
 

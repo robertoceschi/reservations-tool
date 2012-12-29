@@ -173,6 +173,7 @@
         //edit a user
         function edit_user ($id) {
             $group            = $this->ion_auth->user()->row()->group;
+
             $main_content        = 'edit_user';
             $this->data['title'] = "Edit User";
 
@@ -198,7 +199,8 @@
             $this->form_validation->set_rules('company', 'Company Name', 'required|xss_clean');
 
 
-            if (isset($_POST) && !empty($_POST)) {
+            if (isset($_POST) && !empty($_POST))
+            ;{
                 // do we have a valid request?
                 //if ($this->_valid_csrf_nonce() === FALSE || $id != $this->input->post('id')) {
                 //    show_error('This form post did not pass our security checks.');
@@ -213,6 +215,7 @@
                     'group'      => $this->input->post('group'),
                     'active'      => $this->input->post('active'),
                 );
+
 
                 //update the password if it was posted
                 if ($this->input->post('password')) {
