@@ -1306,6 +1306,18 @@
          * @author Phil Sturgeon
          **/
         public function update ($id, array $data) {
+            //check if the user change data for his own profile!!!! Roberto 29.12.2012
+            $group            = $this->ion_auth->user()->row()->group;
+            if ($group != 'admin') {
+                if (array($data['group'] == '')){
+                $data['group'] = 'members';
+                }
+                if (array($data['active'] == 0))  {
+                $data['active'] = 1;
+                }
+            }
+             //end check von  Roberto
+
             $this->trigger_events('pre_update_user');
 
             $user = $this->user($id)->row();

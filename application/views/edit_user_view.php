@@ -132,12 +132,23 @@
                         echo '</div>' . PHP_EOL;
 
                         echo '</div>';
-                   }else {
-                        //echo $this->ion_auth->user()->row()->group;
-                         //$this->ion_auth->user()->row()->group = 'members';
-                        //form_dropdown('group', $user->group = 'members') . PHP_EOL;
+                  }/*else {
+                        echo '<div class="control-group">';
+                        echo '<div>' . PHP_EOL;
+                        $group = $this->ion_auth->user()->row()->group;
+                        //  print_r($group);
 
-                 }
+                        $attributes = array(
+                            'label class' => 'control-label');
+                        echo form_label('Gruppe', 'group', $attributes) . PHP_EOL;
+                        $options   = array( 'members' => 'Mitglied');
+                        $group_set = $user->group;
+                        echo form_dropdown('group', $options, $group_set) . PHP_EOL;
+                        echo '</div>' . PHP_EOL;
+
+                        echo '</div>';//*/
+
+                // }
                     ?>
 
                     <div class="control-group">
@@ -151,9 +162,13 @@
                             $active_set = $user->active;
                             echo form_dropdown('active', $options, $active_set) . PHP_EOL;
                             echo '</div>' . PHP_EOL;
-                       } else {
-                            echo form_hidden('active', $user->active = 1);
-                        }
+                      } /*else {
+                            echo form_label('Status', 'active', $attributes) . PHP_EOL;
+                            $options    = array(1 => 'Aktiv');
+                            $active_set = $user->active;
+                            echo form_dropdown('active', $options, $active_set) . PHP_EOL;
+                            echo '</div>' . PHP_EOL;//$this->ion_auth->user()->row()->active = 1;
+                       // }*/
                         ?>
                     </div>
 
