@@ -1,4 +1,6 @@
 <script type="text/javascript">
+
+
     $(document).ready(function () {
         //status ändern inaktiv->aktiv->inaktiv
         $('.toggleStatus').click(function () {
@@ -117,12 +119,12 @@
                 <td><?php echo $user->group;?></td>
                 <td><?php
                     if ($user->active) {
-                        echo  '<span style="cursor:pointer"><a class="toggleStatus inaktiv" id= "' . $user->id . ' " title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' ">Aktiv</a></span> ';
+                        echo  '<span style="cursor:pointer"><a  class="toggleStatus inaktiv" id= "' . $user->id . ' " title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' ">Aktiv</a></span> ';
                     }if (!$user->active) {
                         echo '<span style="cursor:pointer"><a class="toggleStatus aktiv" id="' . $user->id . '" title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' ">Inaktiv</a></span>
 ';
                     }  '</td> ' . PHP_EOL;?>
-                <td><?php echo anchor("mitglieder/edit_user/" . $user->id, '<i class=" icon-edit"></i>');?> | <?php
+                <td><?php echo anchor("mitglieder/edit_user/" . $user->id, '<i class=" icon-edit"></i>');?>      | <?php
                 echo '<span style="cursor:pointer"><a class="delete_user" id= "' . $user->id . ' " title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' löschen? "><i class=" icon-trash"></i> </a></span> ';?></td>
                 </tr>
                 <?php endforeach; ?>
