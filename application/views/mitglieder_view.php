@@ -64,7 +64,7 @@
             reference = $(this);
             //var user_id = $(this).attr('id');
             var user_name = $(this).attr('title');
-            var r = confirm('Sie wollen ' + user_name + ' löschen?');
+            var r = confirm('Sie wollen ' + user_name + '');
             if (r == true) {
                 var element = $(this);
                 var I = element.attr("id");
@@ -122,8 +122,8 @@
                         echo '<a class="toggleStatus aktiv" id="' . $user->id . '" title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' ">Inaktiv</a>
 ';
                     }  '</td> ' . PHP_EOL;?>
-                <td><?php echo anchor("mitglieder/edit_user/" . $user->id, 'Edit');?> | <?php
-                echo '<a class="delete_user" id= "' . $user->id . ' " title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' ">Delete</a> ';?></td>
+                <td><?php echo anchor("mitglieder/edit_user/" . $user->id, '<i class=" icon-edit"></i>');?> | <?php
+                echo '<a class="delete_user" id= "' . $user->id . ' " title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' löschen? "><i class=" icon-trash"></i> </a> ';?></td>
                 </tr>
                 <?php endforeach; ?>
                 </tbody>
