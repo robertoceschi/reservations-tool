@@ -75,12 +75,7 @@
                     dataType:'json',
                     success:function (data, status) {
                         if (data.status == "success") {
-                            //reference.removeClass('inaktiv');
-                            //reference.addClass('aktiv');
-                            //reference.toggleClass('inaktiv', 'aktiv');
-                            //reference.empty();
-                            //reference.append('Inaktiv');
-                            alert(status);
+                            reference.parent().parent().remove();
                         }
                         else {
                             alert(status);
@@ -115,7 +110,7 @@
                 </thead>
                 <?php  foreach ($users as $user):
                 echo '<tbody>';
-                echo '<tr>
+                echo '<tr class="remove">
                     <td>'?><?php echo $user->first_name;?></td>
                 <td><?php echo $user->last_name;?></td>
                 <td><?php echo $user->email;?></td>
@@ -129,14 +124,6 @@
                     }  '</td> ' . PHP_EOL;?>
                 <td><?php echo anchor("mitglieder/edit_user/" . $user->id, 'Edit');?> | <?php
                 echo '<a class="delete_user" id= "' . $user->id . ' " title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' ">Delete</a> ';?></td>
-
-
-
-
-
-
-
-
                 </tr>
                 <?php endforeach; ?>
                 </tbody>
