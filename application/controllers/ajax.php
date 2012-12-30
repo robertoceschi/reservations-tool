@@ -42,5 +42,24 @@
             echo json_encode(array('status' => $status, 'msg' => $msg));
         }
 
+        //delete  user
+        function delete_user ($id) {
+
+            $delete = $this->ion_auth->delete_user($id);
+
+
+            if ($delete) {
+                $status = "success";
+                $msg    = "User wurde gelöscht!";
+
+
+
+            } else {
+                $status = "error";
+                $msg    = "User konnte nicht gelöscht werden!";
+            }
+            echo json_encode(array('status' => $status, 'msg' => $msg));
+        }
+
     }
 

@@ -60,8 +60,35 @@
         });
 
         //delete User
-        $('#delete_user').click(function () {
-                      alert('user soll gelöscht werden?') ;
+        $('.delete_user').click(function () {
+            reference = $(this);
+            //var user_id = $(this).attr('id');
+            var user_name = $(this).attr('title');
+            var r = confirm('Sie wollen ' + user_name + ' löschen?');
+            if (r == true) {
+                var element = $(this);
+                var I = element.attr("id");
+                $.ajax({
+                    url:WEBROOT + "ajax/delete_user/" + I,
+                    type:"post",
+                    data:'id=' + I,
+                    dataType:'json',
+                    success:function (data, status) {
+                        if (data.status == "success") {
+                            //reference.removeClass('inaktiv');
+                            //reference.addClass('aktiv');
+                            //reference.toggleClass('inaktiv', 'aktiv');
+                            //reference.empty();
+                            //reference.append('Inaktiv');
+                            alert(status);
+                        }
+                        else {
+                            alert(status);
+                        }
+                    }
+                });
+            }
+
         });
 
 
@@ -95,13 +122,20 @@
                 <td><?php echo $user->group;?></td>
                 <td><?php
                     if ($user->active) {
-                        echo  '<a class="toggleStatus inaktiv" id= "' . $user->id . ' " title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' ">Aktiv</a></span> ';
+                        echo  '<a class="toggleStatus inaktiv" id= "' . $user->id . ' " title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' ">Aktiv</a> ';
                     }if (!$user->active) {
-                        echo '<a class="toggleStatus aktiv" id="' . $user->id . '" title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' ">Inaktiv</a></span>
+                        echo '<a class="toggleStatus aktiv" id="' . $user->id . '" title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' ">Inaktiv</a>
 ';
                     }  '</td> ' . PHP_EOL;?>
-                <td><?php echo anchor("mitglieder/edit_user/" . $user->id, 'Edit');?> | <?php   $attributes = array('id'=>'delete_user');
-                echo anchor("mitglieder/delete_user/" . $user->id, 'Delete', $attributes);?></td>
+                <td><?php echo anchor("mitglieder/edit_user/" . $user->id, 'Edit');?> | <?php
+                echo '<a class="delete_user" id= "' . $user->id . ' " title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' ">Delete</a> ';?></td>
+
+
+
+
+
+
+
 
                 </tr>
                 <?php endforeach; ?>
