@@ -54,3 +54,9 @@ label[for=active] {
 #new_user a {
     color: white;
 }
+
+/* Meldungen*/
+.alert-success {
+    margin-left: 30px;
+    width: 180px;
+}

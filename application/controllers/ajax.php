@@ -69,16 +69,25 @@
 
 
                 if ($delete) {
-                    $status = "success";
-                    $msg    = "User wurde gelöscht!";
-
-
+                    //$status = "success";
+                    //$msg    = "User wurde gelöscht!";
+                   $return = array(
+                       'status' => 'success',
+                        'message' => 'User wurde gelöscht!'
+                   );
+                    echo json_encode($return);
 
                 } else {
-                    $status = "error";
-                    $msg    = "User konnte nicht gelöscht werden!";
+                    //$status = "error";
+                    //$msg    = "User konnte nicht gelöscht werden!";
+
+                    $return = array(
+                        'status' => 'error',
+                        'message' => 'User wurde nicht gelöscht!'
+                    );
+                    echo json_encode($return);
                 }
-                echo json_encode(array('status' => $status, 'msg' => $msg));
+                //echo json_encode(array('status' => $status, 'msg' => $msg));
             }
 
 

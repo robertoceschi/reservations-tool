@@ -2,8 +2,8 @@
 
 
     $(document).ready(function () {
-       // $("#success").hide();
-       // $("#error").hide();
+        $("#success").hide();
+        $("#error").hide();
 
         //status ändern inaktiv->aktiv->inaktiv
         $('.toggleStatus').click(function () {
@@ -86,13 +86,16 @@
                     type:"post",
                     data:'id=' + I,
                     dataType:'json',
-                    success:function (data, status) {
-                        if (data.status == "success") {
+                    success:function (json) {
+                        if (json.status == "success") {
                             //alert(data.status);
                             reference.parent().parent().parent().remove();
+                            $("#successMessage").html(json.message);
+                            $("#success").show();
                         }
                         else {
-                            alert(status);
+                            $("#errorMessage").html(json.message);
+                            $("#error").show();
                         }
                     }
                 });
@@ -106,21 +109,23 @@
 
 <div class="container-fluid">
     <div class="row-fluid">
+
         <div class="span12">
             <div id=new_user>
-                <button class="btn btn-large btn-primary"><a href="<?php echo site_url('mitglieder/create_user');?>"> <i class=" icon-plus icon-white"></i> Neues Mitglied eintragen</a></button>
+                <button class="btn btn-large btn-primary"><a href="<?php echo site_url('mitglieder/create_user');?>"> <i
+                        class=" icon-plus icon-white"></i> Neues Mitglied eintragen</a></button>
             </div>
-            <div id="success" class="row" style="display: none">
-            <div class="span4">
-                <div id="successMessage" class="alert alert-success"></div>
-            </div>
-        </div>
-        <div id="error" class="row" style="display: none">
-            <div class="span4">
-                <div id="errorMessage" class="alert alert-error"></div>
-            </div>
-        </div>
 
+            <div id="success" class="row" style="display: none">
+                <div class="span4">
+                    <div id="successMessage" class="alert alert-success"></div>
+                </div>
+            </div>
+            <div id="error" class="row" style="display: none">
+                <div class="span4">
+                    <div id="errorMessage" class="alert alert-error"></div>
+                </div>
+            </div>
             <table class="table table-bordered">
                 <thead>
                 <tr>
@@ -149,7 +154,7 @@
 ';
                     }  '</td> ' . PHP_EOL;?>
                 <td><?php echo anchor("mitglieder/edit_user/" . $user->id, '<i class=" icon-edit"></i>');?>      | <?php
-                echo '<span style="cursor:pointer"><a class="delete_user" id= "' . $user->id . ' " title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' löschen? "><i class=" icon-trash"></i> </a></span> ';?></td>
+                    echo '<span style="cursor:pointer"><a class="delete_user" id= "' . $user->id . ' " title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' löschen? "><i class=" icon-trash"></i> </a></span> ';?></td>
                 </tr>
                 <?php endforeach; ?>
                 </tbody>
