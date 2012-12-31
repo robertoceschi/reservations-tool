@@ -2,6 +2,9 @@
 
 
     $(document).ready(function () {
+        $("#success").hide();
+        $("#error").hide();
+
         //status ändern inaktiv->aktiv->inaktiv
         $('.toggleStatus').click(function () {
             if ($(this).hasClass('inaktiv')) {
@@ -17,16 +20,21 @@
                         type:"post",
                         data:'id=' + I,
                         dataType:'json',
-                        success:function (data, status) {
-                            if (data.status == "success") {
+                        success:function (json) {
+                            if (json.status == "success") {
                                 //reference.removeClass('inaktiv');
                                 //reference.addClass('aktiv');
                                 reference.toggleClass('inaktiv', 'aktiv');
                                 reference.empty();
                                 reference.append('Inaktiv');
+                                //alert(json.message);
+                                $("#successMessage").html(json.message);
+                                $("#success").show();
                             }
+
                             else {
-                                alert(user_name + ' konnte nicht deaktiviert werden');
+                                $("#errorMessage").html(json.message);
+                                $("#error").show();
                             }
                         }
                     });
@@ -44,16 +52,19 @@
                         type:"post",
                         data:'id=' + I,
                         dataType:'json',
-                        success:function (data, status) {
-                            if (data.status == "success") {
+                        success:function (json) {
+                            if (json.status == "success") {
                                 //reference.removeClass('aktiv');
                                 //reference.addClass('inaktiv');
                                 reference.toggleClass('inaktiv', 'aktiv');
                                 reference.empty();
                                 reference.append('Aktiv');
+                                $("#successMessage").html(json.message);
+                                $("#success").show();
                             }
                             else {
-                                alert(user_name + ' konnte nicht aktiviert werden');
+                                $("#errorMessage").html(json.message);
+                                $("#error").show();
                             }
                         }
                     });
@@ -75,12 +86,15 @@
                     type:"post",
                     data:'id=' + I,
                     dataType:'json',
-                    success:function (data, status) {
-                        if (data.status == "success") {
+                    success:function (json) {
+                        if (json.status == "success") {
                             reference.parent().parent().remove();
+                            $("#successMessage").html(json.message);
+                            $("#success").show();
                         }
                         else {
-                            alert(status);
+                            $("#errorMessage").html(json.message);
+                            $("#error").show();
                         }
                     }
                 });
@@ -98,6 +112,16 @@
             <div id=new_user>
                 <button class="btn btn-large btn-primary"><a href="<?php echo site_url('mitglieder/create_user');?>"> <i class=" icon-plus icon-white"></i> Neues Mitglied eintragen</a></button>
             </div>
+            <div id="success" class="row" style="display: none">
+            <div class="span4">
+                <div id="successMessage" class="alert alert-success"></div>
+            </div>
+        </div>
+        <div id="error" class="row" style="display: none">
+            <div class="span4">
+                <div id="errorMessage" class="alert alert-error"></div>
+            </div>
+        </div>
 
             <table class="table table-bordered">
                 <thead>
@@ -110,6 +134,8 @@
                     <th>Bearbeitung</th>
                 </tr>
                 </thead>
+
+
                 <?php  foreach ($users as $user):
                 echo '<tbody>';
                 echo '<tr class="remove">
