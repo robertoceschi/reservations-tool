@@ -60,7 +60,7 @@
 
                 );
                 echo json_encode($return);
-            }
+            }   }
 
             //delete  user
             function delete_user ($id) {
@@ -69,29 +69,18 @@
 
 
                 if ($delete) {
-                    //$status = "success";
-                    //$msg    = "User wurde gelöscht!";
-                    $return = array(
-                        'status'  => 'success',
-                        'message' => 'User wurde gelöscht!'
+                    $status = "success";
+                    $msg    = "User wurde gelöscht!";
 
-                    );
-                    echo json_encode($return);
 
 
                 } else {
-                    //$status = "error";
-                    //$msg    = "User konnte nicht gelöscht werden!";
-                    $return = array(
-                        'status'  => 'success',
-                        'message' => 'User konnte nicht gelöscht werden!'
-
-                    );
-                    echo json_encode($return);
+                    $status = "error";
+                    $msg    = "User konnte nicht gelöscht werden!";
                 }
-
+                echo json_encode(array('status' => $status, 'msg' => $msg));
             }
 
-        }
+
     }
 

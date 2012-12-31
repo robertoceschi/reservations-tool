@@ -2,8 +2,8 @@
 
 
     $(document).ready(function () {
-        $("#success").hide();
-        $("#error").hide();
+       // $("#success").hide();
+       // $("#error").hide();
 
         //status ändern inaktiv->aktiv->inaktiv
         $('.toggleStatus').click(function () {
@@ -86,15 +86,13 @@
                     type:"post",
                     data:'id=' + I,
                     dataType:'json',
-                    success:function (json) {
-                        if (json.status == "success") {
-                            reference.parent().parent().remove();
-                            $("#successMessage").html(json.message);
-                            $("#success").show();
+                    success:function (data, status) {
+                        if (data.status == "success") {
+                            //alert(data.status);
+                            reference.parent().parent().parent().remove();
                         }
                         else {
-                            $("#errorMessage").html(json.message);
-                            $("#error").show();
+                            alert(status);
                         }
                     }
                 });
