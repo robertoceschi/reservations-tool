@@ -1,15 +1,18 @@
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
-            <div id="infoMessage"><?php echo $message;?></div>
-            <div class="alert alert-success" style="display: none">
-                <button class="close" data-dismiss="alert">×</button>
-                <strong><div id="successMessage"><?php echo $message;?></div>  </strong>
-            </div>
-            <div class="alert alert-error" style="display: none">
-                <button class="close" data-dismiss="alert">×</button>
-                <strong><div id="errorMessage"></div>  </strong>
-            </div>
+            <?php
+            if ($this->session->flashdata('message') == 'Der Eintrag wurde gespeichert!') {
+                echo '<div class="alert alert-success">';
+                echo '<button class="close" data-dismiss="alert">×</button>';
+                echo '<strong><div id="successMessage">' . $message . '</div></strong> ';
+                echo '</div>';
+            } if ($this->session->flashdata('message') != 'Der Eintrag wurde gespeichert!') {
+            echo '<div class="alert alert-error">';
+            echo '<button class="close" data-dismiss="alert">×</button> ';
+            echo '<strong><div id="errorMessage">' . $message . '</div>  </strong>';
+            echo '</div>';
+        }  ?>
 
 
             <div class="widget-box">
@@ -153,21 +156,22 @@
                     }
 
 
-                        if ($group == 'admin') {
+                    if ($group == 'admin') {
                         echo '<div class="control-group">';
                         echo '<div>' . PHP_EOL;
                         $group = $this->ion_auth->user()->row()->group;
 
-                            $attributes = array(
-                                'label class' => 'control-label');
-                            echo form_label('Status', 'active', $attributes) . PHP_EOL;
-                            $options    = array(0 => 'Inaktiv', 1 => 'Aktiv');
-                            $active_set = $user->active;
-                            echo form_dropdown('active', $options, $active_set) . PHP_EOL;
-                            echo '</div>' . PHP_EOL;
+                        $attributes = array(
+                            'label class' => 'control-label');
+                        echo form_label('Status', 'active', $attributes) . PHP_EOL;
+                        $options    = array(0 => 'Inaktiv', 1 => 'Aktiv');
+                        $active_set = $user->active;
+                        echo form_dropdown('active', $options, $active_set) . PHP_EOL;
+                        echo '</div>' . PHP_EOL;
 
 
-                    echo '</div>'; } ?>
+                        echo '</div>';
+                    } ?>
 
 
 

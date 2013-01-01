@@ -248,6 +248,7 @@
             //$this->data['csrf'] = $this->_get_csrf_nonce();  => nochmals genau anschauen!!!!!müsste eigentlich aktiv sein Problem=>  edit_user_view wird sonst nicht angezeigt
 
             //set the flash data error message if there is one
+
             $this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
 
             //pass the user to the view
