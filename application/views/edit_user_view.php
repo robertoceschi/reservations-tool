@@ -1,6 +1,17 @@
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
+            <div id="infoMessage"><?php echo $message;?></div>
+            <div class="alert alert-success" style="display: none">
+                <button class="close" data-dismiss="alert">×</button>
+                <strong><div id="successMessage"><?php echo $message;?></div>  </strong>
+            </div>
+            <div class="alert alert-error" style="display: none">
+                <button class="close" data-dismiss="alert">×</button>
+                <strong><div id="errorMessage"></div>  </strong>
+            </div>
+
+
             <div class="widget-box">
                 <div class="widget-title">
 								<span class="icon">
@@ -9,7 +20,6 @@
                     <h5>Ihre persönliches Profil</h5>
                 </div>
                 <div class="widget-content nopadding">
-                    <div id="infoMessage"><?php echo $message;?></div>
 
                     <?php
 

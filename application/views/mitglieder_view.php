@@ -29,12 +29,12 @@
                                 reference.append('Inaktiv');
                                 //alert(json.message);
                                 $("#successMessage").html(json.message);
-                                $("#success").show();
+                                $(".alert-success").show();
                             }
 
                             else {
                                 $("#errorMessage").html(json.message);
-                                $("#error").show();
+                                $(".alert-error").show();
                             }
                         }
                     });
@@ -110,9 +110,21 @@
 <div class="container-fluid">
     <div class="row-fluid">
 
-        <div class="span12">
 
-            <div id="success" class="row" style="display: none">
+
+
+        <div class="span12">
+            <div class="alert alert-success" style="display: none">
+                <button class="close" data-dismiss="alert">×</button>
+                <strong><div id="successMessage"></div>  </strong>
+            </div>
+            <div class="alert alert-error" style="display: none">
+                <button class="close" data-dismiss="alert">×</button>
+                <strong><div id="errorMessage"></div>  </strong>
+            </div>
+
+
+            <!--<div id="success" class="row" style="display: none">
                 <div class="span4">
                     <div id="successMessage" class="alert alert-success"></div>
                 </div>
@@ -121,7 +133,7 @@
                 <div class="span4">
                     <div id="errorMessage" class="alert alert-error"></div>
                 </div>
-            </div>
+            </div> -->
 
             <div id=new_user>
                 <button class="btn btn-large btn-primary"><a href="<?php echo site_url('mitglieder/create_user');?>"> <i

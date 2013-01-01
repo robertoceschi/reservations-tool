@@ -12,7 +12,7 @@
                 $return = array(
 
                     'status'  => 'success',
-                    'message' => 'User ist deaktiviert!'
+                    'message' => 'Der User wurde erfolgreich deaktiviert!'
 
                 );
                 echo json_encode($return);
@@ -25,7 +25,7 @@
                 $return = array(
 
                     'status'  => 'error',
-                    'message' => 'User konnte nicht deaktiviert werden!'
+                    'message' => 'Der User konnte nicht deaktiviert werden!'
 
                 );
                 echo json_encode($return);
@@ -46,7 +46,7 @@
                 $return = array(
 
                     'status'  => 'success',
-                    'message' => 'User ist aktiviert!'
+                    'message' => 'Der User wurde erfolgreich aktiviert!'
 
                 );
                 echo json_encode($return);
@@ -56,7 +56,7 @@
                 $return = array(
 
                     'status'  => 'error',
-                    'message' => 'User konnte nicht aktiviert werden!'
+                    'message' => 'Der User konnte nicht aktiviert werden!'
 
                 );
                 echo json_encode($return);
@@ -73,7 +73,7 @@
                     //$msg    = "User wurde gelöscht!";
                    $return = array(
                        'status' => 'success',
-                        'message' => 'User wurde gelöscht!'
+                        'message' => 'Der User wurde erfolgreich gelöscht!'
                    );
                     echo json_encode($return);
 
@@ -83,7 +83,7 @@
 
                     $return = array(
                         'status' => 'error',
-                        'message' => 'User wurde nicht gelöscht!'
+                        'message' => 'Der User wurde nicht gelöscht!'
                     );
                     echo json_encode($return);
                 }

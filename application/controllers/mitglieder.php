@@ -233,7 +233,7 @@
 
                     //check to see if we are creating the user
                     //redirect them back to the admin page
-                    $this->session->set_flashdata('message', "User Saved");
+                    $this->session->set_flashdata('message', "Der Eintrag wurde gespeichert!");
 
                     //redirect("settings/edit_user", 'refresh');
                     //$this->load->view('view_answer');
