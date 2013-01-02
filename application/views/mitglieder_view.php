@@ -67,7 +67,7 @@
                                 $("#successMessage").html(json.message);
                                 $(".alert-success").show();
                                 //$('.close').click(function() {
-                                    //alert('klasse inaktiv');
+                                //alert('klasse inaktiv');
 
                                 //});
 
