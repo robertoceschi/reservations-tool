@@ -1,6 +1,19 @@
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
+
+            <?php
+            if ($this->session->flashdata('message') == 'Account De-Activated' or 'Activation Email Sent' ) {
+                echo '<div class="alert alert-success">';
+                echo '<button class="close" data-dismiss="alert">×</button>';
+                echo '<strong><div id="successMessage">' . $message . '</div></strong> ';
+                echo '</div>';
+            } if (!isset($message) and  $this->session->flashdata('message') != 'Account De-Activated' or 'Activation Email Sent') {
+            echo '<div class="alert alert-error">';
+            echo '<button class="close" data-dismiss="alert">×</button> ';
+            echo '<strong><div id="errorMessage">' . $message . '</div>  </strong>';
+            echo '</div>';
+        }  ?>
             <div class="widget-box">
                 <div class="widget-title">
 								<span class="icon">
@@ -16,7 +29,7 @@
 
 
                      <div class="widget-content nopadding">
-                    <div id="infoMessage"><?php echo $message;?></div>
+
 
                     <?php echo
                     $attributes = array('class' => 'form-horizontal');
