@@ -1,6 +1,4 @@
 <script type="text/javascript">
-
-
     $(document).ready(function () {
         //$("#success").hide();
         //$("#error").hide();
@@ -116,8 +114,6 @@
             }
 
         });
-
-
     });
 </script>
 

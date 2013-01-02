@@ -1,3 +1,11 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        //error Message wird mit click() geschlossen!!
+        $('.close').click(function () {
+            $('.alert').hide();
+        })
+    });
+</script>
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
