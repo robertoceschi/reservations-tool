@@ -81,11 +81,9 @@
                 }
             }
         });
-
+         //error Message wird mit click() geschlossen!!
         $('.close').click(function () {
-
             $('.alert').hide();
-
         })
 
 
