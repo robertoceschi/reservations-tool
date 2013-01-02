@@ -82,9 +82,11 @@
             }
         });
 
-        $('.close').click(function() {
-            location.reload();
-        });
+        $('.close').click(function () {
+
+            $('.alert').hide();
+
+        })
 
 
         //delete User
@@ -125,12 +127,17 @@
     <div class="row-fluid">
         <div class="span12">
             <div class="alert alert-success" style="display: none">
-                <button class="close" data-dismiss="alert">×</button>
-                <strong><div id="successMessage"></div>  </strong>
+                <button class="close">×</button>
+                <strong>
+                    <div id="successMessage"></div>
+                </strong>
             </div>
             <div class="alert alert-error" style="display: none">
-                <button class="close" data-dismiss="alert">×</button>
-                <strong><div id="errorMessage"></div>  </strong>
+                <button class="close"
+                <!--data-dismiss="alert"-->>×</button>
+                <strong>
+                    <div id="errorMessage"></div>
+                </strong>
             </div>
 
 
