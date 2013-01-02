@@ -2,11 +2,11 @@
 
 
     $(document).ready(function () {
-        $("#success").hide();
-        $("#error").hide();
-
+        //$("#success").hide();
+        //$("#error").hide();
         //status ändern inaktiv->aktiv->inaktiv
-        $('.toggleStatus').click(function () {
+        $('.toggleStatus ').click(function () {
+            //deaktivieren
             if ($(this).hasClass('inaktiv')) {
                 reference = $(this);
                 //var user_id = $(this).attr('id');
@@ -22,14 +22,18 @@
                         dataType:'json',
                         success:function (json) {
                             if (json.status == "success") {
-                                //reference.removeClass('inaktiv');
-                                //reference.addClass('aktiv');
-                                reference.toggleClass('inaktiv', 'aktiv');
+                                //reference.toggleClass('aktiv');
+                                reference.removeClass('inaktiv');
+                                reference.addClass('aktiv');
                                 reference.empty();
                                 reference.append('Inaktiv');
-                                //alert(json.message);
                                 $("#successMessage").html(json.message);
                                 $(".alert-success").show();
+                                //$('.close').click(function() {
+                                //alert('klasse aktiv');
+
+
+                                //});
                             }
 
                             else {
@@ -40,6 +44,7 @@
                     });
                 }
             } else {
+                //aktivieren
                 reference = $(this);
                 var user_id = $(this).attr('id');
                 var user_name = $(this).attr('title');
@@ -54,23 +59,33 @@
                         dataType:'json',
                         success:function (json) {
                             if (json.status == "success") {
-                                //reference.removeClass('aktiv');
-                                //reference.addClass('inaktiv');
-                                reference.toggleClass('inaktiv', 'aktiv');
+                                //reference.toggleClass('aktiv');
+                                reference.removeClass('aktiv');
+                                reference.addClass('inaktiv');
                                 reference.empty();
                                 reference.append('Aktiv');
                                 $("#successMessage").html(json.message);
-                                $("#success").show();
+                                $(".alert-success").show();
+                                //$('.close').click(function() {
+                                    //alert('klasse inaktiv');
+
+                                //});
+
                             }
                             else {
                                 $("#errorMessage").html(json.message);
-                                $("#error").show();
+                                $(".alert-error").show();
                             }
                         }
                     });
                 }
             }
         });
+
+        $('.close').click(function() {
+            location.reload();
+        });
+
 
         //delete User
         $('.delete_user').click(function () {
@@ -88,14 +103,13 @@
                     dataType:'json',
                     success:function (json) {
                         if (json.status == "success") {
-                            //alert(data.status);
                             reference.parent().parent().parent().remove();
                             $("#successMessage").html(json.message);
-                            $("#success").show();
+                            $(".alert-success").show();
                         }
                         else {
                             $("#errorMessage").html(json.message);
-                            $("#error").show();
+                            $(".alert-error").show();
                         }
                     }
                 });
@@ -109,10 +123,6 @@
 
 <div class="container-fluid">
     <div class="row-fluid">
-
-
-
-
         <div class="span12">
             <div class="alert alert-success" style="display: none">
                 <button class="close" data-dismiss="alert">×</button>
@@ -123,17 +133,6 @@
                 <strong><div id="errorMessage"></div>  </strong>
             </div>
 
-
-            <!--<div id="success" class="row" style="display: none">
-                <div class="span4">
-                    <div id="successMessage" class="alert alert-success"></div>
-                </div>
-            </div>
-            <div id="error" class="row" style="display: none">
-                <div class="span4">
-                    <div id="errorMessage" class="alert alert-error"></div>
-                </div>
-            </div> -->
 
             <div id=new_user>
                 <button class="btn btn-large btn-primary"><a href="<?php echo site_url('mitglieder/create_user');?>"> <i
