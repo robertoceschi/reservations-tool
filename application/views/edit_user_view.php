@@ -7,7 +7,8 @@
                 echo '<button class="close" data-dismiss="alert">×</button>';
                 echo '<strong><div id="successMessage">' . $message . '</div></strong> ';
                 echo '</div>';
-            } if ($this->session->flashdata('message') != 'Der Eintrag wurde gespeichert!') {
+            } if (!isset($message) and  $this->session->flashdata('message') != 'Der Eintrag wurde gespeichert!') {
+               //print_r($message);
             echo '<div class="alert alert-error">';
             echo '<button class="close" data-dismiss="alert">×</button> ';
             echo '<strong><div id="errorMessage">' . $message . '</div>  </strong>';
