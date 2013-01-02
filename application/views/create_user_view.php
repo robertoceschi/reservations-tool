@@ -1,5 +1,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
+        $(".alert-success").hide();
+        $("#error").hide();
         //error Message wird mit click() geschlossen!!
         $('.close').click(function () {
             $('.alert').hide();
@@ -11,17 +13,17 @@
         <div class="span12">
 
             <?php
-            if ($this->session->flashdata('message') == 'Account De-Activated' or 'Activation Email Sent' ) {
+            if ($this->session->flashdata('message') == 'Account De-Activated' or 'Activation Email Sent') {
                 echo '<div class="alert alert-success">';
                 echo '<button class="close" data-dismiss="alert">×</button>';
                 echo '<strong><div id="successMessage">' . $message . '</div></strong> ';
                 echo '</div>';
-            } if (!isset($message) and  $this->session->flashdata('message') != 'Account De-Activated' or 'Activation Email Sent') {
+            } /*if (!isset($message) and  $this->session->flashdata('message') != 'Account De-Activated' or 'Activation Email Sent') {
             echo '<div class="alert alert-error">';
             echo '<button class="close" data-dismiss="alert">×</button> ';
             echo '<strong><div id="errorMessage">' . $message . '</div>  </strong>';
             echo '</div>';
-        }  ?>
+        }  */?>
             <div class="widget-box">
                 <div class="widget-title">
 								<span class="icon">
@@ -32,16 +34,16 @@
                 <?php
                 $group = $this->ion_auth->user()->row()->group;
                 if ($group == 'admin') {
-                   /* echo '<h2>Create User</h2>';
-                    echo '<h5>Please enter the users information below.</h5>'*/;?>
-
+                    /* echo '<h2>Create User</h2>';
+                     echo '<h5>Please enter the users information below.</h5>'*/
+                    ;?>
 
                      <div class="widget-content nopadding">
 
 
                     <?php echo
                     $attributes = array('class' => 'form-horizontal');
-                    echo form_open("mitglieder/create_user",$attributes);?>
+                    echo form_open("mitglieder/create_user", $attributes);?>
 
 
 
@@ -122,8 +124,8 @@
                         echo form_label('Passwort', 'password', $attributes); ?>
                         <div class="controls">
                             <?php
-                            $attributes = array('name' => 'password',
-                                                'id'   => 'password',
+                            $attributes = array('name'        => 'password',
+                                                'id'          => 'password',
                                                 'placeholder' => 'mindestens 4-stellig');
                             echo form_input($attributes) . PHP_EOL;
                             /*echo '<pre>';
@@ -141,8 +143,8 @@
                         echo form_label('Passwort wiederholen', 'password_confirm', $attributes); ?>
                         <div class="controls">
                             <?php
-                            $attributes = array('name' => 'password_confirm',
-                                                'id'   => 'password_confirm',
+                            $attributes = array('name'        => 'password_confirm',
+                                                'id'          => 'password_confirm',
                                                 'placeholder' => '');
                             echo form_input($attributes) . PHP_EOL;
 
@@ -151,10 +153,10 @@
                     </div>
 
                     <?php
-                   // echo form_fieldset() . PHP_EOL;
+                    // echo form_fieldset() . PHP_EOL;
                     echo '<div class="control-group">' . PHP_EOL;
                     echo '<div>' . PHP_EOL;
-                    $group = '';
+                    $group      = '';
                     $attributes = array(
                         'label class' => 'control-label');
                     echo form_label('Gruppe', 'group', $attributes) . PHP_EOL;
@@ -167,10 +169,11 @@
 
 
 
-                     <div class="form-actions">
-                         <button type="submit" class="btn btn-primary" data-loading-text="Sending...">
-                             <!--<i class="icon-refresh icon-white"></i>--> Profil speichern</button>
-                     </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" data-loading-text="Sending...">
+                            <!--<i class="icon-refresh icon-white"></i>--> Profil speichern
+                        </button>
+                    </div>
 
                     <?php echo form_close(); ?>
 
@@ -181,8 +184,8 @@
 
                 };?>
             </div>
+            </div>
         </div>
     </div>
-</div>
 
 
