@@ -40,7 +40,6 @@
                     $this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
 
                 }
-
                 parent::__renderAll($this->sControllerName, $this->data);
             } else {
                 //$this->data['user'] = $this->ion_auth->user($id)->row();
@@ -91,11 +90,11 @@
                     //'active'      => $this->input->post('active'),
                 );
             }
+
             if ($this->form_validation->run() == true && $this->ion_auth->register($username, $password, $email, $additional_data)) {
                 //check to see if we are creating the user
+
                 //redirect them back to the admin page
-
-
                 $this->session->set_flashdata('message', $this->ion_auth->messages());
 
                 redirect("mitglieder/create_user", 'refresh');
