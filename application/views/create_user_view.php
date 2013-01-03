@@ -14,18 +14,17 @@
     <div class="row-fluid">
         <div class="span12">
             <?php
+            if($message == '') {
 
-            if(!isset($message)) {
-                echo 'keine fehlermeldung';
             }
 
-            if ($this->session->flashdata('user_create') == true) {
+            elseif ($this->session->flashdata('user_create') == true) {
                 echo '<div class="alert alert-success">';
                 echo '<button class="close" data-dismiss="alert">×</button>';
                 echo '<strong><div id="successMessage">' . $message . '</div></strong> ';
                 echo '</div>';
             }
-            if ($this->session->flashdata('user_create') == false)  {
+            elseif ($message != '' and $this->session->flashdata('user_create') == false)  {
                 echo '<div class="alert alert-error">';
                 echo '<button class="close" data-dismiss="alert">×</button> ';
                 echo '<strong><div id="errorMessage">' . $message . '</div>  </strong>';

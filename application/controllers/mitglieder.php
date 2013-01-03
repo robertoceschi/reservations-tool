@@ -110,7 +110,7 @@
                 //display the create user form
                 //set the flash data error message if there is one
                 //$this->data->user_create = false;
-                $this->session->set_flashdata('user_create');
+                $this->session->set_flashdata('user_create', false);
                 $this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
 
                 $this->data['first_name']       = array(
