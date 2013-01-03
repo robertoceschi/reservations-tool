@@ -99,8 +99,8 @@
 
 
                 //redirect them back to the admin page
-                //ion_outh Fehlermeldungen werden an die view übergeben
-                $this->session->set_flashdata('message', $this->ion_auth->messages());
+
+                 $this->session->set_flashdata('message', $this->ion_auth->messages());
 
 
 
