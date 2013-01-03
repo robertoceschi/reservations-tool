@@ -1,9 +1,6 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-         // $(".alert-success").hide();
-          //$(".alert-error").hide();
-
         //error Message wird mit click() geschlossen!!
         $('.close').click(function () {
             $('.alert').hide();
@@ -14,17 +11,13 @@
     <div class="row-fluid">
         <div class="span12">
             <?php
-            if($message == '') {
-
-            }
-
-            elseif ($this->session->flashdata('user_create') == true) {
+            if ($message == '') {
+            } elseif ($this->session->flashdata('user_create') == true) {
                 echo '<div class="alert alert-success">';
                 echo '<button class="close" data-dismiss="alert">×</button>';
                 echo '<strong><div id="successMessage">' . $message . '</div></strong> ';
                 echo '</div>';
-            }
-            elseif ($message != '' and $this->session->flashdata('user_create') == false)  {
+            } elseif ($message != '' and $this->session->flashdata('user_create') == false) {
                 echo '<div class="alert alert-error">';
                 echo '<button class="close" data-dismiss="alert">×</button> ';
                 echo '<strong><div id="errorMessage">' . $message . '</div>  </strong>';
@@ -36,7 +29,7 @@
 								<span class="icon">
 									<i class="icon-user "></i>
 								</span>
-                    <h5>Bitte Profilangaben eingeben</h5>
+                    <h5>Profilangaben</h5>
                 </div>
                 <?php
                 $group = $this->ion_auth->user()->row()->group;
@@ -44,16 +37,10 @@
                     /* echo '<h2>Create User</h2>';
                      echo '<h5>Please enter the users information below.</h5>'*/
                     ;?>
-
                      <div class="widget-content nopadding">
-
-
-                    <?php echo
+                    <?php
                     $attributes = array('class' => 'form-horizontal');
                     echo form_open("mitglieder/create_user", $attributes);?>
-
-
-
                     <div class="control-group">
                         <?php
                         $attributes = array(
@@ -170,8 +157,6 @@
                     $options = array('admin' => 'Administrator', 'members' => 'Mitglied');
                     echo form_dropdown('group', $options) . PHP_EOL;
                     echo '</div></div>' . PHP_EOL;
-
-
                     ?>
 
 
@@ -181,11 +166,7 @@
                             <!--<i class="icon-refresh icon-white"></i>--> Profil speichern
                         </button>
                     </div>
-
                     <?php echo form_close(); ?>
-
-
-
                     <?php
                 } else {
 

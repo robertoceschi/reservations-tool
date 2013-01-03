@@ -96,21 +96,17 @@
             if ($this->form_validation->run() == true && $this->ion_auth->register($username, $password, $email, $additional_data)) {
                 //check to see if we are creating the user
 
-                //$user_create = true;
-
                 //redirect them back to the admin page
-                 $this->session->set_flashdata('user_create', true);
+                //user create status wird erstellt für messages
+                $this->session->set_flashdata('user_create', true);
                  $this->session->set_flashdata('message', $this->ion_auth->messages());
-
-
-
                 redirect("mitglieder/create_user", 'refresh');
-                //echo 'sali';
             } else {
                 //display the create user form
-                //set the flash data error message if there is one
-                //$this->data->user_create = false;
+
+                //user create status wird erstellt für messages
                 $this->session->set_flashdata('user_create', false);
+                //set the flash data error message if there is one
                 $this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
 
                 $this->data['first_name']       = array(
@@ -240,7 +236,8 @@
 
                     //check to see if we are creating the user
                     //redirect them back to the admin page
-                    $this->session->set_flashdata('message', "Der Eintrag wurde gespeichert!");
+                    $this->session->set_flashdata('user_update', true);
+                    $this->session->set_flashdata('message', $this->ion_auth->messages());
 
                     //redirect("settings/edit_user", 'refresh');
                     //$this->load->view('view_answer');
@@ -255,7 +252,7 @@
             //$this->data['csrf'] = $this->_get_csrf_nonce();  => nochmals genau anschauen!!!!!müsste eigentlich aktiv sein Problem=>  edit_user_view wird sonst nicht angezeigt
 
             //set the flash data error message if there is one
-
+            $this->session->set_flashdata('user_update', false);
             $this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
 
             //pass the user to the view

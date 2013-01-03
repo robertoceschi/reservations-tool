@@ -2,19 +2,19 @@
     <div class="row-fluid">
         <div class="span12">
             <?php
-            if ($this->session->flashdata('message') == 'Der Eintrag wurde gespeichert!') {
+            if ($message == '') {
+            } elseif ($this->session->flashdata('user_update') == true) {
                 echo '<div class="alert alert-success">';
                 echo '<button class="close" data-dismiss="alert">×</button>';
                 echo '<strong><div id="successMessage">' . $message . '</div></strong> ';
                 echo '</div>';
-            } if (!isset($message) and  $this->session->flashdata('message') != 'Der Eintrag wurde gespeichert!') {
-            echo '<div class="alert alert-error">';
-            echo '<button class="close" data-dismiss="alert">×</button> ';
-            echo '<strong><div id="errorMessage">' . $message . '</div>  </strong>';
-            echo '</div>';
-        }  ?>
-
-
+            } elseif ($message != '' and $this->session->flashdata('user_update') == false) {
+                echo '<div class="alert alert-error">';
+                echo '<button class="close" data-dismiss="alert">×</button> ';
+                echo '<strong><div id="errorMessage">' . $message . '</div>  </strong>';
+                echo '</div>';
+            }
+            ?>
             <div class="widget-box">
                 <div class="widget-title">
 								<span class="icon">
