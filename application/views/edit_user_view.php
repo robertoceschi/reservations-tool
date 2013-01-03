@@ -32,7 +32,7 @@
                         <?php
                         $attributes = array(
                             'label class' => 'control-label',);
-                        echo form_label('Vorname', 'first_name', $attributes); ?>
+                        echo form_label('Vorname', 'first_name', $attributes);?>
                         <div class="controls">
                             <?php
                             $attributes = array('name' => 'first_name',

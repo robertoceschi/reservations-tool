@@ -96,10 +96,10 @@
             if ($this->form_validation->run() == true && $this->ion_auth->register($username, $password, $email, $additional_data)) {
                 //check to see if we are creating the user
 
-
+                //$user_create = true;
 
                 //redirect them back to the admin page
-
+                 $this->session->set_flashdata('user_create', true);
                  $this->session->set_flashdata('message', $this->ion_auth->messages());
 
 
@@ -109,7 +109,8 @@
             } else {
                 //display the create user form
                 //set the flash data error message if there is one
-
+                //$this->data->user_create = false;
+                $this->session->set_flashdata('user_create');
                 $this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
 
                 $this->data['first_name']       = array(
