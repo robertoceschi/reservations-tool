@@ -49,6 +49,10 @@ label[for=active] {
     margin-bottom: 1.5em;
 
 }
+/*change last list item in Mitglieder-Ansicht*/
+tr.remove td:last-child {
+    width: 37px;
+}
 
 /*Seite Mitglieder=> neues Mitglied */
 #new_user a {
