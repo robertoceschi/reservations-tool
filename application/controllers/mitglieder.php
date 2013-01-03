@@ -15,6 +15,7 @@
             $this->load->library('ion_auth');
             $this->load->library('session');
 
+
         }
 
 
@@ -54,6 +55,7 @@
 
 
         public function create_user () {
+
             $group = $this->ion_auth->user()->row()->group;
             //Name der view für den main_content wird an my_controller übergeben
             $main_content        = 'create_user';
@@ -94,8 +96,13 @@
             if ($this->form_validation->run() == true && $this->ion_auth->register($username, $password, $email, $additional_data)) {
                 //check to see if we are creating the user
 
+
+
                 //redirect them back to the admin page
+                //ion_outh Fehlermeldungen werden an die view übergeben
                 $this->session->set_flashdata('message', $this->ion_auth->messages());
+
+
 
                 redirect("mitglieder/create_user", 'refresh');
                 //echo 'sali';

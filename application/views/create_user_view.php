@@ -13,7 +13,8 @@
         <div class="span12">
 
             <?php
-            if ($this->session->flashdata('message') == 'Account De-Activated' or 'Activation Email Sent') {
+
+            /*if ($this->session->flashdata('message') == 'Account De-Activated' or 'Activation Email Sent') {
                 echo '<div class="alert alert-success">';
                 echo '<button class="close" data-dismiss="alert">×</button>';
                 echo '<strong><div id="successMessage">' . $message . '</div></strong> ';
