@@ -21,7 +21,7 @@
             if (!$this->ion_auth->logged_in()) {
                 //redirect them to the login page
                 redirect('auth/login', 'refresh');
-            } elseif  ( $this->ion_auth->user()->row()->group != 'admin') {
+            } elseif ($this->ion_auth->user()->row()->group != 'admin') {
 
                 //redirect them to the home page because they must be an administrator to view this
                 redirect('home/member', 'refresh');
@@ -345,7 +345,7 @@
 
         //create a new user
         function create_user () {
-            $group            = $this->ion_auth->user()->row()->group;
+            $group               = $this->ion_auth->user()->row()->group;
             $this->data['title'] = "Create User";
 
             if (!$this->ion_auth->logged_in() || !$group == 'admin') {
@@ -449,7 +449,7 @@
 
         //edit a user
         function edit_user ($id) {
-            $group            = $this->ion_auth->user()->row()->group;
+            $group               = $this->ion_auth->user()->row()->group;
             $this->data['title'] = "Edit User";
 
             if (!$this->ion_auth->logged_in() || !$group == 'admin') {
@@ -563,7 +563,7 @@
 
         // create a new group
         function create_group () {
-            $group            = $this->ion_auth->user()->row()->group;
+            $group               = $this->ion_auth->user()->row()->group;
             $this->data['title'] = "Create Group";
 
             if (!$this->ion_auth->logged_in() || !$group == 'admin') {
