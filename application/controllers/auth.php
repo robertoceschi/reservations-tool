@@ -291,12 +291,10 @@
 
         //activate the user
         function activate ($id, $code = false) {
-            $group = $this->ion_auth->user()->row()->group;
+
             if ($code !== false) {
                 $activation = $this->ion_auth->activate($id, $code);
-                //} else if ($this->ion_auth->is_admin()) {
-            } else if ($group == 'admin') {
-                $activation = $this->ion_auth->activate($id);
+
             }
 
             if ($activation) {
