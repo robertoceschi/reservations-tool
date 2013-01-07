@@ -1,6 +1,6 @@
 <?php
 
-    class New_user_profil extends CI_Controller {
+    class New_user_profile extends CI_Controller {
 
         protected $sControllerName = '';
 
@@ -26,31 +26,26 @@
          * @date        20120710
          */
         public function index () {
-            $data['first_name']      = '';
-            $data['last_name']     = '';
-            $data['email'] = '';
-            $data['company'] = '';
-            $data['phone1'] = '';
-            //$data['group']       = 'member';
+            $this->data['first_name'] = '';
+            $this->data['last_name']  = '';
+            $this->data['email']      = '';
+            $this->data['company']    = '';
+            $this->data['phone1']     = '';
 
 
-
-            $this->data['title'] = "User Profil";
-            $this->sControllerName = 'new_user_profil';
-            //parent::__renderAll($this->sControllerName, $this->data);
-            $this->load->view('new_user_profil_view', $data);
+            $this->data['title']   = "User Profil";
+            $this->load->view('new_user_profile_view', $this->data);
 
 
         }
 
-        public function create_new_profil () {
+        public function create_new_profile () {
 
 
             //$group = $this->ion_auth->user()->row()->group;
             //Name der view für den main_content wird an my_controller übergeben
-            $main_content        = 'create_new_user_profil';
-            $this->data['title'] = "Create New User Profil";
-
+            //$main_content        = 'create_new_user_profil';
+            //$this->data['title'] = "Create New User Profil";
 
 
             //validate form input
@@ -64,8 +59,8 @@
             $this->form_validation->set_rules('password', 'Password', 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[password_confirm]');
             $this->form_validation->set_rules('password_confirm', 'Password Confirmation', 'required');
 
-            if ($this->form_validation->run() == true) {
 
+            if ($this->form_validation->run() == true) {
                 $username = strtolower($this->input->post('first_name')) . ' ' . strtolower($this->input->post('last_name'));
                 $email    = $this->input->post('email');
                 $password = $this->input->post('password');
@@ -75,7 +70,7 @@
                     'last_name'  => $this->input->post('last_name'),
                     'company'    => $this->input->post('company'),
                     'phone'      => $this->input->post('phone1') . '-' . $this->input->post('phone2') . '-' . $this->input->post('phone3'),
-
+                    'group'      => 'members',
 
                 );
             }
@@ -87,7 +82,7 @@
                 //user create status wird erstellt für messages
                 $this->session->set_flashdata('user_create', true);
                 $this->session->set_flashdata('message', $this->ion_auth->messages());
-                redirect("new_user_profil/create_new_profil", 'refresh');
+                redirect("auth/login", 'refresh');
             } else {
                 //display the create user form
 
@@ -155,7 +150,7 @@
 
 
                 //parent::__renderAll($main_content, $this->data);
-                $this->load->view('new_user_profil_view', $this->data);
+                $this->load->view('new_user_profile_view', $this->data);
             }
         }
 

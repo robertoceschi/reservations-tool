@@ -5,12 +5,12 @@
 <div id="logo">
     <img src="<?php echo base_url() . 'media/img/logo.png" alt="" />';?>
 </div>
-<div id="infoMessage"><?php /*echo $message;*/?></div>
-
+<div id="infoMessage"><?php echo $message;?></div>
 <div id="loginbox_new_user">
-    <form id="loginform" class="form-vertical" action="<?php echo base_url() . 'new_user_profil/create_new_profil';?>" method="post" accept-charset="utf-8">
+    <form id="loginform" class="form-vertical" action="<?php echo base_url() . 'new_user_profile/create_new_profile';?>"
+          method="post" accept-charset="utf-8">
         <p>Neues Mitgliederkonto erstellen</p>
-
+        <div id=" infoMessage"><?php $message; ?></div>
         <div class="control-group">
             <?php
 
@@ -21,7 +21,7 @@
                 <?php
                 $attributes = array('name' => 'first_name',
                                     'id'   => 'first_name');
-                echo form_input($attributes, set_value('first_name', $first_name['value'])) . PHP_EOL;
+                echo form_input($attributes, set_value('first_name', $first_name)) . PHP_EOL;
                 ?>
             </div>
         </div>
@@ -34,7 +34,7 @@
                 <?php
                 $attributes = array('name' => 'last_name',
                                     'id'   => 'last_name');
-                echo form_input($attributes, set_value('last_name', $last_name['value'])) . PHP_EOL;
+                echo form_input($attributes, set_value('last_name', $last_name)) . PHP_EOL;
                 ?>
             </div>
         </div>
@@ -47,7 +47,7 @@
                 <?php
                 $attributes = array('name' => 'company',
                                     'id'   => 'company');
-                echo form_input($attributes, set_value('company', $company['value'])) . PHP_EOL;
+                echo form_input($attributes, set_value('company', $company)) . PHP_EOL;
                 ?>
             </div>
         </div>
@@ -60,7 +60,7 @@
                 <?php
                 $attributes = array('name' => 'email',
                                     'id'   => 'email');
-                echo form_input($attributes, set_value('email', $email['value'])) . PHP_EOL;
+                echo form_input($attributes, set_value('email', $email)) . PHP_EOL;
                 ?>
             </div>
         </div>
@@ -74,7 +74,7 @@
                 <?php
                 $attributes = array('name' => 'phone',
                                     'id'   => 'phone');
-                echo form_input($attributes, set_value('phone1', $phone1['value'])) . PHP_EOL;
+                echo form_input($attributes, set_value('phone1', $phone1)) . PHP_EOL;
                 /*echo form_input($attributes, set_value('phone2', $phone2['value'])) . PHP_EOL;*/
                 /*echo form_input($attributes, set_value('phone3', $phone3['value'])) . PHP_EOL;*/
                 ?>
@@ -93,9 +93,6 @@
                                     'id'          => 'password',
                                     'placeholder' => 'mindestens 4-stellig');
                 echo form_input($attributes) . PHP_EOL;
-                /*echo '<pre>';
-                print_r($password);
-                echo '</pre>'; */
                 ?>
             </div>
         </div>
