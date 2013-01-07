@@ -5,12 +5,12 @@
 <div id="logo">
     <img src="<?php echo base_url() . 'media/img/logo.png" alt="" />';?>
 </div>
-<div id="infoMessage"><?php echo $message;?></div>
+
 <div id="loginbox_new_user">
     <form id="loginform" class="form-vertical" action="<?php echo base_url() . 'new_user_profile/create_new_profile';?>"
           method="post" accept-charset="utf-8">
         <p>Neues Mitgliederkonto erstellen</p>
-        <div id=" infoMessage"><?php $message; ?></div>
+
         <div class="control-group">
             <?php
 
