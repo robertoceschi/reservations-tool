@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head> </head>
     <title>Unicorn Admin</title>
     <meta charset="UTF-8" />
@@ -37,12 +37,15 @@
         </div>
         <div class="form-actions">
 
-            <span class="pull-left"><?php echo anchor('auth/forgot_password', 'Lost password?');?></span>
-            <span class="pull-left"><?php echo anchor('new_user_profile', 'Create User');?></span>
+            <span class="pull-left"><?php echo anchor('auth/forgot_password', 'Lost password?');?></span></br>
+            <span class="pull-left" style="margin-left: -101px"><?php echo anchor('new_user_profile', 'Register');?></span>
            <!-- <span class="remember"><label for="remember">Remember Me:</label><?php echo form_checkbox('remember', '1', FALSE, 'id="remember"');?></span> -->
             <span class="pull-right"><input type="submit" class="btn btn-inverse" value="Login" /></span>
+
         </div>
     </form>
+
+
     <!--<form id="recoverform" action="#" class="form-vertical"> -->
 
 </div>

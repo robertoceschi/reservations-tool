@@ -5,11 +5,11 @@
 <div id="logo">
     <img src="<?php echo base_url() . 'media/img/logo.png" alt="" />';?>
 </div>
-
+ <div id="infoMessage"><?php echo $message;?></div>
 <div id="loginbox_new_user">
     <form id="loginform" class="form-vertical" action="<?php echo base_url() . 'new_user_profile/create_new_profile';?>"
           method="post" accept-charset="utf-8">
-        <p>Neues Mitgliederkonto erstellen</p>
+
 
         <div class="control-group">
             <?php
@@ -114,9 +114,10 @@
             </div>
         </div>
         <div class="form-actions">
-            <button type="submit" class="btn btn-primary" data-loading-text="Sending...">
+            <span class="pull-right"><button type="submit" class="btn btn-primary" data-loading-text="Sending...">
                 <!--<i class="icon-refresh icon-white"></i>--> Profil speichern
-            </button>
+            </button> </span>
+            <span class="pull-left"><?php echo anchor('auth/login', '< Back to login');?></span>
         </div>
     </form>
 
