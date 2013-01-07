@@ -38,7 +38,7 @@
         <div class="form-actions">
 
             <span class="pull-left"><?php echo anchor('auth/forgot_password', 'Lost password?');?></span>
-            <span class="pull-left"><?php echo anchor('mitglieder/create_user', 'Create User');?></span>
+            <span class="pull-left"><?php echo anchor('new_user_profil', 'Create User');?></span>
            <!-- <span class="remember"><label for="remember">Remember Me:</label><?php echo form_checkbox('remember', '1', FALSE, 'id="remember"');?></span> -->
             <span class="pull-right"><input type="submit" class="btn btn-inverse" value="Login" /></span>
         </div>
