@@ -141,7 +141,7 @@
             </div>
 
 
-            <table class="table table-bordered">
+            <table class="table table-bordered" class="pagination">
                 <thead>
                 <tr>
                     <th>Vorname</th>

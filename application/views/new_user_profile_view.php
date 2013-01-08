@@ -1,3 +1,11 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#button').click(function () {
+            $(this).button('loading');
+        });
+    });
+</script>
+
 <?php
     //loading header and footer
     $this->load->view('template/header');
@@ -118,7 +126,7 @@
             </div>
         </div>
         <div class="form-actions">
-            <span class="pull-right"><button type="submit" class="btn btn-primary" data-loading-text="Sending...">
+            <span class="pull-right"><button type="submit" class="btn btn-primary" id="button" data-loading-text="Sending...">
                 <!--<i class="icon-refresh icon-white"></i>--> Profil speichern
             </button> </span>
             <span class="pull-left"><?php echo anchor('auth/login', '< Back to login');?></span>
@@ -126,5 +134,4 @@
     </form>
 
 </div>
-
 
