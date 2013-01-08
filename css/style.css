@@ -69,8 +69,8 @@ tr.remove td:last-child {
 /* Anpassung new_user_profil. Vorlage => unicorn.login css */
 #loginbox_new_user {
     width: 400px;
-    height: 565px;
-    background: #ffffff;
+    height: 550px;
+    background: #F1F1F1;
     box-shadow: 0 0 4px #000000;
     border-radius: 7px;
     overflow: hidden !important;
@@ -108,4 +108,22 @@ tr.remove td:last-child {
 #pagination strong, #pagination a:hover {
     font-weight: normal;
     background: #cac9c9;
+}
+.form-actions {
+    padding: 19px 20px ;
+    /*margin-bottom: 20px;*/
+    border: none;
+    background-color: #F1F1F1;
+    *zoom: 1;
+}
+
+#loginbox  form#loginform {
+    background-color: #F1F1F1;
+}
+
+input[value=Recover] {
+    margin-top: 20px;
+}
+button[type=submit] {
+    margin-top: 5px;
 }
