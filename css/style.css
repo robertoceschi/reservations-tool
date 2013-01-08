@@ -78,6 +78,7 @@ tr.remove td:last-child {
     position: relative;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 20px;
 }
 
  .control-label-new-profil, .controls-new-profil {

@@ -154,7 +154,9 @@
                 </thead>
 
 
-                <?php  foreach ($users as $user):
+                <?php
+                foreach ($users as $user):
+
                 echo '<tbody>';
                 echo '<tr class="remove">
                     <td>'?><?php echo $user->first_name;?></td>
@@ -174,6 +176,7 @@
                 <?php endforeach; ?>
                 </tbody>
             </table>
+            <?php echo $this->pagination->create_links(); ?>
         </div>
     </div>
 </div>

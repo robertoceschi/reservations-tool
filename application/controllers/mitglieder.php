@@ -14,6 +14,7 @@
             $this->load->library('form_validation');
             $this->load->library('ion_auth');
             $this->load->library('session');
+            $this->load->library('pagination');
 
 
         }
@@ -34,13 +35,25 @@
             //set the flash data error message if there is one
             //$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
             $user = $this->ion_auth->user()->row();
-            //print_r($user) ;
             if ($this->ion_auth->logged_in() and $group == 'admin') {
-                $this->data['users'] = $this->ion_auth->users()->result();
-                foreach ($this->data['users'] as $k => $user) {
-                    $this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
 
-                }
+                $config['base_url'] = 'http://localhost:8888/projekte/reservations-tool/mitglieder/index';
+                $config['total_rows'] = $this->db->get('users')->num_rows();
+                $config['per_page'] = 10;
+                $config['num_links'] = 20;
+                $config['full_tag_open'] = '<div id="pagination">';
+                $config['full_tag_close'] = '</div>';
+
+                $this->pagination->initialize($config);
+
+
+                $this->data['users'] = $this->db->get('users', $config['per_page'], $this->uri->segment(3))->result();
+                //$this->data['users'] = $this->db->get('users', $config['per_page'], $this->uri->segment(3));
+
+                //foreach ($this->data['users'] as $k => $user) {
+                  //  $this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
+
+                //}
                 parent::__renderAll($this->sControllerName, $this->data);
             } else {
                 //$this->data['user'] = $this->ion_auth->user($id)->row();
@@ -51,6 +64,10 @@
                 parent::__renderAll($this->sControllerName, $this->data);
             }
             //parent::__renderAll($this->sControllerName, $this->data);
+
+
+
+
         }
 
 
