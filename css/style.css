@@ -80,17 +80,14 @@ tr.remove td:last-child {
     margin-right: auto;
 }
 
-#loginbox_new_user .control-label, .controls {
-    margin-top: 2%;
-    margin-left: 24%;
+ .control-label-new-profil, .controls-new-profil {
+    margin-top: 1.8%;
+    margin-left: 23%;
     font-weight: bold;
     text-align: left;
 }
 
-#loginbox_new_user  .controls {
-    margin-top: -4px;
 
-}
 
 
 #loginbox {

@@ -85,14 +85,13 @@
                         <?php
                         $attributes = array(
                             'label class' => 'control-label',);
-                        echo form_label('Telefon', 'phone', $attributes); ?>
+                        echo form_label('Mobiltelefon', 'phone1', $attributes); ?>
                         <div class="controls">
                             <?php
-                            $attributes = array('name' => 'phone',
-                                                'id'   => 'phone');
+                            $attributes = array('name' => 'phone1',
+                                                'id'   => 'phone1',
+                                                'placeholder' => 'muss 10-stellig sein. Beispiel: 0767863467');
                             echo form_input($attributes, set_value('phone1', $phone1['value'])) . PHP_EOL;
-                            /*echo form_input($attributes, set_value('phone2', $phone2['value'])) . PHP_EOL;*/
-                            /*echo form_input($attributes, set_value('phone3', $phone3['value'])) . PHP_EOL;*/
                             ?>
                         </div>
                     </div>

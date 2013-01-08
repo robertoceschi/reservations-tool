@@ -6,7 +6,7 @@
     <img src="<?php echo base_url() . 'media/img/logo.png" alt="" />';?>
 </div>
 <div id="infoMessage"><?php
-    //falls Fehlermeldungdann soll angezeigt werden
+    //falls Fehlermeldungdann soll sie angezeigt werden
     if(isset($message)){
     echo $message; }
     ?>
@@ -17,10 +17,10 @@
           method="post" accept-charset="utf-8">
 
 
-        <div class="control-group">
+        <div class="control-group-new-profil">
             <?php
             $attributes = array(
-                'label class' => 'control-label',);
+                'label class' => 'control-label-new-profil',);
             echo form_label('Vorname', 'first_name', $attributes); ?>
             <div class="controls">
                 <?php
@@ -30,10 +30,10 @@
                 ?>
             </div>
         </div>
-        <div class="control-group">
+        <div class="control-group-new-profil">
             <?php
             $attributes = array(
-                'label class' => 'control-label',);
+                'label class' => 'control-label-new-profil',);
             echo form_label('Nachname', 'last_name', $attributes); ?>
             <div class="controls">
                 <?php
@@ -43,10 +43,10 @@
                 ?>
             </div>
         </div>
-        <div class="control-group">
+        <div class="control-group-new-profil">
             <?php
             $attributes = array(
-                'label class' => 'control-label',);
+                'label class' => 'control-label-new-profil',);
             echo form_label('Firma', 'company', $attributes); ?>
             <div class="controls">
                 <?php
@@ -56,10 +56,10 @@
                 ?>
             </div>
         </div>
-        <div class="control-group">
+        <div class="control-group-new-profil">
             <?php
             $attributes = array(
-                'label class' => 'control-label',);
+                'label class' => 'control-label-new-profil',);
             echo form_label('Email', 'email', $attributes); ?>
             <div class="controls">
                 <?php
@@ -70,26 +70,25 @@
             </div>
         </div>
 
-        <div class="control-group">
+        <div class="control-group-new-profil">
             <?php
             $attributes = array(
-                'label class' => 'control-label',);
-            echo form_label('Telefon', 'phone', $attributes); ?>
+                'label class' => 'control-label-new-profil',);
+            echo form_label('Mobiltelefon', 'phone1', $attributes); ?>
             <div class="controls">
                 <?php
-                $attributes = array('name' => 'phone',
-                                    'id'   => 'phone');
+                $attributes = array('name' => 'phone1',
+                                    'id'   => 'phone1',
+                'placeholder' => 'muss 10-stellig sein. Beispiel: 0767863467');
                 echo form_input($attributes, set_value('phone1', $phone1)) . PHP_EOL;
-                /*echo form_input($attributes, set_value('phone2', $phone2['value'])) . PHP_EOL;*/
-                /*echo form_input($attributes, set_value('phone3', $phone3['value'])) . PHP_EOL;*/
                 ?>
             </div>
         </div>
 
-        <div class="control-group">
+        <div class="control-group-new-profil">
             <?php
             $attributes = array(
-                'label class' => 'control-label'
+                'label class' => 'control-label-new-profil'
             );
             echo form_label('Passwort', 'password', $attributes); ?>
             <div class="controls">
@@ -102,10 +101,10 @@
             </div>
         </div>
 
-        <div class="control-group">
+        <div class="control-group-new-profil">
             <?php
             $attributes = array(
-                'label class' => 'control-label',
+                'label class' => 'control-label-new-profil',
                 'placeholder' => '');
             echo form_label('Passwort wiederholen', 'password_confirm', $attributes); ?>
             <div class="controls">
