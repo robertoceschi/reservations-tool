@@ -69,7 +69,7 @@ tr.remove td:last-child {
 /* Anpassung new_user_profil. Vorlage => unicorn.login css */
 #loginbox_new_user {
     width: 400px;
-    height: 582px;
+    height: 565px;
     background: #ffffff;
     box-shadow: 0 0 4px #000000;
     border-radius: 7px;
@@ -84,6 +84,7 @@ tr.remove td:last-child {
  .control-label-new-profil, .controls-new-profil {
     margin-top: 1.8%;
     margin-left: 23%;
+    margin-bottom: 0px;
     font-weight: bold;
     text-align: left;
 }

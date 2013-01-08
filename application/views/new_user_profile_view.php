@@ -1,10 +1,4 @@
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#button').click(function () {
-            $(this).button('loading');
-        });
-    });
-</script>
+
 
 <?php
     //loading header and footer
@@ -87,7 +81,7 @@
                 <?php
                 $attributes = array('name' => 'phone1',
                                     'id'   => 'phone1',
-                'placeholder' => 'muss 10-stellig sein. Beispiel: 0767863467');
+                'placeholder' => '10-stellig! Bsp: 0767863467');
                 echo form_input($attributes, set_value('phone1', $phone1)) . PHP_EOL;
                 ?>
             </div>
@@ -103,7 +97,7 @@
                 <?php
                 $attributes = array('name'        => 'password',
                                     'id'          => 'password',
-                                    'placeholder' => 'mindestens 4-stellig');
+                                    'placeholder' => 'mindestens 4-stellig!');
                 echo form_input($attributes) . PHP_EOL;
                 ?>
             </div>
