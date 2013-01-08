@@ -99,7 +99,7 @@
                 //redirect them back to the admin page
                 //user create status wird erstellt für messages
                 $this->session->set_flashdata('user_create', true);
-                 $this->session->set_flashdata('message', $this->ion_auth->messages());
+                $this->session->set_flashdata('message', $this->ion_auth->messages());
                 redirect("mitglieder/create_user", 'refresh');
             } else {
                 //display the create user form
@@ -204,7 +204,7 @@
 
 
             if (isset($_POST) && !empty($_POST))
-            ;{
+                ;{
                 // do we have a valid request?
                 //if ($this->_valid_csrf_nonce() === FALSE || $id != $this->input->post('id')) {
                 //    show_error('This form post did not pass our security checks.');
