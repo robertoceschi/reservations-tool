@@ -37,7 +37,7 @@
             $user = $this->ion_auth->user()->row();
             if ($this->ion_auth->logged_in() and $group == 'admin') {
 
-                $config['base_url'] = 'http://localhost:8888/projekte/reservations-tool/mitglieder/index';
+                $config['base_url'] = base_url() . $this->sControllerName . '/index';
                 $config['total_rows'] = $this->db->get('users')->num_rows();
                 $config['per_page'] = 10;
                 $config['num_links'] = 20;
