@@ -37,17 +37,11 @@
             $user = $this->ion_auth->user()->row();
             if ($this->ion_auth->logged_in() and $group == 'admin') {
 
-                $config['base_url'] = base_url() . $this->sControllerName . '/index';
-                $config['total_rows'] = $this->db->get('users')->num_rows();
-                $config['per_page'] = 10;
-                $config['num_links'] = 20;
-                $config['full_tag_open'] = '<div id="pagination">';
-                $config['full_tag_close'] = '</div>';
-
-                $this->pagination->initialize($config);
 
 
-                $this->data['users'] = $this->db->get('users', $config['per_page'], $this->uri->segment(3))->result();
+
+
+                $this->data['users'] = $this->db->get('users')->result();
                 //$this->data['users'] = $this->db->get('users', $config['per_page'], $this->uri->segment(3));
 
                 //foreach ($this->data['users'] as $k => $user) {
