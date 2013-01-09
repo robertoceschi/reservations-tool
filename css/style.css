@@ -1,8 +1,8 @@
 /*Bootsrap CSS werden importiert*/
 @import url('../css/bootstrap_styles/bootstrap.css');
-    /*@import url('../css/bootstrap_styles/bootstrap.min.css'); */
+@import url('../css/bootstrap_styles/bootstrap.min.css');
 @import url('../css/bootstrap_styles/bootstrap-responsive.css');
-    /*@import url('../css/bootstrap_styles/bootstrap-responsive.min.css'); */
+@import url('../css/bootstrap_styles/bootstrap-responsive.min.css');
 @import url('../css/bootstrap_styles/chosen.css');
 @import url('../css/bootstrap_styles/datepicker.css');
 @import url('../css/bootstrap_styles/fullcalendar.css');
