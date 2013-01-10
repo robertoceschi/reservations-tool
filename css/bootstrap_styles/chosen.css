@@ -4,6 +4,7 @@
   position: relative;
   display: inline-block;
   zoom: 1;
+
 }
 .chzn-container .chzn-drop {
   background: #fff;
@@ -244,6 +245,7 @@
 .chzn-container .chzn-results .active-result {
   cursor: pointer;
   display: list-item;
+
 }
 .chzn-container .chzn-results .highlighted {
   background: #326d91;

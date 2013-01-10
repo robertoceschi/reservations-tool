@@ -144,14 +144,18 @@
 
                     <?php
                     // echo form_fieldset() . PHP_EOL;
+
                     echo '<div class="control-group">' . PHP_EOL;
                     echo '<div>' . PHP_EOL;
                     $group      = '';
                     $attributes = array(
-                        'label class' => 'control-label');
-                    echo form_label('Gruppe', 'group', $attributes) . PHP_EOL;
+                        'label class' => 'control-label'
+                        );
+                    echo form_label('Gruppe', 'group', $attributes) .PHP_EOL;
                     $options = array('admin' => 'Administrator', 'members' => 'Mitglied');
-                    echo form_dropdown('group', $options) . PHP_EOL;
+
+                    echo form_dropdown('group', $options). PHP_EOL;
+
                     echo '</div></div>' . PHP_EOL;
                     ?>
 
@@ -171,5 +175,8 @@
             </div>
         </div>
     </div>
+
+
+
 
 

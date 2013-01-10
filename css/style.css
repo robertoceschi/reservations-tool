@@ -24,19 +24,19 @@
     color: #ffffff;
     text-align: center;
 }
-
+/*
 select[name=group] {
     margin-left: 20px;
     margin-top: 9px;
 
-}
-
+}*/
+/*
 select[name=active] {
     margin-left: 20px;
     margin-top: 9px;
 
-}
-
+}*/
+/*
 label[for=group] {
     margin-bottom: 13px;
 }
@@ -115,3 +115,13 @@ input[value=Recover] {
 button[type=submit] {
     margin-top: 5px;
 }
+
+/*
+
+.chzn-container-single {
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}  */
+
+
