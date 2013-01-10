@@ -176,8 +176,6 @@
                                 echo '<span style="cursor:pointer"><a class="delete_user" id= "' . $user->id . ' " title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' löschen? "><i class="icon icon-trash"></i> </a></span> ';?></td>
                             </tr>
 
-
-
                                 <?php endforeach; ?>
                         </tbody>
                     </table>
