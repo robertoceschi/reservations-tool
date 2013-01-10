@@ -153,50 +153,28 @@
                     );
                     echo form_label('Gruppe', 'group', $attributes) .PHP_EOL;
                     //$options = array('admin' => 'Administrator', 'members' => 'Mitglied');
-
-
-
                     $data = array(
                         'name'        => 'group',
                         'id'          => 'group',
                         'value'       => 'admin',
                         'checked'     => TRUE,
-                        'style'       => 'margin:10px',
-                    );
+                        'style'=> 'opacity: 1 !important'
 
-                    echo form_radio($data);
+                    );
+                    echo '<div class="controls">';
+                    echo form_radio($data). 'Administrator';;
                     echo '</br>'   ;
                     $data = array(
                         'name'        => 'group',
                         'id'          => 'group',
                         'value'       => 'members',
                         'checked'     => TRUE,
-                        'style'       => 'margin:10px',
-
+                        'style'=> 'opacity: 1 !important'
                     );
-
-                    echo form_radio($data);
-
-
-
-
-                    //echo form_radio('Administrator', 'accept', TRUE);
-                    //echo form_dropdown('group', $options, 'members'). PHP_EOL;
-
+                    echo form_radio($data) . 'Member';
+                    echo ' </div>';
                     echo '</div></div>' . PHP_EOL;
-
-
-
                     ?>
-                    <div class="control-group">
-                        <label class="control-label">Radio inputs</label>
-                        <div class="controls">
-                            <label><input type="radio" name="radios" /> First One</label>
-                            <label><input type="radio" name="radios" /> Second One</label>
-                            <label><input type="radio" name="radios" /> Third One</label>
-                        </div>
-                    </div>
-
                     <div class="form-actions">
                         <button type="submit" class="btn btn-primary" data-loading-text="Sending...">
                             <!--<i class="icon-refresh icon-white"></i>--> Profil speichern

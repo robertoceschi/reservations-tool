@@ -116,12 +116,11 @@ button[type=submit] {
     margin-top: 5px;
 }
 
-/*
+/*Radio Buttons für create user und edit user*/
+.radio input[type="radio"] {
+    margin-top: 0;
+    margin-left: -2px;
 
-.chzn-container-single {
-    margin-left: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}  */
+}
 
 
