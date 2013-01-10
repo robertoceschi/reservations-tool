@@ -1,8 +1,8 @@
 /*Bootsrap CSS werden importiert*/
 @import url('../css/bootstrap_styles/bootstrap.css');
-@import url('../css/bootstrap_styles/bootstrap.min.css');
+    /*@import url('../css/bootstrap_styles/bootstrap.min.css'); */
 @import url('../css/bootstrap_styles/bootstrap-responsive.css');
-@import url('../css/bootstrap_styles/bootstrap-responsive.min.css');
+    /*@import url('../css/bootstrap_styles/bootstrap-responsive.min.css'); */
 @import url('../css/bootstrap_styles/chosen.css');
 @import url('../css/bootstrap_styles/datepicker.css');
 @import url('../css/bootstrap_styles/fullcalendar.css');
@@ -81,7 +81,7 @@ tr.remove td:last-child {
     padding-top: 20px;
 }
 
- .control-label-new-profil, .controls-new-profil {
+.control-label-new-profil, .controls-new-profil {
     margin-top: 1.8%;
     margin-left: 23%;
     margin-bottom: 0px;
@@ -96,19 +96,7 @@ tr.remove td:last-child {
     height: 215px;
 }
 
-#pagination a, #pagination strong {
-    background: #e3e3e3;
-    padding: 4px 7px;
-    text-decoration: none;
-    border: 1px solid #cac9c9;
-    color: #292929;
-    fon-size: 13px;
-}
 
-#pagination strong, #pagination a:hover {
-    font-weight: normal;
-    background: #cac9c9;
-}
 .form-actions {
     padding: 19px 20px ;
     /*margin-bottom: 20px;*/

@@ -137,8 +137,7 @@
 
 
             <div id=new_user>
-                <button class="btn btn-large btn-primary"><a href="<?php echo site_url('mitglieder/create_user');?>"> <i
-                        class=" icon-plus icon-white"></i> Neues Mitglied eintragen</a></button>
+                <button class="btn btn-large btn-primary"><a href="<?php echo site_url('mitglieder/create_user');?>"> <span class="icon icon-plus icon-white"></span> Neues Mitglied eintragen</a></button>
             </div>
 
 
@@ -172,9 +171,9 @@
                                     echo '<span style="cursor:pointer"><a class="toggleStatus aktiv" id="' . $user->id . '" title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' ">Inaktiv</a></span>
 ';
                                 }  '</td> ' . PHP_EOL;?>
-                            <td><?php echo anchor("mitglieder/edit_user/" . $user->id, '<i class=" icon-edit"></i>');?>
-                                | <?php
-                                echo '<span style="cursor:pointer"><a class="delete_user" id= "' . $user->id . ' " title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' löschen? "><i class=" icon-trash"></i> </a></span> ';?></td>
+                            <td><?php echo anchor("mitglieder/edit_user/" . $user->id, '<i class="icon icon-edit"></i>');?>
+                                 | <?php
+                                echo '<span style="cursor:pointer"><a class="delete_user" id= "' . $user->id . ' " title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' löschen? "><i class="icon icon-trash"></i> </a></span> ';?></td>
                             </tr>
 
 
