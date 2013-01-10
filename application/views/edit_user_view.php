@@ -143,10 +143,34 @@
                         $attributes = array(
                             'label class' => 'control-label');
                         echo form_label('Gruppe', 'group', $attributes) . PHP_EOL;
-                        $options   = array('admin' => 'Administrator', 'members' => 'Mitglied');
-                        $group_set = $user->group;
-                        echo form_dropdown('group', $options, $group_set) . PHP_EOL;
-                        echo '</div>' . PHP_EOL;
+
+                        //$options   = array('admin' => 'Administrator', 'members' => 'Mitglied');
+                        //$this->$user->group;
+
+                        //if($this->$user->group == 'admin'){
+                          //  $group_show = 'Administrator';
+                        //}else {
+                         //   $group_show = 'Mitglieder';
+                        //}
+                        echo '<div class="controls">';
+                        $data = array(
+                            'name'        => 'group',
+                            'id'          => 'group',
+                            'value'       => 'admin',
+                            'checked'     => TRUE,
+                            'style'=> 'opacity: 1 !important'
+                        );
+                        echo form_radio($data). 'Administrator' . PHP_EOL;
+                        echo '</br>'   ;
+                        $data = array(
+                            'name'        => 'group',
+                            'id'          => 'group',
+                            'value'       => 'members',
+                            'checked'     => TRUE,
+                            'style'=> 'opacity: 1 !important'
+                        );
+                        echo form_radio($data). 'Mitglieder' . PHP_EOL;
+                        echo '</div></div>' . PHP_EOL;
 
                         echo '</div>';
                     }
@@ -156,14 +180,32 @@
                         echo '<div class="control-group">';
                         echo '<div>' . PHP_EOL;
                         $group = $this->ion_auth->user()->row()->group;
-
                         $attributes = array(
                             'label class' => 'control-label');
                         echo form_label('Status', 'active', $attributes) . PHP_EOL;
-                        $options    = array(0 => 'Inaktiv', 1 => 'Aktiv');
+                        echo '<div class="controls">';
+                        $data = array(
+                            'name'        => 'active',
+                            'id'          => 'active',
+                            'value'       => 1,
+                            'checked'     => TRUE,
+                            'style'=> 'opacity: 1 !important'
+                        );
+                        //$options    = array(0 => 'Inaktiv', 1 => 'Aktiv');
+                        //$active_set = $user->active;
+                        echo form_radio($data) . 'Aktiv' . PHP_EOL;
+                        echo '</br>'   ;
+                        $data = array(
+                            'name'        => 'active',
+                            'id'          => 'active',
+                            'value'       => 0,
+                            'checked'     => TRUE,
+                            'style'=> 'opacity: 1 !important'
+                        );
+                        //$options    = array(0 => 'Inaktiv', 1 => 'Aktiv');
                         $active_set = $user->active;
-                        echo form_dropdown('active', $options, $active_set) . PHP_EOL;
-                        echo '</div>' . PHP_EOL;
+                        echo form_radio($data, $active_set) . 'Inaktiv' . PHP_EOL;
+                        echo '</div></div>' . PHP_EOL;
 
 
                         echo '</div>';

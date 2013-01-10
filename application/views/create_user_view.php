@@ -162,7 +162,7 @@
 
                     );
                     echo '<div class="controls">';
-                    echo form_radio($data). 'Administrator';;
+                    echo form_radio($data). 'Administrator';
                     echo '</br>'   ;
                     $data = array(
                         'name'        => 'group',
