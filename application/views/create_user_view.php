@@ -101,8 +101,8 @@
                         echo form_label('Mobiltelefon', 'phone1', $attributes); ?>
                         <div class="controls">
                             <?php
-                            $attributes = array('name' => 'phone1',
-                                                'id'   => 'phone1',
+                            $attributes = array('name'        => 'phone1',
+                                                'id'          => 'phone1',
                                                 'placeholder' => 'muss 10-stellig sein. Beispiel: 0767863467');
                             echo form_input($attributes, set_value('phone1', $phone1['value'])) . PHP_EOL;
                             ?>
@@ -151,25 +151,27 @@
                     $attributes = array(
                         'label class' => 'control-label'
                     );
-                    echo form_label('Gruppe', 'group', $attributes) .PHP_EOL;
+                    echo form_label('Gruppe', 'group', $attributes) . PHP_EOL;
                     //$options = array('admin' => 'Administrator', 'members' => 'Mitglied');
                     $data = array(
-                        'name'        => 'group',
-                        'id'          => 'group',
-                        'value'       => 'admin',
-                        'checked'     => TRUE,
-                        'style'=> 'opacity: 1 !important'
+                        'name'    => 'group',
+                        'id'      => 'group',
+                        'value'   => 'admin',
+                        'checked' => 0,
+                        'style'   => 'opacity: 1 !important'
 
                     );
                     echo '<div class="controls">';
-                    echo form_radio($data). 'Administrator';
-                    echo '</br>'   ;
+
+                    echo form_radio($data) . 'Administrator';
+
+                    echo '</br>';
                     $data = array(
-                        'name'        => 'group',
-                        'id'          => 'group',
-                        'value'       => 'members',
-                        'checked'     => TRUE,
-                        'style'=> 'opacity: 1 !important'
+                        'name'    => 'group',
+                        'id'      => 'group',
+                        'value'   => 'members',
+                        'checked' => 1,
+                        'style'   => 'opacity: 1 !important'
                     );
                     echo form_radio($data) . 'Member';
                     echo ' </div>';
@@ -191,6 +193,6 @@
     </div>
 
 
-
-
+    <input type="radio" name="myradio" value="1" <?php echo set_radio('myradio', '1', TRUE); ?> />
+    <input type="radio" name="myradio" value="2" <?php echo set_radio('myradio', '2'); ?> />
 
