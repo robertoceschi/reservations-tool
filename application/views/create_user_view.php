@@ -191,8 +191,3 @@
             </div>
         </div>
     </div>
-
-
-    <input type="radio" name="myradio" value="1" <?php echo set_radio('myradio', '1', TRUE); ?> />
-    <input type="radio" name="myradio" value="2" <?php echo set_radio('myradio', '2'); ?> />
-

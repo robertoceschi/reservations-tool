@@ -121,6 +121,24 @@
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
+            <div id="infoMessage"><?php
+                $message = $this->session->flashdata('message');
+                //echo $message;?></div>
+
+            <?php
+            if ($message == '') {
+            } elseif ($this->session->flashdata('user_create') == true) {
+                echo '<div class="alert alert-success">';
+                echo '<button class="close" data-dismiss="alert">×</button>';
+                echo '<strong><div id="successMessage">' . $message . '</div></strong> ';
+                echo '</div>';
+            } elseif ($message != '' and $this->session->flashdata('user_create') == false) {
+                echo '<div class="alert alert-error">';
+                echo '<button class="close" data-dismiss="alert">×</button> ';
+                echo '<strong><div id="errorMessage">' . $message . '</div>  </strong>';
+                echo '</div>';
+            }
+            ?>
             <div class="alert alert-success" style="display: none">
                 <button class="close">×</button>
                 <strong>
@@ -166,14 +184,17 @@
                                 echo '<td>' . $user->last_name . '</td> ';?>
                             <td><?php
                                 if ($user->active) {
-                                    echo  '<span style="cursor:pointer"><a  class="toggleStatus inaktiv" id= "' . $user->id . ' " title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' ">Aktiv</a></span> ';
+                                    echo  '<span style="cursor:pointer"><a  class="toggleStatus inaktiv tip-bottom" id= "' . $user->id . ' " title="Status von ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' ändern ?  ">Aktiv</a></span> ';
                                 }if (!$user->active) {
-                                    echo '<span style="cursor:pointer"><a class="toggleStatus aktiv" id="' . $user->id . '" title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' ">Inaktiv</a></span>
+                                    echo '<span style="cursor:pointer"><a class="toggleStatus aktiv tip-bottom" id="' . $user->id . '" title="Status von ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' ändern ? ">Inaktiv</a></span>
 ';
                                 }  '</td> ' . PHP_EOL;?>
-                            <td><?php echo anchor("mitglieder/edit_user/" . $user->id, '<i class="icon icon-edit"></i>');?>
-                                 | <?php
-                                echo '<span style="cursor:pointer"><a class="delete_user" id= "' . $user->id . ' " title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' löschen? "><i class="icon icon-trash"></i> </a></span> ';?></td>
+                            <td><?php echo
+
+
+                            anchor("mitglieder/edit_user/" . $user->id, '<i class="icon icon-edit" title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' editieren? "></i>', 'class="tip-bottom"');?>
+                                | <?php
+                                echo '<span style="cursor:pointer"><a class="delete_user tip-bottom" id= "' . $user->id . ' " title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' löschen? "><i class="icon icon-trash"></i> </a></span> ';?></td>
                             </tr>
 
                                 <?php endforeach; ?>
@@ -186,6 +207,5 @@
 
 
 </div>
-
 </body>
 </html>

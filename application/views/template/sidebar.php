@@ -17,13 +17,31 @@
         </div> -->
     </div>
     <div id="breadcrumb">
-        <a href="index.html" title="Go to Dashboard" class="tip-bottom"><i class="icon-home"></i>Home</a>
-        <a href="#" class="tip-bottom current"">
-            <?php
-                if ($title == 'Home') {
-                    echo '';
-                } else  {
-            echo $title;}?></a>
+        <?php
+        if ($this->ion_auth->user()->row()->group == 'admin') {
+            if ($this->uri->segment(1) == 'home') {
+                echo '<a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>Home</a>';
+            } elseif ($this->uri->segment(1) == 'mitglieder' and $this->uri->segment(2) == '') {
+                echo '<a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>Home</a>';
+                echo '<a href="#" title="" class="">Mitglieder</a>';
+            } elseif ($this->uri->segment(1) == 'mitglieder' and $this->uri->segment(2) == 'create_user') {
+                echo '<a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>Home</a>';
+                echo '<a href="#" title="" class="">Mitglieder</a>';
+                echo '<a href="#" title="" class="">Create User</a>';
+            } elseif ($this->uri->segment(1) == 'mitglieder' and $this->uri->segment(2) == 'edit_user') {
+                echo '<a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>Home</a>';
+                echo '<a href="#" title="" class="">Mitglieder</a>';
+                echo '<a href="#" title="" class="">Edit User</a>';
+            }
+        } else {
+            if ($this->uri->segment(1) == 'home') {
+                echo '<a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>Home</a>';
+            } else {
+                echo '<a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>Home</a>';
+                echo '<a href="#" title="" class="">Edit User</a>';
+            }
+        }
+        ?>
     </div>
 
 

@@ -39,7 +39,7 @@
 
             <span class="pull-left"><?php echo anchor('auth/forgot_password', 'Lost password?');?></span></br>
             <span class="pull-left" style="margin-left: -101px"><?php echo anchor('new_user_profile', 'Register');?></span>
-           <!-- <span class="remember"><label for="remember">Remember Me:</label><?php echo form_checkbox('remember', '1', FALSE, 'id="remember"');?></span> -->
+           <span class="remember"><label for="remember">Remember Me:</label><?php echo form_checkbox('remember', '1', FALSE, 'id="remember"');?></span>
             <span class="pull-right"><input type="submit" class="btn btn-inverse" value="Login" /></span>
 
         </div>

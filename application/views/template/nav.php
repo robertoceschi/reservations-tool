@@ -5,9 +5,9 @@
     <li><? endif; ?><?php
         $is_admin = $this->ion_auth->user()->row()->group;
         if ($is_admin == 'admin') {
-            echo anchor('home/admin', '<i class="icon icon-home"></i><span>Dashboard</span>');
+            echo anchor('home/admin', '<i class="icon icon-home"></i><span>Home</span>');
         } else {
-            echo anchor('home/member', '<i class="icon icon-home"></i><span>Dashboard</span>');
+            echo anchor('home/member', '<i class="icon icon-home"></i><span>Home</span>');
         } ?></li>
         <?php if ($is_admin == 'admin') { ;?>
         <li class="submenu">

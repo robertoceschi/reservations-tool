@@ -14,12 +14,7 @@
     <link rel="stylesheet" href="<?php echo base_url() . 'css/bootstrap_styles/unicorn.grey.css" class="skin-color';?>"/>
     <link rel="stylesheet" href="<?php echo base_url() . 'css/bootstrap_styles/uniform.css" ';?>"/>
     <link rel="stylesheet" href="<?php echo base_url() . 'css/bootstrap_styles/chosen.css" ';?>"/>
-
     <link rel="stylesheet" href="<?php echo base_url() . 'css/style.css';?>"/>
-
-
-
-
     <script src="<?php echo base_url() . 'lib/js/jquery.min.js"></script>'; ?>
 
 
