@@ -90,6 +90,16 @@
                 //echo json_encode(array('status' => $status, 'msg' => $msg));
             }
 
+        //datatables_ajax
+        public function getdatabyajax () {
+            $this->load->library('datatables');
+            $this->datatables
+                ->select('id,first_name,last_name, group, active')
+                ->from('users');
+            echo $this->datatables->generate();
+
+        }
+
 
     }
 
