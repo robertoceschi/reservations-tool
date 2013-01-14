@@ -144,18 +144,18 @@ button[type=submit] {
     float: left;
     margin-top: -27px;
 }
-/*
-.dataTables_filter {
-    width: 98%;
+
+/*Suchfeld muss noch angepasst werden*/
+div.dataTables_filter label {
+
     float: right;
-    text-align: right;
-    margin-top: -34px;
-}  */
+    margin-top: -38px;
+    margin-right: -97%;
 
-
-.dataTables_filter {
-   display: none;
 }
+
+
+
 
 div.dataTables_length label {
     float: left;
