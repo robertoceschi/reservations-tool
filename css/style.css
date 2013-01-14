@@ -3,7 +3,6 @@
     /*@import url('../css/bootstrap_styles/bootstrap.min.css'); */
 @import url('../css/bootstrap_styles/bootstrap-responsive.css');
     /*@import url('../css/bootstrap_styles/bootstrap-responsive.min.css'); */
-@import url('../css/bootstrap_styles/chosen.css');
 @import url('../css/bootstrap_styles/datepicker.css');
 @import url('../css/bootstrap_styles/fullcalendar.css');
 @import url('../css/bootstrap_styles/glyphicons.css');
@@ -14,6 +13,9 @@
 @import url('../css/bootstrap_styles/unicorn.login.css');
 @import url('../css/bootstrap_styles/unicorn.main.css');
 @import url('../css/bootstrap_styles/uniform.css');
+@import url('../css/datatables_ajax/demo_page.css');
+@import url('../css/datatables_ajax/demo_table.css');
+
 
 /*custom css (bootstrap css werden überschrieben)/*
 
@@ -134,5 +136,71 @@ button[type=submit] {
     margin-top: -50px;
     margin-right: -140px;
     font-size: 10px;
+}
+
+
+.dataTables_length {
+    width: 99%;
+    float: left;
+    margin-top: -27px;
+}
+/*
+.dataTables_filter {
+    width: 98%;
+    float: right;
+    text-align: right;
+    margin-top: -34px;
+}  */
+
+
+.dataTables_filter {
+   display: none;
+}
+
+div.dataTables_length label {
+    float: left;
+    text-align: left;
+}
+
+div.dataTables_length select {
+    width: 75px;
+}
+
+div.dataTables_filter label {
+    float: right;
+}
+
+div.dataTables_info {
+    padding-top: 8px;
+}
+
+div.dataTables_paginate {
+    float: right;
+    margin: 0;
+}
+
+table.table {
+    clear: both;
+    margin-bottom: 6px !important;
+    max-width: none !important;
+}
+
+table.table thead .sorting,
+table.table thead .sorting_asc,
+table.table thead .sorting_desc,
+table.table thead .sorting_asc_disabled,
+table.table thead .sorting_desc_disabled {
+    cursor: pointer;
+    *cursor: hand;
+}
+
+
+
+
+
+
+
+tr.even td.sorting_1 {
+    background-color: rgba(234, 235, 255, 0);
 }
 

@@ -94,7 +94,8 @@
         public function getdatabyajax () {
             $this->load->library('datatables');
             $this->datatables
-                ->select('id,first_name,last_name, group, active')
+                //->select('id,first_name,last_name, group, active')
+                ->select('first_name,last_name, group, active')
                 ->from('users');
             echo $this->datatables->generate();
 
