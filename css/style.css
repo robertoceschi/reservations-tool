@@ -154,9 +154,6 @@ div.dataTables_filter label {
 
 }
 
-
-
-
 div.dataTables_length label {
     float: left;
     text-align: left;
@@ -203,4 +200,7 @@ table.table thead .sorting_desc_disabled {
 tr.even td.sorting_1 {
     background-color: rgba(234, 235, 255, 0);
 }
+
+
+
 

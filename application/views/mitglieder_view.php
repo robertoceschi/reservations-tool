@@ -115,9 +115,8 @@
 
         });
 
-       //datatables_ajax
+        //datatables_ajax
         $('#example').dataTable({
-
             "bProcessing":true,
             "bServerSide":true,
             "sAjaxSource":"<?php base_url();?>ajax/getdatabyajax",
@@ -127,7 +126,7 @@
 
 
 
-});
+    });
 </script>
 
 
@@ -182,9 +181,9 @@
 
                 <div class="widget-content nopadding">
                     <!--<div id="dynamic"> -->
-                  <!--<table class="table table-bordered data-table" id="example">-->
-                        <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
-                    <!--<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">-->
+                    <!--<table class="table table-bordered data-table" id="example">-->
+                    <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
+                        <!--<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">-->
                         <thead>
                         <tr>
                             <!--<th width="20%">id</th> -->
@@ -201,11 +200,11 @@
                         </tbody>
 
                     </table>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 
 </div>
