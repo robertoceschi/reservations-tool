@@ -95,9 +95,9 @@
             $this->load->library('datatables');
             $this->datatables
                 //->select('id,first_name,last_name, group, active')
-                ->select('first_name,last_name, group, active')
+                ->select('id, first_name,last_name, group, active')
                 ->from('users')
-                ->add_column('delete', '<a href=" ' .base_url() . 'index.php/delete/$1">Delete</a>', 'filmid') ;
+                ->add_column('delete', '<a href=" ' .base_url() . 'mitglieder/delete_user/$1">Delete</a>', 'id') ;
 
 
             echo $this->datatables->generate();

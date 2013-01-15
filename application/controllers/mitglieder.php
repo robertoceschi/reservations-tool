@@ -360,6 +360,9 @@
         function delete_user ($id) {
 
             $delete = $this->ion_auth->delete_user($id);
+            $this->session->set_flashdata('message', $this->ion_auth->messages());
+            redirect('mitglieder', 'refresh');
+
 
 
         }
