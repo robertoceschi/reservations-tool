@@ -60,55 +60,53 @@
 
                 );
                 echo json_encode($return);
-            }   }
-
-            //delete  user
-            function delete_user ($id) {
-
-                $delete = $this->ion_auth->delete_user($id);
-
-
-                if ($delete) {
-                    //$status = "success";
-                    //$msg    = "User wurde gelöscht!";
-                   $return = array(
-                       'status' => 'success',
-                        'message' => 'Der User wurde erfolgreich gelöscht!'
-                   );
-                    echo json_encode($return);
-
-                } else {
-                    //$status = "error";
-                    //$msg    = "User konnte nicht gelöscht werden!";
-
-                    $return = array(
-                        'status' => 'error',
-                        'message' => 'Der User wurde nicht gelöscht!'
-                    );
-                    echo json_encode($return);
-                }
-                //echo json_encode(array('status' => $status, 'msg' => $msg));
             }
+        }
+
+        //delete  user
+        function delete_user ($id) {
+
+            $delete = $this->ion_auth->delete_user($id);
+
+
+            if ($delete) {
+                //$status = "success";
+                //$msg    = "User wurde gelöscht!";
+                $return = array(
+                    'status'  => 'success',
+                    'message' => 'Der User wurde erfolgreich gelöscht!'
+                );
+                echo json_encode($return);
+
+            } else {
+                //$status = "error";
+                //$msg    = "User konnte nicht gelöscht werden!";
+
+                $return = array(
+                    'status'  => 'error',
+                    'message' => 'Der User wurde nicht gelöscht!'
+                );
+                echo json_encode($return);
+            }
+            //echo json_encode(array('status' => $status, 'msg' => $msg));
+        }
 
         //datatables_ajax
         public function getdatabyajax () {
             $this->load->library('datatables');
             $this->datatables
-                //->select('id,first_name,last_name, group, active')
+            //->select('id,first_name,last_name, group, active')
                 ->select('id, first_name,last_name, group, active')
-
-
                 ->from('users')
-                ->edit_column('first_name', '<a href="#$3">$1 $2</a>', 'first_name, last_name, email')
                 ->edit_column('last_name', '$1', 'ucfirst(last_name)')
-                ->add_column('delete', '<a href=" ' .base_url() . 'mitglieder/delete_user/$1"><i class="icon icon-trash"></i></a>', 'id')
-                ->add_column('edit', '<a href=" ' .base_url() . 'mitglieder/edit_user/$1"><i class="icon icon-edit"></a>', 'id')
+                ->add_column('delete', '<a href=" ' . base_url() . 'mitglieder/delete_user/$1"><i class="icon icon-trash"></i></a>', 'id')
+                ->add_column('edit', '<a href=" ' . base_url() . 'mitglieder/edit_user/$1"><i class="icon icon-edit"></a>', 'id')
+
+
                 ->unset_column('id');
 
 
             echo $this->datatables->generate();
-
-
 
 
         }

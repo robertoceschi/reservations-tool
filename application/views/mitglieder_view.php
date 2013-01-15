@@ -119,8 +119,8 @@
         $('#example').dataTable({
             "bProcessing":true,
             "bServerSide":true,
-            "sAjaxSource":"<?php base_url();?>ajax/getdatabyajax",
-            "sServerMethod":"POST"
+            "sServerMethod":"POST"  ,
+            "sAjaxSource":"<?php base_url();?>ajax/getdatabyajax"
         });
 
 
