@@ -191,6 +191,7 @@
                             <th width="20%">Nachname</th>
                             <th width="20%">Status</th>
                             <th width="20%">active</th>
+                            <th width="10%">Delete</th>
                         </tr>
                         </thead>
                         <tbody>
