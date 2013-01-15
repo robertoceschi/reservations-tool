@@ -187,12 +187,13 @@
                         <thead>
                         <tr>
                             <!--<th width="20%">id</th> -->
-                            <th width="20%">ID</th>
+
                             <th width="20%">Vorname</th>
                             <th width="20%">Nachname</th>
-                            <th width="20%">Status</th>
-                            <th width="20%">active</th>
-                            <th width="10%">Delete</th>
+                            <th width="10%">Status</th>
+                            <th width="2%">active</th>
+                            <th width="2%">Delete</th>
+                            <th width="2%">Edit</th>
                         </tr>
                         </thead>
                         <tbody>

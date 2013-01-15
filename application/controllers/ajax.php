@@ -96,11 +96,20 @@
             $this->datatables
                 //->select('id,first_name,last_name, group, active')
                 ->select('id, first_name,last_name, group, active')
+
+
                 ->from('users')
-                ->add_column('delete', '<a href=" ' .base_url() . 'mitglieder/delete_user/$1">Delete</a>', 'id') ;
+                ->edit_column('first_name', '<a href="#$3">$1 $2</a>', 'first_name, last_name, email')
+                ->edit_column('last_name', '$1', 'ucfirst(last_name)')
+                ->add_column('delete', '<a href=" ' .base_url() . 'mitglieder/delete_user/$1"><i class="icon icon-trash"></i></a>', 'id')
+                ->add_column('edit', '<a href=" ' .base_url() . 'mitglieder/edit_user/$1"><i class="icon icon-edit"></a>', 'id')
+                ->unset_column('id');
 
 
             echo $this->datatables->generate();
+
+
+
 
         }
 
