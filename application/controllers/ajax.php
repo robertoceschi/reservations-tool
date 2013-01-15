@@ -95,7 +95,6 @@
         public function getdatabyajax () {
             $this->load->library('datatables');
             $this->datatables
-            //->select('id,first_name,last_name, group, active')
                 ->select('id, first_name,last_name, group, active')
                 ->from('users')
                 ->edit_column('last_name', '$1', 'ucfirst(last_name)')
