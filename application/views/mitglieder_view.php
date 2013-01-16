@@ -118,12 +118,11 @@
         $('#example').dataTable({
             "bProcessing":true,
             "bServerSide":true,
-            "aoColumns" : [{"bSearchable": true}, {"bSearchable": true}, {"bSearchable": false}, {"bSearchable": false}, {"bSearchable": false}, {"bSearchable": false} ],
             "sServerMethod":"POST"  ,
-            "sAjaxSource":"<?php base_url();?>ajax/getdatabyajax"
+            "sAjaxSource":"<?php base_url();?>ajax/getdatabyajax",
+            "sPaginationType": "full_numbers"
+
         });
-
-
     });
 </script>
 
@@ -198,7 +197,6 @@
                             <td colspan="5" class="dataTables_empty">Loading data from server</td>
                         </tr>
                         </tbody>
-
                     </table>
                 </div>
             </div>

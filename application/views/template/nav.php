@@ -3,7 +3,7 @@
     <ul>
         <?php if ($this->uri->segment(1) === 'home'): ?><li class="active"><?php else : ?>
     <li><? endif; ?><?php
-        $is_admin = $this->ion_auth->user()->row()->group;
+        $is_admin = $this->ion_auth->user()->row()->permission_group;
         if ($is_admin == 'admin') {
             echo anchor('home/admin', '<i class="icon icon-home"></i><span>Home</span>');
         } else {

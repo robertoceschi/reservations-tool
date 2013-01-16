@@ -32,8 +32,8 @@
                     <h5>Profilangaben</h5>
                 </div>
                 <?php
-                $group = $this->ion_auth->user()->row()->group;
-                if ($group == 'admin') {
+                $permission_group = $this->ion_auth->user()->row()->permission_group;
+                if ($permission_group == 'admin') {
                     /* echo '<h2>Create User</h2>';
                      echo '<h5>Please enter the users information below.</h5>'*/
                     ;?>
@@ -147,15 +147,15 @@
 
                     echo '<div class="control-group">' . PHP_EOL;
                     echo '<div>' . PHP_EOL;
-                    $group      = '';
+                    $permission_group     = '';
                     $attributes = array(
                         'label class' => 'control-label'
                     );
-                    echo form_label('Gruppe', 'group', $attributes) . PHP_EOL;
+                    echo form_label('Gruppe', 'permission_group', $attributes) . PHP_EOL;
                     //$options = array('admin' => 'Administrator', 'members' => 'Mitglied');
                     $data = array(
-                        'name'    => 'group',
-                        'id'      => 'group',
+                        'name'    => 'permission_group',
+                        'id'      => 'permission_group',
                         'value'   => 'admin',
                         'checked' => 0,
                         'style'   => 'opacity: 1 !important'
@@ -167,8 +167,8 @@
 
                     echo '</br>';
                     $data = array(
-                        'name'    => 'group',
-                        'id'      => 'group',
+                        'name'    => 'permission_group',
+                        'id'      => 'permission_group',
                         'value'   => 'members',
                         'checked' => 1,
                         'style'   => 'opacity: 1 !important'

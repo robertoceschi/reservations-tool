@@ -68,7 +68,7 @@
                     'last_name'  => $this->input->post('last_name'),
                     'company'    => $this->input->post('company'),
                     'phone'      => $this->input->post('phone1'),
-                    'group'      => 'members',
+                    'permission_group'      => 'members',
 
                 );
 

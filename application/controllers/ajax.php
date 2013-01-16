@@ -95,7 +95,7 @@
         public function getdatabyajax () {
             $this->load->library('datatables');
             $this->datatables
-                ->select('id, first_name,last_name, group, active')
+                ->select('id, first_name,last_name, permission_group, active')
                 ->from('users')
             ->edit_column('last_name', '$1', 'ucfirst(last_name)')
                 ->add_column('delete', '<a href=" ' . base_url() . 'mitglieder/delete_user/$1"><i class="icon icon-trash"></i></a>', 'id')
