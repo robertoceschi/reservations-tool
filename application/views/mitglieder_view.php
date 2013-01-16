@@ -114,6 +114,8 @@
             }
 
         });
+
+
     });
 </script>
 
@@ -165,7 +167,7 @@
                     <h5>Alle Mitglieder</h5>
                 </div>
                 <div class="widget-content nopadding">
-                    <table class="table table-bordered data-table">
+                    <table class="table table-bordered data-table" id="example">
                         <thead>
                         <tr>
                             <th>Vorname</th>
