@@ -96,7 +96,7 @@
             $this->load->library('datatables');
             $this->datatables
                 ->select('id, first_name,last_name, group, active')
-                ->from('users') ->where('group = "admin" ')
+                ->from('users')
             ->edit_column('last_name', '$1', 'ucfirst(last_name)')
                 ->add_column('delete', '<a href=" ' . base_url() . 'mitglieder/delete_user/$1"><i class="icon icon-trash"></i></a>', 'id')
                 ->add_column('edit', '<a href=" ' . base_url() . 'mitglieder/edit_user/$1"><i class="icon icon-edit"></a>', 'id')
