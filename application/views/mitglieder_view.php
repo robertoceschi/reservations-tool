@@ -114,7 +114,6 @@
             }
 
         });
-
         //datatables_ajax
         $('#example').dataTable({
             "bProcessing":true,
