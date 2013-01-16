@@ -119,7 +119,7 @@
         $('#example').dataTable({
             "bProcessing":true,
             "bServerSide":true,
-            "aoColumns" : [{"bSearchable": true}, {"bSearchable": true}, {"bSearchable": true}, {"bSearchable": false}, {"bSearchable": true}, {"bSearchable": true} ],
+            "aoColumns" : [{"bSearchable": true}, {"bSearchable": true}, {"bSearchable": false}, {"bSearchable": false}, {"bSearchable": false}, {"bSearchable": false} ],
             "sServerMethod":"POST"  ,
             "sAjaxSource":"<?php base_url();?>ajax/getdatabyajax"
         });
