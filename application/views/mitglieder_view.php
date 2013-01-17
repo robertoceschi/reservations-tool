@@ -199,7 +199,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                          <td class="admin"></td>
+                        <td class="admin"></td>
 
                         <tr>
                             <td colspan="5" class="dataTables_empty">Loading data from server</td>

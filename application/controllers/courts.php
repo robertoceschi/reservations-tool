@@ -75,6 +75,7 @@
                 // Eintrag wird bestätigt
                 $last_id = mysql_insert_id();
 
+
             }
             else {
                 echo 'fehler';
