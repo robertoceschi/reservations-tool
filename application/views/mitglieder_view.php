@@ -122,6 +122,9 @@
             "sAjaxSource":"<?php base_url();?>ajax/getdatabyajax",
             "sPaginationType": "full_numbers"
 
+
+
+
         });
     });
 </script>
@@ -186,13 +189,15 @@
                             <!--<th width="20%">id</th> -->
                             <th width="20%">Vorname</th>
                             <th width="20%">Nachname</th>
-                            <th width="10%">group</th>
-                            <th width="2%">active</th>
+                            <th width="10%">Rolle</th>
+                            <th width="2%">aktiv</th>
                             <th width="2%">Delete</th>
                             <th width="2%">Edit</th>
                         </tr>
                         </thead>
                         <tbody>
+                          <td class="admin"></td>
+
                         <tr>
                             <td colspan="5" class="dataTables_empty">Loading data from server</td>
                         </tr>
