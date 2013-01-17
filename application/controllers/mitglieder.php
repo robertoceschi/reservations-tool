@@ -76,7 +76,6 @@
                 redirect('auth/login', 'refresh');
 
             }
-
             //validate form input
             $this->form_validation->set_rules('first_name', 'First Name', 'required|xss_clean');
             $this->form_validation->set_rules('last_name', 'Last Name', 'required|xss_clean');
@@ -85,8 +84,6 @@
             $this->form_validation->set_rules('company', 'Company Name', 'required|xss_clean');
             $this->form_validation->set_rules('password', 'Password', 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[password_confirm]');
             $this->form_validation->set_rules('password_confirm', 'Password Confirmation', 'required');
-
-
             if ($this->form_validation->run() == true) {
 
                 $username = strtolower($this->input->post('first_name')) . ' ' . strtolower($this->input->post('last_name'));
@@ -94,11 +91,11 @@
                 $password = $this->input->post('password');
 
                 $additional_data = array(
-                    'first_name' => $this->input->post('first_name', true),
-                    'last_name'  => $this->input->post('last_name', true),
-                    'company'    => $this->input->post('company', true),
-                    'phone'      => $this->input->post('phone1', true),
-                    'permission_group'      => $this->input->post('permission_group'),
+                    'first_name'       => $this->input->post('first_name', true),
+                    'last_name'        => $this->input->post('last_name', true),
+                    'company'          => $this->input->post('company', true),
+                    'phone'            => $this->input->post('phone1', true),
+                    'permission_group' => $this->input->post('permission_group'),
                     //'active'      => $this->input->post('active'),
                 );
             }

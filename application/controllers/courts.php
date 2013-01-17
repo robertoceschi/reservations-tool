@@ -14,6 +14,8 @@
             $this->load->library('form_validation');
             $this->load->library('ion_auth');
             $this->load->library('session');
+            $this->load->model('Courts_model');
+            $this->sTable = 'court';
             //$this->load->library('pagination');
 
 
@@ -67,20 +69,32 @@
 
         public function create_court() {
 
+            // Leeres Formular ausgeben
+            //--------------------------------------//
+            $data['court_name']      = '';
+
             $permission_group = $this->ion_auth->user()->row()->permission_group;
             //Name der view für den main_content wird an my_controller übergeben
             $main_content        = 'create_court';
-            $this->data['title'] = "Neuer Platz erstellen";
+            $this->data['title'] = "Neuen Court erstellen";
 
             if (!$this->ion_auth->logged_in() || !$permission_group == 'admin') {
                 redirect('auth/login', 'refresh');
+            }
+            $aData = array('court_name'       => $this->input->post('court_name', true));
+
+            if ($this->Courts_model->saveRecord($this->sTable, $aData)) {
+                // Eintrag wird bestätigt
+                $last_id = mysql_insert_id();
 
             }
-             $new_court_name = strtolower($this->input->post('')) . ' ' . strtolower($this->input->post('last_name'));
-
-
-
+            else {
+                echo 'fehler';
             }
+
+            parent::__renderAll($main_content, $aData);
+            }
+
 
 
 
