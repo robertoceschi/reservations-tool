@@ -127,6 +127,9 @@
 
         });
     });
+
+
+
 </script>
 
 
@@ -190,9 +193,9 @@
                             <th width="20%">Vorname</th>
                             <th width="20%">Nachname</th>
                             <th width="10%">Rolle</th>
-                            <th width="2%">aktiv</th>
-                            <th width="2%">Delete</th>
-                            <th width="2%">Edit</th>
+                            <th width="1%">aktiv</th>
+                            <th width="1%">Delete</th>
+                            <th width="1%">Edit</th>
                         </tr>
                         </thead>
                         <tbody>
