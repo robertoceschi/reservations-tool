@@ -36,11 +36,6 @@
             //$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
             $user = $this->ion_auth->user()->row();
             if ($this->ion_auth->logged_in() and $permission_group == 'admin') {
-
-
-
-
-
                 $this->data['users'] = $this->db->get('users')->result();
                 //$this->data['users'] = $this->db->get('users', $config['per_page'], $this->uri->segment(3));
 
@@ -52,10 +47,10 @@
             } else {
                 //$this->data['user'] = $this->ion_auth->user($id)->row();
                 //$user = $this->ion_auth->user();
-                $this->data = '';
+                //$this->data = '';
+                 echo 'nicht eingeloggt oder nicht admin! Bitte einloggen';
 
-
-                parent::__renderAll($this->sControllerName, $this->data);
+                //parent::__renderAll($this->sControllerName, $this->data);
             }
             //parent::__renderAll($this->sControllerName, $this->data);
 

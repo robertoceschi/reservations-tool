@@ -4,7 +4,7 @@
 
         protected $sControllerName = '';
 
-        //protected $sTable           = '';
+        protected $sTable = '';
 
 
         function __construct () {
@@ -15,7 +15,7 @@
             $this->load->library('ion_auth');
             $this->load->library('session');
             $this->load->model('Courts_model');
-            $this->sTable = 'court';
+
             //$this->load->library('pagination');
 
 
@@ -32,8 +32,8 @@
          * @date        20120710
          */
         public function index () {
-            $permission_group            = $this->ion_auth->user()->row()->permission_group;
-            $this->data['title'] = 'Plätze';
+            $permission_group    = $this->ion_auth->user()->row()->permission_group;
+            $this->data['title'] = 'Courts';
             //set the flash data error message if there is one
             //$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
             $user = $this->ion_auth->user()->row();
@@ -43,50 +43,44 @@
                 parent::__renderAll($this->sControllerName, $this->data);
             } else {
 
-                $this->data = '';
-
-
-                parent::__renderAll($this->sControllerName, $this->data);
+                echo 'nicht eingeloggt oder nicht admin! Bitte einloggen';
             }
-
-
 
 
         }
 
 
-        public function create_court() {
+        public function create_court () {
 
             // Leeres Formular ausgeben
             //--------------------------------------//
-            $data['court_name']      = '';
+            $data['court_name']   = '';
+            $data['court_status'] = '';
 
-            $permission_group = $this->ion_auth->user()->row()->permission_group;
-            //Name der view für den main_content wird an my_controller übergeben
+
+            $permission_group    = $this->ion_auth->user()->row()->permission_group;
             $main_content        = 'create_court';
             $this->data['title'] = "Neuen Court erstellen";
+
 
             if (!$this->ion_auth->logged_in() || !$permission_group == 'admin') {
                 redirect('auth/login', 'refresh');
             }
-            $aData = array('court_name'       => $this->input->post('court_name', true));
 
-            if ($this->Courts_model->saveRecord($this->sTable, $aData)) {
-                // Eintrag wird bestätigt
-                $last_id = mysql_insert_id();
+            if ($this->input->post()) {
+                $data_court = array(
+                    'court_name'   => $this->input->post('court_name', true),
+                    'court_status' => $this->input->post('court_status')
+                );
+                $data_cat = array(
+                    'category_name'     => $this->input->post('category_name', true),
+                );
 
-
+                $this->Courts_model->saveRecord($sTable = 'court', $data_court);
+                $this->Courts_model->saveRecord($sTable = 'category', $data_cat);
             }
-            else {
-                echo 'fehler';
-            }
+            parent::__renderAll($main_content, $data);
 
-            parent::__renderAll($main_content, $aData);
-            }
-
-
-
-
-
+        }
     }
 

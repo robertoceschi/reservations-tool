@@ -1,29 +1,13 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-        //error Message wird mit click() geschlossen!!
-        $('.close').click(function () {
-            $('.alert').hide();
-        })
+
     });
 </script>
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
-            <?php
-            if ($message == '') {
-            } elseif ($this->session->flashdata('user_create') == true) {
-                echo '<div class="alert alert-success">';
-                echo '<button class="close" data-dismiss="alert">×</button>';
-                echo '<strong><div id="successMessage">' . $message . '</div></strong> ';
-                echo '</div>';
-            } elseif ($message != '' and $this->session->flashdata('user_create') == false) {
-                echo '<div class="alert alert-error">';
-                echo '<button class="close" data-dismiss="alert">×</button> ';
-                echo '<strong><div id="errorMessage">' . $message . '</div>  </strong>';
-                echo '</div>';
-            }
-            ?>
+
             <div class="widget-box">
                 <div class="widget-title">
 								<span class="icon">
@@ -34,8 +18,6 @@
                 <?php
                 $permission_group = $this->ion_auth->user()->row()->permission_group;
                 if ($permission_group == 'admin') {
-                    /* echo '<h2>Create User</h2>';
-                     echo '<h5>Please enter the users information below.</h5>'*/
                     ;?>
                      <div class="widget-content nopadding">
                     <?php
@@ -45,12 +27,12 @@
                         <?php
                         $attributes = array(
                             'label class' => 'control-label',);
-                        echo form_label('Kategorie', 'court_category', $attributes); ?>
+                        echo form_label('Kategorie', 'category_name', $attributes); ?>
                         <div class="controls">
                             <?php
-                            $attributes = array('name' => 'court_category',
-                                                'id'   => 'court_category');
-                            echo form_input($attributes, set_value('court_category', $court_category['value'])) . PHP_EOL;
+                            $attributes = array('name' => 'category_name',
+                                                'id'   => 'category_name');
+                            echo form_input($attributes, set_value('category_name', $category_name['value'])) . PHP_EOL;
                             ?>
                         </div>
                     </div>
@@ -145,48 +127,25 @@
                     <?php
                     // echo form_fieldset() . PHP_EOL;
 
-                    echo '<div class="control-group">' . PHP_EOL;
-                    echo '<div>' . PHP_EOL;
-                    $permission_group     = '';
-                    $attributes = array(
-                        'label class' => 'control-label'
-                    );
-                    echo form_label('Court Status', 'permission_group', $attributes) . PHP_EOL;
-                    //$options = array('admin' => 'Administrator', 'members' => 'Mitglied');
-                    $data = array(
-                        'name'    => 'permission_group',
-                        'id'      => 'permission_group',
-                        'value'   => 'aktiv',
-                        'checked' => 1,
-                        'style'   => 'opacity: 1 !important'
-
-                    );
-                    echo '<div class="controls">';
-
-                    echo form_radio($data) . 'aktiv';
-
-                    echo '</br>';
-                    $data = array(
-                        'name'    => 'permission_group',
-                        'id'      => 'permission_group',
-                        'value'   => 'inaktiv',
-                        'checked' => 0,
-                        'style'   => 'opacity: 1 !important'
-                    );
-                    echo form_radio($data) . 'inaktiv';
-                    echo ' </div>';
-                    echo '</div></div>' . PHP_EOL;
-                    ?>
+                        echo '<div class="control-group">';
+                        echo '<div>' . PHP_EOL;
+                        $attributes = array(
+                            'label class' => 'control-label');
+                        echo form_label('Status', 'court_status', $attributes) . PHP_EOL;
+                        echo '<div class="controls">';?>
+                        <input type="radio" name="court_status" value="1"
+                               style="opacity: 1 !important;"  />Aktiv </br>
+                        <input type="radio" name="court_status" value="0"
+                               style="opacity: 1 !important;"  />Inaktiv
+                        <?php echo '</div></div>' . PHP_EOL;
+                        echo '</div>';
+                    } ?>
                     <div class="form-actions">
                         <button type="submit" class="btn btn-primary" data-loading-text="Sending...">
                             <!--<i class="icon-refresh icon-white"></i>--> Court speichern
                         </button>
                     </div>
                     <?php echo form_close(); ?>
-                    <?php
-                } else {
-
-                };?>
             </div>
             </div>
         </div>
