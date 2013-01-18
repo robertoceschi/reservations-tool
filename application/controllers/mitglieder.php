@@ -36,21 +36,26 @@
             //$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
             $user = $this->ion_auth->user()->row();
             if ($this->ion_auth->logged_in() and $permission_group == 'admin') {
+
+
+
+
+
                 $this->data['users'] = $this->db->get('users')->result();
                 //$this->data['users'] = $this->db->get('users', $config['per_page'], $this->uri->segment(3));
 
                 //foreach ($this->data['users'] as $k => $user) {
-                  //  $this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
+                  //  $this->data['users'][$k]->permission_groups = $this->ion_auth->get_users_groups($user->id)->result();
 
                 //}
                 parent::__renderAll($this->sControllerName, $this->data);
             } else {
                 //$this->data['user'] = $this->ion_auth->user($id)->row();
                 //$user = $this->ion_auth->user();
-                //$this->data = '';
-                 echo 'nicht eingeloggt oder nicht admin! Bitte einloggen';
+                $this->data = '';
 
-                //parent::__renderAll($this->sControllerName, $this->data);
+
+                parent::__renderAll($this->sControllerName, $this->data);
             }
             //parent::__renderAll($this->sControllerName, $this->data);
 
@@ -71,6 +76,7 @@
                 redirect('auth/login', 'refresh');
 
             }
+
             //validate form input
             $this->form_validation->set_rules('first_name', 'First Name', 'required|xss_clean');
             $this->form_validation->set_rules('last_name', 'Last Name', 'required|xss_clean');
@@ -79,6 +85,8 @@
             $this->form_validation->set_rules('company', 'Company Name', 'required|xss_clean');
             $this->form_validation->set_rules('password', 'Password', 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[password_confirm]');
             $this->form_validation->set_rules('password_confirm', 'Password Confirmation', 'required');
+
+
             if ($this->form_validation->run() == true) {
 
                 $username = strtolower($this->input->post('first_name')) . ' ' . strtolower($this->input->post('last_name'));
@@ -86,11 +94,11 @@
                 $password = $this->input->post('password');
 
                 $additional_data = array(
-                    'first_name'       => $this->input->post('first_name', true),
-                    'last_name'        => $this->input->post('last_name', true),
-                    'company'          => $this->input->post('company', true),
-                    'phone'            => $this->input->post('phone1', true),
-                    'permission_group' => $this->input->post('permission_group'),
+                    'first_name' => $this->input->post('first_name', true),
+                    'last_name'  => $this->input->post('last_name', true),
+                    'company'    => $this->input->post('company', true),
+                    'phone'      => $this->input->post('phone1', true),
+                    'permission_group'      => $this->input->post('permission_group'),
                     //'active'      => $this->input->post('active'),
                 );
             }
@@ -352,9 +360,6 @@
         function delete_user ($id) {
 
             $delete = $this->ion_auth->delete_user($id);
-            $this->session->set_flashdata('message', $this->ion_auth->messages());
-            redirect('mitglieder', 'refresh');
-
 
 
         }
