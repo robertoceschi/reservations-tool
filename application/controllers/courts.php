@@ -39,6 +39,9 @@
             $user = $this->ion_auth->user()->row();
 
             if ($this->ion_auth->logged_in() and $permission_group == 'admin') {
+                $this->data['courts'] = $this->db->get('court')->result();
+                //$this->data['courts'] = $this->Courts_model->join();
+
 
                 parent::__renderAll($this->sControllerName, $this->data);
             } else {

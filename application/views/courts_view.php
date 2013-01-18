@@ -22,28 +22,43 @@
             </div>
 
 
+
             <table class="table table-bordered" class="pagination">
                 <thead>
                 <tr>
-                    <th>Court-Name</th>
-                    <th>Court-Status</th>
-                    <th>Edit Court</th>
-                    <th>Delete Court</th>
-
+                    <th>Kategorie</th>
+                    <th>Platzname</th>
+                    <th>Saison</th>
+                    <th>Court Status</th>
                 </tr>
                 </thead>
 
 
                 <?php
-                //foreach ($users as $user):
+                foreach ($courts as $court):
 
                     echo '<tbody>';
                     echo '<tr class="remove">
-                    <td>'?></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>'?><?php
+                    echo '<div class="control-group">';
+                    echo '<div>' . PHP_EOL;
+                    $attributes = array(
+                        'label class' => 'control-label');
+                    echo form_label('Kategorie', 'active', $attributes) . PHP_EOL;
+                    echo '<div class="controls">';?>
+                    <input type="radio" name="active" value="1"
+                           style="opacity: 1 !important;"  />Tennis </br>
+                    <input type="radio" name="active" value="0"
+                           style="opacity: 1 !important;"  />Squash
+                    <?php echo '</div></div>' . PHP_EOL;
+                    echo '</div>';
+                 ;?></td>
+                    <td><?php echo $court->court_name;?></td>
+                    <td><?php echo '';?></td>
+                    <td><?php echo $court->court_status;?></td>
 
+                    </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
 
