@@ -45,7 +45,20 @@
                         <?php
                         $attributes = array(
                             'label class' => 'control-label',);
-                        echo form_label('Courtname', 'court_name', $attributes); ?>
+                        echo form_label('Kategorie', 'court_category', $attributes); ?>
+                        <div class="controls">
+                            <?php
+                            $attributes = array('name' => 'court_category',
+                                                'id'   => 'court_category');
+                            echo form_input($attributes, set_value('court_category', $court_category['value'])) . PHP_EOL;
+                            ?>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <?php
+                        $attributes = array(
+                            'label class' => 'control-label',);
+                        echo form_label('Court-Name', 'court_name', $attributes); ?>
                         <div class="controls">
                             <?php
                             $attributes = array('name' => 'court_name',
@@ -58,12 +71,12 @@
                         <?php
                         $attributes = array(
                             'label class' => 'control-label',);
-                        echo form_label('Nachname', 'last_name', $attributes); ?>
+                        echo form_label('Saison', 'company', $attributes); ?>
                         <div class="controls">
                             <?php
-                            $attributes = array('name' => 'last_name',
-                                                'id'   => 'last_name');
-                            echo form_input($attributes, set_value('last_name', $last_name['value'])) . PHP_EOL;
+                            $attributes = array('name' => 'saison',
+                                                'id'   => 'saison');
+                            echo form_input($attributes, set_value('company', $saison['value'])) . PHP_EOL;
                             ?>
                         </div>
                     </div>
@@ -71,20 +84,7 @@
                         <?php
                         $attributes = array(
                             'label class' => 'control-label',);
-                        echo form_label('Firma', 'company', $attributes); ?>
-                        <div class="controls">
-                            <?php
-                            $attributes = array('name' => 'company',
-                                                'id'   => 'company');
-                            echo form_input($attributes, set_value('company', $company['value'])) . PHP_EOL;
-                            ?>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <?php
-                        $attributes = array(
-                            'label class' => 'control-label',);
-                        echo form_label('Email', 'email', $attributes); ?>
+                        echo form_label('Spielzeit', 'email', $attributes); ?>
                         <div class="controls">
                             <?php
                             $attributes = array('name' => 'email',
@@ -98,7 +98,7 @@
                         <?php
                         $attributes = array(
                             'label class' => 'control-label',);
-                        echo form_label('Mobiltelefon', 'phone1', $attributes); ?>
+                        echo form_label('Court gesperrt', 'phone1', $attributes); ?>
                         <div class="controls">
                             <?php
                             $attributes = array('name'        => 'phone1',
@@ -151,35 +151,35 @@
                     $attributes = array(
                         'label class' => 'control-label'
                     );
-                    echo form_label('Gruppe', 'permission_group', $attributes) . PHP_EOL;
+                    echo form_label('Court Status', 'permission_group', $attributes) . PHP_EOL;
                     //$options = array('admin' => 'Administrator', 'members' => 'Mitglied');
                     $data = array(
                         'name'    => 'permission_group',
                         'id'      => 'permission_group',
-                        'value'   => 'admin',
-                        'checked' => 0,
+                        'value'   => 'aktiv',
+                        'checked' => 1,
                         'style'   => 'opacity: 1 !important'
 
                     );
                     echo '<div class="controls">';
 
-                    echo form_radio($data) . 'Administrator';
+                    echo form_radio($data) . 'aktiv';
 
                     echo '</br>';
                     $data = array(
                         'name'    => 'permission_group',
                         'id'      => 'permission_group',
-                        'value'   => 'members',
-                        'checked' => 1,
+                        'value'   => 'inaktiv',
+                        'checked' => 0,
                         'style'   => 'opacity: 1 !important'
                     );
-                    echo form_radio($data) . 'Member';
+                    echo form_radio($data) . 'inaktiv';
                     echo ' </div>';
                     echo '</div></div>' . PHP_EOL;
                     ?>
                     <div class="form-actions">
                         <button type="submit" class="btn btn-primary" data-loading-text="Sending...">
-                            <!--<i class="icon-refresh icon-white"></i>--> Profil speichern
+                            <!--<i class="icon-refresh icon-white"></i>--> Court speichern
                         </button>
                     </div>
                     <?php echo form_close(); ?>

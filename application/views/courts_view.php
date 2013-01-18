@@ -28,6 +28,9 @@
                 <thead>
                 <tr>
                     <th>Court-Name</th>
+                    <th>Court-Status</th>
+                    <th>Edit Court</th>
+                    <th>Delete Court</th>
 
                 </tr>
                 </thead>
@@ -39,9 +42,9 @@
                     echo '<tbody>';
                     echo '<tr class="remove">
                     <td>'?></td>
-                    <td>Court 1</td>
-                    <td>Konfigurien</td>
-                    <td>löschen</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
 
                 </tbody>
             </table>
