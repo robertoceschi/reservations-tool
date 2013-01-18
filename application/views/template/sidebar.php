@@ -18,7 +18,7 @@
     </div>
     <div id="breadcrumb">
         <?php
-        if ($this->ion_auth->user()->row()->group == 'admin') {
+        if ($this->ion_auth->user()->row()->permission_group == 'admin') {
             if ($this->uri->segment(1) == 'home') {
                 echo '<a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>Home</a>';
             } elseif ($this->uri->segment(1) == 'mitglieder' and $this->uri->segment(2) == '') {

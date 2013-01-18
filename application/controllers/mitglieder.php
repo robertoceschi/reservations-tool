@@ -30,12 +30,12 @@
          * @date        20120710
          */
         public function index () {
-            $group            = $this->ion_auth->user()->row()->group;
+            $permission_group            = $this->ion_auth->user()->row()->permission_group;
             $this->data['title'] = 'Mitglieder';
             //set the flash data error message if there is one
             //$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
             $user = $this->ion_auth->user()->row();
-            if ($this->ion_auth->logged_in() and $group == 'admin') {
+            if ($this->ion_auth->logged_in() and $permission_group == 'admin') {
 
 
 
@@ -45,7 +45,7 @@
                 //$this->data['users'] = $this->db->get('users', $config['per_page'], $this->uri->segment(3));
 
                 //foreach ($this->data['users'] as $k => $user) {
-                  //  $this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
+                  //  $this->data['users'][$k]->permission_groups = $this->ion_auth->get_users_permission_groups($user->id)->result();
 
                 //}
                 parent::__renderAll($this->sControllerName, $this->data);
@@ -67,12 +67,12 @@
 
         public function create_user () {
 
-            $group = $this->ion_auth->user()->row()->group;
+            $permission_group = $this->ion_auth->user()->row()->permission_group;
             //Name der view für den main_content wird an my_controller übergeben
             $main_content        = 'create_user';
             $this->data['title'] = "Create User";
 
-            if (!$this->ion_auth->logged_in() || !$group == 'admin') {
+            if (!$this->ion_auth->logged_in() || !$permission_group == 'admin') {
                 redirect('auth/login', 'refresh');
 
             }
@@ -98,7 +98,7 @@
                     'last_name'  => $this->input->post('last_name', true),
                     'company'    => $this->input->post('company', true),
                     'phone'      => $this->input->post('phone1', true),
-                    'group'      => $this->input->post('group'),
+                    'permission_group'      => $this->input->post('permission_group'),
                     //'active'      => $this->input->post('active'),
                 );
             }
@@ -173,12 +173,12 @@
 
         //edit a user
         function edit_user ($id) {
-            $group            = $this->ion_auth->user()->row()->group;
+            $permission_group            = $this->ion_auth->user()->row()->permission_group;
 
             $main_content        = 'edit_user';
             $this->data['title'] = "Edit User";
 
-            if (!$this->ion_auth->logged_in() || (!$group == 'admin' && !($this->ion_auth->user()->row()->id == $id))) {
+            if (!$this->ion_auth->logged_in() || (!$permission_group == 'admin' && !($this->ion_auth->user()->row()->id == $id))) {
                 redirect('auth/login', 'refresh');
             }
 
@@ -211,7 +211,7 @@
                     'company'    => $this->input->post('company'),
                     'email'      => $this->input->post('email'),
                     'phone'      => $this->input->post('phone1'),
-                    'group'      => $this->input->post('group'),
+                    'permission_group'      => $this->input->post('permission_group'),
                     'active'     => $this->input->post('active'),
                 );
 
@@ -302,10 +302,10 @@
 
         //activate the user
         function activate ($id, $code = false) {
-            $group = $this->ion_auth->user()->row()->group;
+            $permission_group = $this->ion_auth->user()->row()->permission_group;
             if ($code !== false) {
                 $activation = $this->ion_auth->activate($id, $code);
-            } else if ($group == 'admin' ) {
+            } else if ($permission_group == 'admin' ) {
                 $activation = $this->ion_auth->activate($id);
             }
 
@@ -323,7 +323,7 @@
 
         //deactivate the user
         function deactivate ($id = NULL) {
-            $group     = $this->ion_auth->user()->row()->group;
+            $permission_group     = $this->ion_auth->user()->row()->permission_group;
             $main_content = 'deactivate_user';
             $id           = $this->config->item('use_mongodb', 'ion_auth') ? (string)$id : (int)$id;
 
@@ -347,7 +347,7 @@
                     // }
 
                     // do we have the right userlevel?
-                    if ($this->ion_auth->logged_in() && $group == 'admin') {
+                    if ($this->ion_auth->logged_in() && $permission_group == 'admin') {
                         $this->ion_auth->deactivate($id);
                     }
                 }

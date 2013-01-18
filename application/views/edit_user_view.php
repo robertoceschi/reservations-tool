@@ -133,25 +133,25 @@
                 </div>
             </div>
             <?php
-            $group = $this->ion_auth->user()->row()->group;
-            if ($group == 'admin') {
+            $permission_group = $this->ion_auth->user()->row()->permission_group;
+            if ($permission_group == 'admin') {
                 echo '<div class="control-group">';
                 echo '<div>' . PHP_EOL;
-                $group = $this->ion_auth->user()->row()->group;
+                $permission_group = $this->ion_auth->user()->row()->permission_group;
                 //  print_r($group);
 
                 $attributes = array(
                     'label class' => 'control-label');
-                echo form_label('Gruppe', 'group', $attributes) . PHP_EOL;
+                echo form_label('Gruppe', 'permission_group', $attributes) . PHP_EOL;
 
 
                 echo '<div class="controls">'; ?>
-                <input type="radio" name="group" id="group" value="admin"
-                       style="opacity: 1 !important" <?php if ($user->group == 'admin') {
+                <input type="radio" name="permission_group" id="permission_group" value="admin"
+                       style="opacity: 1 !important" <?php if ($user->permission_group == 'admin') {
                     echo 'checked="checked"';
                 }?> />Administrator </br>
-                <input type="radio" name="group" id="group" value="members"
-                       style="opacity: 1 !important" <?php if ($user->group == 'members') {
+                <input type="radio" name="permission_group" id="permission_group" value="members"
+                       style="opacity: 1 !important" <?php if ($user->permission_group == 'members') {
                     echo 'checked="checked"';
                 }?> />Mitglied </br>
 
@@ -164,10 +164,10 @@
             }
 
 
-            if ($group == 'admin') {
+            if ($permission_group == 'admin') {
                 echo '<div class="control-group">';
                 echo '<div>' . PHP_EOL;
-                $group      = $this->ion_auth->user()->row()->group;
+                $permission_group      = $this->ion_auth->user()->row()->permission_group;
                 $attributes = array(
                     'label class' => 'control-label');
                 echo form_label('Status', 'active', $attributes) . PHP_EOL;
