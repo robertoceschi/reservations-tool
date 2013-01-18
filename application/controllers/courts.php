@@ -54,8 +54,9 @@
 
             // Leeres Formular ausgeben
             //--------------------------------------//
-            $data['court_name']   = '';
-            $data['court_status'] = '';
+            $this->data['court_name']   = '';
+            $this->data['court_status'] = '';
+            $this->data['title'] = "Create Court";
 
 
             $permission_group    = $this->ion_auth->user()->row()->permission_group;
@@ -75,11 +76,10 @@
                 $data_cat = array(
                     'category_name'     => $this->input->post('category_name', true),
                 );
-
                 $this->Courts_model->saveRecord($sTable = 'court', $data_court);
                 $this->Courts_model->saveRecord($sTable = 'category', $data_cat);
             }
-            parent::__renderAll($main_content, $data);
+            parent::__renderAll($main_content, $this->data);
 
         }
     }
