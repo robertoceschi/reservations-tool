@@ -1,6 +1,11 @@
+
+
 <script type="text/javascript">
 
     $(document).ready(function () {
+
+        $('.datepicker').datepicker()
+        $('.timepicker-default').timepicker();
 
     });
 </script>
@@ -30,9 +35,9 @@
                         echo form_label('Kategorie', 'category_name', $attributes); ?>
                         <div class="controls">
                             <?php
-                            $attributes = array('name' => 'category_name',
-                                                'id'   => 'category_name');
-                            echo form_input($attributes, set_value('category_name', $category_name['value'])) . PHP_EOL;
+                            $attributes = array('0' => 'Tennis',
+                                                '1'   => 'Squash');
+                            echo form_dropdown('category', $attributes) . PHP_EOL;
                             ?>
                         </div>
                     </div>
@@ -45,7 +50,7 @@
                             <?php
                             $attributes = array('name' => 'court_name',
                                                 'id'   => 'court_name');
-                            echo form_input($attributes, set_value('court_name', $court_name['value'])) . PHP_EOL;
+                            echo form_input($attributes) . PHP_EOL;
                             ?>
                         </div>
                     </div>
@@ -53,13 +58,34 @@
                         <?php
                         $attributes = array(
                             'label class' => 'control-label',);
-                        echo form_label('Saison', 'company', $attributes); ?>
-                        <div class="controls">
-                            <?php
-                            $attributes = array('name' => 'saison',
-                                                'id'   => 'saison');
-                            echo form_input($attributes, set_value('company', $saison['value'])) . PHP_EOL;
-                            ?>
+                        echo form_label('Saison', 'saison') . PHP_EOL;?>
+                        <div class="controls"> von
+                            <div class="input-append date datepicker" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+                                <input class="span2" size="16" type="text" value="12-02-2012">
+                                <span class="add-on"><i class="icon-th"></i></span>
+                            </div> bis
+                            <div class="input-append date datepicker" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+                                <input class="span2" size="16" type="text" value="12-02-2012">
+                                <span class="add-on"><i class="icon-th"></i></span>
+                            </div>
+                    </div>
+
+                            <div class="control-group">
+                        <?php
+                    $attributes = array(
+                        'label class' => 'control-label',);
+                    echo form_label('Spielzeit', 'saison') . PHP_EOL;?>
+                    <div class="controls"> von
+                        <div class="input-append bootstrap-timepicker-component">
+                            <input type="text" class="timepicker-default input-small">
+    <span class="add-on">
+        <i class="icon-time"></i>
+    </span>
+                        </div>  bis    <div class="input-append bootstrap-timepicker-component">
+                            <input type="text" class="timepicker-default input-small">
+    <span class="add-on">
+        <i class="icon-time"></i>
+    </span>
                         </div>
                     </div>
                     <?php
@@ -88,3 +114,8 @@
             </div>
         </div>
     </div>
+
+
+    <script src="<?php echo base_url() . 'lib/js/additionals/bootstrap-datepicker.js"></script> ';?>
+    <script src="<?php echo base_url() . 'lib/js/additionals/bootstrap-timepicker.js"></script> ';?>
+

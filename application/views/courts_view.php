@@ -44,12 +44,15 @@
                     echo '<div>' . PHP_EOL;
                     $attributes = array(
                         'label class' => 'control-label');
-                    echo form_label('Kategorie', 'active', $attributes) . PHP_EOL;
-                    echo '<div class="controls">';?>
-                    <input type="radio" name="active" value="1"
-                           style="opacity: 1 !important;"  />Tennis </br>
-                    <input type="radio" name="active" value="0"
-                           style="opacity: 1 !important;"  />Squash
+                    echo form_label('Kategorie', 'category', $attributes) . PHP_EOL;
+                    echo '<div class="controls">';
+                    $options = array(
+                        '0' => 'Tennis',
+                        '1'    => 'Squash',
+                    );
+                    echo form_dropdown('category', $options);
+                    ?>
+
                     <?php echo '</div></div>' . PHP_EOL;
                     echo '</div>';
                  ;?></td>
@@ -65,9 +68,6 @@
         </div>
     </div>
 </div>
-
-
-
 
 
 
