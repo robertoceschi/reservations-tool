@@ -22,7 +22,6 @@
             </div>
 
 
-
             <table class="table table-bordered" class="pagination">
                 <thead>
                 <tr>
@@ -32,33 +31,26 @@
                     <th>Court Status</th>
                 </tr>
                 </thead>
-
-
                 <?php
                 foreach ($courts as $court):
-
                     echo '<tbody>';
-                    echo '<tr class="remove">
-                    <td>'?><?php
-                    echo '<div class="control-group">';
-                    echo '<div>' . PHP_EOL;
-                    $attributes = array(
-                        'label class' => 'control-label');
-                    echo form_label('Kategorie', 'category', $attributes) . PHP_EOL;
-                    echo '<div class="controls">';
-                    $options = array(
-                        '0' => 'Tennis',
-                        '1'    => 'Squash',
-                    );
-                    echo form_dropdown('category', $options);
+                    if ($court->category_id == 1) {
+                        $category = 'Tennis';
+                    } else {
+                        $category = 'Squash';
+                    }
+                    echo '<td>' . $category . '</td>';
                     ?>
-
-                    <?php echo '</div></div>' . PHP_EOL;
-                    echo '</div>';
-                 ;?></td>
                     <td><?php echo $court->court_name;?></td>
                     <td><?php echo '';?></td>
-                    <td><?php echo $court->court_status;?></td>
+                    <?php
+                    if ($court->court_status == 1) {
+                        $status = 'Aktiv';
+                    } else {
+                        $status = 'Inaktiv';
+                    }
+                    echo '<td>' . $status . '</td>';
+                    ?>
 
                     </tr>
                     <?php endforeach; ?>

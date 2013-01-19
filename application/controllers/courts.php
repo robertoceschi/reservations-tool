@@ -75,8 +75,12 @@
                 $data_court = array(
                     'category_id' =>  $this->input->post('category_id', true),
                     'court_name'   => $this->input->post('court_name', true),
-                    'court_status' => $this->input->post('court_status')
+                    'court_status' => $this->input->post('court_status'),
+                    'saison_start' => $this->input->post('saison_start'),
+                    'saison_end' => $this->input->post('saison_end')
                 );
+
+
                 //$data_cat = array(
                   //  'category_name'     => $this->input->post('category_name', true),
                 //);
