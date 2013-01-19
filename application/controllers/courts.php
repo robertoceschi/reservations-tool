@@ -73,14 +73,15 @@
 
             if ($this->input->post()) {
                 $data_court = array(
+                    'category_id' =>  $this->input->post('category_id', true),
                     'court_name'   => $this->input->post('court_name', true),
                     'court_status' => $this->input->post('court_status')
                 );
-                $data_cat = array(
-                    'category_name'     => $this->input->post('category_name', true),
-                );
+                //$data_cat = array(
+                  //  'category_name'     => $this->input->post('category_name', true),
+                //);
                 $this->Courts_model->saveRecord($sTable = 'court', $data_court);
-                $this->Courts_model->saveRecord($sTable = 'category', $data_cat);
+                //$this->Courts_model->saveRecord($sTable = 'category', $data_cat);
             }
             parent::__renderAll($main_content, $this->data);
 

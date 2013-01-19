@@ -16,16 +16,16 @@
             $this->db->insert($sTable, $aData);
         }
 
-        public function join () {
+        /*public function join () {
             $this->db->select('*');
             $this->db->from('category');
             $this->db->join('court', 'category.category_id = court.category_id');
             $query = $this->db->get();
             print_r($this->db->get());
 
-        }
+        } */
 
-
+    /*$this->db->join('foreigntable ft' , 'ft.id = maintable.foreign_table_id') */
 
 
         /**

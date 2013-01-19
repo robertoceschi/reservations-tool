@@ -32,12 +32,12 @@
                         <?php
                         $attributes = array(
                             'label class' => 'control-label',);
-                        echo form_label('Kategorie', 'category_name', $attributes); ?>
+                        echo form_label('Kategorie', 'category_id', $attributes); ?>
                         <div class="controls">
                             <?php
-                            $attributes = array('0' => 'Tennis',
-                                                '1'   => 'Squash');
-                            echo form_dropdown('category', $attributes) . PHP_EOL;
+                            $attributes = array('1' => 'Tennis',
+                                                '2'   => 'Squash');
+                            echo form_dropdown('category_id', $attributes) . PHP_EOL;
                             ?>
                         </div>
                     </div>
