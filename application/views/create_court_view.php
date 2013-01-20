@@ -60,13 +60,13 @@
                     <div class="controls"> von
                         <div class="input-append date datepicker" id="dp3" data-date="12-02-2012"
                              data-date-format="dd-mm-yyyy">
-                            <input class="span2" size="16" type="text" value="12-02-2012">
+                            <input class="span2" size="16" type="text" name="saison_start"  value="">
                             <span class="add-on"><i class="icon-th"></i></span>
                         </div>
                         bis
                         <div class="input-append date datepicker" id="dp3" data-date="12-02-2012"
                              data-date-format="dd-mm-yyyy">
-                            <input class="span2" size="16" type="text" value="12-02-2012">
+                            <input class="span2" size="16" type="text" name="saison_start"  value="">
                             <span class="add-on"><i class="icon-th"></i></span>
                         </div>
                     </div>
