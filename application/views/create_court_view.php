@@ -1,4 +1,5 @@
-<script type="text/javascript" xmlns="http://www.w3.org/1999/html">
+<script type="text/javascript" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+        xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 
     $(document).ready(function () {
 
@@ -30,7 +31,7 @@
                         <?php
                         $attributes = array(
                             'label class' => 'control-label',);
-                        echo form_label('Kategorie', 'category_id', $attributes); ?>
+                        echo form_label('Kategorie', 'category', $attributes); ?>
                         <div class="controls">
                             <?php
                             $attributes = array('1' => 'Tennis',
@@ -43,11 +44,11 @@
                         <?php
                         $attributes = array(
                             'label class' => 'control-label',);
-                        echo form_label('Court-Name', 'court_name', $attributes); ?>
+                        echo form_label('Court-Name', 'court', $attributes); ?>
                         <div class="controls">
                             <?php
                             $attributes = array('name' => 'court_name',
-                                                'id'   => 'court_name');
+                                                 ''=> '' );
                             echo form_input($attributes) . PHP_EOL;
                             ?>
                         </div>
@@ -57,15 +58,15 @@
                     $attributes = array(
                         'label class' => 'control-label');
                     echo form_label('Saison', 'saison', $attributes) . PHP_EOL;?>
-                    <div class="controls">von
+                    <div class="controls_saison">
                         <div class="input-append date datepicker"  data-date=""
                              data-date-format="yyyy-mm-dd">
-                            <input class="span2" size="16" type="text" name="saison_start"  value="">
+                            <input class="span2" size="16" type="text" name="saison_start" value="" placeholder="Saisonstart">
                             <span class="add-on"><i class="icon-th"></i></span>
-                        </div>  bis
-                          <div class="input-append date datepicker"  data-date=""
+                        </div></br>
+                      <div class="input-append date datepicker"  data-date=""
                              data-date-format="yyyy-mm-dd">
-                            <input class="span2" size="16" type="text" name="saison_end"  value="">
+                            <input class="span2" size="16" type="text" name="saison_end"  value="" placeholder="Saisonende">
                             <span class="add-on"><i class="icon-th"></i></span>
                         </div>
                     </div>
@@ -75,21 +76,21 @@
                     $attributes = array(
                         'label class' => 'control-label',);
                     echo form_label('Spielzeit 1', 'duration1', $attributes) . PHP_EOL;?>
-                    <div class="controls">von
-                        <?php $options = array('mon' => 'Montag', 'tu' => 'Dienstag', 'wed' => 'Mittwoch', 'thu' => 'Donnerstag', 'fri' => 'Freitag', 'sat' => 'Samstag', 'sun' => 'Sonntag');
-                        echo form_dropdown('weekday1_start', $options) . PHP_EOL;?>  bis
-                        <?php $options = array('mon' => 'Montag', 'tu' => 'Dienstag', 'wed' => 'Mittwoch', 'thu' => 'Donnerstag', 'fri' => 'Freitag', 'sat' => 'Samstag', 'sun' => 'Sonntag');
+                    <div class="controls_day">
+                        <?php $options = array('' => 'erster Spieltag','mon' => 'Montag', 'tu' => 'Dienstag', 'wed' => 'Mittwoch', 'thu' => 'Donnerstag', 'fri' => 'Freitag', 'sat' => 'Samstag', 'sun' => 'Sonntag');
+                        echo form_dropdown('weekday1_start', $options) . PHP_EOL;?></br>
+                        <?php $options = array('' => 'letzter Spieltag','mon' => 'Montag', 'tu' => 'Dienstag', 'wed' => 'Mittwoch', 'thu' => 'Donnerstag', 'fri' => 'Freitag', 'sat' => 'Samstag', 'sun' => 'Sonntag');
                         echo form_dropdown('weekday1_end', $options) . PHP_EOL;?>
                     </div>
-                    <div class="controls">von
-                         <div class="input-append bootstrap-timepicker-component">
-                            <input type="text" class="timepicker-default input-small" name="slot_time1_start">
+                    <div class="controls_spielstunden">
+                        <div class="input-append bootstrap-timepicker-component">
+                            <input type="text" class="timepicker-default input-small" name="slot_time1_start" placeholder="Spielbeginn">
     <span class="add-on">
         <i class="icon-time"></i>
     </span>
-                        </div>  bis
-                         <div class="input-append bootstrap-timepicker-component">
-                            <input type="text" class="timepicker-default input-small" name="slot_time1_end">
+                        </div> </br>
+                        <div class="input-append bootstrap-timepicker-component "style="margin-top: 8px">
+                            <input type="text" class="timepicker-default input-small" name="slot_time1_end" placeholder="Spielende">
     <span class="add-on">
         <i class="icon-time"></i>
     </span>
@@ -100,25 +101,25 @@
                     $attributes = array(
                         'label class' => 'control-label',);
                     echo form_label('Spielzeit 2', 'duration', $attributes) . PHP_EOL;?>
-                    <div class="controls">von
-                        <?php $options = array('mon' => 'Montag', 'tu' => 'Dienstag', 'wed' => 'Mittwoch', 'thu' => 'Donnerstag', 'fri' => 'Freitag', 'sat' => 'Samstag', 'sun' => 'Sonntag');
-                        echo form_dropdown('weekday2_start', $options) . PHP_EOL;?>  bis
-                        <?php $options = array('mon' => 'Montag', 'tu' => 'Dienstag', 'wed' => 'Mittwoch', 'thu' => 'Donnerstag', 'fri' => 'Freitag', 'sat' => 'Samstag', 'sun' => 'Sonntag');
+                    <div class="controls_day">
+                        <?php $options = array('' => 'erster Spieltag','mon' => 'Montag', 'tu' => 'Dienstag', 'wed' => 'Mittwoch', 'thu' => 'Donnerstag', 'fri' => 'Freitag', 'sat' => 'Samstag', 'sun' => 'Sonntag');
+                        echo form_dropdown('weekday2_start', $options) . PHP_EOL;?></br>
+                        <?php $options = array('' => 'letzter Spieltag','mon' => 'Montag', 'tu' => 'Dienstag', 'wed' => 'Mittwoch', 'thu' => 'Donnerstag', 'fri' => 'Freitag', 'sat' => 'Samstag', 'sun' => 'Sonntag');
                         echo form_dropdown('weekday2_end', $options) . PHP_EOL;?>
                     </div>
 
 
 
 
-                    <div class="controls">von
+                    <div class="controls_spielstunden">
                         <div class="input-append bootstrap-timepicker-component">
-                            <input type="text" class="timepicker-default input-small" name="slot_time2_start">
+                            <input type="text" class="timepicker-default input-small" name="slot_time2_start" placeholder="Spielstart">
     <span class="add-on">
         <i class="icon-time"></i>
     </span>
-                        </div>  bis
-                        <div class="input-append bootstrap-timepicker-component">
-                            <input type="text" class="timepicker-default input-small" name="slot_time2_end">
+                        </div></br>
+                        <div class="input-append bootstrap-timepicker-component"style="margin-top: 8px">
+                            <input type="text" class="timepicker-default input-small" name="slot_time2_end" placeholder="Spielende">
     <span class="add-on">
         <i class="icon-time"></i>
     </span>

@@ -79,10 +79,15 @@
                     'court_status' => $this->input->post('court_status')
 
                 );
+
+
                  $data_saison = array(
                      'saison_start' => $this->input->post('saison_start'),
-                     'saison_end' => $this->input->post('saison_end')
+                     'saison_end' => $this->input->post('saison_end'),
+                     'court_id' => $this->input->post('court_id')
+
                  );
+                echo $this->input->post('court_id');
 
                 $data_duration = array(
 
@@ -93,10 +98,10 @@
                     'weekday1_start' => $this->input->post('weekday1_start'),
                     'weekday1_end' => $this->input->post('weekday1_end'),
                     'weekday2_start' => $this->input->post('weekday2_start'),
-                    'weekday2_end' => $this->input->post('weekday2_end')
+                    'weekday2_end' => $this->input->post('weekday2_end'),
+
 
                 );
-                print_r($this->input->post('weekday1_start'));
                 //$data_cat = array(
                   //  'category_name'     => $this->input->post('category_name', true),
                 //);

@@ -206,4 +206,31 @@ tr.even td.sorting_1 {
 
 
 
+.controls_saison {
+    margin-left: 197px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
 
+.controls_day {
+    margin-left: 200px;
+    padding-top: 10px;
+}
+.controls_day select:last-of-type  {
+    margin-top: 10px;
+}
+
+.controls_spielstunden {
+    margin-top: 20px;
+    margin-left: 200px;
+    margin-bottom: 10px;
+
+}
+
+.datepicker {
+    width: 240px;
+}
+
+.bootstrap-timepicker-component {
+    width: 223px;
+}

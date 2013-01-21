@@ -18,6 +18,7 @@
 
 
 
+
     /*$this->db->join('foreigntable ft' , 'ft.id = maintable.foreign_table_id') */
 
 
