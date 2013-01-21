@@ -82,14 +82,27 @@
                  $data_saison = array(
                      'saison_start' => $this->input->post('saison_start'),
                      'saison_end' => $this->input->post('saison_end')
-
                  );
-                 print_r($this->input->post('saison_start'));
+
+                $data_duration = array(
+
+                    'slot_time1_start' => $this->input->post('slot_time1_start'),
+                    'slot_time1_end' => $this->input->post('slot_time1_end'),
+                    'slot_time2_start' => $this->input->post('slot_time2_start'),
+                    'slot_time2_end' => $this->input->post('slot_time2_end'),
+                    'weekday1_start' => $this->input->post('weekday1_start'),
+                    'weekday1_end' => $this->input->post('weekday1_end'),
+                    'weekday2_start' => $this->input->post('weekday2_start'),
+                    'weekday2_end' => $this->input->post('weekday2_end')
+
+                );
+                print_r($this->input->post('weekday1_start'));
                 //$data_cat = array(
                   //  'category_name'     => $this->input->post('category_name', true),
                 //);
                 $this->Courts_model->saveRecord($sTable = 'court', $data_court, $data_saison);
                 $this->Courts_model->saveRecord($sTable = 'saison', $data_saison);
+                $this->Courts_model->saveRecord($sTable = 'duration', $data_duration);
                 //$this->Courts_model->saveRecord($sTable = 'category', $data_cat);
             }
             parent::__renderAll($main_content, $this->data);
