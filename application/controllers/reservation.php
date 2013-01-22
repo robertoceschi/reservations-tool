@@ -19,6 +19,7 @@
         public function index($year = null, $month = null){
         //function display($year = null, $month = null ) {
             $main_content        = 'reservation';
+            $data['title'] = 'Reservation';
 
             if (!$year) {
                 $year = date('Y');
