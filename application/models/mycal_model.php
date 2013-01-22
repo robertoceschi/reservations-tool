@@ -8,6 +8,7 @@
             parent::__construct();
             $this->conf = array(
                 'start_day'      => 'monday',
+                'day_type'       => 'long',
                 'show_next_prev' => true,
                 'next_prev_url'  => base_url() . 'mycal/display'
             );
@@ -57,7 +58,7 @@
             $cal_data = array();
 
             foreach ($query->result() as $row) {
-                $cal_data[substr($row->date, 8, 2)] = $row->data;
+                $cal_data[substr($row->date,8,2) + 0] = $row->data;
             }
             return $cal_data;
         }
