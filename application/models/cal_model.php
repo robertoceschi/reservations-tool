@@ -1,6 +1,6 @@
 <?php
 
-    class Mycal_model extends CI_Model {
+    class Cal_model extends CI_Model {
 
         var $conf;
 
@@ -10,7 +10,7 @@
                 'start_day'      => 'monday',
                 'day_type'       => 'long',
                 'show_next_prev' => true,
-                'next_prev_url'  => base_url() . 'mycal/display'
+                'next_prev_url'  => base_url() . 'reservation/index/'
             );
 
             $this->conf['template'] = '

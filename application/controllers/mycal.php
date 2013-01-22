@@ -10,7 +10,7 @@
                 $month = date('m');
             }
 
-            $this->load->model('Mycal_model');
+            $this->load->model('Cal_model');
 
             if ($day = $this->input->post('day')) {
                 $this->Mycal_model->add_calendar_data(
@@ -19,8 +19,8 @@
                 );
             }
 
-            $this->load->model('Mycal_model');
-            $data['calendar'] = $this->Mycal_model->generate($year,$month);
+            $this->load->model('Cal_model');
+            $data['calendar'] = $this->Cal_model->generate($year,$month);
             $this->load->view('mycal_view', $data);
 
 
