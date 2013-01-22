@@ -74,17 +74,16 @@
 
             if ($this->input->post()) {
                 $data_court = array(
-                    'category_id' =>  $this->input->post('category_id', true),
+                    'category_id'  =>  $this->input->post('category_id', true),
                     'court_name'   => $this->input->post('court_name', true),
                     'court_status' => $this->input->post('court_status')
-
                 );
 
 
                  $data_saison = array(
                      'saison_start' => $this->input->post('saison_start'),
-                     'saison_end' => $this->input->post('saison_end'),
-                     'court_id' => $this->input->post('court_id')
+                     'saison_end'   => $this->input->post('saison_end'),
+                     'court_id'     => $this->input->post('court_id')
 
                  );
                 echo $this->input->post('court_id');

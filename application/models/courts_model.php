@@ -14,6 +14,7 @@
 
         public function saveRecord($sTable, $aData) {
             $this->db->insert($sTable, $aData);
+
         }
 
 
