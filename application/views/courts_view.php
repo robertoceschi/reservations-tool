@@ -1,6 +1,7 @@
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
+            <div id="infoMessage"></div>
             <div class="alert alert-success" style="display: none">
                 <button class="close">×</button>
                 <strong>
@@ -21,42 +22,49 @@
                         class=" icon-plus icon-white"></i> Neuen Court erstellen</a></button>
             </div>
 
+            <div class="widget-box">
+                <div class="widget-title">
 
-            <table class="table table-bordered" class="pagination">
-                <thead>
-                <tr>
-                    <th>Kategorie</th>
-                    <th>Platzname</th>
-                    <th>Saison</th>
-                    <th>Court Status</th>
-                </tr>
-                </thead>
-                <?php
-                foreach ($courts as $court):
-                    echo '<tbody>';
-                    if ($court->category_id == 1) {
-                        $category = 'Tennis';
-                    } else {
-                        $category = 'Squash';
-                    }
-                    echo '<td>' . $category . '</td>';
-                    ?>
-                    <td><?php echo $court->court_name;?></td>
-                    <td><?php echo '';?></td>
-                    <?php
-                    if ($court->court_status == 1) {
-                        $status = 'Aktiv';
-                    } else {
-                        $status = 'Inaktiv';
-                    }
-                    echo '<td>' . $status . '</td>';
-                    ?>
 
-                    </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+                </div>
+                <div class="widget-content nopadding">
 
+                    <table class="table table-bordered" class="pagination">
+                        <thead>
+                        <tr>
+                            <th>Kategorie</th>
+                            <th>Platzname</th>
+                            <th>Saison</th>
+                            <th>Court Status</th>
+                        </tr>
+                        </thead>
+                        <?php
+                        foreach ($courts as $court):
+                            echo '<tbody>';
+                            if ($court->category_id == 1) {
+                                $category = 'Tennis';
+                            } else {
+                                $category = 'Squash';
+                            }
+                            echo '<td>' . $category . '</td>';
+                            ?>
+                            <td><?php echo $court->court_name;?></td>
+                            <td><?php echo '';?></td>
+                            <?php
+                            if ($court->court_status == 1) {
+                                $status = 'Aktiv';
+                            } else {
+                                $status = 'Inaktiv';
+                            }
+                            echo '<td>' . $status . '</td>';
+                            ?>
+
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </div>
