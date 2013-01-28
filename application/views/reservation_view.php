@@ -52,16 +52,11 @@
                         echo form_label('Court Auswahl', 'court_name', $attributes); ?>
                         <div class="controls">
                             <?php
-
-                            print_r($courts);
-                            foreach($courts as $key => $value) {
-                                $court_name = 'sali';
-
-                            }
+                                print_r($court) ;
 
 
 
-                            echo form_dropdown('category_id', $court_name) . PHP_EOL;
+                            echo form_dropdown('category_id', $court[court_name]) . PHP_EOL;
                             ?>
                         </div>
                     </div>

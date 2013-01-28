@@ -47,7 +47,8 @@
 
         public function show_courts() {
             $main_content        = 'reservation';
-            $this->data['courts']   = $this->db->get('court');
+            $this->data['court']   = $this->db->get('court')->result();
+
 
              parent::__renderAll($main_content, $this->data);
         }
