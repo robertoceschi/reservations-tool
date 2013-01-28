@@ -19,7 +19,7 @@
         public function index($year = null, $month = null){
         //function display($year = null, $month = null ) {
             $main_content        = 'reservation';
-            $data['title'] = 'Reservation';
+            $this->data['title'] = 'Reservation';
 
             if (!$year) {
                 $year = date('Y');
@@ -38,20 +38,28 @@
             }
 
             $this->load->model('Cal_model');
-            $data['calendar'] = $this->Cal_model->generate($year,$month);
+            $this->data['calendar'] = $this->Cal_model->generate($year,$month);
             //$this->load->view($main_content, $data);
-            parent::__renderAll($main_content, $data);
 
 
+            //Courtname wird geholt für drop-down menue
+            $result       = $this->db->get('court')->result();
+            foreach ($result as $val) {
+                $arr[$val->court_id] = $val->court_name;
+            }
+            $this->data['court'] = $arr;
+
+
+
+            //Daten werden an die view übergeben
+            parent::__renderAll($main_content, $this->data);
         }
 
-        public function show_courts() {
-            $main_content        = 'reservation';
-            $this->data['court']   = $this->db->get('court')->result();
 
 
-             parent::__renderAll($main_content, $this->data);
-        }
+
+
+
 
 
 

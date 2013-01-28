@@ -38,32 +38,20 @@
 								</span>
                 </div>
                 <div class="widget-content nopadding">
-                    <?php
-                    $attributes = array(
-                        'label class' => 'control-label',);
-                    echo form_open("reservation/show_courts");?>
 
-                    <div class="control-group">
+                    <select name="court_name">
                         <?php
 
-
-                        $attributes = array(
-                            'label class' => 'control-label',);
-                        echo form_label('Court Auswahl', 'court_name', $attributes); ?>
-                        <div class="controls">
-                            <?php
-                                print_r($court) ;
-
-
-
-                            echo form_dropdown('category_id', $court[court_name]) . PHP_EOL;
+                        foreach ($court as $key => $value) {
                             ?>
-                        </div>
-                    </div>
-                    <?php echo form_close(); ?>
+                            <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+                            <?php
+                        }
+                        ?></select>
 
 
-                    <?php echo $calendar; ?>
+                    <?php
+                    echo $calendar;    ?>
                     <script type="text/javascript">
                         $(document).ready(function () {
                             $('.calendar .day').click(function () {
