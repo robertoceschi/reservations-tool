@@ -38,21 +38,29 @@
 								</span>
                 </div>
                 <div class="widget-content nopadding">
-
+                     <?php
+                    $attributes = array('class' => '', 'id' => '');
+                    echo form_open('email/send', $attributes);
+                    foreach ($court as $key => $value) {
+                    $court[$key] = $value;
+                    }
+                    echo form_dropdown('courts', $court);
+                    ?>
+                    <!--Version mit "normalen HTML"
                     <select name="court_name">
+                    <?php
+                    foreach ($court as $key => $value) {
+                        ?>
+                        <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
                         <?php
+                    }
+                    ?></select>-->
 
-                        foreach ($court as $key => $value) {
-                            ?>
-                            <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
-                            <?php
-                        }
-                        ?></select>
 
 
                     <?php
                     echo $calendar;    ?>
-                    <script type="text/javascript">
+                        <script type="text/javascript">
                         $(document).ready(function () {
                             $('.calendar .day').click(function () {
                                 day_num = $(this).find('.day_num').html();
