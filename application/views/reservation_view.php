@@ -36,10 +36,38 @@
 								<span class="icon">
 									<i class="icon-user "></i>
 								</span>
-
-
                 </div>
                 <div class="widget-content nopadding">
+                    <?php
+                    $attributes = array(
+                        'label class' => 'control-label',);
+                    echo form_open("reservation/show_courts");?>
+
+                    <div class="control-group">
+                        <?php
+
+
+                        $attributes = array(
+                            'label class' => 'control-label',);
+                        echo form_label('Court Auswahl', 'court_name', $attributes); ?>
+                        <div class="controls">
+                            <?php
+
+                            print_r($courts);
+                            foreach($courts as $key => $value) {
+                                $court_name = 'sali';
+
+                            }
+
+
+
+                            echo form_dropdown('category_id', $court_name) . PHP_EOL;
+                            ?>
+                        </div>
+                    </div>
+                    <?php echo form_close(); ?>
+
+
                     <?php echo $calendar; ?>
                     <script type="text/javascript">
                         $(document).ready(function () {

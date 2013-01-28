@@ -36,6 +36,7 @@
                             <th>Platzname</th>
                             <th>Saison</th>
                             <th>Court Status</th>
+                            <th>Bearbeitung</th>
                         </tr>
                         </thead>
                         <?php
@@ -58,7 +59,8 @@
                             }
                             echo '<td>' . $status . '</td>';
                             ?>
-
+                            <td><?php echo anchor("courts/edit_court/" , '<i class=" icon-edit"></i>');?>      | <?php
+                                echo '<span style="cursor:pointer"><a class="delete_user" id= ""><i class=" icon-trash"></i> </a></span> ';?></td>
                             </tr>
                             <?php endforeach; ?>
                         </tbody>

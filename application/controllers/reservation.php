@@ -1,6 +1,5 @@
 <?php
     class Reservation extends MY_Controller {
-
         function __construct () {
             //Controller Name in Kleinbuchstaben
             $this->sControllerName = strtolower(__CLASS__);
@@ -8,6 +7,7 @@
             $this->load->library('form_validation');
             $this->load->library('ion_auth');
             $this->load->library('session');
+            $this->load->model('Courts_model');
 
             //$this->load->library('pagination');
 
@@ -43,6 +43,13 @@
             parent::__renderAll($main_content, $data);
 
 
+        }
+
+        public function show_courts() {
+            $main_content        = 'reservation';
+            $this->data['courts']   = $this->db->get('court');
+
+             parent::__renderAll($main_content, $this->data);
         }
 
 
