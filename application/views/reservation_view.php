@@ -22,7 +22,7 @@
                 </div>
                 <div class="widget-content nopadding">
 
-                    <table class="table stripped reservation">
+                    <table class="table reservation">
                         <thead>
                         <tr ">
                             <th style="font-size: 13px;">Zeit</th>
@@ -41,7 +41,7 @@
                         foreach ($calendarEvents as $key => $time_slot) {
                         echo  '<tr><td>' .$key. '</td>';
                         foreach ($time_slot as $key => $value) {
-                            echo '<td>' . $value . '</td>';
+                            echo '<td class="hours">' . $value . '</td>';
                         }
                         echo '</tr>';
                     }                        ?>

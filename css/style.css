@@ -251,7 +251,9 @@ tr.even td.sorting_1 {
 
 }
 
-
+td.hours:hover {
+    background-color:  #567BD2;
+}
 
 
 
