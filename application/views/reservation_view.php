@@ -1,119 +1,76 @@
-<style type="text/css">
-    .calendar {
-        font-family: Arial;
-        font-size: 12px;
-    }
-
-    table.calendar {
-        margin: auto;
-        border-collapse: collapse;
-    }
-
-    .calendar .days td {
-        width: 80px;
-        height: 80px;
-        padding: 4px;
-        border: 1px solid #999;
-        vertical-align: top;
-        background-color: #DEF;
-    }
-
-    .calendar .days td:hover {
-        background-color: #FFF;
-    }
-
-    .calendar .highlight {
-        font-weight: bold;
-        color: #00F;
-    }
-</style>
 <div class="container-fluid">
     <div class="row-fluid">
-        <div class="span12">
+        <div class="span9">
+
+
+
+            <div id=new_user>
+                <button class="btn btn-large btn-primary"><a href="<?php echo site_url('courts/create_court');?>"> <i
+                        class=" icon-plus icon-white"></i> Neue Reservation tätigen</a></button>
+            </div>
 
             <div class="widget-box">
                 <div class="widget-title">
-								<span class="icon">
-									<i class="icon-user "></i>
-								</span>
+
+
                 </div>
                 <div class="widget-content nopadding">
-                     <?php
-                    $attributes = array('class' => '', 'id' => '');
-                    echo form_open('email/send', $attributes);
-                    foreach ($court as $key => $value) {
-                    $court[$key] = $value;
-                    }
-                    echo form_dropdown('courts', $court);
-                    ?>
-                    <!--Version mit "normalen HTML"
-                    <select name="court_name">
-                    <?php
-                    foreach ($court as $key => $value) {
-                        ?>
-                        <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
-                        <?php
-                    }
-                    ?></select>-->
 
-
-
-                    <?php
-                    echo $calendar;    ?>
-
-
-
-                    <table class="" id="schedule">
+                    <table class="table table-bordered">
                         <thead>
                         <tr>
-                            <th><input value="Time" type="text"></th>
-                            <th><input value="Monday" type="text"></th>
-                            <th><input value="Tuesday" type="text"></th>
-                            <th><input value="Wednesday" type="text"></th>
-                            <th><input value="Thursday" type="text"></th>
-                            <th><input value="Friday" type="text"></th>
+                            <th>Zeit</th>
+                            <th>Montag</th>
+                            <th>Dienstag</th>
+                            <th>Mittwoch</th>
+                            <th>Donnerstag</th>
+                            <th>Freitag</th>
+                            <th>Samstag</th>
+                            <th>Sonntag</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <?php foreach (range(8, 21) as $i) : ?>
-                        <tr>
-                            <th><input value="<?php echo date('ha', mktime($i, 0)); ?>" type="text" /></th>
+                        <?php
+                            echo '<tbody>';
 
-                        </tr>
-                            <?php endforeach; ?>
+                        foreach ($calendarEvents as $key => $time_slot) {
+                        echo  '<tr><td>' .$key. '</td>';
+                        foreach ($time_slot as $key => $value) {
+                            echo '<td>' . $value . '</td>';
+                        }
+                        echo '</tr>';
+                    }                        ?>
                         </tbody>
                     </table>
-                        <script type="text/javascript">
-                        $(document).ready(function () {
-                            $('.calendar .day').click(function () {
-                                day_num = $(this).find('.day_num').html();
-                                day_data = prompt('Enter Stuff', $(this).find('.content').html());
-                                if (day_data != null) {
+                </div>
+            </div>
+        </div>
+        <div id=new_user >
+            <button class="btn btn-large btn-primary" style="margin-left:30px;"><a href="<?php echo site_url('courts/create_court');?>"> <i
+                    class=" icon-plus icon-white"></i> Neuen Event</a></button>
+        </div>
+        <div class="span3">
+            <div class="widget-box">
+                <div class="widget-title">
+								<span class="icon">
+									<i class="icon-th-list"></i>
+								</span>
+                    <h5>Events</h5>
+                </div>
+                <div class="widget-content">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-                                    $.ajax({
-                                        url:window.location,
-                                        type:'POST',
-                                        data:{
-                                            day:day_num,
-                                            data:day_data
-                                        },
-                                        success:function (msg) {
-                                            location.reload();
-                                        }
-                                    });
-
-                                }
-
-                            });
-
-                        });
-
-                    </script>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
 
 
 

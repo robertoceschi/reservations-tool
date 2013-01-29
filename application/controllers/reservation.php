@@ -16,38 +16,16 @@
 
 
 
-        public function index($year = null, $month = null){
+        public function index(){
         //function display($year = null, $month = null ) {
             $main_content        = 'reservation';
             $this->data['title'] = 'Reservation';
 
-            if (!$year) {
-                $year = date('Y');
-            }
-            if (!$month) {
-                $month = date('m');
-            }
-
-            $this->load->model('Cal_model');
-
-            if ($day = $this->input->post('day')) {
-                $this->Cal_model->add_calendar_data(
-                    "$year-$month-$day",
-                    $this->input->post('data')
-                );
-            }
-
-            $this->load->model('Cal_model');
-            $this->data['calendar'] = $this->Cal_model->generate($year,$month);
-            //$this->load->view($main_content, $data);
+            $this->data['calendarEvents']=$this->Courts_model->get_events_for_week();
 
 
-            //Courtname wird geholt für drop-down menue
-            $result       = $this->db->get('court')->result();
-            foreach ($result as $val) {
-                $arr[$val->court_id] = $val->court_name;
-            }
-            $this->data['court'] = $arr;
+
+
 
 
 
