@@ -60,6 +60,29 @@
 
                     <?php
                     echo $calendar;    ?>
+
+
+
+                    <table class="" id="schedule">
+                        <thead>
+                        <tr>
+                            <th><input value="Time" type="text"></th>
+                            <th><input value="Monday" type="text"></th>
+                            <th><input value="Tuesday" type="text"></th>
+                            <th><input value="Wednesday" type="text"></th>
+                            <th><input value="Thursday" type="text"></th>
+                            <th><input value="Friday" type="text"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach (range(8, 21) as $i) : ?>
+                        <tr>
+                            <th><input value="<?php echo date('ha', mktime($i, 0)); ?>" type="text" /></th>
+
+                        </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
                         <script type="text/javascript">
                         $(document).ready(function () {
                             $('.calendar .day').click(function () {
@@ -91,6 +114,8 @@
         </div>
     </div>
 </div>
+
+
 
 
 

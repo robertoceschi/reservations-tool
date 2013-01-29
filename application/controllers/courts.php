@@ -83,7 +83,7 @@
                 $data_saison = array(
                     'saison_start' => $this->input->post('saison_start'),
                     'saison_end'   => $this->input->post('saison_end'),
-                    'court_id'     => $this->input->post('court_id')
+                    'court_id'     => ''
 
                 );
                 echo $this->input->post('court_id');
@@ -104,7 +104,10 @@
                 //$data_cat = array(
                 //  'category_name'     => $this->input->post('category_name', true),
                 //);
-                $this->Courts_model->saveRecord($sTable = 'court', $data_court, $data_saison);
+                $court_id = $this->Courts_model->saveRecord($sTable = 'court', $data_court, $data_saison);
+
+                $data_saison['court_id'] = $court_id;
+
                 $this->Courts_model->saveRecord($sTable = 'saison', $data_saison);
                 $this->Courts_model->saveRecord($sTable = 'duration', $data_duration);
                 //$this->Courts_model->saveRecord($sTable = 'category', $data_cat);
