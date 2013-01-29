@@ -26,6 +26,12 @@
 
 
 
+            //Courtname wird geholt für drop-down menue
+            $result       = $this->db->get('court')->result();
+            foreach ($result as $val) {
+                $arr[$val->court_id] = $val->court_name;
+            }
+            $this->data['court'] = $arr;
 
 
 

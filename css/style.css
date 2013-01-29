@@ -238,3 +238,24 @@ tr.even td.sorting_1 {
     float: right;
 }
 
+/* Tabelle für Reservation*/
+.reservation.table td {
+    text-align: center;
+    width: 132px;
+    height: 70px;
+    border-right: 1px dashed #dddddd;
+    border-top: none;
+    border-bottom: 1px dashed #dddddd;
+    -webkit-border-radius: 24px 0;
+    -moz-border-radius: 2em 0;
+
+}
+
+
+
+
+
+
+
+
+
