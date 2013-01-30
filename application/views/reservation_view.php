@@ -1,3 +1,20 @@
+<script>
+    $(document).ready(function() {
+        $(".hours").click(function() {
+            var test = $(this).attr('value');
+            //alert(test);
+
+
+
+
+        });
+    });
+
+
+
+
+</script>
+
 
 
 <div class="container-fluid">
@@ -38,10 +55,10 @@
                         <?php
                             echo '<tbody>';
 
-                        foreach ($calendarEvents as $key => $time_slot) {
-                        echo  '<tr><td>' .$key. '</td>';
-                        foreach ($time_slot as $key => $value) {
-                            echo '<td class="hours">' . $value . '</td>';
+                        foreach ($calendarEvents as $time => $time_slot) {
+                        echo  '<tr><td>' .$time. '</td>';
+                        foreach ($time_slot as $day => $status) {
+                            echo '<td class="hours" value="'. $time .'|'. $day .'">' . $status . '</td>';
                         }
                         echo '</tr>';
                     }                        ?>
