@@ -40,6 +40,13 @@
         }
 
 
+        //neue Reservation eintragen
+        public function set_status_for_court() {
+
+
+        }
+
+
 
 
 
