@@ -2,9 +2,8 @@
     $(document).ready(function() {
         $(".hours").click(function() {
             var test = $(this).attr('value');
-            //alert(test);
 
-
+           alert(test);
 
 
         });

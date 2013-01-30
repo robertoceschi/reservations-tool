@@ -42,6 +42,7 @@
 
         //neue Reservation eintragen
         public function set_status_for_court() {
+            //daten werden via model in die db geschrieben
 
 
         }

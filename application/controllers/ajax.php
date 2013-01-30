@@ -91,13 +91,13 @@
             //echo json_encode(array('status' => $status, 'msg' => $msg));
         }
 
-        //datatables_ajax
+        //checken ob noch gebraucht wird!
         public function getdatabyajax () {
             $this->load->library('datatables');
             $this->datatables
                 ->select('id, first_name,last_name, permission_group, active')
                 ->from('users')
-            ->edit_column('last_name', '$1', 'ucfirst(last_name)')
+                ->edit_column('last_name', '$1', 'ucfirst(last_name)')
                 ->add_column('delete', '<a href=" ' . base_url() . 'mitglieder/delete_user/$1"><i class="icon icon-trash"></i></a>', 'id')
                 ->add_column('edit', '<a href=" ' . base_url() . 'mitglieder/edit_user/$1"><i class="icon icon-edit"></a>', 'id')
                 ->unset_column('id');
@@ -107,6 +107,15 @@
 
 
             echo $this->datatables->generate();
+
+
+        }
+
+
+
+        //neue Reservation eintragen
+        public function set_status_for_court() {
+            //daten werden via model in die db geschrieben
 
 
         }
