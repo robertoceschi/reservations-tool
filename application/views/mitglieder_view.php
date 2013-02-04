@@ -114,10 +114,25 @@
             }
 
         });
+        //datatables_ajax
+        $('#example').dataTable({
+            "bProcessing":true,
+            "bServerSide":true,
+            "sServerMethod":"POST"  ,
+            "sAjaxSource":"<?php base_url();?>ajax/getdatabyajax",
+            "sPaginationType": "full_numbers"
 
 
+
+
+        });
     });
+
+
+
 </script>
+
+
 
 
 <div class="container-fluid">
@@ -164,48 +179,38 @@
             <div class="widget-box">
                 <div class="widget-title">
 
-                    <h5>Alle Mitglieder</h5>
+
                 </div>
+
                 <div class="widget-content nopadding">
-                    <table class="table table-bordered data-table" id="example">
+                    <!--<div id="dynamic"> -->
+                    <!--<table class="table table-bordered data-table" id="example">-->
+                    <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
+                        <!--<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">-->
                         <thead>
                         <tr>
-                            <th>Vorname</th>
-                            <th>Nachname</th>
-                            <th>Status</th>
-                            <th>Bearbeiten</th>
-
-
+                            <!--<th width="20%">id</th> -->
+                            <th width="20%">Vorname</th>
+                            <th width="20%">Nachname</th>
+                            <th width="10%">Rolle</th>
+                            <th width="1%">aktiv</th>
+                            <th width="1%">Delete</th>
+                            <th width="1%">Edit</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <?php
-                            foreach ($users as $user):
-                                echo '<tr class="remove">';
-                                echo '<td>' . $user->first_name . '</td> ';
-                                echo '<td>' . $user->last_name . '</td> ';?>
-                            <td><?php
-                                if ($user->active) {
-                                    echo  '<span style="cursor:pointer"><a  class="toggleStatus inaktiv tip-bottom" id= "' . $user->id . ' " title="Status von ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' ändern ?  ">Aktiv</a></span> ';
-                                }if (!$user->active) {
-                                    echo '<span style="cursor:pointer"><a class="toggleStatus aktiv tip-bottom" id="' . $user->id . '" title="Status von ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' ändern ? ">Inaktiv</a></span>
-';
-                                }  '</td> ' . PHP_EOL;?>
-                            <td><?php echo
+                        <td class="admin"></td>
 
-
-                            anchor("mitglieder/edit_user/" . $user->id, '<i class="icon icon-edit" title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' editieren? "></i>', 'class="tip-bottom"');?>
-                                | <?php
-                                echo '<span style="cursor:pointer"><a class="delete_user tip-bottom" id= "' . $user->id . ' " title=" ' . ucfirst($user->first_name) . ' ' . ucfirst($user->last_name) . ' löschen? "><i class="icon icon-trash"></i> </a></span> ';?></td>
-                            </tr>
-
-                                <?php endforeach; ?>
+                        <tr>
+                            <td colspan="5" class="dataTables_empty">Loading data from server</td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 
 </div>

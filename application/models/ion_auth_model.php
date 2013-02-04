@@ -1307,10 +1307,10 @@
          **/
         public function update ($id, array $data) {
             //check if the user change data for his own profile!!!! Roberto 29.12.2012
-            $group            = $this->ion_auth->user()->row()->group;
-            if ($group != 'admin') {
-                if (array($data['group'] == '')) {
-                    $data['group'] = 'members';
+            $permission_group            = $this->ion_auth->user()->row()->permission_group;
+            if ($permission_group != 'admin') {
+                if (array($data['permission_group'] == '')) {
+                    $data['permission_group'] = 'members';
                 }
                 if (array($data['active'] == 0)) {
                     $data['active'] = 1;

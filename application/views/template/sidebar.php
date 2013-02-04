@@ -24,6 +24,7 @@
             } elseif ($this->uri->segment(1) == 'mitglieder' and $this->uri->segment(2) == '') {
                 echo '<a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>Home</a>';
                 echo '<a href="#" title="" class="">Mitglieder</a>';
+
             } elseif ($this->uri->segment(1) == 'mitglieder' and $this->uri->segment(2) == 'create_user') {
                 echo '<a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>Home</a>';
                 echo '<a href="#" title="" class="">Mitglieder</a>';
@@ -32,6 +33,13 @@
                 echo '<a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>Home</a>';
                 echo '<a href="#" title="" class="">Mitglieder</a>';
                 echo '<a href="#" title="" class="">Edit User</a>';
+            } elseif ($this->uri->segment(1) == 'courts' and $this->uri->segment(2) == 'create_court') {
+                echo '<a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>Home</a>';
+                echo '<a href="#" title="" class="">Courts</a>';
+                echo '<a href="#" title="" class="">Create Court</a>';
+            } elseif ($this->uri->segment(1) == 'courts' and $this->uri->segment(2) == '') {
+                echo '<a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>Home</a>';
+                echo '<a href="#" title="" class="">Courts</a>';
             }
         } else {
             if ($this->uri->segment(1) == 'home') {

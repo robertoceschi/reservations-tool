@@ -19,6 +19,28 @@
 
         </ul>
         </li> <?php };?>
+        <?php if ($is_admin == 'admin') { ;?>
+        <li class="submenu">
+        <?php if ($this->uri->segment(1) === 'courts'): ?><li class="active"><?php else : ?>
+    <li><? endif; ?><?php echo anchor('courts', '<i class="icon icon-th-list"></i> <span>Courts</span>'); ?></li>
+        <ul>
+            <li><a href="form-common.html">Users</a></li>
+            <li><a href="form-validation.html">Groups</a></li>
+
+        </ul>
+        </li> <?php };?>
+
+        <?php if ($is_admin == 'admin') { ;?>
+        <li class="submenu">
+        <?php if ($this->uri->segment(1) === 'reservation'): ?><li class="active"><?php else : ?>
+    <li><? endif; ?><?php echo anchor('reservation', '<i class="icon icon-th-list"></i> <span>Reservation</span>'); ?></li>
+        <ul>
+            <li><a href="form-common.html">Users</a></li>
+            <li><a href="form-validation.html">Groups</a></li>
+
+        </ul>
+        </li> <?php };?>
+
 
     </ul>
 </div>

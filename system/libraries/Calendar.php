@@ -467,6 +467,7 @@ class CI_Calendar {
 		}
 	}
 
+
 }
 
 // END CI_Calendar class

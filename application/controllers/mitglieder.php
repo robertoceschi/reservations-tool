@@ -36,18 +36,10 @@
             //$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
             $user = $this->ion_auth->user()->row();
             if ($this->ion_auth->logged_in() and $permission_group == 'admin') {
-
-
-
-
-
+                //alle Users werden ausgegeben
                 $this->data['users'] = $this->db->get('users')->result();
-                //$this->data['users'] = $this->db->get('users', $config['per_page'], $this->uri->segment(3));
 
-                //foreach ($this->data['users'] as $k => $user) {
-                  //  $this->data['users'][$k]->permission_groups = $this->ion_auth->get_users_permission_groups($user->id)->result();
 
-                //}
                 parent::__renderAll($this->sControllerName, $this->data);
             } else {
                 //$this->data['user'] = $this->ion_auth->user($id)->row();

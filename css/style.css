@@ -3,7 +3,6 @@
     /*@import url('../css/bootstrap_styles/bootstrap.min.css'); */
 @import url('../css/bootstrap_styles/bootstrap-responsive.css');
     /*@import url('../css/bootstrap_styles/bootstrap-responsive.min.css'); */
-@import url('../css/bootstrap_styles/chosen.css');
 @import url('../css/bootstrap_styles/datepicker.css');
 @import url('../css/bootstrap_styles/fullcalendar.css');
 @import url('../css/bootstrap_styles/glyphicons.css');
@@ -14,6 +13,11 @@
 @import url('../css/bootstrap_styles/unicorn.login.css');
 @import url('../css/bootstrap_styles/unicorn.main.css');
 @import url('../css/bootstrap_styles/uniform.css');
+@import url('../css/datatables_ajax/demo_page.css');
+@import url('../css/datatables_ajax/demo_table.css');
+@import url('../css/datepicker.css');
+@import url('../css/timepicker.css');
+
 
 /*custom css (bootstrap css werden überschrieben)/*
 
@@ -135,4 +139,125 @@ button[type=submit] {
     margin-right: -140px;
     font-size: 10px;
 }
+
+
+.dataTables_length {
+    width: 99%;
+    float: left;
+    margin-top: -27px;
+}
+
+/*Suchfeld muss noch angepasst werden*/
+div.dataTables_filter label {
+
+    float: right;
+    margin-top: -38px;
+    margin-right: -97%;
+
+}
+
+div.dataTables_length label {
+    float: left;
+    text-align: left;
+}
+
+div.dataTables_length select {
+    width: 75px;
+}
+
+div.dataTables_filter label {
+    float: right;
+}
+
+div.dataTables_info {
+    padding-top: 8px;
+}
+
+div.dataTables_paginate {
+    float: right;
+    margin-top: 13px;
+    margin-right: -3px;
+}
+
+table.table {
+    clear: both;
+    margin-bottom: 6px !important;
+    max-width: none !important;
+}
+
+table.table thead .sorting,
+table.table thead .sorting_asc,
+table.table thead .sorting_desc,
+table.table thead .sorting_asc_disabled,
+table.table thead .sorting_desc_disabled {
+    cursor: pointer;
+    *cursor: hand;
+}
+
+
+
+
+
+
+
+tr.even td.sorting_1 {
+    background-color: rgba(234, 235, 255, 0);
+}
+
+
+
+.controls_saison {
+    margin-left: 197px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.controls_day {
+    margin-left: 200px;
+    padding-top: 10px;
+}
+.controls_day select:last-of-type  {
+    margin-top: 10px;
+}
+
+.controls_spielstunden {
+    margin-top: 20px;
+    margin-left: 200px;
+    margin-bottom: 10px;
+
+}
+
+.datepicker {
+    width: 240px;
+}
+
+.bootstrap-timepicker-component {
+    width: 223px;
+}
+#spielzeit2 {
+    float: right;
+}
+
+/* Tabelle für Reservation*/
+.reservation.table td {
+    text-align: center;
+    width: 132px;
+    height: 70px;
+    border-right: 1px dashed #dddddd;
+    border-top: none;
+    border-bottom: 1px dashed #dddddd;
+    -webkit-border-radius: 24px 0;
+    -moz-border-radius: 2em 0;
+
+}
+
+td.hours:hover {
+    background-color:  #567BD2;
+}
+
+
+
+
+
+
 

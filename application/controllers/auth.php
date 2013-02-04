@@ -21,7 +21,7 @@
             if (!$this->ion_auth->logged_in()) {
                 //redirect them to the login page
                 redirect('auth/login', 'refresh');
-            } elseif ($this->ion_auth->user()->row()->group != 'admin') {
+            } elseif ($this->ion_auth->user()->row()->permission_group != 'admin') {
 
                 //redirect them to the home page because they must be an administrator to view this
                 redirect('home/member', 'refresh');
@@ -65,8 +65,8 @@
                     //$this->ion_auth->user()->row()->id == $id
                     //$group = $user['group'];
                     //holt die user Infos von der DB => schaut ob der eingeloggte User ein Admin ist
-                    $group = $this->ion_auth->user()->row()->group;
-                    if ($group == 'admin') {
+                    $permission_group = $this->ion_auth->user()->row()->permission_group;
+                    if ($permission_group == 'admin') {
 
 
                         //if ($this->ion_auth->is_admin()) {
@@ -343,10 +343,10 @@
 
         //create a new user
         function create_user () {
-            $group               = $this->ion_auth->user()->row()->group;
+            $permission_group               = $this->ion_auth->user()->row()->permission_group;
             $this->data['title'] = "Create User";
 
-            if (!$this->ion_auth->logged_in() || !$group == 'admin') {
+            if (!$this->ion_auth->logged_in() || !$permission_group == 'admin') {
                 redirect('auth/login', 'refresh');
             }
 
@@ -447,10 +447,10 @@
 
         //edit a user
         function edit_user ($id) {
-            $group               = $this->ion_auth->user()->row()->group;
+            $permission_group               = $this->ion_auth->user()->row()->permission_group;
             $this->data['title'] = "Edit User";
 
-            if (!$this->ion_auth->logged_in() || !$group == 'admin') {
+            if (!$this->ion_auth->logged_in() || !$permission_group == 'admin') {
                 redirect('auth', 'refresh');
             }
 
@@ -561,10 +561,10 @@
 
         // create a new group
         function create_group () {
-            $group               = $this->ion_auth->user()->row()->group;
+            $permission_group               = $this->ion_auth->user()->row()->permission_group;
             $this->data['title'] = "Create Group";
 
-            if (!$this->ion_auth->logged_in() || !$group == 'admin') {
+            if (!$this->ion_auth->logged_in() || !$permission_group == 'admin') {
                 redirect('auth', 'refresh');
             }
 
@@ -604,7 +604,7 @@
 
         //edit a group
         function edit_group ($id) {
-            $group = $this->ion_auth->user()->row()->group;
+            $permission_group = $this->ion_auth->user()->row()->permission_group;
             // bail if no group id given
             if (!$id || empty($id)) {
                 redirect('auth', 'refresh');
@@ -612,11 +612,11 @@
 
             $this->data['title'] = "Edit Group";
 
-            if (!$this->ion_auth->logged_in() || !$group == 'admin') {
+            if (!$this->ion_auth->logged_in() || !$permission_group == 'admin') {
                 redirect('auth', 'refresh');
             }
 
-            $group = $this->ion_auth->group($id)->row();
+            $permission_group = $this->ion_auth->permission_group($id)->row();
 
             //validate form input
             $this->form_validation->set_rules('group_name', 'Group name', 'required|alpha_dash|xss_clean');
@@ -639,19 +639,19 @@
             $this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
 
             //pass the user to the view
-            $this->data['group'] = $group;
+            $this->data['permission_group'] = $permission_group;
 
             $this->data['group_name']        = array(
                 'name'  => 'group_name',
                 'id'    => 'group_name',
                 'type'  => 'text',
-                'value' => $this->form_validation->set_value('group_name', $group->name),
+                'value' => $this->form_validation->set_value('group_name', $permission_group->name),
             );
             $this->data['group_description'] = array(
                 'name'  => 'group_description',
                 'id'    => 'group_description',
                 'type'  => 'text',
-                'value' => $this->form_validation->set_value('group_description', $group->description),
+                'value' => $this->form_validation->set_value('group_description', $permission_group->description),
             );
 
             $this->load->view('auth/edit_group', $this->data);
