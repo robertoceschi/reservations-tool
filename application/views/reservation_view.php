@@ -20,57 +20,30 @@
                         //Platz frei
                         if (json.status == "error") {
 
-
                             var I = reference.attr("value");
-                            $.ajax({
-                                url:WEBROOT + "ajax/set_status_for_court/" + I,
-                                type:"post",
-                                data:'value=' + I,
-                                dataType:'json',
-                                success:function (json) {
-                                    if (json.status == "success") {
-                                        reference.html(json.message);
-                                        $("#successMessage").html(json.message);
-                                        $(".alert-success").show();
+                            var r = confirm('Wollen sie diesen Court reservieren?');
+                            if (r == true) {
+                                $.ajax({
+                                    url:WEBROOT + "ajax/set_status_for_court/" + I,
+                                    type:"post",
+                                    data:'value=' + I,
+                                    dataType:'json',
+                                    success:function (json) {
+                                        if (json.status == "success") {
+                                            reference.html(json.message);
+                                            $("#successMessage").html(json.message);
+                                            $(".alert-success").show();
+                                        }
+                                        else {
+                                            alert(json.message);
+                                        }
                                     }
-                                    else {
-                                        alert(json.message);
-                                    }
-                                }
-                            });
+                                });
+                            }
                         }
                     }
                 }
             });
-
-
-            /*
-            var r = confirm('Wollen sie um ' + hour_value + ' reservieren?');
-            if (r == true) {
-                var element = $(this);
-                var I = element.attr("value");
-                $.ajax({
-                    url:WEBROOT + "ajax/set_status_for_court/" + I,
-                    type:"post",
-                    data:'value=' + I,
-                    dataType:'json',
-                    success:function (json) {
-                        if (json.status == "success") {
-                            reference.html(json.message);
-                            $("#successMessage").html(json.message);
-                            $(".alert-success").show();
-                        }
-
-                        else {
-                            alert (json.message);
-                        }
-                    }
-                });
-            } else {
-
-            } */
-
-
         });
 
         //error Message wird mit click() geschlossen!!
@@ -87,8 +60,6 @@
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span10">
-
-
             <div class="alert alert-success" style="display: none">
                 <button class="close">×</button>
                 <strong>
