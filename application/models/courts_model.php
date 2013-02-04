@@ -80,13 +80,39 @@
             return '';
         }
 
+        //check ob Court schon besetzt ist oder nicht
+        public function check_status_for_court ($aHour_day) {
+            $data = array(
+                'start_time' => $aHour_day[0] ,
+                'day' => $aHour_day[1] ,
+            );
+            $this->db->select('*');
+            $this->db->from('reservation');
+            $this->db->where('reservation.start_time', $data['start_time']);
+            $this->db->where('reservation.day', $data['day']);
+            $query  = $this->db->get();
+
+            $result = $query->result();
+
+
+            //Falls Zeit-Slot schon vergeben wird true zurückgegeben / falls kein Eintrag vorhanden wird false zurückgegeben
+
+            return $result;
+        }
+
+
+
 
         //neue Reservation wird in die DB geschrieben
-        public function set_status_for_court($date, $start_time, $end_time,	$user_id = 1,	$court_id = 1) {
+        public function set_status_for_court($aHour_day) {
+            //array-werte werden ausgelesen und in die db geschrieben
+            $data = array(
+                'start_time' => $aHour_day[0] ,
+                'day' => $aHour_day[1] ,
+            );
+            $reservation = $this->db->insert('reservation', $data);
 
-            $this->db->insert('reservation');
-
-
+            return  $reservation;
 
         }
 
@@ -94,152 +120,8 @@
 
 
 
-        /*public function get_events_for_week ($weeknr = '') {
-            //calandarEvents[$stunde][$tag]
 
-            $calendarEvents = array('8:00'  => array('Mo' => '',
-                                                     'Di' => '',
-                                                     'Mi' => '',
-                                                     'Do' => '',
-                                                     'Fr' => '',
-                                                     'Sa' => '',
-                                                     'So' => ''
-            ),
-                                    '9:00'  => array('Mo' => '',
-                                                     'Di' => '',
-                                                     'Mi' => '',
-                                                     'Do' => '',
-                                                     'Fr' => '',
-                                                     'Sa' => '',
-                                                     'So' => ''
-                                    ),
-                                    '10:00' => array('Mo' => '',
-                                                     'Di' => '',
-                                                     'Mi' => '',
-                                                     'Do' => '',
-                                                     'Fr' => '',
-                                                     'Sa' => '',
-                                                     'So' => ''
-                                    ),
-                                    '11:00' => array('Mo' => '',
-                                                     'Di' => '',
-                                                     'Mi' => '',
-                                                     'Do' => '',
-                                                     'Fr' => '',
-                                                     'Sa' => '',
-                                                     'So' => ''
-                                    ),
-                                    '12:00' => array('Mo' => '',
-                                                     'Di' => '',
-                                                     'Mi' => '',
-                                                     'Do' => 'besetzt',
-                                                     'Fr' => '',
-                                                     'Sa' => '',
-                                                     'So' => ''
-                                    ),
-                                    '13:00' => array('Mo' => 'besetzt',
-                                                     'Di' => '',
-                                                     'Mi' => '',
-                                                     'Do' => '',
-                                                     'Fr' => 'besetzt',
-                                                     'Sa' => '',
-                                                     'So' => ''
-                                    ),
-                                    '14:00' => array('Mo' => 'besetzt',
-                                                     'Di' => '',
-                                                     'Mi' => '',
-                                                     'Do' => '',
-                                                     'Fr' => '',
-                                                     'Sa' => '',
-                                                     'So' => ''
-                                    ),
-                                    '15:00' => array('Mo' => 'besetzt',
-                                                     'Di' => '',
-                                                     'Mi' => '',
-                                                     'Do' => 'besetzt',
-                                                     'Fr' => '',
-                                                     'Sa' => '',
-                                                     'So' => ''
-                                    ),
-                                    '16:00' => array('Mo' => 'besetzt',
-                                                     'Di' => '',
-                                                     'Mi' => '',
-                                                     'Do' => '',
-                                                     'Fr' => '',
-                                                     'Sa' => '',
-                                                     'So' => ''
-                                    ),
-                                    '17:00' => array('Mo' => 'besetzt',
-                                                     'Di' => '',
-                                                     'Mi' => '',
-                                                     'Do' => '',
-                                                     'Fr' => '',
-                                                     'Sa' => '',
-                                                     'So' => ''
-                                    ),
-                                    '18:00' => array('Mo' => 'besetzt',
-                                                     'Di' => '',
-                                                     'Mi' => '',
-                                                     'Do' => '',
-                                                     'Fr' => '',
-                                                     'Sa' => '',
-                                                     'So' => ''
-                                    ),
-                                    '19:00' => array('Mo' => 'besetzt',
-                                                     'Di' => '',
-                                                     'Mi' => '',
-                                                     'Do' => '',
-                                                     'Fr' => '',
-                                                     'Sa' => '',
-                                                     'So' => ''
-                                    ),
-                                    '20:00' => array('Mo' => 'besetzt',
-                                                     'Di' => '',
-                                                     'Mi' => '',
-                                                     'Do' => '',
-                                                     'Fr' => '',
-                                                     'Sa' => '',
-                                                     'So' => ''
-                                    ),
-                                    '21:00' => array('Mo' => 'besetzt',
-                                                     'Di' => '',
-                                                     'Mi' => '',
-                                                     'Do' => '',
-                                                     'Fr' => '',
-                                                     'Sa' => '',
-                                                     'So' => ''
 
-                                    ),
-                                    '22:00' => array('Mo' => 'besetzt',
-                                                     'Di' => '',
-                                                     'Mi' => '',
-                                                     'Do' => '',
-                                                     'Fr' => '',
-                                                     'Sa' => '',
-                                                     'So' => ''
-
-                                    ),
-                                    '23:00' => array('Mo' => 'besetzt',
-                                                     'Di' => '',
-                                                     'Mi' => '',
-                                                     'Do' => '',
-                                                     'Fr' => '',
-                                                     'Sa' => '',
-                                                     'So' => ''
-
-                                    ),
-                                    '00:00' => array('Mo' => 'besetzt',
-                                                     'Di' => '',
-                                                     'Mi' => '',
-                                                     'Do' => '',
-                                                     'Fr' => '',
-                                                     'Sa' => '',
-                                                     'So' => ''
-
-                                    ),
-            );
-            return $calendarEvents;
-        } */
 
 
 
