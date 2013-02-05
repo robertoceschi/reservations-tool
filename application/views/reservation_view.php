@@ -12,14 +12,16 @@
                 data:'value=' + I,
                 dataType:'json',
                 success:function (json) {
-                    if (json.status == "success") {
+                    if (json.status == "success" && json.message == 'Court besetzt!') {
                         //Platz besetzt
                         alert(json.message);
+                    }
+                    else if (json.status == "success" && json.message == 'Wollen Sie ihre Reservation löschen?') {
+                        //alert(json.message);
                     }
                     else {
                         //Platz frei
                         if (json.status == "error") {
-
                             var I = reference.attr("value");
                             var r = confirm('Wollen sie diesen Court reservieren?');
                             if (r == true) {
@@ -110,6 +112,7 @@
                         foreach ($calendarEvents as $time => $time_slot) {
                             echo  '<tr><td>' . $time . '</td>';
                             foreach ($time_slot as $day => $status) {
+
                                 echo '<td class="hours" value="' . $time . '_' . $day . '">' . $status . '</td>';
                             }
                             echo '</tr>';

@@ -20,8 +20,10 @@
         //function display($year = null, $month = null ) {
             $main_content        = 'reservation';
             $this->data['title'] = 'Reservation';
-
-            $this->data['calendarEvents']=$this->Courts_model->get_events_for_week();
+            $user_id = $this->ion_auth->user()->row()->id;
+            $weeknr = '';
+            //check ob court frei oder besetzt / resultat wird in 'calenderEvents' geschrieben
+            $this->data['calendarEvents']=$this->Courts_model->get_events_for_week($weeknr ,$user_id);
 
 
 

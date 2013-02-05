@@ -2,6 +2,7 @@
 
     class Ajax extends MY_Controller {
 
+
         function __construct () {
             //Controller Name in Kleinbuchstaben
             $this->sControllerName = strtolower(__CLASS__);
@@ -9,6 +10,7 @@
             $this->load->library('form_validation');
             $this->load->library('session');
             $this->load->model('Courts_model');
+
 
             //$this->load->library('pagination');
 
@@ -127,25 +129,41 @@
 
         //check ob Court noch frei ist
         public function check_status_for_court($hour_value){
+            $user_id = $this->ion_auth->user()->row()->id;
             json_decode($hour_value) ;
             //ein array wird erzeugt mit 2 werten=> start_time und day
             $aData = explode('_', $hour_value);
-            //daten werden via model in die db geschrieben
-            $status = $this->Courts_model->check_status_for_court($aData);
+            //daten werden via model in die db geschrieben/ Das Resultat der DB-Abfrage wird wird in $aStatus gespeichert
+            $aStatus = $this->Courts_model->check_status_for_court($aData);
 
-            if ($status) {
+            //falls $aStatus da ist und nicht leer ist => hol die user_id der Reservation
+            if (isset($aStatus[0])) {
+                $check_id = $aStatus[0]->user_id;
+            }
+
+            //falls $aStatus da ist und nicht leer ist und $check_id der $user_id entspricht
+            if (isset($aStatus[0])and $check_id == $user_id )  {
                 $return = array(
                     'status'  => 'success',
-                    'message' => 'Der Platz ist besetzt!'
+                    'message' => 'Wollen Sie ihre Reservation löschen?'
                 );
                 echo json_encode($return);
 
+
+            } elseif(isset($aStatus[0])and $check_id != $user_id) {
+                $return = array(
+
+                    'status'  => 'success',
+                    'message' => 'Court besetzt!'
+
+                );
+                echo json_encode($return);
 
             } else {
                 $return = array(
 
                     'status'  => 'error',
-                    'message' => 'Der Platz ist noch frei'
+                    'message' => 'Court ist noch frei!'
 
                 );
                 echo json_encode($return);
@@ -157,11 +175,13 @@
 
         //neue Reservation tätigen
         public function set_status_for_court ($hour_value) {
+            $user_id = $this->ion_auth->user()->row()->id;
+
             json_decode($hour_value) ;
             //ein array wird erzeugt mit 2 werten=> start_time und day
             $aData = explode('_', $hour_value);
             //daten werden via model in die db geschrieben
-            $reservation = $this->Courts_model->set_status_for_court($aData);
+            $reservation = $this->Courts_model->set_status_for_court($aData,$user_id);
 
             if ($reservation) {
                 $return = array(
