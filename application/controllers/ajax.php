@@ -201,6 +201,34 @@
         }
 
 
+        public function delete_court ($hour_value) {
+
+            json_decode($hour_value) ;
+            //ein array wird erzeugt mit 2 werten=> start_time und day
+            $aData = explode('_', $hour_value);
+            //daten werden via model in die db geschrieben
+            $aDelete_crt = $this->Courts_model->delete_court($aData);
+
+            if ($aDelete_crt) {
+                $return = array(
+
+                    'status'  => 'success',
+                    'message' => 'Reservation gelöscht!'
+                );
+                echo json_encode($return);
+
+            } else {
+                $return = array(
+                    'status'  => 'error',
+                    'message' => 'Probleme beim löschen!'
+                );
+                echo json_encode($return);
+            }
+
+
+        }
+
+
 
 
     }

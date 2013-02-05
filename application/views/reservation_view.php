@@ -18,6 +18,29 @@
                     }
                     else if (json.status == "success" && json.message == 'Wollen Sie ihre Reservation löschen?') {
                         //alert(json.message);
+                        var I = reference.attr("value");
+                        var r = confirm('Wollen Sie ihre Reservation wirklich löschen?');
+                        if (r == true) {
+                            $.ajax({
+                                url:WEBROOT + "ajax/delete_court/" + I,
+                                type:"post",
+                                data:'value=' + I,
+                                dataType:'json',
+                                success:function (json) {
+                                    if (json.status == "success") {
+                                         //alert(json.status);
+                                         reference.html(json.message);
+                                         $("#successMessage").html(json.message);
+                                         $(".alert-success").show();
+                                    }
+                                    else {
+                                        $("#errorMessage").html(json.message);
+                                        $(".alert-error").show();
+                                    }
+                                }
+                            });
+                        }
+
                     }
                     else {
                         //Platz frei

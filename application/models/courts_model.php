@@ -113,9 +113,21 @@
                 'day'        => $aHour_day[1],
                 'user_id'    => $user_id
             );
-            $reservation = $this->db->insert('reservation', $data);
+            $result = $this->db->insert('reservation', $data);
 
-            return $reservation;
+            return $result;
+
+        }
+
+        public function delete_court($aHour_day){
+            $data        = array(
+                'start_time' => $aHour_day[0],
+                'day'        => $aHour_day[1],
+
+            );
+            $result = $this->db->delete('reservation', $data);
+
+            return $result;
 
         }
 
