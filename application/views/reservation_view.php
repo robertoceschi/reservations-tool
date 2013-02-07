@@ -40,7 +40,6 @@
                                 }
                             });
                         }
-
                     }
                     else {
                         //Platz frei
@@ -101,17 +100,17 @@
 
 
             <div id="new_user">
-                <button class="btn btn-large btn-primary"><a href="<?php echo site_url('courts/create_court');?>"> <i
-                        class=" icon-plus icon-white"></i> Neue Reservation tätigen</a></button>
+                <button class="btn btn-large btn-primary"><a href="<?php echo site_url('courts/create_court');?>"> </i> MAI 2013</a></button>
             </div>
 
             <div class="widget-box">
                 <div class="widget-title">
 								<span class="icon">
 									<i class="icon-th-list"></i>
+
 								</span>
 
-                    <h5>Platz 1</h5>
+                    <h5>Platz 1</h5> <h5>Woche 17 - 28.April - 4. Mai 2013</h5>
                 </div>
                 <div class="widget-content nopadding">
 
