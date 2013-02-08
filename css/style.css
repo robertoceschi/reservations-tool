@@ -238,24 +238,74 @@ tr.even td.sorting_1 {
     float: right;
 }
 
+
+.reservation.table {
+    background-color: #F9F9F9;
+    border-spacing:6px;
+
+}
+
 /* Tabelle für Reservation*/
-.reservation.table td {
+.reservation.table td  {
+    font-size: 13px;
     text-align: center;
-    width: 132px;
-    height: 70px;
-    border-right: 1px dashed #dddddd;
-    border-top: none;
-    border-bottom: 1px dashed #dddddd;
-    -webkit-border-radius: 24px 0;
-    -moz-border-radius: 2em 0;
+    width: 100px !important;
+    height: 35px !important;
+    border-top: 1px dashed #CCCCCC;
+    border-left: 1px dashed #CCCCCC;
+    border-right: 1px dashed #CCCCCC;
+    border-bottom: 1px dashed #CCCCCC;
+    border-radius: 0px  0px
+    11px;
+    padding-top: 1%;
+    padding-left: 0;
+    padding-right: 0;
+    line-height: 15px;
 
 }
 
-td.hours:hover {
-    background-color:  #567BD2;
+.reservation.table td:first-child   {
+    text-align: center;
+    width: 50px !important;
+    font-size: 12px;
+    text-decoration:underline;
+    border: solid 1px #CCCCCC;
+    border-radius:0;
+
+
+
 }
 
 
+
+
+td.free:hover {
+    /*background-color:  #567BD2; */
+    background-color: #5CB85C;
+    color:white;
+}
+
+td.your_res:hover {
+    background-color:  #F8980F;
+    color:white;
+}
+
+
+td.free {
+    background-color: white;
+    color: #5CB85C;
+}
+
+td.notfree {
+    background-color: white;
+    color: #CCCCCC;
+}
+
+td.your_res {
+    background-color: white;
+    color: #F8980F;
+
+}
 
 
 

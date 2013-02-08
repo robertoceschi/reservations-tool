@@ -1,6 +1,6 @@
 <script>
     $(document).ready(function () {
-        $(".hours").click(function () {
+        $('.hours') .click(function () {
             reference = $(this);
             //var hour_value = $(this).attr('value');
             var element = $(this);
@@ -74,6 +74,23 @@
         $('.close').click(function () {
             $('.alert').hide();
         })
+
+        $('.free').mouseover(function () {
+            reference = $(this);
+            reference.html('buchen?')
+                    .mouseout(function(){
+                        reference.html('frei');
+                    });
+
+        })
+        $('.your_res').mouseover(function () {
+            reference = $(this);
+            reference.html('Reservation löschen?')
+                    .mouseout(function(){
+                        reference.html('Ihre Reservation');
+                    });
+
+        })
     });
 
 
@@ -131,11 +148,19 @@
                         <?php
                         echo '<tbody>';
 
+
                         foreach ($calendarEvents as $time => $time_slot) {
+
                             echo  '<tr><td>' . $time . '</td>';
                             foreach ($time_slot as $day => $status) {
 
-                                echo '<td class="hours" value="' . $time . '_' . $day . '">' . $status . '</td>';
+                                if ($status == 'besetzt') {
+                                    echo '<td  class="notfree hours" value="' . $time . '_' . $day . '">' . $status . '</td>'; }
+                                elseif($status == 'frei') {
+                                    echo '<td class="free hours" value="' . $time . '_' . $day . '">' . $status . '</td>'; }
+                                else{
+                                    echo '<td class="your_res hours" value="' . $time . '_' . $day . '">' . $status . '</td>';
+                                }
                             }
                             echo '</tr>';
                         }                        ?>
