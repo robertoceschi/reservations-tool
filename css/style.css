@@ -245,6 +245,16 @@ tr.even td.sorting_1 {
 
 }
 
+.reservation.table th {
+   background-image: none;
+   background-color:  #F9F9F9;
+    font-size: 12px!important;
+    text-decoration:underline;
+
+}
+
+
+
 /* Tabelle für Reservation*/
 .reservation.table td  {
     font-size: 13px;
@@ -265,15 +275,11 @@ tr.even td.sorting_1 {
 }
 
 .reservation.table td:first-child   {
-    text-align: center;
     width: 50px !important;
-    font-size: 12px;
+    font-size: 11px;
     text-decoration:underline;
-    border: solid 1px #CCCCCC;
+    border: none;
     border-radius:0;
-
-
-
 }
 
 
