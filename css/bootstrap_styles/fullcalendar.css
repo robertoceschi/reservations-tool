@@ -79,11 +79,11 @@ html .fc, .fc table {
     z-index: 4;
 }
 .fc-button-prev .fc-button-content {
-    background: url("../img/larrow.png") no-repeat scroll 15px 13px transparent;
+    background: url("../../media/img/larrow.png") no-repeat scroll 15px 13px transparent;
     width: 10px;
 }
 .fc-button-next .fc-button-content {
-    background: url("../img/rarrow.png") no-repeat scroll 15px 13px transparent;
+    background: url("../../media/img/rarrow.png") no-repeat scroll 15px 13px transparent;
     width: 10px;
 }
 .fc-content {

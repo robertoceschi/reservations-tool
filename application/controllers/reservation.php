@@ -17,7 +17,11 @@
 
 
         public function index(){
-        //function display($year = null, $month = null ) {
+            //function display($year = null, $month = null ) {
+
+
+
+
             $main_content        = 'reservation';
             $this->data['title'] = 'Reservation';
             $user_id = $this->ion_auth->user()->row()->id;
@@ -25,6 +29,16 @@
             //check ob court frei oder besetzt / resultat wird in 'calenderEvents' geschrieben
             $this->data['calendarEvents']=$this->Courts_model->get_events_for_week($weeknr ,$user_id);
 
+            $this->data['year']  = date("Y");
+            $this->data['week'] =  date("W");
+            $this->data['month']=  date("F");
+
+            function week_date ($year, $week) {
+                $from = date("d", strtotime("{$year}-W{$week}-1")); //Returns the date of monday in week
+                $to   = date("d-F", strtotime("{$year}-W{$week}-7")); //Returns the date of sunday in week
+                return "Woche {$week} / {$from}. - {$to}";
+            }
+            $this->data['week_date'] =  week_date(date("Y"), date("W"));
 
 
 

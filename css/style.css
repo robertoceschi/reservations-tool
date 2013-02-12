@@ -13,10 +13,12 @@
 @import url('../css/bootstrap_styles/unicorn.login.css');
 @import url('../css/bootstrap_styles/unicorn.main.css');
 @import url('../css/bootstrap_styles/uniform.css');
+@import url('../css/bootstrap_styles/uniform.css');
 @import url('../css/datatables_ajax/demo_page.css');
 @import url('../css/datatables_ajax/demo_table.css');
 @import url('../css/datepicker.css');
 @import url('../css/timepicker.css');
+@import url('../css/bootstrap_styles/fullcalendar.css');
 
 
 /*custom css (bootstrap css werden überschrieben)/*
@@ -249,7 +251,7 @@ tr.even td.sorting_1 {
    background-image: none;
    background-color:  #F9F9F9;
     font-size: 12px!important;
-    text-decoration:underline;
+    font-weight: bold;
 
 }
 
@@ -275,11 +277,11 @@ tr.even td.sorting_1 {
 }
 
 .reservation.table td:first-child   {
-    width: 50px !important;
     font-size: 11px;
-    text-decoration:underline;
+    font-weight: bold;
     border: none;
     border-radius:0;
+    text-align: center;
 }
 
 

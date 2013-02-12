@@ -85,9 +85,24 @@
         })
 
 
+
+        //datatables_ajax
+        $('#example').dataTable({
+            "bProcessing":true,
+            "bServerSide":true,
+            "sServerMethod":"POST"  ,
+            "sAjaxSource":"<?php base_url();?>ajax/getdatabyajax",
+            "sPaginationType": "full_numbers"
+
+
+
+
+        });
+
         //delete User
         $('.delete_user').click(function () {
-            reference = $(this);
+            alert ("gedrückt");
+            /*reference = $(this);
             //var user_id = $(this).attr('id');
             var user_name = $(this).attr('title');
             var r = confirm('Sie wollen ' + user_name + '');
@@ -111,19 +126,7 @@
                         }
                     }
                 });
-            }
-
-        });
-        //datatables_ajax
-        $('#example').dataTable({
-            "bProcessing":true,
-            "bServerSide":true,
-            "sServerMethod":"POST"  ,
-            "sAjaxSource":"<?php base_url();?>ajax/getdatabyajax",
-            "sPaginationType": "full_numbers"
-
-
-
+            } */
 
         });
     });

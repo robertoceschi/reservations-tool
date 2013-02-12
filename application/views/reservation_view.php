@@ -117,18 +117,13 @@
 
 
             <div id="new_user">
-                <button class="btn btn-large btn-primary"><a href="<?php echo site_url('courts/create_court');?>"> </i> MAI 2013</a></button>
+                <button class="btn btn-large btn-primary"><a href="<?php echo site_url('courts/create_court');?>"> </i> <?php echo $month . ' ' . $year;?></a></button>
             </div>
 
             <div class="widget-box">
-                <div class="widget-title">
-								<span class="icon">
-									<i class="icon-th-list"></i>
+                <!--<div class="fc-header-left"><span class="fc-button fc-button-prev fc-state-default fc-corner-left"><span class="fc-button-inner"><span class="fc-button-content"></span></span></span><span class="fc-button fc-button-next fc-state-default fc-corner-right"><span class="fc-button-inner"><span class="fc-button-content"></span></span></span></div>--><h4 style=" margin-left: 40%; "><?php echo $week_date;?> </h4>
 
-								</span>
 
-                    <h5>Platz 1</h5> <h5>Woche 17 - 28.April - 4. Mai 2013</h5>
-                </div>
                 <div class="widget-content nopadding">
 
                     <table class="table reservation">
