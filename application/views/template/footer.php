@@ -11,7 +11,7 @@
 <script src="<?php echo base_url() . 'lib/js/bootstrap.min.js"></script>'; ?>
 <script src="<?php echo base_url() . 'lib/js/jquery.uniform.js"></script>';?>
 <script src="<?php echo base_url() . 'lib/js/unicorn.js"></script>'; ?>
-<script src="<?php echo base_url() . 'lib/js/unicorn.tables.js"></script>';?>
+
 <script src="<?php echo base_url() . 'lib/js/excanvas.min.js"></script>' ; ?>
 <script src="<?php echo base_url() . 'lib/js/jquery.flot.min.js"></script> '; ?>
 <script src="<?php echo base_url() . 'lib/js/jquery.flot.resize.min.js"></script>'; ?>

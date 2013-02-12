@@ -1,136 +1,34 @@
 <script type="text/javascript">
+
+
     $(document).ready(function () {
-        //$("#success").hide();
-        //$("#error").hide();
-        //status ändern inaktiv->aktiv->inaktiv
-        $('.toggleStatus ').click(function () {
-            //deaktivieren
-            if ($(this).hasClass('inaktiv')) {
-                reference = $(this);
-                //var user_id = $(this).attr('id');
-                var user_name = $(this).attr('title');
-                var r = confirm('Sie wollen' + user_name + 'deaktivieren?');
-                if (r == true) {
-                    var element = $(this);
-                    var I = element.attr("id");
-                    $.ajax({
-                        url:WEBROOT + "ajax/deactivate/" + I,
-                        type:"post",
-                        data:'id=' + I,
-                        dataType:'json',
-                        success:function (json) {
-                            if (json.status == "success") {
-                                //reference.toggleClass('aktiv');
-                                reference.removeClass('inaktiv');
-                                reference.addClass('aktiv');
-                                reference.empty();
-                                reference.append('Inaktiv');
-                                $("#successMessage").html(json.message);
-                                $(".alert-success").show();
-                                //$('.close').click(function() {
-                                //alert('klasse aktiv');
 
-
-                                //});
-                            }
-
-                            else {
-                                $("#errorMessage").html(json.message);
-                                $(".alert-error").show();
-                            }
-                        }
-                    });
-                }
-            } else {
-                //aktivieren
-                reference = $(this);
-                var user_id = $(this).attr('id');
-                var user_name = $(this).attr('title');
-                var r = confirm('Sie wollen' + user_name + 'aktivieren?');
-                if (r == true) {
-                    var element = $(this);
-                    var I = element.attr("id");
-                    $.ajax({
-                        url:WEBROOT + "ajax/activate/" + I,
-                        type:"post",
-                        data:'id=' + I,
-                        dataType:'json',
-                        success:function (json) {
-                            if (json.status == "success") {
-                                //reference.toggleClass('aktiv');
-                                reference.removeClass('aktiv');
-                                reference.addClass('inaktiv');
-                                reference.empty();
-                                reference.append('Aktiv');
-                                $("#successMessage").html(json.message);
-                                $(".alert-success").show();
-                                //$('.close').click(function() {
-                                //alert('klasse inaktiv');
-
-                                //});
-
-                            }
-                            else {
-                                $("#errorMessage").html(json.message);
-                                $(".alert-error").show();
-                            }
-                        }
-                    });
-                }
-            }
-        });
-        //error Message wird mit click() geschlossen!!
-        $('.close').click(function () {
-            $('.alert').hide();
-        })
 
 
 
         //datatables_ajax
         $('#example').dataTable({
+
             "bProcessing":true,
             "bServerSide":true,
-            "sServerMethod":"POST"  ,
+            "sServerMethod":"POST",
             "sAjaxSource":"<?php base_url();?>ajax/getdatabyajax",
-            "sPaginationType": "full_numbers"
+            "sPaginationType":"full_numbers"
 
 
 
 
         });
 
-        //delete User
-        $('.delete_user').click(function () {
-            alert ("gedrückt");
-            /*reference = $(this);
-            //var user_id = $(this).attr('id');
-            var user_name = $(this).attr('title');
-            var r = confirm('Sie wollen ' + user_name + '');
-            if (r == true) {
-                var element = $(this);
-                var I = element.attr("id");
-                $.ajax({
-                    url:WEBROOT + "ajax/delete_user/" + I,
-                    type:"post",
-                    data:'id=' + I,
-                    dataType:'json',
-                    success:function (json) {
-                        if (json.status == "success") {
-                            reference.parent().parent().parent().remove();
-                            $("#successMessage").html(json.message);
-                            $(".alert-success").show();
-                        }
-                        else {
-                            $("#errorMessage").html(json.message);
-                            $(".alert-error").show();
-                        }
-                    }
-                });
-            } */
 
-        });
     });
 
+    //delete User funktioniert noch nicht der click-handler!
+    $("#delete_user").mouseover(function () {
+        console.log("ready");
+
+
+    });
 
 
 </script>
@@ -143,16 +41,16 @@
         <div class="span12">
             <div id="infoMessage"><?php
                 $message = $this->session->flashdata('message');
-                //echo $message;?></div>
+               ;?></div>
 
             <?php
             if ($message == '') {
-            } elseif ($this->session->flashdata('user_create') == true) {
+            } elseif ($this->session->flashdata('user_create') == true or $this->session->flashdata('delete_user') == true ) {
                 echo '<div class="alert alert-success">';
                 echo '<button class="close" data-dismiss="alert">×</button>';
                 echo '<strong><div id="successMessage">' . $message . '</div></strong> ';
                 echo '</div>';
-            } elseif ($message != '' and $this->session->flashdata('user_create') == false) {
+            } elseif ($message != '' and $this->session->flashdata('user_create') == false or $this->session->flashdata('delete_user') == false  ) {
                 echo '<div class="alert alert-error">';
                 echo '<button class="close" data-dismiss="alert">×</button> ';
                 echo '<strong><div id="errorMessage">' . $message . '</div>  </strong>';

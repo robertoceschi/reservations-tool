@@ -114,8 +114,7 @@
                 ->select('id, first_name,last_name, permission_group, active')
                 ->from('users')
                 ->edit_column('last_name', '$1', 'ucfirst(last_name)')
-                //->add_column('delete', '<a class="delete_user" href=" ' . base_url() . 'mitglieder/delete_user/$1"><i class="icon icon-trash"></i></a>', 'id')
-                ->add_column('delete', '<span style="cursor:pointer"><a class="delete_user" id= "$1" title=" $1 löschen? "><i class=" icon-trash"></i> </a></span></td>', 'id')
+                ->add_column('delete', '<a title="Mitglied löschen?" class="tip-bottom" class="delete_user" href=" ' . base_url() . 'mitglieder/delete_user/$1" ><i class="icon icon-trash"></i></a>', 'id')
 
                 ->add_column('edit', '<a href=" ' . base_url() . 'mitglieder/edit_user/$1"><i class="icon icon-edit"></a>', 'id')
                 ->unset_column('id');
