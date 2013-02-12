@@ -115,8 +115,7 @@
                 ->from('users')
                 ->edit_column('last_name', '$1', 'ucfirst(last_name)')
                 //->add_column('delete', '<a class="delete_user" href=" ' . base_url() . 'mitglieder/delete_user/$1"><i class="icon icon-trash"></i></a>', 'id')
-                ->add_column('delete', '<p class="delete_user"><i class="icon icon-trash"></i></p>', 'id')
-
+                ->add_column('delete', '<span style="cursor:pointer"><a class="delete_user" id= "$1" title=" $1 löschen? "><i class=" icon-trash"></i> </a></span></td>', 'id')
 
                 ->add_column('edit', '<a href=" ' . base_url() . 'mitglieder/edit_user/$1"><i class="icon icon-edit"></a>', 'id')
                 ->unset_column('id');
@@ -124,6 +123,10 @@
 
 
         }
+
+
+
+
 
         //check ob Court noch frei ist
         public function check_status_for_court($hour_value){
