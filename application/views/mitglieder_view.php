@@ -26,7 +26,7 @@
             var user_id = $(this).attr('id');
             //var user_name = $(this).attr('title');
             console.log(user_id);
-            var r = confirm('Sie wollen  wirklich löschen?');
+            var r = confirm('Sie wollen den Mitglieder wirklich löschen?');
             if (r == true) {
                 var element = $(this);
                 var I = element.attr("id");
