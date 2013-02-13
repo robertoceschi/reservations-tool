@@ -20,15 +20,15 @@
 
         });
 
+        $(document).delegate('.delete_user', 'click', function() {
+
+
+        });
 
     });
 
-    //delete User funktioniert noch nicht der click-handler!
-    $("#delete_user").mouseover(function () {
-        console.log("ready");
 
 
-    });
 
 
 </script>
