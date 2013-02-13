@@ -21,9 +21,41 @@
         });
 
         $(document).delegate('.delete_user', 'click', function() {
+            reference = $(this);
+            console.log(reference);
+            var user_id = $(this).attr('id');
+            //var user_name = $(this).attr('title');
+            console.log(user_id);
+            var r = confirm('Sie wollen  wirklich löschen?');
+            if (r == true) {
+                var element = $(this);
+                var I = element.attr("id");
+                $.ajax({
+                    url:WEBROOT + "ajax/delete_user/" + I,
+                    type:"post",
+                    data:'id=' + I,
+                    dataType:'json',
+                    success:function (json) {
+                        if (json.status == "success") {
+                            reference.parent().parent().remove();
+                            $("#successMessage").html(json.message);
+                            $(".alert-success").show();
+                        }
+                        else {
+                            $("#errorMessage").html(json.message);
+                            $(".alert-error").show();
+                        }
+                    }
+                });
+            }
 
 
         });
+        //error Message wird mit click() geschlossen!!
+        $('.close').click(function () {
+            $('.alert').hide();
+        })
+
 
     });
 
