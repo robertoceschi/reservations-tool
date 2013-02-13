@@ -26,7 +26,6 @@
                 //$status = "success";
                 //$msg    = "User ist jetzt deaktiviert";
                 $return = array(
-
                     'status'  => 'success',
                     'message' => 'Der User wurde erfolgreich deaktiviert!'
 
@@ -102,24 +101,20 @@
             }
 
         }
-
         //checken ob noch gebraucht wird!
         public function getdatabyajax () {
             $this->load->library('datatables');
             $this->datatables
                 ->select('id, first_name,last_name, permission_group, active')
                 ->from('users')
+                ->edit_column('first_name', '$1', 'ucfirst(first_name)')
                 ->edit_column('last_name', '$1', 'ucfirst(last_name)')
-                ->add_column('delete', '<span  class="delete_user" id="$1" title="$1"><i class="icon icon-trash"></i></span>', 'id')
-                ->add_column('edit', '<a href=" ' . base_url() . 'mitglieder/edit_user/$1"><i class="icon icon-edit"></a>', 'id')
-                ->unset_column('id');
+                ->add_column('delete', '<span style="cursor:pointer"  class="delete_user" id="$1" title="$2 $3"><i class="icon icon-trash"></i></span>', 'id,first_name, last_name')
+                ->add_column('edit', '<a href=" ' . base_url() . 'mitglieder/edit_user/$1"><i class="icon icon-edit"></a>', 'id')->edit_column('id', '$1', 'id');
+            // ->unset_column('id');
+
             echo $this->datatables->generate();
-
-
         }
-
-
-
 
 
         //check ob Court noch frei ist

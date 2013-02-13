@@ -2,31 +2,43 @@
 
 
     $(document).ready(function () {
-
-
-
-
         //datatables_ajax
         $('#example').dataTable({
-
             "bProcessing":true,
             "bServerSide":true,
             "sServerMethod":"POST",
             "sAjaxSource":"<?php base_url();?>ajax/getdatabyajax",
-            "sPaginationType":"full_numbers"
-
-
-
-
+            "sPaginationType":"full_numbers",
+            "aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "alle"]],
+            "fnRowCallback":function (nRow, aData, iDisplayIndex) {
+                if (aData[3] == "admin") {
+                    $('td:eq(3)', nRow).html('Administrator');
+                }
+                if (aData[3] == "members") {
+                    $('td:eq(3)', nRow).html('Mitglieder');
+                }
+                if (aData[4] == 1) {
+                    $('td:eq(4)', nRow).html('Aktiv');
+                }
+                if (aData[4] == 0) {
+                    $('td:eq(4)', nRow).html('Inaktiv');
+                }
+                if (aData[4] == 1) {
+                    $('td:eq(4)', nRow).addClass('toggleStatus inaktiv').attr("id",aData[0]).css('cursor','pointer').attr('title',aData[1] + ' ' + aData[2]);
+                }
+                if (aData[4] == 0) {
+                    $('td:eq(4)', nRow).addClass('toggleStatus aktiv').attr("id",aData[0]).css('cursor', 'pointer').attr('title',aData[1] + ' ' + aData[2]);
+                }
+            }
         });
+
 
         $(document).delegate('.delete_user', 'click', function() {
             reference = $(this);
             console.log(reference);
             var user_id = $(this).attr('id');
-            //var user_name = $(this).attr('title');
-            console.log(user_id);
-            var r = confirm('Sie wollen den Mitglieder wirklich löschen?');
+            var user_name = $(this).attr('title');
+            var r = confirm(user_name + ' löschen?');
             if (r == true) {
                 var element = $(this);
                 var I = element.attr("id");
@@ -50,6 +62,83 @@
             }
 
 
+        });
+
+        $(document).delegate('.toggleStatus', 'click', function() {
+            //deaktivieren
+            if ($(this).hasClass('inaktiv')) {
+                reference = $(this);
+                var user_id = $(this).attr('id');
+                var user_name = $(this).attr('title');
+                var r = confirm(user_name + ' deaktivieren?');
+                if (r == true) {
+                    var element = $(this);
+                    var I = element.attr("id");
+                    $.ajax({
+                        url:WEBROOT + "ajax/deactivate/" + I,
+                        type:"post",
+                        data:'id=' + I,
+                        dataType:'json',
+                        success:function (json) {
+                            if (json.status == "success") {
+                                //reference.toggleClass('aktiv');
+                                reference.removeClass('inaktiv');
+                                reference.addClass('aktiv');
+                                reference.empty();
+                                reference.append('Inaktiv');
+                                $("#successMessage").html(json.message);
+                                $(".alert-success").show();
+                                //$('.close').click(function() {
+                                //alert('klasse aktiv');
+
+
+                                //});
+                            }
+
+                            else {
+                                $("#errorMessage").html(json.message);
+                                $(".alert-error").show();
+                            }
+                        }
+                    });
+                }
+            } else {
+                //aktivieren
+                reference = $(this);
+                var user_id = $(this).attr('id');
+                var user_name = $(this).attr('title');
+                var r = confirm(user_name + ' aktivieren?');
+                if (r == true) {
+                    var element = $(this);
+                    var I = element.attr("id");
+                    $.ajax({
+                        url:WEBROOT + "ajax/activate/" + I,
+                        type:"post",
+                        data:'id=' + I,
+                        dataType:'json',
+                        success:function (json) {
+                            if (json.status == "success") {
+                                //reference.toggleClass('aktiv');
+                                reference.removeClass('aktiv');
+                                reference.addClass('inaktiv');
+                                reference.empty();
+                                reference.append('Aktiv');
+                                $("#successMessage").html(json.message);
+                                $(".alert-success").show();
+                                //$('.close').click(function() {
+                                //alert('klasse inaktiv');
+
+                                //});
+
+                            }
+                            else {
+                                $("#errorMessage").html(json.message);
+                                $(".alert-error").show();
+                            }
+                        }
+                    });
+                }
+            }
         });
         //error Message wird mit click() geschlossen!!
         $('.close').click(function () {
@@ -122,11 +211,11 @@
                         <!--<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">-->
                         <thead>
                         <tr>
-                            <!--<th width="20%">id</th> -->
-                            <th width="20%">Vorname</th>
-                            <th width="20%">Nachname</th>
-                            <th width="10%">Rolle</th>
-                            <th width="1%">aktiv</th>
+                            <th width="1%">Id</th>
+                            <th width="10%">Vorname</th>
+                            <th width="10%">Nachname</th>
+                            <th width="5%">Rolle</th>
+                            <th width="3%">Status</th>
                             <th width="1%">Delete</th>
                             <th width="1%">Edit</th>
                         </tr>
