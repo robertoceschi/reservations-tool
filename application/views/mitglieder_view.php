@@ -9,7 +9,10 @@
             "sServerMethod":"POST",
             "sAjaxSource":"<?php base_url();?>ajax/getdatabyajax",
             "sPaginationType":"full_numbers",
-            "aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "alle"]],
+            "aLengthMenu":[
+                [10, 25, 50, -1],
+                [10, 25, 50, "alle"]
+            ],
             "fnRowCallback":function (nRow, aData, iDisplayIndex) {
                 if (aData[3] == "admin") {
                     $('td:eq(3)', nRow).html('Administrator');
@@ -24,16 +27,16 @@
                     $('td:eq(4)', nRow).html('Inaktiv');
                 }
                 if (aData[4] == 1) {
-                    $('td:eq(4)', nRow).addClass('toggleStatus inaktiv').attr("id",aData[0]).css('cursor','pointer').attr('title',aData[1] + ' ' + aData[2]);
+                    $('td:eq(4)', nRow).addClass('toggleStatus inaktiv').attr("id", aData[0]).css('cursor', 'pointer').attr('title', aData[1] + ' ' + aData[2]);
                 }
                 if (aData[4] == 0) {
-                    $('td:eq(4)', nRow).addClass('toggleStatus aktiv').attr("id",aData[0]).css('cursor', 'pointer').attr('title',aData[1] + ' ' + aData[2]);
+                    $('td:eq(4)', nRow).addClass('toggleStatus aktiv').attr("id", aData[0]).css('cursor', 'pointer').attr('title', aData[1] + ' ' + aData[2]);
                 }
             }
         });
 
 
-        $(document).delegate('.delete_user', 'click', function() {
+        $(document).delegate('.delete_user', 'click', function () {
             reference = $(this);
             console.log(reference);
             var user_id = $(this).attr('id');
@@ -64,7 +67,7 @@
 
         });
 
-        $(document).delegate('.toggleStatus', 'click', function() {
+        $(document).delegate('.toggleStatus', 'click', function () {
             //deaktivieren
             if ($(this).hasClass('inaktiv')) {
                 reference = $(this);
@@ -144,14 +147,7 @@
         $('.close').click(function () {
             $('.alert').hide();
         })
-
-
     });
-
-
-
-
-
 </script>
 
 
@@ -162,16 +158,16 @@
         <div class="span12">
             <div id="infoMessage"><?php
                 $message = $this->session->flashdata('message');
-               ;?></div>
+                ;?></div>
 
             <?php
             if ($message == '') {
-            } elseif ($this->session->flashdata('user_create') == true or $this->session->flashdata('delete_user') == true ) {
+            } elseif ($this->session->flashdata('user_create') == true or $this->session->flashdata('delete_user') == true) {
                 echo '<div class="alert alert-success">';
                 echo '<button class="close" data-dismiss="alert">×</button>';
                 echo '<strong><div id="successMessage">' . $message . '</div></strong> ';
                 echo '</div>';
-            } elseif ($message != '' and $this->session->flashdata('user_create') == false or $this->session->flashdata('delete_user') == false  ) {
+            } elseif ($message != '' and $this->session->flashdata('user_create') == false or $this->session->flashdata('delete_user') == false) {
                 echo '<div class="alert alert-error">';
                 echo '<button class="close" data-dismiss="alert">×</button> ';
                 echo '<strong><div id="errorMessage">' . $message . '</div>  </strong>';
@@ -194,7 +190,8 @@
 
 
             <div id=new_user>
-                <button class="btn btn-large btn-primary"><a href="<?php echo site_url('mitglieder/create_user');?>"> <span class="icon icon-plus icon-white"></span> Neues Mitglied eintragen</a></button>
+                <button class="btn btn-large btn-primary"><a href="<?php echo site_url('mitglieder/create_user');?>">
+                    <span class="icon icon-plus icon-white"></span> Neues Mitglied eintragen</a></button>
             </div>
 
 
@@ -207,7 +204,8 @@
                 <div class="widget-content nopadding">
                     <!--<div id="dynamic"> -->
                     <!--<table class="table table-bordered data-table" id="example">-->
-                    <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
+                    <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered"
+                           id="example">
                         <!--<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">-->
                         <thead>
                         <tr>

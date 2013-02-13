@@ -101,6 +101,7 @@
             }
 
         }
+
         //checken ob noch gebraucht wird!
         public function getdatabyajax () {
             $this->load->library('datatables');
@@ -118,9 +119,9 @@
 
 
         //check ob Court noch frei ist
-        public function check_status_for_court($hour_value){
+        public function check_status_for_court ($hour_value) {
             $user_id = $this->ion_auth->user()->row()->id;
-            json_decode($hour_value) ;
+            json_decode($hour_value);
             //ein array wird erzeugt mit 2 werten=> start_time und day
             $aData = explode('_', $hour_value);
             //daten werden via model in die db geschrieben/ Das Resultat der DB-Abfrage wird wird in $aStatus gespeichert
@@ -132,7 +133,7 @@
             }
 
             //falls $aStatus da ist und nicht leer ist und $check_id der $user_id entspricht
-            if (isset($aStatus[0])and $check_id == $user_id )  {
+            if (isset($aStatus[0])and $check_id == $user_id) {
                 $return = array(
                     'status'  => 'success',
                     'message' => 'Wollen Sie ihre Reservation löschen?'
@@ -140,7 +141,7 @@
                 echo json_encode($return);
 
 
-            } elseif(isset($aStatus[0])and $check_id != $user_id) {
+            } elseif (isset($aStatus[0])and $check_id != $user_id) {
                 $return = array(
 
                     'status'  => 'success',
@@ -162,16 +163,15 @@
         }
 
 
-
         //neue Reservation tätigen
         public function set_status_for_court ($hour_value) {
             $user_id = $this->ion_auth->user()->row()->id;
 
-            json_decode($hour_value) ;
+            json_decode($hour_value);
             //ein array wird erzeugt mit 2 werten=> start_time und day
             $aData = explode('_', $hour_value);
             //daten werden via model in die db geschrieben
-            $reservation = $this->Courts_model->set_status_for_court($aData,$user_id);
+            $reservation = $this->Courts_model->set_status_for_court($aData, $user_id);
 
             if ($reservation) {
                 $return = array(
@@ -193,7 +193,7 @@
 
         public function delete_court ($hour_value) {
 
-            json_decode($hour_value) ;
+            json_decode($hour_value);
             //ein array wird erzeugt mit 2 werten=> start_time und day
             $aData = explode('_', $hour_value);
             //daten werden via model in die db geschrieben
@@ -217,8 +217,6 @@
 
 
         }
-
-
 
 
     }
