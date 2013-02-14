@@ -142,11 +142,16 @@ button[type=submit] {
     font-size: 10px;
 }
 
+/*Datatables Anpassungen*/
 
 .dataTables_length {
     width: 99%;
     float: left;
     margin-top: -27px;
+}
+
+.table.table-striped.table-bordered.dataTable td {
+    text-align: center;
 }
 
 /*Suchfeld muss noch angepasst werden*/
@@ -186,6 +191,8 @@ table.table {
     margin-bottom: 6px !important;
     max-width: none !important;
 }
+
+
 
 table.table thead .sorting,
 table.table thead .sorting_asc,

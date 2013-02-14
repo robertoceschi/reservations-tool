@@ -9,6 +9,10 @@
             "sServerMethod":"POST",
             "sAjaxSource":"<?php base_url();?>ajax/getdatabyajax",
             "sPaginationType":"full_numbers",
+            "aoColumnDefs":[
+                { "bSortable":false, "aTargets":[5, 6] }
+            ],
+
             "aLengthMenu":[
                 [10, 25, 50, -1],
                 [10, 25, 50, "alle"]
@@ -143,6 +147,7 @@
                 }
             }
         });
+
         //error Message wird mit click() geschlossen!!
         $('.close').click(function () {
             $('.alert').hide();
