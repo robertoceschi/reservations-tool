@@ -40,12 +40,35 @@
         });
 
 
-        $(document).delegate('.delete_user', 'click', function () {
+        $(document).delegate('[data-toggle="modal"]', 'click', function () {
             reference = $(this);
-            console.log(reference);
             var user_id = $(this).attr('id');
             var user_name = $(this).attr('title');
-            var r = confirm(user_name + ' löschen?');
+            $('#deleteModal').modal('show', user_id);
+            $('button#confirm').click(function(e){
+            $('#deleteModal').modal('hide');
+                //console.log('delete: ' + $(reference).attr('id'));
+                var I = reference.attr("id");
+                $.ajax({
+                    url:WEBROOT + "ajax/delete_user/" + I,
+                    type:"post",
+                    data:'id=' + I,
+                    dataType:'json',
+                    success:function (json) {
+                        if (json.status == "success") {
+                            reference.parent().parent().remove();
+                            $("#successMessage").html(json.message);
+                            $(".alert-success").show();
+                        }
+                        else {
+                            $("#errorMessage").html(json.message);
+                            $(".alert-error").show();
+                        }
+                    }
+                });
+            });
+
+
             if (r == true) {
                 var element = $(this);
                 var I = element.attr("id");
@@ -155,10 +178,7 @@
     });
 </script>
 
-
-
-
-<div class="container-fluid">
+    <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
             <div id="infoMessage"><?php
@@ -194,6 +214,8 @@
             </div>
 
 
+
+            </div>
             <div id=new_user>
                 <button class="btn btn-large btn-primary"><a href="<?php echo site_url('mitglieder/create_user');?>">
                     <span class="icon icon-plus icon-white"></span> Neues Mitglied eintragen</a></button>
@@ -236,6 +258,43 @@
         </div>
     </div>
 </div>
+
+
+
+</div>
+
+<!-- delete-Modal -->
+
+<div id="deleteModal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Mitglied löschen</h3>
+    </div>
+    <div class="modal-body">
+        <p>Sind sie sicher dass sie dieses Mitglied löschen wollen?</p>
+    </div>
+    <div class="modal-footer">
+        <button id="confirm" class="btn btn-primary">Ja</button>
+        <button id="cancel" class="btn" data-dismiss="modal" aria-hidden="true">Nein, nicht löschen</button>
+    </div>
+</div>
+
+<!-- activate-Modal -->
+<div id="activateModal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Mitglied löschen</h3>
+    </div>
+    <div class="modal-body">
+        <p>Sind sie sicher dass sie dieses Mitglied löschen wollen?</p>
+    </div>
+    <div class="modal-footer">
+        <button id="confirm" class="btn btn-primary">Ja</button>
+        <button id="cancel" class="btn" data-dismiss="modal" aria-hidden="true">Nein, nicht löschen</button>
+    </div>
+</div>
+
+
 
 
 </div>
