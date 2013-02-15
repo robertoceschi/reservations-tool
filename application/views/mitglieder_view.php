@@ -37,6 +37,7 @@
         });
         //user löschen
         $('#example').delegate('.delete_user', 'click', function () {
+
             reference = $(this);
             var user_id = $(this).attr('id');
             var user_name = $(this).attr('title');
