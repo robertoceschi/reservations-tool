@@ -1,3 +1,4 @@
+
 <script type="text/javascript">
     $(document).ready(function () {
         //datatables_ajax
@@ -188,24 +189,22 @@
                 <div class="widget-title">
                 </div>
                 <div class="widget-content nopadding">
-                    <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered"
+                    <table class="table table-bordered table-striped"
                            id="example">
                         <thead>
                         <tr>
-                            <th width="1%">Id</th>
-                            <th width="10%">Vorname</th>
-                            <th width="10%">Nachname</th>
-                            <th width="5%">Rolle</th>
-                            <th width="3%">Status</th>
-                            <th width="1%">Delete</th>
-                            <th width="1%">Edit</th>
+                            <th >Id</th>
+                            <th >Vorname</th>
+                            <th >Nachname</th>
+                            <th >Rolle</th>
+                            <th >Status</th>
+                            <th >Delete</th>
+                            <th >Edit</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <td class="admin"></td>
-
                         <tr>
-                            <td colspan="5" class="dataTables_empty">Loading data from server</td>
+                            <td class="dataTables_empty">Loading data from server</td>
                         </tr>
                         </tbody>
                     </table>
@@ -213,6 +212,8 @@
             </div>
         </div>
     </div>
+
+
 
 
     <!-- delete-Modal -->
@@ -262,6 +263,3 @@
 
 
 
-</div>
-</body>
-</html>

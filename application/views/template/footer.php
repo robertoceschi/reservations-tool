@@ -11,7 +11,6 @@
 <script src="<?php echo base_url() . 'lib/js/bootstrap.min.js"></script>'; ?>
 <script src="<?php echo base_url() . 'lib/js/jquery.uniform.js"></script>';?>
 <script src="<?php echo base_url() . 'lib/js/unicorn.js"></script>'; ?>
-
 <script src="<?php echo base_url() . 'lib/js/excanvas.min.js"></script>' ; ?>
 <script src="<?php echo base_url() . 'lib/js/jquery.flot.min.js"></script> '; ?>
 <script src="<?php echo base_url() . 'lib/js/jquery.flot.resize.min.js"></script>'; ?>
@@ -19,5 +18,6 @@
 <script src="<?php echo base_url() . 'lib/js/fullcalendar.min.js"></script> '; ?>
 <script src="<?php echo base_url() . 'lib/js/unicorn.dashboard.js"></script> '; ?>
 <script src="<?php echo base_url() . 'lib/js/datatables_ajax/jquery.dataTables.js"></script> ';?>
+<script src="<?php echo base_url() . 'lib/js/datatables_ajax/dt_bootsrap.js"></script> ';?>
 </body>
 </html>
