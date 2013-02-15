@@ -43,7 +43,7 @@
             var text_body = 'Sind sie sicher dass sie ' + user_name + ' löschen wollen?';
             $('#deleteModal').modal('show');
             $('.modal-body').text(text_body);
-            $('button#confirm').click(function (e) {
+            $('button#confirm').click(function () {
                 $('#deleteModal').modal('hide');
                 var I = reference.attr("id");
                 $.ajax({
