@@ -7,7 +7,7 @@
             "bServerSide":true,
             "sServerMethod":"POST",
             "sAjaxSource":"<?php base_url();?>ajax/getdatabyajax",
-            "sPaginationType":"full_numbers",
+            "sPaginationType": "bootstrap",
             "aoColumnDefs":[
                 { "bSortable":false, "aTargets":[5, 6] }
             ],
