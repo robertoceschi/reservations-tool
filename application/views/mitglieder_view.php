@@ -178,87 +178,86 @@
                 <div id="errorMessage"></div>
             </strong>
         </div>-->
-
-        <div id=new_user>
-            <button class="btn btn-large btn-primary"><a href="<?php echo site_url('mitglieder/create_user');?>">
-                <span class="icon icon-plus icon-white"></span> Neues Mitglied eintragen</a></button>
-        </div>
-
-
-        <div class="widget-box">
-            <div class="widget-title">
+            <div id=new_user>
+                <button class="btn btn-large btn-primary"><a href="<?php echo site_url('mitglieder/create_user');?>">
+                    <span class="icon icon-plus icon-white"></span> Neues Mitglied eintragen</a></button>
             </div>
-            <div class="widget-content nopadding">
-                <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered"
-                       id="example">
-                    <thead>
-                    <tr>
-                        <th width="1%">Id</th>
-                        <th width="10%">Vorname</th>
-                        <th width="10%">Nachname</th>
-                        <th width="5%">Rolle</th>
-                        <th width="3%">Status</th>
-                        <th width="1%">Delete</th>
-                        <th width="1%">Edit</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <td class="admin"></td>
 
-                    <tr>
-                        <td colspan="5" class="dataTables_empty">Loading data from server</td>
-                    </tr>
-                    </tbody>
-                </table>
+
+            <div class="widget-box">
+                <div class="widget-title">
+                </div>
+                <div class="widget-content nopadding">
+                    <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered"
+                           id="example">
+                        <thead>
+                        <tr>
+                            <th width="1%">Id</th>
+                            <th width="10%">Vorname</th>
+                            <th width="10%">Nachname</th>
+                            <th width="5%">Rolle</th>
+                            <th width="3%">Status</th>
+                            <th width="1%">Delete</th>
+                            <th width="1%">Edit</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <td class="admin"></td>
+
+                        <tr>
+                            <td colspan="5" class="dataTables_empty">Loading data from server</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
-<!-- delete-Modal -->
+    <!-- delete-Modal -->
 
-<div id="deleteModal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">Mitglied löschen</h3>
-    </div>
-    <div class="modal-body">
+    <div id="deleteModal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">Mitglied löschen</h3>
+        </div>
+        <div class="modal-body">
 
+        </div>
+        <div class="modal-footer">
+            <button id="confirm" class="btn btn-primary">Ja</button>
+            <button id="cancel" class="btn" data-dismiss="modal" aria-hidden="true">Nein, nicht löschen</button>
+        </div>
     </div>
-    <div class="modal-footer">
-        <button id="confirm" class="btn btn-primary">Ja</button>
-        <button id="cancel" class="btn" data-dismiss="modal" aria-hidden="true">Nein, nicht löschen</button>
-    </div>
-</div>
 
-<!-- deactivate-Modal -->
-<div id="deactivateModal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">Status deaktivieren</h3>
+    <!-- deactivate-Modal -->
+    <div id="deactivateModal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">Status deaktivieren</h3>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+            <button id="confirm" class="btn btn-primary">Ja</button>
+            <button id="cancel" class="btn" data-dismiss="modal" aria-hidden="true">Nein, nicht deaktivieren</button>
+        </div>
     </div>
-    <div class="modal-body">
-    </div>
-    <div class="modal-footer">
-        <button id="confirm" class="btn btn-primary">Ja</button>
-        <button id="cancel" class="btn" data-dismiss="modal" aria-hidden="true">Nein, nicht deaktivieren</button>
-    </div>
-</div>
 
-<!-- activate-Modal -->
-<div id="activateModal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">Status aktivieren</h3>
+    <!-- activate-Modal -->
+    <div id="activateModal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">Status aktivieren</h3>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+            <button id="confirm" class="btn btn-primary">Ja</button>
+            <button id="cancel" class="btn" data-dismiss="modal" aria-hidden="true">Nein, nicht aktivieren</button>
+        </div>
     </div>
-    <div class="modal-body">
-    </div>
-    <div class="modal-footer">
-        <button id="confirm" class="btn btn-primary">Ja</button>
-        <button id="cancel" class="btn" data-dismiss="modal" aria-hidden="true">Nein, nicht aktivieren</button>
-    </div>
-</div>
 
 
 

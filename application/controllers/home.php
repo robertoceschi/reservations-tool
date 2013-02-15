@@ -36,7 +36,7 @@
         }
 
         public function admin () {
-            $this->data['title'] = "Home";
+            $this->data['title'] = "Control Panel";
             $this->sControllerName = 'home_admin';
             parent::__renderAll($this->sControllerName, $this->data);
 

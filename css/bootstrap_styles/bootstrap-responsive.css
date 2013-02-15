@@ -907,6 +907,7 @@
   .carousel-caption {
     position: static;
   }
+
 }
 
 @media (max-width: 979px) {
@@ -1056,3 +1057,4 @@
     overflow: visible !important;
   }
 }
+
