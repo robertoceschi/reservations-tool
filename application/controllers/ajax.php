@@ -110,7 +110,7 @@
                 ->from('users')
                 ->edit_column('first_name', '$1', 'ucfirst(first_name)')
                 ->edit_column('last_name', '$1', 'ucfirst(last_name)')
-                ->add_column('delete', '<span style="cursor:pointer" <a href="#mymodel"  data-toggle="modal" id="$1" title="$2 $3"><i class="icon icon-trash"></i></span>', 'id,first_name, last_name')
+                ->add_column('delete', '<span style="cursor:pointer"  class="delete_user" id="$1" title="$2 $3"><i class="icon icon-trash"></i></span>', 'id,first_name, last_name')
                 ->add_column('edit', '<a href=" ' . base_url() . 'mitglieder/edit_user/$1"><i class="icon icon-edit"></a>', 'id')->edit_column('id', '$1', 'id');
             // ->unset_column('id');
 
