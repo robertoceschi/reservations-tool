@@ -36,7 +36,7 @@
             }
         });
         //user löschen
-        $('#example').delegate('.delete_user', 'click', function () {
+        $('#example').on('click','.delete_user', function () {
 
             reference = $(this);
             var user_id = $(this).attr('id');
@@ -66,7 +66,7 @@
                 });
             });
         });
-        $('#example').delegate('.toggleStatus', 'click', function () {
+        $('#example').on('click','.toggleStatus',  function () {
             //deaktivieren
             if ($(this).hasClass('inaktiv')) {
                 reference = $(this);
