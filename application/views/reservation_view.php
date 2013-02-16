@@ -130,14 +130,14 @@
                         <thead>
                         <tr
                         ">
-                        <th style="font-size: 13px;">Zeit</th>
-                        <th style="font-size: 13px;">Montag</th>
-                        <th style="font-size: 13px;">Dienstag</th>
-                        <th style="font-size: 13px;">Mittwoch</th>
-                        <th style="font-size: 13px;">Donnerstag</th>
-                        <th style="font-size: 13px;">Freitag</th>
-                        <th style="font-size: 13px;">Samstag</th>
-                        <th style="font-size: 13px;">Sonntag</th>
+                        <th >Zeit</th>
+                        <th>Montag</th>
+                        <th>Dienstag</th>
+                        <th>Mittwoch</th>
+                        <th>Donnerstag</th>
+                        <th>Freitag</th>
+                        <th>Samstag</th>
+                        <th>Sonntag</th>
                         </tr>
                         </thead>
                         <?php

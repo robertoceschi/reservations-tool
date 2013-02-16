@@ -268,11 +268,12 @@ div.dataTables_filter label {
 
 div.dataTables_info {
     padding-left: 30px;
+    padding-top: 23px;
 }
 
 div.dataTables_paginate {
     float: right;
-    margin-top: 0;
+    margin-top: 20px;
     margin-right: -1px;
 }
 
@@ -440,14 +441,14 @@ div.DTFC_LeftFootWrapper table {
 /*Unicorn main Anpassungen*/
 
 .dataTables_filter {
-    right: -6px;
-    top: 11px;
+   margin: 0px;
+    position: relative;
 
 }
 
 .dataTables_length {
     left: -6px;
-    top: 11px;
+    top: 1px;
 
 }
 
@@ -455,7 +456,7 @@ div.DTFC_LeftFootWrapper table {
 
     /*border: 1px solid #CDCDCD;*/
     clear: both;
-    margin-top: 16px;
+    margin-top: 30px;
     margin-bottom: 16px;
     position: relative;
 }

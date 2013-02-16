@@ -908,11 +908,25 @@
     position: static;
   }
 
+    /*Tabelle in Mitgliede ANPASSUNGENr*/
+    #example td {
+    font-size: 0.5em;
+    }
 
-    #example {
-        font-size: 0.5em;
+    div.dataTables_paginate {
+     position: absolute;
+     margin-left: 70px;
+    }
+    div.dataTables_info {
+        padding-left: 85px!important;
+    }
+    div.dataTables_filter label {
+        margin-right: 27px;
+    }
+    div.dataTables_length label {
+        display: none;
+    }
 
-        }
 
 
 }
