@@ -142,10 +142,7 @@ button[type=submit] {
 
 
 
-
-
-
-
+  /*Reservation*/
 .controls_saison {
     margin-left: 197px;
     padding-top: 6px;
@@ -253,6 +250,7 @@ td.your_res {
 
 }
 
+
 /*Datatables boostrap 2.1*/
 
 div.dataTables_length label {
@@ -269,12 +267,13 @@ div.dataTables_filter label {
 }
 
 div.dataTables_info {
-    padding-top: 8px;
+    padding-left: 30px;
 }
 
 div.dataTables_paginate {
     float: right;
-    margin: 0;
+    margin-top: 0;
+    margin-right: -1px;
 }
 
 table.table {
@@ -438,5 +437,33 @@ div.DTFC_LeftFootWrapper table {
 }
 
 
+/*Unicorn main Anpassungen*/
+
+.dataTables_filter {
+    right: -6px;
+    top: 11px;
+
+}
+
+.dataTables_length {
+    left: -6px;
+    top: 11px;
+
+}
+
+.widget-box-mitglieder {
+
+    /*border: 1px solid #CDCDCD;*/
+    clear: both;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    position: relative;
+}
+
+
+.table-bordered {
+    border: 1px solid #dddddd !important;
+
+}
 
 

@@ -3,6 +3,8 @@
     $(document).ready(function () {
         //datatables_ajax
         $('#example').dataTable({
+            "sDom": "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
+            "sWrapper": "dataTables_wrapper form-inline",
             "bProcessing":true,
             "bServerSide":true,
             "sServerMethod":"POST",
@@ -185,21 +187,19 @@
             </div>
 
 
-            <div class="widget-box">
-                <div class="widget-title">
-                </div>
+            <div class="widget-box-mitglieder">
+
                 <div class="widget-content nopadding">
-                    <table class="table table-bordered table-striped"
-                           id="example">
+                    <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
                         <thead>
                         <tr>
-                            <th >Id</th>
+                            <th width="1%"  >Id</th>
                             <th >Vorname</th>
                             <th >Nachname</th>
                             <th >Rolle</th>
                             <th >Status</th>
-                            <th >Delete</th>
-                            <th >Edit</th>
+                            <th width="1%" >Delete</th>
+                            <th width="1%" >Edit</th>
                         </tr>
                         </thead>
                         <tbody>
