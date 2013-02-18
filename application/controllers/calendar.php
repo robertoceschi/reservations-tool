@@ -7,10 +7,10 @@
 
         function __construct () {
             //Controller Name in Kleinbuchstaben
+
             $this->sControllerName = strtolower(__CLASS__);
             parent::__construct($this->sControllerName);
-
-
+            $this->load->library('My_Calendar');
 
         }
 
@@ -39,4 +39,3 @@
 
 
     }
-
