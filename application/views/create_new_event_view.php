@@ -43,7 +43,7 @@
                 <input type="text" class="input-block-level" name="url" id="url" placeholder="http://www.domain.com">
                 <p class="help-block">Hint: If this event does not have url please leave blank</p>
 
-                <button type="submit" onclick="save()" class="btn btn-primary pull-right">Add Event</button>
+                <button type="submit" onclick="save()" id="23" class="btn btn-primary pull-right">Add Event</button>
 
             </form>
 
