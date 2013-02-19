@@ -15,6 +15,6 @@
     <!-- JS-Webroot Konstante-->
     <script>
         var WEBROOT= '<?php echo base_url();?>';
-        var APPPATH= '<?php echo base_url().APPPATH;?>';
+        var APPPATH= '<?php echo APPPATH;?>';
     </script>
 </head>

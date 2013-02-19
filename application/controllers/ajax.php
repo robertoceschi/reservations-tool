@@ -1,4 +1,8 @@
 <?php
+    // Database Connection and loading class calendar
+    require_once APPPATH . 'includes/connection.php';
+    require_once APPPATH . 'includes/calendar.php';
+
 
     class Ajax extends MY_Controller {
 
@@ -215,6 +219,75 @@
                 echo json_encode($return);
             }
 
+
+        }
+
+        /*Kalender Methoden*/
+
+        //Alle Terminde werden angezeigt
+        public function cal_events () { // Starts the Calendar Class @params 'DB Server', 'DB Username', 'DB Password', 'DB Name', 'Table Name'
+            $calendar = new calendar(DB_HOST, DB_USERNAME, DB_PASSWORD, DATABASE, TABLE);
+
+            echo $calendar->json_transform();
+        }
+
+        public function cal_update () {
+            // Starts the Calendar Class @params 'DB Server', 'DB Username', 'DB Password', 'DB Name', 'Table Name'
+            $calendar = new calendar(DB_HOST, DB_USERNAME, DB_PASSWORD, DATABASE, TABLE);
+
+            // Catch start, end and id from javascript
+            $start = $_POST['start'];
+            $end   = $_POST['end'];
+            $id    = $_POST['id'];
+
+            echo $calendar->update($start, $end, $id);
+
+        }
+
+        public function cal_save () {
+            // Starts the Calendar Class @params 'DB Server', 'DB Username', 'DB Password', 'DB Name', 'Table Name'
+            $calendar = new calendar(DB_HOST, DB_USERNAME, DB_PASSWORD, DATABASE, TABLE);
+
+            // Catch start, end and id from javascript
+            $title       = $_POST['title'];
+            $description = $_POST['description'];
+            $start_date  = $_POST['start_date'];
+            $start_time  = $_POST['start_time'];
+            $end_date    = $_POST['end_date'];
+            $end_time    = $_POST['end_time'];
+            $color       = $_POST['color'];
+            $allDay      = $_POST['allDay'];
+            $url         = $_POST['url'];
+
+            echo $calendar->addEvent($title, $description, $start_date, $start_time, $end_date, $end_time, $color, $allDay, $url);
+        }
+
+
+        public function cal_delete () {
+            // Starts the Calendar Class @params 'DB Server', 'DB Username', 'DB Password', 'DB Name', 'Table Name'
+            $calendar = new calendar(DB_HOST, DB_USERNAME, DB_PASSWORD, DATABASE, TABLE);
+
+            $calendar->delete($_POST['id']);
+
+        }
+
+
+        public function cal_edit_update () {
+// Starts the Calendar Class @params 'DB Server', 'DB Username', 'DB Password', 'DB Name', 'Table Name'
+            $calendar = new calendar(DB_HOST, DB_USERNAME, DB_PASSWORD, DATABASE, TABLE);
+
+            // Catch start, end and id from javascript
+            $id                = $_POST['id'];
+            $event_title       = $_POST['title_update'];
+            $event_description = $_POST['description_update'];
+
+            if (isset($_POST['url_update'])) {
+                $url = $_POST['url_update'];
+            } else {
+                $url = 'false';
+            }
+
+            $calendar->updates($id, $event_title, $event_description, $url);
 
         }
 

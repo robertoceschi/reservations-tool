@@ -1,1 +1,0 @@
-You may include the calendar.php outside these folders. I did not included here to show that the class is the same for both type of views and creativity.
