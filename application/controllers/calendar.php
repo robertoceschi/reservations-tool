@@ -10,8 +10,10 @@
 
             $this->sControllerName = strtolower(__CLASS__);
             parent::__construct($this->sControllerName);
-            //$this->load->library('My_Calendar');
-
+            $this->load->library('form_validation');
+            $this->load->library('ion_auth');
+            $this->load->library('session');
+            $this->load->model('Courts_model');
         }
 
 

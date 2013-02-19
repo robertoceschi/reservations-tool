@@ -1,4 +1,11 @@
+
 <div class="container">
+    <?php
+    $user_id = $this->ion_auth->user()->row()->id;
+
+
+    ;?>
+
 
     <a href="index.php" class="btn pull-right" style="margin-bottom: 20px;">View Events</a>
 
@@ -42,8 +49,9 @@
                 <label>Url:</label>
                 <input type="text" class="input-block-level" name="url" id="url" placeholder="http://www.domain.com">
                 <p class="help-block">Hint: If this event does not have url please leave blank</p>
+                <input type="hidden" name="user_id" id="user_id" value="<?php echo $this->ion_auth->user()->row()->id; ;?>" />
 
-                <button type="submit" onclick="save()" id="23" class="btn btn-primary pull-right">Add Event</button>
+                <button type="submit" onclick="save()"  class="btn btn-primary pull-right">Add Event</button>
 
             </form>
 

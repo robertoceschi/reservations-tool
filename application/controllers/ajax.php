@@ -249,7 +249,6 @@
             $calendar = new calendar(DB_HOST, DB_USERNAME, DB_PASSWORD, DATABASE, TABLE);
 
             // Catch start, end and id from javascript
-            $user_id      =$_POST['user_id'];
             $title       = $_POST['title'];
             $description = $_POST['description'];
             $start_date  = $_POST['start_date'];
@@ -259,8 +258,10 @@
             $color       = $_POST['color'];
             $allDay      = $_POST['allDay'];
             $url         = $_POST['url'];
+            $user_id      =$_POST['user_id'];
 
-            echo $calendar->addEvent($title, $description, $start_date, $start_time, $end_date, $end_time, $color, $allDay, $url);
+
+            echo $calendar->addEvent($title, $description, $start_date, $start_time, $end_date, $end_time, $color, $allDay, $url, $user_id);
         }
 
 
