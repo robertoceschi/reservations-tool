@@ -7,7 +7,7 @@
     ;?>
 
 
-    <a href="index.php" class="btn pull-right" style="margin-bottom: 20px;">View Events</a>
+    <a href="<?php echo site_url('calendar');?>" class="btn pull-right" style="margin-bottom: 20px;">View Events</a>
 
     <div class="clearfix"></div>
 

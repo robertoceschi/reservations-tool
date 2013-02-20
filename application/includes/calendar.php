@@ -203,6 +203,7 @@
 
                             // Adds Each Array Into The Container Array
                             array_push($this->json_array, $build_json);
+
                         }
 
                     }
