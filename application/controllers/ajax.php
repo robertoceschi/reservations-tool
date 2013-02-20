@@ -293,6 +293,14 @@
 
         }
 
+        public function check_user_id ($user_id) {
+
+            echo $user_id;
+
+
+
+        }
+
 
     }
 

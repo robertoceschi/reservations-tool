@@ -29,6 +29,7 @@
          */
         public function index () {
             $this->data['title'] = 'Calendar';
+            $this->data['active_user_id']            = $this->ion_auth->user()->row()->id;
 
 
 
