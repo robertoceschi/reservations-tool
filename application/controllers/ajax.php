@@ -255,7 +255,7 @@
             $start_time  = $_POST['start_time'];
             $end_date    = $_POST['end_date'];
             $end_time    = $_POST['end_time'];
-            $color       = $_POST['color'];
+            $color       = $_POST['color'];  //'red'
             $allDay      = $_POST['allDay'];
             $url         = $_POST['url'];
             $user_id      =$_POST['user_id'];
