@@ -248,14 +248,15 @@
          * This function updates events to the database
          * Returns true
          */
-        public function updates ($id, $title, $description, $url) {
+        public function updates ($id, $title, $description, $url, $user_id) {
 
             // The update query
             $query = sprintf('UPDATE %s
 									SET 
 										title = "%s",
 										description = "%s",
-										url = "%s"
+										url = "%s",
+                                        user_id= "%s"
 									WHERE
 										id = %s
 						',
@@ -263,7 +264,9 @@
                 mysql_real_escape_string($title),
                 mysql_real_escape_string($description),
                 mysql_real_escape_string($url),
+                mysql_real_escape_string($user_id),
                 mysql_real_escape_string($id)
+
             );
 
             // The result

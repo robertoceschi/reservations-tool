@@ -49,7 +49,7 @@
                 <label>Url:</label>
                 <input type="text" class="input-block-level" name="url" id="url" placeholder="http://www.domain.com">
                 <p class="help-block">Hint: If this event does not have url please leave blank</p>
-                <input type="hidden" name="user_id" id="user_id" value="<?php echo $this->ion_auth->user()->row()->id; ;?>" />
+                <input type="hidden" name="user_id" id="user_id" value="0" />
 
                 <button type="submit" onclick="save()"  class="btn btn-primary pull-right">Add Event</button>
 

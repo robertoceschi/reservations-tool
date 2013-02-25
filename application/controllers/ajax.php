@@ -283,6 +283,7 @@
             $id                = $_POST['id'];
             $event_title       = $_POST['title_update'];
             $event_description = $_POST['description_update'];
+            $user_id      = $_POST['user_id'];
 
             if (isset($_POST['url_update'])) {
                 $url = $_POST['url_update'];
@@ -290,7 +291,7 @@
                 $url = 'false';
             }
 
-            $calendar->updates($id, $event_title, $event_description, $url);
+            $calendar->updates($id, $event_title, $event_description, $url,  $user_id);
 
         }
 
