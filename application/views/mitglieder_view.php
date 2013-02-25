@@ -47,6 +47,7 @@
             var text_body = 'Sind sie sicher dass sie ' + user_name + ' löschen wollen?';
             $('#deleteModal').modal('show');
             $('.modal-body').text(text_body);
+            $('button#confirm').unbind();
             $('button#confirm').click(function () {
                 $('#deleteModal').modal('hide');
                 var I = reference.attr("id");
@@ -78,6 +79,7 @@
                 var text_body_deact = 'Sind sie sicher dass sie ' + user_name + ' deaktivieren wollen?';
                 $('#deactivateModal').modal('show', user_id);
                 $('.modal-body').text(text_body_deact);
+                $('button#confirm').unbind();
                 $('button#confirm').click(function (e) {
                     $('#deactivateModal').modal('hide');
                     //console.log('delete: ' + $(reference).attr('id'));
@@ -112,6 +114,7 @@
                 var text_body_activate = 'Sind sie sicher dass sie ' + user_name + ' aktivieren wollen?';
                 $('#activateModal').modal('show');
                 $('.modal-body').text(text_body_activate);
+                $('button#confirm').unbind();
                 $('button#confirm').click(function (e) {
                     $('#activateModal').modal('hide');
                     var I = reference.attr("id");

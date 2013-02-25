@@ -610,3 +610,10 @@ form {
     border-color: #DDDDDD;
     border-radius: 4px 4px 4px 4px;
 }
+
+
+
+#calendar .fc-content{
+
+    font-size: 80%;
+}

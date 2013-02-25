@@ -240,6 +240,7 @@
             $end   = $_POST['end'];
             $id    = $_POST['id'];
 
+
             echo $calendar->update($start, $end, $id);
 
         }
