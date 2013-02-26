@@ -230,7 +230,8 @@
             $query = sprintf('UPDATE %s
 									SET 
 										start = "%s",
-										end = "%s"
+										end = "%s",
+
 									WHERE
 										id = %s
 						',
@@ -256,7 +257,7 @@
 										title = "%s",
 										description = "%s",
 										url = "%s",
-                                        user_id= "%s"
+                                        user_id= %s
 									WHERE
 										id = %s
 						',
@@ -328,6 +329,24 @@
         public function delete ($id) {
             // Delete Query
             $query = "DELETE FROM $this->table WHERE id = $id";
+
+            // Result
+            $this->result = mysql_query($query);
+
+            if ($this->result) {
+                return true;
+            } else {
+                return false;
+            }
+
+        }
+
+        public function delete_reservation ($id) {
+            // Delete reservation
+            $query = "UPDATE $this->table SET user_id = 0
+            WHERE id = $id";
+
+
 
             // Result
             $this->result = mysql_query($query);

@@ -15,10 +15,10 @@
 <script src="<?php echo base_url() . 'lib/js/unicorn.dashboard.js"></script> '; ?>
 <script src="<?php echo base_url() . 'lib/js/datatables_ajax/jquery.dataTables.js"></script> ';?>
 <script src="<?php echo base_url() . 'lib/js/datatables_ajax/dt_bootsrap.js"></script> ';?>
-<script src="<?php echo base_url() . 'lib/js/additionals/custom.js"></script> ';?>
 <script src="<?php echo base_url() . 'lib_ajaxCalendar/colorpicker/bootstrap-colorpicker.js"></script> ';?>
 <script src="<?php echo base_url() . 'lib_ajaxCalendar/timepicker/bootstrap-timepicker.js"></script> ';?>
 <script src="<?php echo base_url() . 'lib_ajaxCalendar/validation/jquery.validationEngine-en.js"></script> ';?>
 <script src="<?php echo base_url() . 'lib_ajaxCalendar/validation/jquery.validationEngine.js"></script> ';?>
+<script src="<?php echo base_url() . 'lib/js/additionals/custom.js"></script> ';?>
 </body>
 </html>

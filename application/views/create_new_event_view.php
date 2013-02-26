@@ -2,10 +2,7 @@
 <div class="container">
     <?php
     $user_id = $this->ion_auth->user()->row()->id;
-
-
     ;?>
-
 
     <a href="<?php echo site_url('calendar');?>" class="btn pull-right" style="margin-bottom: 20px;">View Events</a>
 
@@ -18,7 +15,7 @@
             <form id="add_event">
 
                 <label>Title:</label>
-                <input type="text" class="validate[required] input-block-level" name="title" placeholder="Event Title" id="title">
+                <input type="text" class="validate[required] input-block-level" name="title" placeholder="Event Title" id="title" value="frei">
                 <label>Description:</label>
                 <textarea class="input-block-level" name="description" id="description" placeholder="Event Description"></textarea>
                 <div class="pull-left mr-10">
@@ -40,7 +37,7 @@
                 </div>
                 <div class="clearfix"></div>
                 <label>Event Color:</label>
-                <input type="text" class="input-small" name="color" id="cp">
+                <input type="text" class="input-small" name="color" id="cp" value="green">
                 <label>Display Time:</label>
                 <select name="allDay">
                     <option value="true" selected>Yes</option>
@@ -59,3 +56,4 @@
     </div>
 
 </div> <!-- /container -->
+

@@ -15,10 +15,15 @@
                     <div id="errorMessage"></div>
                 </strong>
             </div>
-            <div id=new_user>
-                <button class="btn btn-large btn-primary"><a href="<?php echo site_url('calendar/create_new_event');?>">
-                    <span class="icon icon-plus icon-white"></span> Neuen Termin eintragen</a></button>
-            </div>
+            <?php
+            $is_admin = $this->ion_auth->user()->row()->permission_group;
+            if ($is_admin == 'admin') {
+                ?>
+                <div id=new_user>
+                    <button class="btn btn-large btn-primary"><a
+                            href="<?php echo site_url('calendar/create_new_event');?>">
+                        <span class="icon icon-plus icon-white"></span> Neuen Termin eintragen</a></button>
+                </div>  <?php }  ;?>
 
             <div class="clearfix"></div>
 
