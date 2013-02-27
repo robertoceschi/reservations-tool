@@ -84,6 +84,8 @@
                 $event_color       = $this->row['color'];
                 $event_url         = $this->row['url'];
                 $user_id           = $this->row['user_id'];
+                $court_closed      = $this->row['court_closed'];
+
 
                 if ($js == true) {
                     // JS MODE
@@ -93,7 +95,7 @@
                         // Build it Without URL & allDay
 
                         // Stores Each Database Record To An Array (Without URL)
-                        $build_json = array('id' => $event_id, 'title' => $event_title, 'description' => $event_description, 'start' => $event_start, 'end' => $event_end, 'allDay' => $event_allDay, 'color' => $event_color, 'user_id' => $user_id);
+                        $build_json = array('id' => $event_id, 'title' => $event_title, 'description' => $event_description, 'start' => $event_start, 'end' => $event_end, 'allDay' => $event_allDay, 'color' => $event_color, 'user_id' => $user_id, 'court_closed' => $court_closed);
 
                         // Adds Each Array Into The Container Array
                         array_push($this->json_array, $build_json);
@@ -103,7 +105,7 @@
                         // Build it Without URL
 
                         // Stores Each Database Record To An Array (Without URL)
-                        $build_json = array('id' => $event_id, 'title' => $event_title, 'description' => $event_description, 'start' => $event_start, 'end' => $event_end, 'color' => $event_color, 'user_id' => $user_id);
+                        $build_json = array('id' => $event_id, 'title' => $event_title, 'description' => $event_description, 'start' => $event_start, 'end' => $event_end, 'color' => $event_color, 'user_id' => $user_id, 'court_closed' => $court_closed);
 
                         // Adds Each Array Into The Container Array
                         array_push($this->json_array, $build_json);
@@ -113,7 +115,7 @@
                         // Built it Without URL & allDay True
 
                         // Stores Each Database Record To An Array
-                        $build_json = array('id' => $event_id, 'title' => $event_title, 'description' => $event_description, 'start' => $event_start, 'end' => $event_end, 'allDay' => $event_allDay, 'color' => $event_color, 'url' => $event_url, 'user_id' => $user_id);
+                        $build_json = array('id' => $event_id, 'title' => $event_title, 'description' => $event_description, 'start' => $event_start, 'end' => $event_end, 'allDay' => $event_allDay, 'color' => $event_color, 'url' => $event_url, 'user_id' => $user_id, 'court_closed' => $court_closed);
 
                         // Adds Each Array Into The Container Array
                         array_push($this->json_array, $build_json);
@@ -124,7 +126,7 @@
                             // Built it With URL & allDay false
 
                             // Stores Each Database Record To An Array
-                            $build_json = array('id' => $event_id, 'title' => $event_title, 'description' => $event_description, 'start' => $event_start, 'end' => $event_end, 'allDay' => $event_allDay, 'color' => $event_color, 'url' => $event_url, 'user_id' => $user_id);
+                            $build_json = array('id' => $event_id, 'title' => $event_title, 'description' => $event_description, 'start' => $event_start, 'end' => $event_end, 'allDay' => $event_allDay, 'color' => $event_color, 'url' => $event_url, 'user_id' => $user_id, 'court_closed' => $court_closed);
 
                             // Adds Each Array Into The Container Array
                             array_push($this->json_array, $build_json);
@@ -149,7 +151,7 @@
                         // Build it Without URL & allDay
 
                         // Stores Each Database Record To An Array (Without URL)
-                        $build_json = array('id' => $event_id, 'title' => $event_title, 'description' => $event_description, 'start' => $event_start, 'end' => $event_end, 'allDay' => $event_allDay, 'color' => $event_color, 'user_id' => $user_id);
+                        $build_json = array('id' => $event_id, 'title' => $event_title, 'description' => $event_description, 'start' => $event_start, 'end' => $event_end, 'allDay' => $event_allDay, 'color' => $event_color, 'user_id' => $user_id, 'court_closed' => $court_closed);
 
                         // Adds Each Array Into The Container Array
                         array_push($this->json_array, $build_json);
@@ -159,7 +161,7 @@
                         // Build it Without URL
 
                         // Stores Each Database Record To An Array (Without URL)
-                        $build_json = array('id' => $event_id, 'title' => $event_title, 'description' => $event_description, 'start' => $event_start, 'end' => $event_end, 'color' => $event_color, 'user_id' => $user_id);
+                        $build_json = array('id' => $event_id, 'title' => $event_title, 'description' => $event_description, 'start' => $event_start, 'end' => $event_end, 'color' => $event_color, 'user_id' => $user_id, 'court_closed' => $court_closed);
 
                         // Adds Each Array Into The Container Array
                         array_push($this->json_array, $build_json);
@@ -169,7 +171,7 @@
                         // Built it Without URL & allDay True
 
                         // Stores Each Database Record To An Array
-                        $build_json = array('id' => $event_id, 'title' => $event_title, 'description' => $event_description, 'start' => $event_start, 'end' => $event_end, 'allDay' => $event_allDay, 'color' => $event_color, 'url' => $event_url, 'user_id' => $user_id);
+                        $build_json = array('id' => $event_id, 'title' => $event_title, 'description' => $event_description, 'start' => $event_start, 'end' => $event_end, 'allDay' => $event_allDay, 'color' => $event_color, 'url' => $event_url, 'user_id' => $user_id, 'court_closed' => $court_closed);
 
                         // Adds Each Array Into The Container Array
                         array_push($this->json_array, $build_json);
@@ -180,7 +182,7 @@
                             // Built it With URL & allDay false
 
                             // Stores Each Database Record To An Array
-                            $build_json = array('id' => $event_id, 'title' => $event_title, 'description' => $event_description, 'start' => $event_start, 'end' => $event_end, 'allDay' => $event_allDay, 'color' => $event_color, 'url' => $event_url, 'user_id' => $user_id);
+                            $build_json = array('id' => $event_id, 'title' => $event_title, 'description' => $event_description, 'start' => $event_start, 'end' => $event_end, 'allDay' => $event_allDay, 'color' => $event_color, 'url' => $event_url, 'user_id' => $user_id, 'court_closed' => $court_closed);
 
                             // Adds Each Array Into The Container Array
                             array_push($this->json_array, $build_json);
@@ -199,7 +201,7 @@
                             // Built it With URL & allDay True
 
                             // Stores Each Database Record To An Array
-                            $build_json = array('id' => $event_id, 'title' => $event_title, 'description' => $event_description, 'start' => $event_start, 'end' => $event_end, 'color' => $event_color, 'url' => $event_url . $event_id, 'user_id' => $user_id);
+                            $build_json = array('id' => $event_id, 'title' => $event_title, 'description' => $event_description, 'start' => $event_start, 'end' => $event_end, 'color' => $event_color, 'url' => $event_url . $event_id, 'user_id' => $user_id, 'court_closed' => $court_closed);
 
                             // Adds Each Array Into The Container Array
                             array_push($this->json_array, $build_json);
@@ -278,7 +280,7 @@
          * This function adds events to the database
          * Returns true
          */
-        public function addEvent ($title, $description, $start_date, $start_time, $end_date, $end_time, $color, $allDay, $url, $user_id) {
+        public function addEvent ($title, $description, $start_date, $start_time, $end_date, $end_time, $color, $allDay, $url, $user_id,$court_closed) {
             // Convert Date Time
             $start = $start_date . ' ' . $start_time . ':00';
             $end   = $end_date . ' ' . $end_time . ':00';
@@ -298,7 +300,9 @@
 										allDay = "%s",
 										color = "%s",
 										url = "%s" ,
-                                        user_id= "%s"
+                                        user_id= "%s",
+                                        court_closed= "%s"
+
 						',
                 mysql_real_escape_string($this->table),
                 mysql_real_escape_string($title),
@@ -308,7 +312,8 @@
                 mysql_real_escape_string($allDay),
                 mysql_real_escape_string($color),
                 mysql_real_escape_string($url),
-                mysql_real_escape_string($user_id)
+                mysql_real_escape_string($user_id),
+                mysql_real_escape_string($court_closed)
 
             );
 

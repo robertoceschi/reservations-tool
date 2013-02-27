@@ -46,13 +46,19 @@
                 <label>Url:</label>
                 <input type="text" class="input-block-level" name="url" id="url" placeholder="http://www.domain.com">
                 <p class="help-block">Hint: If this event does not have url please leave blank</p>
+                <label>Court gesperrt:</label>
+                <select name="court_closed">
+                    <option value="true" >Yes</option>
+                    <option value="false" selected>No</option>
+                </select>
+
                 <input type="hidden" name="user_id" id="user_id" value="0" />
 
                 <button type="submit" onclick="save()"  class="btn btn-primary pull-right">Add Event</button>
 
             </form>
 
-        </div>
+
     </div>
 
 </div> <!-- /container -->
