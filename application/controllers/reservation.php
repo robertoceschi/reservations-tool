@@ -1,6 +1,6 @@
 <?php
 
-    class Calendar extends MY_Controller {
+    class Reservation extends MY_Controller {
 
         protected $sControllerName = '';
 
@@ -28,7 +28,7 @@
          * @date        20120710
          */
         public function index () {
-            $this->data['title'] = 'Calendar';
+            $this->data['title'] = 'Reservation';
             $this->data['active_user_id']            = $this->ion_auth->user()->row()->id;
 
 
@@ -39,7 +39,7 @@
         }
 
         public function create_new_event () {
-            $this->data['title'] = 'Calendar';
+            $this->data['title'] = 'Reservation';
             $this->sControllerName = 'create_new_event';
 
 

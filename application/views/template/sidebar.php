@@ -33,13 +33,13 @@
                 echo '<a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>Home</a>';
                 echo '<a href="#" title="" class="">Mitglieder</a>';
                 echo '<a href="#" title="" class="">Edit User</a>';
-            } elseif ($this->uri->segment(1) == 'calendar' and $this->uri->segment(2) == '') {
+            } elseif ($this->uri->segment(1) == 'reservation' and $this->uri->segment(2) == '') {
                 echo '<a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>Home</a>';
-                echo '<a href="#" title="" class="">Calendar</a>';
+                echo '<a href="#" title="" class="">Reservation</a>';
 
-            } elseif ($this->uri->segment(1) == 'calendar' and $this->uri->segment(2) == 'create_new_event') {
+            } elseif ($this->uri->segment(1) == 'reservation' and $this->uri->segment(2) == 'create_new_event') {
                 echo '<a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>Home</a>';
-                echo '<a href="#" title="" class="">Calendar</a>';
+                echo '<a href="#" title="" class="">Reservation</a>';
                 echo '<a href="#" title="" class="">Create new Event</a>';
             }
         } else {

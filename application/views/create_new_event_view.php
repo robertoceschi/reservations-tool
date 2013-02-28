@@ -4,7 +4,7 @@
     $user_id = $this->ion_auth->user()->row()->id;
     ;?>
 
-    <a href="<?php echo site_url('calendar');?>" class="btn pull-right" style="margin-bottom: 20px;">View Events</a>
+    <a href="<?php echo site_url('reservation');?>" class="btn pull-right" style="margin-bottom: 20px;">View Events</a>
 
     <div class="clearfix"></div>
 

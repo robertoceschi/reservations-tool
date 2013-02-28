@@ -21,8 +21,8 @@
         </li> <?php };?>
 
         <li class="submenu">
-        <?php if ($this->uri->segment(1) === 'calendar'): ?><li class="active"><?php else : ?>
-    <li><? endif; ?><?php echo anchor('calendar', '<i class="icon-calendar"></i> <span>Kalender</span>'); ?></li>
+        <?php if ($this->uri->segment(1) === 'reservation'): ?><li class="active"><?php else : ?>
+    <li><? endif; ?><?php echo anchor('reservation', '<i class="icon-calendar"></i> <span>Reservation</span>'); ?></li>
         <ul>
             <li><a href="form-common.html">Users</a></li>
             <li><a href="form-validation.html">Groups</a></li>
