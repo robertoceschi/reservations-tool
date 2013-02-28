@@ -14,10 +14,10 @@
 
             <form id="add_event">
 
-                <label>Title:</label>
-                <input type="text" class="validate[required] input-block-level" name="title" placeholder="Event Title" id="title" value="frei">
-                <label>Description:</label>
-                <textarea class="input-block-level" name="description" id="description" placeholder="Event Description"></textarea>
+                <!--<label>Title:</label>-->
+                <input style="display: none;" type="text" class="validate[required] input-block-level" name="title" placeholder="Event Title" id="title" value="">
+                <!--<label>Description:</label> -->
+                <textarea style="display: none;" class="input-block-level" name="description" id="description" placeholder="Event Description"></textarea>
                 <div class="pull-left mr-10">
                     <label>Start Date:</label>
                     <input type="text" name="start_date" class="validate[required]" id="datepicker">
@@ -35,22 +35,23 @@
                     <label>End Time:</label>
                     <input type="text" class="input-small" name="end_time" placeholder="HH:MM:SS" id="tp2">
                 </div>
-                <div class="clearfix"></div>
-                <label>Event Color:</label>
-                <input type="text" class="input-small" name="color" id="cp" value="green">
-                <label>Display Time:</label>
-                <select name="allDay">
+               <div class="clearfix"></div>
+               <!--<label>Event Color:</label>-->
+               <input style="display: none;" type="text" class="input-small" name="color" id="cp" value="">
+               <!-- <label>Display Time:</label> -->
+                <select style="display: none;" name="allDay">
                     <option value="true" selected>Yes</option>
                     <option value="false">No</option>
                 </select>
-                <label>Url:</label>
-                <input type="text" class="input-block-level" name="url" id="url" placeholder="http://www.domain.com">
-                <p class="help-block">Hint: If this event does not have url please leave blank</p>
-                <label>Court gesperrt:</label>
-                <select name="court_closed">
+               <!-- <label>Url:</label> -->
+                <input style="display: none;" type="text" class="input-block-level" name="url" id="url" placeholder="http://www.domain.com">
+                <!--<p class="help-block">Hint: If this event does not have url please leave blank</p> -->
+                <!--<label>Court gesperrt:</label>-->
+                <select style="display: none;" name="court_closed">
                     <option value="true" >Yes</option>
                     <option value="false" selected>No</option>
                 </select>
+                <!--<p class="help-block">Hint: Falls der neu kreierte Event eine Courtsperrung ist</p> -->
 
                 <input type="hidden" name="user_id" id="user_id" value="0" />
 

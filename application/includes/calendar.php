@@ -24,6 +24,7 @@
         var $json_array = array();
         var $connection = '';
 
+
         ###############################################################################################
         #### Methods
         ###############################################################################################
@@ -39,6 +40,14 @@
             $this->db_password = $db_password;
             $this->db_name     = $db_name;
             $this->table       = $table;
+            $CI =& get_instance();
+            $CI->load->library('ion_auth');
+
+
+
+
+
+
 
             // Connection @params 'Server', 'Username', 'Password'
             $this->connection = mysql_connect($this->db_server, $this->db_username, $this->db_password);
@@ -72,6 +81,9 @@
          * Returns converted json
          */
         public function json_transform ($js = true) {
+            $CI =& get_instance();
+            $CI->load->library('ion_auth');
+            $active_user_id    = $CI->ion_auth->user()->row()->id;
 
             while ($this->row = mysql_fetch_array($this->result, MYSQL_ASSOC)) {
                 // Set Variables Data from DB
@@ -85,6 +97,35 @@
                 $event_url         = $this->row['url'];
                 $user_id           = $this->row['user_id'];
                 $court_closed      = $this->row['court_closed'];
+
+
+
+
+
+
+                if ($user_id == 0 ) {
+                     // Alle noch freien Reservationsslots
+                      $event_color = 'green';
+                      $event_title = 'frei';
+                     // $eEditable = true;
+                }
+                  elseif($user_id == $active_user_id) {
+                    //Reservation ist vom eingeloggten User
+                    $event_color = 'purple';
+                    $event_title = 'meine Reservation';
+                    //$eEditable = true;
+
+                }   //besetze Reservationsslots
+                    elseif($user_id != $active_user_id  ) {
+                    $event_color = 'orange';
+                    $event_title = 'besetzt';
+                }
+
+                  //funkt nicht!!!!!!
+                   /* elseif ($court_closed == true){
+                    $event_color = 'red';
+                    $event_title = 'Platz gesperrt';
+                    } */
 
 
                 if ($js == true) {
@@ -280,7 +321,7 @@
          * This function adds events to the database
          * Returns true
          */
-        public function addEvent ($title, $description, $start_date, $start_time, $end_date, $end_time, $color, $allDay, $url, $user_id,$court_closed) {
+        public function addEvent ($title, $description, $start_date, $start_time, $end_date, $end_time, $color,$allDay, $url, $user_id,$court_closed) {
             // Convert Date Time
             $start = $start_date . ' ' . $start_time . ':00';
             $end   = $end_date . ' ' . $end_time . ':00';

@@ -252,13 +252,13 @@
             $calendar = new calendar(DB_HOST, DB_USERNAME, DB_PASSWORD, DATABASE, TABLE);
 
             // Catch start, end and id from javascript
-            $title       =  $_POST['title'];
+            $title       = $_POST['title'];
             $description = $_POST['description'];
             $start_date  = $_POST['start_date'];
             $start_time  = $_POST['start_time'];
             $end_date    = $_POST['end_date'];
             $end_time    = $_POST['end_time'];
-            $color       = 'orange';//$_POST['color'];
+            $color       = $_POST['color'];
             $allDay      = $_POST['allDay'];
             $url         = $_POST['url'];
             $user_id      =$_POST['user_id'];
@@ -266,23 +266,27 @@
 
 
 
-            echo $calendar->addEvent($title, $description, $start_date, $start_time, $end_date, $end_time, $color, $allDay, $url, $user_id,$court_closed);
+            echo $calendar->addEvent($title, $description, $start_date, $start_time, $end_date, $end_time, $color,$allDay, $url, $user_id,$court_closed);
         }
 
 
         public function cal_delete () {
             // Starts the Calendar Class @params 'DB Server', 'DB Username', 'DB Password', 'DB Name', 'Table Name'
             $calendar = new calendar(DB_HOST, DB_USERNAME, DB_PASSWORD, DATABASE, TABLE);
-            $is_admin = $this->ion_auth->user()->row()->permission_group;
-            //$user_id = $this->ion_auth->user()->row()->id;
-
-            if ($is_admin == 'admin') {
             $calendar->delete($_POST['id']);
-            }   else {
-                     $calendar->delete_reservation($_POST['id']);
-            }
+
         }
 
+        public function delete_reservation () {
+            // Starts the Calendar Class @params 'DB Server', 'DB Username', 'DB Password', 'DB Name', 'Table Name'
+            $calendar = new calendar(DB_HOST, DB_USERNAME, DB_PASSWORD, DATABASE, TABLE);
+            //$is_admin = $this->ion_auth->user()->row()->permission_group;
+            //$user_id = $this->ion_auth->user()->row()->id;
+
+
+                $calendar->delete_reservation($_POST['id']);
+
+        }
 
         public function cal_edit_update () {
 // Starts the Calendar Class @params 'DB Server', 'DB Username', 'DB Password', 'DB Name', 'Table Name'

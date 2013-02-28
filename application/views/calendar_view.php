@@ -1,3 +1,11 @@
+<span class="active_user"  id="<?php
+    echo $active_user_id;
+
+?>"></span>
+<span class="is_admin"  id="<?php
+    echo $this->ion_auth->user()->row()->permission_group;
+
+?>"></span>
 <div class="container-fluid" xmlns="http://www.w3.org/1999/html">
     <div class="row-fluid">
         <div class="span12">
@@ -47,19 +55,22 @@
     </div>
 </div>
 </div>
-<span class="active_user"  id="<?php
-    echo $active_user_id;
-?>"></span>
+
 
 <!-- Modal View Event -->
-<div id="cal_viewModal" class="modal hide fade">
+
+
+    <div id="cal_viewModal" class="modal hide fade">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4></h4>
     </div>
     <div class="modal-body"></div>
     <div class="modal-footer">
-        <a href="#" class="btn btn-danger" data-option="remove">Delete</a>
+        <?php
+        if ($this->ion_auth->user()->row()->permission_group == 'admin') { ?>
+        <a href="#" class="btn btn-danger" data-option="remove">Delete Event</a><?php };?>
+        <a href="#" class="btn btn-danger" data-option="remove_res">Delete Reservation</a>
         <a href="#" class="btn btn-info" data-option="edit">Edit</a>
         <a href="#" class="btn" data-dismiss="modal">Close</a>
     </div>
@@ -75,8 +86,6 @@
             <a href="#" class="btn btn-primary" data-option="save">Save Changes</a>
             <a href="#" class="btn" data-dismiss="modal">Close</a>
         </div>
-
-
 
 
 
