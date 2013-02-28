@@ -294,8 +294,8 @@
 
             // Catch start, end and id from javascript
             $id                = $_POST['id'];
-            $event_title       = $_POST['title_update'];
-            $event_description = $_POST['description_update'];
+            $event_title       = '';
+            $event_description = '';
             $active_user_id    = $this->ion_auth->user()->row()->id;
 
 
