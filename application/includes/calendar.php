@@ -107,13 +107,11 @@
                      // Alle noch freien Reservationsslots
                       $event_color = 'green';
                       $event_title = 'frei';
-                     // $eEditable = true;
                 }
                   elseif($user_id == $active_user_id) {
                     //Reservation ist vom eingeloggten User
                     $event_color = 'purple';
                     $event_title = 'meine Reservation';
-                    //$eEditable = true;
 
                 }   //besetze Reservationsslots
                     elseif($user_id != $active_user_id  ) {
@@ -121,11 +119,6 @@
                     $event_title = 'besetzt';
                 }
 
-                  //funkt nicht!!!!!!
-                   /* elseif ($court_closed == true){
-                    $event_color = 'red';
-                    $event_title = 'Platz gesperrt';
-                    } */
 
 
                 if ($js == true) {
@@ -292,22 +285,16 @@
          * This function updates events to the database
          * Returns true
          */
-        public function updates ($id, $title, $description, $url, $user_id) {
+        public function updates ($id, $user_id) {
 
             // The update query
             $query = sprintf('UPDATE %s
 									SET 
-										title = "%s",
-										description = "%s",
-										url = "%s",
                                         user_id= %s
 									WHERE
 										id = %s
 						',
                 mysql_real_escape_string($this->table),
-                mysql_real_escape_string($title),
-                mysql_real_escape_string($description),
-                mysql_real_escape_string($url),
                 mysql_real_escape_string($user_id),
                 mysql_real_escape_string($id)
 

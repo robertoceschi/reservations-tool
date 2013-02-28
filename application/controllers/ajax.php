@@ -294,19 +294,9 @@
 
             // Catch start, end and id from javascript
             $id                = $_POST['id'];
-            $event_title       = '';
-            $event_description = '';
             $active_user_id    = $this->ion_auth->user()->row()->id;
 
-
-
-            if (isset($_POST['url_update'])) {
-                $url = $_POST['url_update'];
-            } else {
-                $url = 'false';
-            }
-
-            $calendar->updates($id, $event_title, $event_description, $url,  $active_user_id);
+            $calendar->updates($id,$active_user_id);
         }
 
 
