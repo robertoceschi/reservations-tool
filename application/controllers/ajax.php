@@ -298,6 +298,8 @@
             $event_description = $_POST['description_update'];
             $active_user_id    = $this->ion_auth->user()->row()->id;
 
+
+
             if (isset($_POST['url_update'])) {
                 $url = $_POST['url_update'];
             } else {

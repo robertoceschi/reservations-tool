@@ -57,10 +57,11 @@
 </div>
 
 
+
 <!-- Modal View Event -->
 
 
-    <div id="cal_viewModal" class="modal hide fade">
+<div id="cal_viewModal" class="modal hide fade">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4></h4>
@@ -68,8 +69,9 @@
     <div class="modal-body"></div>
     <div class="modal-footer">
         <?php
+
         if ($this->ion_auth->user()->row()->permission_group == 'admin') { ?>
-        <a href="#" class="btn btn-danger" data-option="remove">Delete Event</a><?php };?>
+            <a href="#" class="btn btn-danger" data-option="remove">Delete Event</a><?php };?>
         <a href="#" class="btn btn-danger" data-option="remove_res">Delete Reservation</a>
         <a href="#" class="btn btn-info" data-option="edit">Edit</a>
         <a href="#" class="btn" data-dismiss="modal">Close</a>
@@ -86,9 +88,4 @@
             <a href="#" class="btn btn-primary" data-option="save">Save Changes</a>
             <a href="#" class="btn" data-dismiss="modal">Close</a>
         </div>
-
-
-
-
-
 
