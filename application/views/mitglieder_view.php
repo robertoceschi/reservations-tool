@@ -185,8 +185,8 @@
             </strong>
         </div>-->
             <div id=new_user>
-                <button class="btn btn-large btn-primary"><a href="<?php echo site_url('mitglieder/create_user');?>">
-                    <span class="icon icon-plus icon-white"></span> Neues Mitglied eintragen</a></button>
+                <a href="<?php echo site_url('mitglieder/create_user');?>">
+                    <span class="icon icon-plus icon-white"></span> Neues Mitglied eintragen</a>
             </div>
 
 

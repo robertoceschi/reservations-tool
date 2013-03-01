@@ -28,9 +28,9 @@
             if ($is_admin == 'admin') {
                 ?>
                 <div id=new_user>
-                    <button class="btn btn-large btn-primary"><a
+                   <a
                             href="<?php echo site_url('reservation/create_new_event');?>">
-                        <span class="icon icon-plus icon-white"></span> Neuen Termin eintragen</a></button>
+                        <span class="icon icon-plus icon-white"></span> Neuen Termin eintragen</a>
                 </div>  <?php }  ;?>
 
             <div class="clearfix"></div>
