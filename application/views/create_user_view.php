@@ -152,7 +152,6 @@
                         'label class' => 'control-label'
                     );
                     echo form_label('Gruppe', 'permission_group', $attributes) . PHP_EOL;
-                    //$options = array('admin' => 'Administrator', 'members' => 'Mitglied');
                     $data = array(
                         'name'    => 'permission_group',
                         'id'      => 'permission_group',
@@ -178,7 +177,7 @@
                     echo '</div></div>' . PHP_EOL;
                     ?>
                     <div class="form-actions">
-                        <button type="submit" class="btn btn-primary" data-loading-text="Sending...">
+                        <button type="submit" class="btn btn-primary pull-right" data-loading-text="Sending...">
                             <!--<i class="icon-refresh icon-white"></i>--> Profil speichern
                         </button>
                     </div>

@@ -104,7 +104,7 @@ label[for=active] {
     padding: 19px 20px ;
     /*margin-bottom: 20px;*/
     border: none;
-    background-color: #F1F1F1;
+    background-color: #F9F9F9;
     *zoom: 1;
 }
 
@@ -139,11 +139,13 @@ button[type=submit] {
     font-size: 10px;
 }
 
+input#permission_group {
+    margin-right: 15px;
+}
 
 
 
-
-  /*Reservation*/
+/*Reservation*/
 .controls_saison {
     margin-left: 197px;
     padding-top: 6px;
@@ -485,6 +487,8 @@ form {
 }
 
 .box {
+    margin-top: 80px;
+    margin-left: -5px;
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -537,6 +541,7 @@ form {
 
 .content.pad {
     padding: 20px;
+    background-color: #F9F9F9;
 }
 
 .box .content:before, .box .content:after {

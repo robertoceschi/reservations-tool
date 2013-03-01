@@ -4,13 +4,15 @@
     $user_id = $this->ion_auth->user()->row()->id;
     ;?>
 
-    <a href="<?php echo site_url('reservation');?>" class="btn pull-right" style="margin-bottom: 20px;">View Events</a>
+
 
     <div class="clearfix"></div>
 
     <div class="box">
         <div class="header"><h4>Add Event</h4></div>
         <div class="content pad">
+
+
 
             <form id="add_event">
 
@@ -20,7 +22,7 @@
                 <textarea style="display: none;" class="input-block-level" name="description" id="description" placeholder="Event Description"></textarea>
                 <div class="pull-left mr-10">
                     <label>Start Date:</label>
-                    <input type="text" name="start_date" class="validate[required]" id="datepicker">
+                    <input type="text" name="start_date" class="validate" id="datepicker">
                 </div>
                 <div class="pull-left">
                     <label>Start Time:</label>
@@ -56,7 +58,8 @@
                 <input type="hidden" name="user_id" id="user_id" value="0" />
 
                 <button type="submit" onclick="save()"  class="btn btn-primary pull-right">Add Event</button>
-
+                <a href="<?php echo site_url('reservation');?>" class="btn btn-success pull-right" style="margin-top: 5px;
+margin-right: 20px;">View Events</a>
             </form>
 
 
