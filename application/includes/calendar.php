@@ -266,7 +266,7 @@
             $query = sprintf('UPDATE %s
 									SET 
 										start = "%s",
-										end = "%s",
+										end = "%s"
 
 									WHERE
 										id = %s
