@@ -233,6 +233,7 @@
         }
 
         public function cal_update () {
+
             // Starts the Calendar Class @params 'DB Server', 'DB Username', 'DB Password', 'DB Name', 'Table Name'
             $calendar = new calendar(DB_HOST, DB_USERNAME, DB_PASSWORD, DATABASE, TABLE);
 
@@ -240,6 +241,7 @@
             $start = $_POST['start'];
             $end   = $_POST['end'];
             $id    = $_POST['id'];
+
 
             echo $calendar->update($start, $end, $id);
 
