@@ -17,6 +17,23 @@
                 [10, 25, 50, -1],
                 [10, 25, 50, "alle"]
             ],
+            "oLanguage": {
+                "sProcessing":   "Bitte warten...",
+                "sLengthMenu":   "_MENU_ Einträge anzeigen",
+                "sZeroRecords":  "Keine Einträge vorhanden.",
+                "sInfo":         "_START_ bis _END_ von _TOTAL_ Einträgen",
+                "sInfoEmpty":    "0 bis 0 von 0 Einträgen",
+                "sInfoFiltered": "(gefiltert von _MAX_  Einträgen)",
+                "sInfoPostFix":  "",
+                "sSearch":       "Suchen",
+                "sUrl":          "",
+                "oPaginate": {
+                    "sFirst":    "erste Seite",
+                    "sPrevious": "zurück",
+                    "sNext":     "nächste Seite",
+                    "sLast":     "letzte Seite"
+                }
+            },
             "fnRowCallback":function (nRow, aData, iDisplayIndex) {
                 if (aData[3] == "admin") {
                     $('td:eq(3)', nRow).html('Administrator');
@@ -71,7 +88,7 @@
             });
         });
         $('#example').on('click','.toggleStatus',  function () {
-            //deaktivieren
+            //Mitglied deaktivieren
             if ($(this).hasClass('inaktiv')) {
                 reference = $(this);
                 var user_id = $(this).attr('id');
@@ -107,7 +124,7 @@
                     });
                 });
             } else {
-                //aktivieren
+                //Mitglied aktivieren
                 reference = $(this);
                 var user_id = $(this).attr('id');
                 var user_name = $(this).attr('title');
@@ -171,7 +188,7 @@
             }
             ?>
 
-            <!--<div class="alert alert-success" style="display: none">
+            <div class="alert alert-success" style="display: none">
                      <button class="close">×</button>
                      <strong>
                          <div id="successMessage"></div>
@@ -183,7 +200,7 @@
             <strong>
                 <div id="errorMessage"></div>
             </strong>
-        </div>-->
+        </div>
             <div id=new_user>
                 <a href="<?php echo site_url('mitglieder/create_user');?>">
                     <span class="icon icon-plus icon-white"></span> Neues Mitglied eintragen</a>

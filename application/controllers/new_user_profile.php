@@ -10,8 +10,6 @@
             $this->sControllerName = strtolower(__CLASS__);
             parent::__construct($this->sControllerName);
             $this->load->library('form_validation');
-
-
         }
 
         /**

@@ -9,7 +9,24 @@
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
-            <div id="infoMessage"></div>
+            <div id="infoMessage"><?php
+                $message = $this->session->flashdata('message');
+                ;?></div>
+
+            <?php
+            if ($message == '') {
+            } elseif ($this->session->flashdata('user_create') == true or $this->session->flashdata('delete_user') == true) {
+                echo '<div class="alert alert-success">';
+                echo '<button class="close" data-dismiss="alert">×</button>';
+                echo '<strong><div id="successMessage">' . $message . '</div></strong> ';
+                echo '</div>';
+            } elseif ($message != '' and $this->session->flashdata('user_create') == false or $this->session->flashdata('delete_user') == false) {
+                echo '<div class="alert alert-error">';
+                echo '<button class="close" data-dismiss="alert">×</button> ';
+                echo '<strong><div id="errorMessage">' . $message . '</div>  </strong>';
+                echo '</div>';
+            }
+            ?>
             <div class="alert alert-success" style="display: none">
                 <button class="close">×</button>
                 <strong>

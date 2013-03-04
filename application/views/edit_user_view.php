@@ -37,7 +37,7 @@
                     <?php
                     $attributes = array('name' => 'first_name',
                                         'id'   => 'first_name');
-                    echo form_input($attributes, set_value('first_name', $first_name['value'])) . PHP_EOL;
+                    echo form_input($attributes, set_value('first_name', ucfirst($first_name['value']))) . PHP_EOL;
                     ?>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                     <?php
                     $attributes = array('name' => 'last_name',
                                         'id'   => 'last_name');
-                    echo form_input($attributes, set_value('last_name', $last_name['value'])) . PHP_EOL;
+                    echo form_input($attributes, set_value('last_name', ucfirst($last_name['value']))) . PHP_EOL;
                     ?>
                 </div>
             </div>

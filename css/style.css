@@ -12,7 +12,6 @@
 @import url('../lib_ajaxCalendar/validation/css/validation.css');
 @import url('../css/bootstrap_styles/colorpicker.css');
 @import url('../css/ui-lightness/jquery-ui.css');
-@import url('../css/datepicker.css');
 @import url('../css/timepicker.css');
 @import url('../css/bootstrap_styles/fullcalendar.css');
 
@@ -244,6 +243,12 @@ td.your_res {
 }
 
 /*Datatables boostrap 2.1*/
+
+
+div#example_processing {
+  margin-left: 30px;
+    margin-top: -20px;
+}
 
 div.dataTables_length label {
     float: left;

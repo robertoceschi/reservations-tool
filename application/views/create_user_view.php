@@ -177,7 +177,7 @@
                     echo '</div></div>' . PHP_EOL;
                     ?>
                     <div class="form-actions">
-                        <button type="submit" class="btn btn-primary pull-right" data-loading-text="Sending...">
+                        <button type="submit" class="btn btn-primary pull-right" >speichern
                         </button>
                     </div>
                     <?php echo form_close(); ?>

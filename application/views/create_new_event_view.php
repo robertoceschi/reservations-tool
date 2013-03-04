@@ -8,8 +8,25 @@
 
     <div class="clearfix"></div>
 
+    <div class="alert alert-success" style="display: none; margin-top: 20px;" >
+        <button class="close">×</button>
+        <strong>
+            <div id="successMessage"></div>
+        </strong>
+    </div>
+    <div class="alert alert-error" style="display: none; margin-top: 20px;">
+        <button class="close"
+        <!--data-dismiss="alert"-->>×</button>
+        <strong>
+            <div id="errorMessage"></div>
+        </strong>
+    </div>
+
     <div class="box">
+
+
         <div class="header"><h4>Add Event</h4></div>
+
         <div class="content pad">
 
 

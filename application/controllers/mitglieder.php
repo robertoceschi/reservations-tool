@@ -19,15 +19,7 @@
 
         }
 
-        /**
-         * name:        index
-         *
-         * prepare setting view
-         *
-         *
-         * @author      parobri.ch
-         * @date        20120710
-         */
+
         public function index () {
             $permission_group    = $this->ion_auth->user()->row()->permission_group;
             $this->data['title'] = 'Mitglieder';
