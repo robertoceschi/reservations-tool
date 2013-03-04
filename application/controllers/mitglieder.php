@@ -19,7 +19,6 @@
 
         }
 
-
         /**
          * name:        index
          *
@@ -30,7 +29,7 @@
          * @date        20120710
          */
         public function index () {
-            $permission_group            = $this->ion_auth->user()->row()->permission_group;
+            $permission_group    = $this->ion_auth->user()->row()->permission_group;
             $this->data['title'] = 'Mitglieder';
             //set the flash data error message if there is one
             //$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
@@ -52,15 +51,12 @@
             //parent::__renderAll($this->sControllerName, $this->data);
 
 
-
-
         }
 
 
         public function create_user () {
 
-            $permission_group = $this->ion_auth->user()->row()->permission_group;
-            //Name der view für den main_content wird an my_controller übergeben
+            $permission_group    = $this->ion_auth->user()->row()->permission_group;
             $main_content        = 'create_user';
             $this->data['title'] = "Create User";
 
@@ -86,11 +82,11 @@
                 $password = $this->input->post('password');
 
                 $additional_data = array(
-                    'first_name' => $this->input->post('first_name', true),
-                    'last_name'  => $this->input->post('last_name', true),
-                    'company'    => $this->input->post('company', true),
-                    'phone'      => $this->input->post('phone1', true),
-                    'permission_group'      => $this->input->post('permission_group'),
+                    'first_name'       => $this->input->post('first_name', true),
+                    'last_name'        => $this->input->post('last_name', true),
+                    'company'          => $this->input->post('company', true),
+                    'phone'            => $this->input->post('phone1', true),
+                    'permission_group' => $this->input->post('permission_group'),
                     //'active'      => $this->input->post('active'),
                 );
             }
@@ -165,7 +161,7 @@
 
         //edit a user
         function edit_user ($id) {
-            $permission_group            = $this->ion_auth->user()->row()->permission_group;
+            $permission_group = $this->ion_auth->user()->row()->permission_group;
 
             $main_content        = 'edit_user';
             $this->data['title'] = "Edit User";
@@ -191,20 +187,21 @@
 
 
             if (isset($_POST) && !empty($_POST))
-                ;{
+                ;
+            {
                 // do we have a valid request?
                 //if ($this->_valid_csrf_nonce() === FALSE || $id != $this->input->post('id')) {
                 //    show_error('This form post did not pass our security checks.');
                 //}
 
                 $data = array(
-                    'first_name' => $this->input->post('first_name'),
-                    'last_name'  => $this->input->post('last_name'),
-                    'company'    => $this->input->post('company'),
-                    'email'      => $this->input->post('email'),
-                    'phone'      => $this->input->post('phone1'),
-                    'permission_group'      => $this->input->post('permission_group'),
-                    'active'     => $this->input->post('active'),
+                    'first_name'       => $this->input->post('first_name'),
+                    'last_name'        => $this->input->post('last_name'),
+                    'company'          => $this->input->post('company'),
+                    'email'            => $this->input->post('email'),
+                    'phone'            => $this->input->post('phone1'),
+                    'permission_group' => $this->input->post('permission_group'),
+                    'active'           => $this->input->post('active'),
                 );
 
 
@@ -243,32 +240,32 @@
             //pass the user to the view
             $this->data['user'] = $user;
 
-            $this->data['first_name']       = array(
+            $this->data['first_name'] = array(
                 'name'  => 'first_name',
                 'id'    => 'first_name',
                 'type'  => 'text',
                 'value' => $this->form_validation->set_value('first_name', $user->first_name),
             );
-            $this->data['last_name']        = array(
+            $this->data['last_name']  = array(
                 'name'  => 'last_name',
                 'id'    => 'last_name',
                 'type'  => 'text',
                 'value' => $this->form_validation->set_value('last_name', $user->last_name),
             );
-            $this->data['company']          = array(
+            $this->data['company']    = array(
                 'name'  => 'company',
                 'id'    => 'company',
                 'type'  => 'text',
                 'value' => $this->form_validation->set_value('company', $user->company),
             );
-            $this->data['email']            = array(
+            $this->data['email']      = array(
                 'name'  => 'email',
                 'id'    => 'email',
                 'type'  => 'text',
-                'value' => $this->form_validation->set_value('email',  $user->email),
+                'value' => $this->form_validation->set_value('email', $user->email),
             );
 
-            $this->data['phone1']           = array(
+            $this->data['phone1'] = array(
                 'name'  => 'phone1',
                 'id'    => 'phone1',
                 'type'  => 'text',
@@ -297,7 +294,7 @@
             $permission_group = $this->ion_auth->user()->row()->permission_group;
             if ($code !== false) {
                 $activation = $this->ion_auth->activate($id, $code);
-            } else if ($permission_group == 'admin' ) {
+            } else if ($permission_group == 'admin') {
                 $activation = $this->ion_auth->activate($id);
             }
 
@@ -315,9 +312,9 @@
 
         //deactivate the user
         function deactivate ($id = NULL) {
-            $permission_group     = $this->ion_auth->user()->row()->permission_group;
-            $main_content = 'deactivate_user';
-            $id           = $this->config->item('use_mongodb', 'ion_auth') ? (string)$id : (int)$id;
+            $permission_group = $this->ion_auth->user()->row()->permission_group;
+            $main_content     = 'deactivate_user';
+            $id               = $this->config->item('use_mongodb', 'ion_auth') ? (string)$id : (int)$id;
 
             $this->load->library('form_validation');
             $this->form_validation->set_rules('confirm', 'confirmation', 'required');
@@ -356,7 +353,6 @@
 
 
             redirect('mitglieder', 'refresh');
-
 
 
         }

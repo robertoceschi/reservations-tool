@@ -1,14 +1,10 @@
 /*Bootsrap CSS werden importiert*/
 @import url('../css/bootstrap_styles/bootstrap.css');
-    /*@import url('../css/bootstrap_styles/bootstrap.min.css'); */
 @import url('../css/bootstrap_styles/bootstrap-responsive.css');
-    /*@import url('../css/bootstrap_styles/bootstrap-responsive.min.css'); */
 @import url('../css/bootstrap_styles/datepicker.css');
 @import url('../css/bootstrap_styles/glyphicons.css');
 @import url('../css/bootstrap_styles/jquery.gritter.css');
 @import url('../css/bootstrap_styles/unicorn.grey.css');
-    /*@import url('../css/bootstrap_styles/unicorn.blue.css'); */
-    /*@import url('../css/bootstrap_styles/unicorn.red.css');  */
 @import url('../css/bootstrap_styles/unicorn.login.css');
 @import url('../css/bootstrap_styles/unicorn.main.css');
 @import url('../css/bootstrap_styles/uniform.css');
@@ -20,47 +16,18 @@
 @import url('../css/timepicker.css');
 @import url('../css/bootstrap_styles/fullcalendar.css');
 
-
 /*custom css (bootstrap css werden überschrieben)/*
-
-
 
 /*custom styles*/
 #infoMessage {
     color: #ffffff;
     text-align: center;
 }
-/*
-select[name=group] {
-    margin-left: 20px;
-    margin-top: 9px;
-
-}*/
-/*
-select[name=active] {
-    margin-left: 20px;
-    margin-top: 9px;
-
-}*/
-/*
-label[for=group] {
-    margin-bottom: 13px;
-}
-
-label[for=active] {
-    margin-bottom: 13px;
-}
-
-#new_user {
-    margin-bottom: 1.5em;
-
-}
-/*change last list item in Mitglieder-Ansicht*/
 
 /*Seite Mitglieder=> neues Mitglied */
 #new_user a {
     background-color: #006DCC;
-    background-image: -moz-linear-gradient(center top , #0088CC, #0044CC);
+    background-image: -moz-linear-gradient(center top, #0088CC, #0044CC);
     background-repeat: repeat-x;
     border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
     color: #FFFFFF;
@@ -84,7 +51,8 @@ label[for=active] {
     vertical-align: middle;
 
 }
-#new_user a:hover   {
+
+#new_user a:hover {
     color: white;
     text-decoration: none;
     background-color: #0044CC;
@@ -121,17 +89,12 @@ label[for=active] {
     text-align: left;
 }
 
-
-
-
 #loginbox {
     height: 215px;
 }
 
-
 .form-actions {
-    padding: 19px 20px ;
-    /*margin-bottom: 20px;*/
+    padding: 19px 20px;
     border: none;
     background-color: #F9F9F9;
     *zoom: 1;
@@ -144,6 +107,7 @@ label[for=active] {
 input[value=Recover] {
     margin-top: 20px;
 }
+
 button[type=submit] {
     margin-top: 5px;
 }
@@ -162,7 +126,7 @@ button[type=submit] {
 
 }
 
-.remember label[for=remember]  {
+.remember label[for=remember] {
     margin-top: -50px;
     margin-right: -140px;
     font-size: 10px;
@@ -172,6 +136,9 @@ input#permission_group {
     margin-right: 15px;
 }
 
+input[type="radio"]  {
+    margin-right: 15px;
+}
 
 
 /*Reservation*/
@@ -185,7 +152,8 @@ input#permission_group {
     margin-left: 200px;
     padding-top: 10px;
 }
-.controls_day select:last-of-type  {
+
+.controls_day select:last-of-type {
     margin-top: 10px;
 }
 
@@ -203,29 +171,27 @@ input#permission_group {
 .bootstrap-timepicker-component {
     width: 223px;
 }
+
 #spielzeit2 {
     float: right;
 }
 
-
 .reservation.table {
     background-color: #F9F9F9;
-    border-spacing:6px;
+    border-spacing: 6px;
 
 }
 
 .reservation.table th {
-   background-image: none;
-   background-color:  #F9F9F9;
-    font-size: 12px!important;
+    background-image: none;
+    background-color: #F9F9F9;
+    font-size: 12px !important;
     font-weight: bold;
 
 }
 
-
-
 /* Tabelle für Reservation*/
-.reservation.table td  {
+.reservation.table td {
     font-size: 13px;
     text-align: center;
     width: 100px !important;
@@ -234,8 +200,7 @@ input#permission_group {
     border-left: 1px dashed #CCCCCC;
     border-right: 1px dashed #CCCCCC;
     border-bottom: 1px dashed #CCCCCC;
-    border-radius: 0px  0px
-    11px;
+    border-radius: 0px 0px 11px;
     padding-top: 1%;
     padding-left: 0;
     padding-right: 0;
@@ -243,28 +208,24 @@ input#permission_group {
 
 }
 
-.reservation.table td:first-child   {
+.reservation.table td:first-child {
     font-size: 11px;
     font-weight: bold;
     border: none;
-    border-radius:0;
+    border-radius: 0;
     text-align: center;
 }
-
-
-
 
 td.free:hover {
     /*background-color:  #567BD2; */
     background-color: #5CB85C;
-    color:white;
+    color: white;
 }
 
 td.your_res:hover {
-    background-color:  #F8980F;
-    color:white;
+    background-color: #F8980F;
+    color: white;
 }
-
 
 td.free {
     background-color: white;
@@ -281,7 +242,6 @@ td.your_res {
     color: #F8980F;
 
 }
-
 
 /*Datatables boostrap 2.1*/
 
@@ -324,12 +284,25 @@ table.table thead .sorting_desc_disabled {
     *cursor: hand;
 }
 
-table.table thead .sorting { background: url('../media/datatables_ajax/img/sort_both.png') no-repeat center right; }
-table.table thead .sorting_asc { background: url('../media/datatables_ajax/img/sort_asc.png') no-repeat center right; }
-table.table thead .sorting_desc { background: url('../media/datatables_ajax/img/sort_desc.png') no-repeat center right; }
+table.table thead .sorting {
+    background: url('../media/datatables_ajax/img/sort_both.png') no-repeat center right;
+}
 
-table.table thead .sorting_asc_disabled { background: url('../media/datatables_ajax/img/sort_asc_disabled.png') no-repeat center right; }
-table.table thead .sorting_desc_disabled { background: url('../media/datatables_ajax/img/sort_desc_disabled.png') no-repeat center right; }
+table.table thead .sorting_asc {
+    background: url('../media/datatables_ajax/img/sort_asc.png') no-repeat center right;
+}
+
+table.table thead .sorting_desc {
+    background: url('../media/datatables_ajax/img/sort_desc.png') no-repeat center right;
+}
+
+table.table thead .sorting_asc_disabled {
+    background: url('../media/datatables_ajax/img/sort_asc_disabled.png') no-repeat center right;
+}
+
+table.table thead .sorting_desc_disabled {
+    background: url('../media/datatables_ajax/img/sort_desc_disabled.png') no-repeat center right;
+}
 
 table.dataTable th:active {
     outline: none;
@@ -361,9 +334,6 @@ div.dataTables_scrollBody tbody tr:first-child td {
 div.dataTables_scrollFoot table {
     border-top: none;
 }
-
-
-
 
 /*
  * TableTools styles
@@ -398,7 +368,6 @@ div.DTTT .btn:hover {
     text-decoration: none !important;
 }
 
-
 ul.DTTT_dropdown.dropdown-menu a {
     color: #333 !important; /* needed only when demo_page.css is included */
 }
@@ -430,8 +399,6 @@ div.DTTT_print_info p {
     font-size: 14px;
     line-height: 20px;
 }
-
-
 
 /*
  * FixedColumns styles
@@ -469,11 +436,10 @@ div.DTFC_LeftFootWrapper table {
     border-top: none;
 }
 
-
 /*Unicorn main Anpassungen*/
 
 .dataTables_filter {
-   margin: 0px;
+    margin: 0px;
     position: relative;
 
 }
@@ -493,14 +459,12 @@ div.DTFC_LeftFootWrapper table {
     position: relative;
 }
 
-
 .table-bordered {
     border: 1px solid #dddddd !important;
 
 }
 
-
-   /*ajax Calendar Anpassungen*/
+/*ajax Calendar Anpassungen*/
 
 form {
     margin-bottom: 0;
@@ -525,7 +489,7 @@ form {
     -ms-border-radius: 3px;
     -khtml-border-radius: 3px;
     border: 1px solid #d5d5d5;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.11);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.11);
     margin-bottom: 3.0%;
 }
 
@@ -547,7 +511,7 @@ form {
     -khtml-border-radius: 3px;
     position: relative;
     background: url(../media/img/nav_bg.png) repeat;
-    box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(0,0,0,0.02);
+    box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
 .box .header h4 {
@@ -591,9 +555,11 @@ form {
     padding: 4px;
     top: 0;
 }
+
 .bootstrap-timepicker.dropdown-menu.open {
     display: inline-block;
 }
+
 .bootstrap-timepicker.dropdown-menu:before {
     border-bottom: 7px solid rgba(0, 0, 0, 0.2);
     border-left: 7px solid transparent;
@@ -603,6 +569,7 @@ form {
     position: absolute;
     top: -7px;
 }
+
 .bootstrap-timepicker.dropdown-menu:after {
     border-bottom: 6px solid #FFFFFF;
     border-left: 6px solid transparent;
@@ -612,43 +579,47 @@ form {
     position: absolute;
     top: -6px;
 }
+
 .bootstrap-timepicker.modal {
     margin-left: -100px;
     margin-top: 0;
     top: 30%;
     width: 200px;
 }
+
 .bootstrap-timepicker.modal .modal-content {
     padding: 0;
 }
+
 .bootstrap-timepicker table {
     margin: 0;
     width: 100%;
 }
+
 .bootstrap-timepicker td, .bootstrap-timepicker th {
     border-radius: 4px 4px 4px 4px;
     height: 20px;
     text-align: center;
 }
+
 .bootstrap-timepicker td.separator {
     width: 1px;
 }
+
 .bootstrap-timepicker td a {
     border: 1px solid transparent;
     display: block;
     margin: 4px;
     padding: 4px 0;
 }
+
 .bootstrap-timepicker td a:hover {
     background-color: #EEEEEE;
     border-color: #DDDDDD;
     border-radius: 4px 4px 4px 4px;
 }
 
-
-
-#calendar .fc-content{
-
+#calendar .fc-content {
     font-size: 80%;
 }
 

@@ -10,8 +10,6 @@
             $this->sControllerName = strtolower(__CLASS__);
             parent::__construct($this->sControllerName);
             $this->load->library('form_validation');
-            //$this->load->library('ion_auth');
-            //$this->load->library('session');
 
 
         }
@@ -33,7 +31,7 @@
             $this->data['phone1']     = '';
 
 
-            $this->data['title']   = "User Profil";
+            $this->data['title'] = "User Profil";
             $this->load->view('new_user_profile_view', $this->data);
 
 
@@ -64,11 +62,11 @@
                 $password = $this->input->post('password');
 
                 $additional_data = array(
-                    'first_name' => $this->input->post('first_name'),
-                    'last_name'  => $this->input->post('last_name'),
-                    'company'    => $this->input->post('company'),
-                    'phone'      => $this->input->post('phone1'),
-                    'permission_group'      => 'members',
+                    'first_name'       => $this->input->post('first_name'),
+                    'last_name'        => $this->input->post('last_name'),
+                    'company'          => $this->input->post('company'),
+                    'phone'            => $this->input->post('phone1'),
+                    'permission_group' => 'members',
 
                 );
 

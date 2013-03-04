@@ -28,7 +28,7 @@
             if ($is_admin == 'admin') {
                 ?>
                 <div id=new_user>
-                   <a
+                    <a
                             href="<?php echo site_url('reservation/create_new_event');?>">
                         <span class="icon icon-plus icon-white"></span> Neuen Termin eintragen</a>
                 </div>  <?php }  ;?>
@@ -59,8 +59,6 @@
 
 
 <!-- Modal View Event -->
-
-
 <div id="cal_viewModal" class="modal hide fade">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -91,6 +89,7 @@
                 ?>
                 <a href="#" class="btn btn-danger" data-option="remove">Delete Event</a>
                 <?php };?>
+
             <a href="#" class="btn btn-primary" data-option="save">Reservieren</a>
             <a href="#" class="btn" data-dismiss="modal">Close</a>
         </div>

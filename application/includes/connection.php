@@ -6,5 +6,4 @@
  	define('DB_PASSWORD', 'root');
  	define('DATABASE', 'ci_reservations_tool');
 	define('TABLE', 'ajax_calendar');
-
 ?>

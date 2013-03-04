@@ -178,7 +178,6 @@
                     ?>
                     <div class="form-actions">
                         <button type="submit" class="btn btn-primary pull-right" data-loading-text="Sending...">
-                            <!--<i class="icon-refresh icon-white"></i>--> Profil speichern
                         </button>
                     </div>
                     <?php echo form_close(); ?>
