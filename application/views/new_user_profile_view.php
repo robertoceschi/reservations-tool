@@ -120,7 +120,7 @@
             </div>
         </div>
         <div class="form-actions">
-            <span class="pull-right"><button type="submit" class="btn btn-primary" id="button" data-loading-text="Sending...">
+            <span class="pull-right"><button type="submit" class="btn btn-inverse" id="button" style="margin-top: 1px;" data-loading-text="Sending...">
                 <!--<i class="icon-refresh icon-white"></i>--> Profil speichern
             </button> </span>
             <span class="pull-left"><?php echo anchor('auth/login', '< Back to login');?></span>
