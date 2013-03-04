@@ -1,10 +1,34 @@
-2 does:
+Reservations-Tool 1.0:
 
--value auslesen mit jquery => Bsp. value="12:00:00 | mon"
--danach mit ajax wert weitergeben zu php Funktion in controller ajax => set_status_for_court(),
-in php Funktion diesen Werte aufsplitten mit php-explode Funktion => das gibt dann 2 Werte zurück:
-12:00:00 für Feld start_time und mon für Feld day
-diese werte danach in db speichern
+A simple PHP / MySQL based Booking-System with a user administration.
 
-ajax-return: -success=> Eintrag gespeichert => kit .html()
-		  -failed=> Eintrag schon vorhanden
+Perfect for Tennis-Club's with admins/members and Tennis-Courts.
+
+Demo
+A demo can be found here.
+
+Admin:
+Username: roger@federer.com
+Password: roger
+
+User:
+Username: toni@montana.com
+Password: toni
+
+
+Planned features: Options to create different courts (time-slots, seasons...)
+
+
+-CodeIgniter
+-Twitter Bootstrap
+
+
+
+
+
+
+
+
+
+
+
