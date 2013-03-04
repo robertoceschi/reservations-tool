@@ -16,5 +16,6 @@
     <script>
         var WEBROOT= '<?php echo base_url();?>';
         var APPPATH= '<?php echo APPPATH;?>';
+
     </script>
 </head>
