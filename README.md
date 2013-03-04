@@ -5,7 +5,7 @@ A simple PHP / MySQL based Booking-System with a user administration.
 Perfect for Tennis-Club's with admins/members and Tennis-Courts.
 
 
-To get started, checkout [http://www.roberto.len-lenlikes.com/reservations-tool/](here)!
+To get started, checkout [here](http://roberto.len-lenlikes.com/reservations-tool)!
 
 
 Admin:
@@ -21,8 +21,16 @@ Planned features:
 Options to create different courts (time-slots, seasons...)
 
 
+
+
+
 -CodeIgniter
 -Twitter Bootstrap
+
+
+
+
+
 
 
 
