@@ -18,5 +18,6 @@
 <script src="<?php echo base_url() . 'lib_ajaxCalendar/validation/jquery.validationEngine.js"></script> '. PHP_EOL;?>
 <script src="<?php echo base_url() . 'lib/js/additionals/custom.js"></script> '. PHP_EOL;?>
 
+
 </body>
 </html>
