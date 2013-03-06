@@ -1,86 +1,108 @@
-
-<div class="container">
-    <?php
+<?php
     $user_id = $this->ion_auth->user()->row()->id;
     ;?>
+ <div class="container-fluid">
+     <div class="row-fluid">
+         <div class="span12">
+             <div class="alert alert-success" style="display: none; margin-top: 20px;">
+                 <button class="close">×</button>
+                 <strong>
+                     <div id="successMessage"></div>
+                 </strong>
+             </div>
+             <div class="alert alert-error" style="display: none; margin-top: 20px;">
+                 <button class="close"
+                 <!--data-dismiss="alert"-->>×</button>
+                 <strong>
+                     <div id="errorMessage"></div>
+                 </strong>
+             </div>
+
+             <div class="widget-box">
+                 <div class="widget-title">
+								<span class="icon">
+									<i class="icon-user "></i>
+								</span>
+                     <h5>New Event</h5>
+                 </div>
+
+                 <div class="widget-content nopadding">
+                     <?php
+                     $attributes = array('class' => 'form-horizontal',
+                                         'id'    => 'add_event');
+                     echo form_open("", $attributes);?>
 
 
-
-    <div class="clearfix"></div>
-
-    <div class="alert alert-success" style="display: none; margin-top: 20px;" >
-        <button class="close">×</button>
-        <strong>
-            <div id="successMessage"></div>
-        </strong>
-    </div>
-    <div class="alert alert-error" style="display: none; margin-top: 20px;">
-        <button class="close"
-        <!--data-dismiss="alert"-->>×</button>
-        <strong>
-            <div id="errorMessage"></div>
-        </strong>
-    </div>
-
-    <div class="box">
+                     <div class="control-group">
+                         <?php
+                         $attributes = array(
+                             'label class' => 'control-label',);
+                         echo form_label('Start Date:', 'start_date', $attributes); ?>
 
 
-        <div class="header"><h4>Add Event</h4></div>
+                         <div class="controls">
+                             <?php
+                             $attributes = array('name' => 'start_date',
+                                                 'id'   => 'datepicker',
+                                                 'placeholder' => 'Startdatum angeben');
+                             echo form_input($attributes, set_value('start_date')) . PHP_EOL;
+                             ?>
+                         </div>
+                         <?php
+                         $attributes = array(
+                             'label class' => 'control-label',);
+                         echo form_label('Start Time:', 'start_time', $attributes); ?>
+                         <div class="controls">
+                             <?php
+                             $attributes = array('name'        => 'start_time',
+                                                 'id'          => 'tp1',
+                                                 'placeholder' => 'HH:MM:SS');
+                             echo form_input($attributes, set_value('start_time')) . PHP_EOL;
+                             ?>
+                         </div>
+                     </div>
+                     <div class="control-group">
+                         <?php
+                         $attributes = array(
+                             'label class' => 'control-label',);
+                         echo form_label('End Date:', 'end_date', $attributes); ?>
 
-        <div class="content pad">
+
+                         <div class="controls">
+                             <?php
+                             $attributes = array('name' => 'end_date',
+                                                 'id'   => 'datepicker2',
+                                                 'placeholder' => 'Endatum angeben');
+                             echo form_input($attributes, set_value('end_date')) . PHP_EOL;
+                             ?>
+                         </div>
 
 
+                         <?php
+                         $attributes = array(
+                             'label class' => 'control-label',);
+                         echo form_label('End Time:', 'end_time', $attributes); ?>
 
-            <form id="add_event">
+                         <div class="controls">
+                             <?php
+                             $attributes = array('name'        => 'end_time',
+                                                 'id'          => 'tp2',
+                                                 'placeholder' => 'HH:MM:SS');
+                             echo form_input($attributes, set_value('end_time')) . PHP_EOL;
+                             ?>
 
-                <!--<label>Title:</label>-->
-                <input style="display: none;" type="text" class="validate[required] input-block-level" name="title" placeholder="Event Title" id="title" value="">
-                <!--<label>Description:</label> -->
-                <textarea style="display: none;" class="input-block-level" name="description" id="description" placeholder="Event Description"></textarea>
-                <div class="pull-left mr-10">
-                    <label>Start Date:</label>
-                    <input type="text" name="start_date" class="validate" id="datepicker">
-                </div>
-                <div class="pull-left">
-                    <label>Start Time:</label>
-                    <input type="text" class="input-small" name="start_time" placeholder="HH:MM:SS" id="tp1">
-                </div>
-                <div class="clearfix"></div>
-                <div class="pull-left mr-10">
-                    <label>End Date:</label>
-                    <input type="text" name="end_date" id="datepicker2">
-                </div>
-                <div class="pull-left">
-                    <label>End Time:</label>
-                    <input type="text" class="input-small" name="end_time" placeholder="HH:MM:SS" id="tp2">
-                </div>
-               <div class="clearfix"></div>
-               <!--<label>Event Color:</label>-->
-               <input style="display: none;" type="text" class="input-small" name="color" id="cp" value="">
-               <!-- <label>Display Time:</label> -->
-                <select style="display: none;" name="allDay">
-                    <option value="true" selected>Yes</option>
-                    <option value="false">No</option>
-                </select>
-               <!-- <label>Url:</label> -->
-                <input style="display: none;" type="text" class="input-block-level" name="url" id="url" placeholder="http://www.domain.com">
-                <!--<p class="help-block">Hint: If this event does not have url please leave blank</p> -->
-                <!--<label>Court gesperrt:</label>-->
-                <select style="display: none;" name="court_closed">
-                    <option value="true" >Yes</option>
-                    <option value="false" selected>No</option>
-                </select>
-                <!--<p class="help-block">Hint: Falls der neu kreierte Event eine Courtsperrung ist</p> -->
+                         </div>
+                     </div>
 
-                <input type="hidden" name="user_id" id="user_id" value="0" />
+                     <input type="hidden" name="user_id" id="user_id" value="0"/>
 
-                <button type="submit" onclick="save()"  class="btn btn-primary pull-right">Add Event</button>
-                <a href="<?php echo site_url('reservation');?>" class="btn btn-success pull-right" style="margin-top: 5px;
+                     <div class="form-actions">
+                     <button type="submit" onclick="save()" class="btn btn-primary pull-right">Add Event</button>
+                         <a href="<?php echo site_url('reservation');?>" class="btn btn-success pull-right" style="margin-top: 5px;
 margin-right: 20px;">View Events</a>
-            </form>
-
-
-    </div>
-
-</div> <!-- /container -->
-
+                     </div>
+                     <?php echo form_close(); ?>
+                 </div>
+             </div>
+         </div>
+     </div>

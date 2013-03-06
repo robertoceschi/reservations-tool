@@ -1,21 +1,10 @@
 <body>
 <div id="header">
-    <h1><a href="./dashboard.html">Unicorn Admin</a></h1>
+    <h1>Reservations-Tool</h1>
 </div>
 
-<!--<div id="search">
-    <input type="text" placeholder="Search here..."/>
-    <button type="submit" class="tip-right" title="Search"><i class="icon-search icon-white"></i></button>
-</div>  -->
+<!--Sub-Navigation User rechts-->
 <div id="user-nav" class="navbar navbar-inverse">
-    <?php
-
-
-
-
-
-    ?>
-
     <ul class="nav btn-group">
 
         <li class="btn btn-inverse"><?php
@@ -32,3 +21,4 @@
 
     </ul>
 </div>
+

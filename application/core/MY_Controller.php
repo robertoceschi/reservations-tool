@@ -7,11 +7,7 @@
             parent::__construct();
             if (!$this->ion_auth->logged_in()) {
                 redirect('auth/login', 'refresh');
-
             }
-
-            //
-            //$this->output->enable_profiler(TRUE);
         }
 
 
@@ -42,5 +38,3 @@
     }
 
 
-/* End of file adminpage_controller.php */
-/* Location: ./buchverwaltung/application/controllers/redaktion/adminpage_controller.php */

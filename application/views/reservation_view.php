@@ -1,3 +1,4 @@
+<!--Main-Content-->
 <span class="active_user" id="<?php
     echo $active_user_id;
 

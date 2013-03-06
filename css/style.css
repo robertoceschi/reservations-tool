@@ -1,7 +1,6 @@
-/*Bootsrap CSS werden importiert*/
+/*Bootstrap CSS werden importiert*/
 @import url('../css/bootstrap_styles/bootstrap.css');
 @import url('../css/bootstrap_styles/bootstrap-responsive.css');
-@import url('../css/bootstrap_styles/datepicker.css');
 @import url('../css/bootstrap_styles/glyphicons.css');
 @import url('../css/bootstrap_styles/jquery.gritter.css');
 @import url('../css/bootstrap_styles/unicorn.grey.css');
@@ -11,11 +10,9 @@
 @import url('../lib_ajaxCalendar/colorpicker/css/colorpicker.css');
 @import url('../lib_ajaxCalendar/validation/css/validation.css');
 @import url('../css/bootstrap_styles/colorpicker.css');
-@import url('../css/ui-lightness/jquery-ui.css');
 @import url('../css/timepicker.css');
 @import url('../css/bootstrap_styles/fullcalendar.css');
-
-/*custom css (bootstrap css werden überschrieben)/*
+@import url('../css/datepicker.css');
 
 /*custom styles*/
 #infoMessage {
@@ -135,10 +132,9 @@ input#permission_group {
     margin-right: 15px;
 }
 
-input[type="radio"]  {
+input[type="radio"] {
     margin-right: 15px;
 }
-
 
 /*Reservation*/
 .controls_saison {
@@ -161,14 +157,6 @@ input[type="radio"]  {
     margin-left: 200px;
     margin-bottom: 10px;
 
-}
-
-.datepicker {
-    width: 240px;
-}
-
-.bootstrap-timepicker-component {
-    width: 223px;
 }
 
 #spielzeit2 {
@@ -244,9 +232,8 @@ td.your_res {
 
 /*Datatables boostrap 2.1*/
 
-
 div#example_processing {
-  margin-left: 30px;
+    margin-left: 30px;
     margin-top: -20px;
 }
 
@@ -452,7 +439,6 @@ div.DTFC_LeftFootWrapper table {
 .dataTables_length {
     left: -6px;
 
-
 }
 
 .widget-box-mitglieder {
@@ -481,7 +467,14 @@ form {
 }
 
 .mr-10 {
-    margin-right: 10px;
+    margin-right: 80px;
+    margin-left: 80px;
+    margin-top: 20px;
+}
+
+.mr-20 {
+  ;
+    margin-top: 20px;
 }
 
 .box {
@@ -551,81 +544,10 @@ form {
     clear: both;
 }
 
-/* timepicker */
-.bootstrap-timepicker.dropdown-menu {
-    border-radius: 4px 4px 4px 4px;
-    display: none;
-    left: 0;
-    margin-top: 1px;
-    padding: 4px;
-    top: 0;
-}
-
-.bootstrap-timepicker.dropdown-menu.open {
-    display: inline-block;
-}
-
-.bootstrap-timepicker.dropdown-menu:before {
-    border-bottom: 7px solid rgba(0, 0, 0, 0.2);
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    content: "";
-    left: 6px;
-    position: absolute;
-    top: -7px;
-}
-
-.bootstrap-timepicker.dropdown-menu:after {
-    border-bottom: 6px solid #FFFFFF;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    content: "";
-    left: 7px;
-    position: absolute;
-    top: -6px;
-}
-
-.bootstrap-timepicker.modal {
-    margin-left: -100px;
-    margin-top: 0;
-    top: 30%;
-    width: 200px;
-}
-
-.bootstrap-timepicker.modal .modal-content {
-    padding: 0;
-}
-
-.bootstrap-timepicker table {
-    margin: 0;
-    width: 100%;
-}
-
-.bootstrap-timepicker td, .bootstrap-timepicker th {
-    border-radius: 4px 4px 4px 4px;
-    height: 20px;
-    text-align: center;
-}
-
-.bootstrap-timepicker td.separator {
-    width: 1px;
-}
-
-.bootstrap-timepicker td a {
-    border: 1px solid transparent;
-    display: block;
-    margin: 4px;
-    padding: 4px 0;
-}
-
-.bootstrap-timepicker td a:hover {
-    background-color: #EEEEEE;
-    border-color: #DDDDDD;
-    border-radius: 4px 4px 4px 4px;
-}
-
 #calendar .fc-content {
     font-size: 80%;
 }
+
+
 
 
